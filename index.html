@@ -69,6 +69,11 @@
       opacity: 0.82;
     }
 
+    @media (max-width: 600px) {
+      .topbar-info { font-size: var(--fs-xs); line-height: 1.5; }
+      .topbar-brand { letter-spacing: 1.5px; }
+    }
+
     /* ─── HEADER / NAV ─── */
     header {
       background: white;
@@ -180,9 +185,28 @@
     .nav-icons i { cursor: pointer; transition: color 0.2s; }
     .nav-icons i:hover { color: var(--pink); }
 
+    .hamburger { display: none; }
+
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-inner { padding: 0 16px; }
+      .nav-inner { height: auto; padding: 10px 16px; flex-wrap: wrap; }
+      .logo-wrap img { height: 70px; }
+      .scan-me { display: none; }
+      .nav-links {
+        display: none !important;
+        width: 100%;
+        order: 3;
+        flex-direction: column !important;
+        gap: 0;
+      }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-top: 1px solid var(--border);
+      }
+      .nav-icons { gap: 16px; }
+      .hamburger { display: block; font-size: 1.4rem; cursor: pointer; }
     }
 
     /* ─── BREADCRUMB ─── */
@@ -1192,6 +1216,7 @@
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
+      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"></i>
     </div>
   </div>
 </header>
@@ -2344,5 +2369,3 @@
 </script>
 </body>
 </html>
-
-
