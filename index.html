@@ -34,7 +34,6 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { overflow-x: hidden; }
     @media (max-width: 768px) {
       input, textarea, select { font-size: 16px !important; }
     }
@@ -43,7 +42,6 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     /* ─── TOPBAR ─── */
@@ -249,7 +247,7 @@
 
     @media (max-width: 960px) {
       .product-area { grid-template-columns: 1fr; gap: 30px; }
-      .gallery-col { position: static; top: auto; }
+      .gallery-col { top: 90px; }
     }
 
     /* ─── LEFT: GALLERY + PREVIEW ─── */
@@ -1051,7 +1049,7 @@
       .price-main { font-size: 1.6rem; }
       .balloon-stage { width: 240px; height: 300px; }
       .main-preview-wrap { padding: 16px; min-height: auto; }
-      .gallery-col { position: static; top: auto; }
+      .gallery-col { top: 60px; }
     }
 
     /* Kollektionen filter buttons */
