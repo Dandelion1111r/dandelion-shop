@@ -2159,8 +2159,8 @@
       const el = document.createElement('div');
       el.className = 'floating-emoji';
       el.textContent = cfg.emoji;
-      el.style.left = x + 'px';
-      el.style.top = y + 'px';
+      el.style.left = (x / 340 * 100) + '%';
+      el.style.top = (y / 420 * 100) + '%';
       el.style.fontSize = (11 + Math.random() * 6) + 'px';
       el.style.animationDelay = (Math.random() * 3) + 's';
       el.style.animationDuration = (2.5 + Math.random() * 2) + 's';
