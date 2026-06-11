@@ -1230,7 +1230,7 @@
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
-      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"></i>
+      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();"></i>
     </div>
   </div>
 </header>
@@ -2256,8 +2256,16 @@
     });
     window.scrollTo(0, 0);
     if (page === 'kollektionen') renderKoll('all');
+    document.querySelector('.nav-links')?.classList.remove('open');
   }
   window.showPage = showPage;
+
+  document.addEventListener('click', function(e) {
+    const nav = document.querySelector('.nav-links');
+    if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !e.target.closest('.hamburger')) {
+      nav.classList.remove('open');
+    }
+  });
 
   // Anti-Spam: einfache Rechenaufgabe
   let captchaAnswer = 0;
