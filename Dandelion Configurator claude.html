@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dandelion 11:11 – Ballon Konfigurator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --pink: #d63384;
+      --pink-light: #f472b6;
+      --purple: #8e44ad;
+      --purple-light: #c084fc;
+      --bg: #fdf0f6;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --text: #2d2d2d;
+      --text-light: #777;
+      --border: #e8d5e8;
+      --radius: 18px;
+      --shadow: 0 8px 32px rgba(142, 68, 173, 0.10);
+      --shadow-hover: 0 16px 48px rgba(142, 68, 173, 0.18);
+      /* Type scale – 5 steps only */
+      --fs-xs:   0.75rem;   /* tiny labels, badges */
+      --fs-sm:   0.85rem;   /* secondary text, captions */
+      --fs-base: 0.95rem;   /* body, form fields */
+      --fs-md:   1.1rem;    /* card headings, prices */
+      --fs-lg:   1.4rem;    /* section titles */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      color: white;
+      text-align: center;
+      padding: 10px 20px 12px;
+    }
+
+    .topbar-brand {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.97;
+    }
+
+    .topbar-divider {
+      width: 120px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+      margin: 0 auto 8px;
+    }
+
+    .topbar-info {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      opacity: 0.82;
+    }
+
+    /* ─── HEADER / NAV ─── */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      height: 175px;
+      overflow: visible;
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .logo-wrap img {
+      height: 155px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .scan-me {
+      position: absolute;
+      top: 35px;
+      left: 195px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .scan-me span {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--purple);
+      white-space: nowrap;
+      background: rgba(255,255,255,0.9);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--purple);
+    }
+
+    .scan-arrow {
+      font-size: var(--fs-base);
+      color: var(--purple);
+      animation: pointQR 0.8s ease-in-out infinite;
+      display: block;
+    }
+
+    @keyframes pointQR {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-4px); }
+    }
+
+    .nav-links {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 28px;
+      list-style: none !important;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      list-style: none !important;
+      display: block;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: var(--fs-base);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--pink); }
+
+    .nav-icons {
+      display: flex;
+      gap: 18px;
+      font-size: var(--fs-md);
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    .nav-icons i { cursor: pointer; transition: color 0.2s; }
+    .nav-icons i:hover { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 16px; }
+    }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      max-width: 1300px;
+      margin: 16px auto 0;
+      padding: 0 30px;
+      font-size: var(--fs-sm);
+      color: var(--text-light);
+    }
+
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ─── PRODUCT AREA ─── */
+    .product-area {
+      max-width: 1300px;
+      margin: 20px auto 60px;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .product-area { grid-template-columns: 1fr; gap: 30px; }
+    }
+
+    /* ─── LEFT: GALLERY + PREVIEW ─── */
+    .gallery-col { position: sticky; top: 190px; }
+
+    .main-preview-wrap {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Balloon SVG preview */
+    .balloon-stage {
+      width: 340px;
+      height: 420px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .balloon-svg-wrap {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .balloon-svg-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Text & emoji overlay inside balloon */
+    .balloon-overlay {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68%;
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .balloon-text-display {
+      font-family: 'Poppins', cursive;
+      font-weight: 700;
+      font-size: var(--fs-md);
+      line-height: 1.35;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+      word-break: break-word;
+    }
+
+    .balloon-emoji-display {
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    /* Floating emojis inside balloon */
+    .floating-emoji {
+      position: absolute;
+      animation: floatUp 3s ease-in-out infinite;
+      pointer-events: none;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.85; }
+      50% { transform: translateY(-8px) rotate(8deg); opacity: 1; }
+    }
+
+    /* Thumbnail gallery row */
+    .thumb-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      justify-content: center;
+    }
+
+    .thumb {
+      width: 68px;
+      height: 68px;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      background: white;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .thumb.active, .thumb:hover {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(214,51,132,0.18);
+    }
+
+    /* Badges */
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .badge i { color: var(--pink); }
+
+    /* ─── RIGHT: CONFIGURATOR ─── */
+    .config-col { display: flex; flex-direction: column; gap: 0; }
+
+    .product-header { margin-bottom: 20px; }
+
+    .product-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .product-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .product-subtitle {
+      color: var(--text-light);
+      font-size: var(--fs-base);
+      margin-bottom: 14px;
+    }
+
+    .star-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .stars { color: #f59e0b; font-size: var(--fs-base); }
+    .star-count { font-size: var(--fs-sm); color: var(--text-light); }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .price-main { font-size: 2rem; font-weight: 700; color: var(--pink); }
+    .price-tax { font-size: var(--fs-sm); color: var(--text-light); }
+
+    /* ─── CONFIG CARD ─── */
+    .config-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .config-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .config-card h3 i { color: var(--pink); font-size: 1rem; }
+
+    .form-label {
+      display: block;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: var(--fs-base);
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      margin-bottom: 14px;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(214,51,132,0.12);
+      background: white;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: var(--fs-base);
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      margin-bottom: 14px;
+    }
+
+    .form-select:focus { outline: none; border-color: var(--pink); background-color: white; }
+
+    /* Color swatches */
+    .swatch-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .swatch-label .selected-name {
+      font-size: var(--fs-sm);
+      color: var(--pink);
+      font-weight: 500;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+
+    .swatch:hover { transform: scale(1.15); }
+
+    .swatch.active {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(214,51,132,0.25);
+    }
+
+    .swatch[data-name="Weiß"] { border-color: #ddd !important; }
+    .swatch[data-name="Weiß"].active { border-color: var(--pink) !important; }
+
+    /* Text color swatches */
+    .text-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      transition: transform 0.15s;
+    }
+
+    .text-swatch:hover { transform: scale(1.15); }
+    .text-swatch.active { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(214,51,132,0.25); }
+
+    /* Font size slider */
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    input[type=range] {
+      flex: 1;
+      accent-color: var(--pink);
+      height: 4px;
+    }
+
+    .slider-val {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--pink);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* Qty */
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 16px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: var(--fs-md);
+      cursor: pointer;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .qty-btn:hover { background: var(--bg); }
+
+    .qty-val {
+      width: 44px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+    }
+
+    /* Textarea */
+    .textarea-wrap { position: relative; margin-bottom: 14px; }
+
+    .form-textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: var(--fs-base);
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--text);
+      resize: vertical;
+      min-height: 90px;
+      transition: border-color 0.2s;
+    }
+
+    .form-textarea:focus { outline: none; border-color: var(--pink); background: white; }
+
+    .char-counter {
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      font-size: var(--fs-xs);
+      color: var(--text-light);
+    }
+
+    /* ─── CTA AREA ─── */
+    .cta-area {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .btn-main {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 18px rgba(214,51,132,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(214,51,132,0.45);
+    }
+
+    .btn-main:active { transform: translateY(0); }
+
+    .btn-whatsapp {
+      width: 100%;
+      padding: 15px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+    }
+
+    .btn-whatsapp:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .secure-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .secure-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: var(--fs-sm);
+      color: var(--text-light);
+    }
+
+    .secure-item i { color: var(--pink); }
+
+    /* ─── CART CARD ─── */
+    .cart-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 18px;
+      display: none;
+    }
+
+    .cart-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--pink);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: var(--fs-sm);
+    }
+
+    .cart-item-row:last-of-type { border-bottom: none; }
+
+    .cart-item-name { font-weight: 500; }
+    .cart-item-detail { color: var(--text-light); font-size: var(--fs-sm); }
+
+    .cart-item-right { display: flex; align-items: center; gap: 10px; }
+    .cart-item-price { font-weight: 600; color: var(--pink); }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--border);
+      cursor: pointer;
+      font-size: var(--fs-md);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .remove-btn:hover { color: #ff4444; }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 2px solid var(--bg);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--pink);
+    }
+
+    .btn-clear {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 10px;
+      font-size: var(--fs-sm);
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: background 0.2s;
+    }
+
+    .btn-clear:hover { background: #eee; color: var(--text-light); }
+
+    /* ─── FEATURES STRIP ─── */
+    .features-strip {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 30px;
+      margin-bottom: 60px;
+    }
+
+    .features-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .features-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .features-inner { grid-template-columns: 1fr; }
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: var(--fs-md);
+      flex-shrink: 0;
+    }
+
+    .feature-text strong { font-size: var(--fs-sm); display: block; }
+    .feature-text span { font-size: var(--fs-sm); color: var(--text-light); }
+
+    /* ─── DESCRIPTION + FAQ ─── */
+    .info-section {
+      max-width: 1300px;
+      margin: 0 auto 60px;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .info-section { grid-template-columns: 1fr; }
+    }
+
+    .info-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .info-card h2 {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .info-card h2 span { color: var(--pink); }
+
+    .desc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .desc-list li {
+      display: flex;
+      gap: 10px;
+      font-size: var(--fs-base);
+      align-items: flex-start;
+    }
+
+    .desc-list li i { color: var(--pink); margin-top: 3px; flex-shrink: 0; }
+
+    /* FAQ accordion */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 16px 0;
+      font-size: var(--fs-base);
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      gap: 10px;
+    }
+
+    .faq-q i { color: var(--pink); transition: transform 0.25s; font-size: var(--fs-base); }
+    .faq-q.open i { transform: rotate(180deg); }
+
+    .faq-a {
+      font-size: var(--fs-sm);
+      color: var(--text-light);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+
+    .faq-a.open { max-height: 300px; padding-bottom: 14px; }
+
+    /* ─── REVIEWS ─── */
+    .reviews-section {
+      max-width: 1300px;
+      margin: 0 auto 60px;
+      padding: 0 30px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .section-title span { color: var(--pink); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
+    .review-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .review-stars { color: #f59e0b; font-size: var(--fs-base); margin-bottom: 10px; }
+    .review-text { font-size: var(--fs-sm); color: var(--text); margin-bottom: 14px; line-height: 1.6; }
+    .review-author { font-size: var(--fs-sm); color: var(--text-light); font-weight: 500; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: linear-gradient(135deg, #2d1b69, #5b1c5a);
+      color: rgba(255,255,255,0.8);
+      padding: 50px 30px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    .footer-brand img { height: 60px; width: auto; margin-bottom: 12px; display: block; mix-blend-mode: screen; }
+    .footer-brand p { font-size: var(--fs-sm); line-height: 1.65; }
+
+    .footer-col h4 { color: white; font-size: var(--fs-base); font-weight: 600; margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: var(--fs-sm); color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--pink-light); }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--fs-sm);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-links { display: flex; gap: 14px; }
+    .social-links a { color: rgba(255,255,255,0.6); font-size: var(--fs-md); text-decoration: none; transition: color 0.2s; }
+    .social-links a:hover { color: var(--pink-light); }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--purple);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: var(--fs-base);
+      font-weight: 500;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 1000;
+      white-space: nowrap;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* misc */
+    .divider { height: 1px; background: var(--border); margin: 0 0 14px; }
+    .mt-2 { margin-top: 8px; }
+
+    @media (max-width: 480px) {
+      .product-area { padding: 0 16px; }
+      .product-title { font-size: 1.5rem; }
+      .price-main { font-size: 1.6rem; }
+      .balloon-stage { width: 260px; height: 320px; }
+    }
+
+    /* Kollektionen filter buttons */
+    .koll-filter {
+      background: #fff; border: 2px solid #e8d5e8; color: var(--text);
+      padding: 8px 20px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-sm); font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .koll-filter:hover, .koll-filter.active {
+      background: linear-gradient(135deg, #8e44ad, #d63384); color: var(--white); border-color: transparent;
+    }
+    .koll-card {
+      background: #fff; border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(142,68,173,0.10); overflow: hidden;
+      display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .koll-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(142,68,173,0.18); }
+    .koll-img {
+      background: #fff;
+      aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; overflow: hidden; cursor: zoom-in;
+    }
+    .koll-img img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; pointer-events:none; }
+    .koll-badge {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      background: linear-gradient(135deg,#8e44ad,#d63384); color: var(--white);
+      font-size: var(--fs-xs); font-weight: 600; padding: 4px 10px; border-radius: 50px; text-transform: uppercase;
+    }
+    .koll-body { padding: 16px 16px 12px; flex: 1; display: flex; flex-direction: column; }
+    .koll-name { font-size: var(--fs-base); font-weight: 600; margin-bottom: 6px; }
+    .koll-desc { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.5; flex: 1; margin-bottom: 12px; }
+    .koll-footer { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .koll-footer .btn-koll-config { width: 100%; justify-content: center; }
+    .koll-price { font-size: var(--fs-md); font-weight: 700; color: var(--purple); }
+    .koll-price .old { font-size: var(--fs-sm); color: var(--text-light); text-decoration: line-through; font-weight: 400; margin-left: 5px; }
+    .btn-koll-config {
+      background: linear-gradient(135deg,#8e44ad,#d63384); color: var(--white);
+      border: none; padding: 8px 14px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: var(--fs-sm); font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s;
+    }
+    .btn-koll-config:hover { opacity: 0.85; }
+    .active-nav { color: var(--pink) !important; border-bottom: 2px solid var(--pink); }
+    @media (max-width: 600px) {
+      #koll-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+      .koll-body { padding: 10px 10px 8px; }
+      .koll-footer { flex-direction: column; align-items: flex-start; }
+      .btn-koll-config { width: 100%; justify-content: center; }
+    }
+
+    /* ── Über uns ── */
+    .ueberuns-hero {
+      background: linear-gradient(135deg, #fce4f3 0%, #ede7f6 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .ueberuns-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 700; color: var(--purple); margin-bottom: 10px; }
+    .ueberuns-hero .subtitle { color: var(--text-light); font-size: 1rem; max-width: 520px; margin: 0 auto 22px; }
+    .ueberuns-story {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 52px 28px 24px;
+    }
+    .ueberuns-story p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 22px;
+      font-weight: 400;
+    }
+    .ueberuns-story p.big {
+      font-size: var(--fs-md);
+      font-weight: 700;
+      color: var(--purple);
+      line-height: 1.55;
+      margin-top: 8px;
+      margin-bottom: 18px;
+    }
+    .ueberuns-story p em {
+      font-style: italic;
+      color: var(--pink);
+      font-weight: 500;
+    }
+    .ueberuns-story .signature {
+      display: block;
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 36px;
+      text-align: right;
+    }
+    .ueberuns-divider {
+      width: 50px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      margin: 28px 0;
+    }
+    /* Gallery */
+    .gallery-section { max-width: 1100px; margin: 0 auto; padding: 16px 20px 60px; }
+    .gallery-section h2 { text-align: center; font-size: var(--fs-lg); font-weight: 700; color: var(--purple); margin-bottom: 6px; }
+    .gallery-section .gallery-sub { text-align: center; color: var(--text-light); font-size: var(--fs-sm); margin-bottom: 28px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 14px; overflow: hidden; aspect-ratio: 1/1;
+      background: linear-gradient(135deg, #fce4f3, #ede7f6);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(142,68,173,0.10);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .gallery-item:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(142,68,173,0.22); }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-item .placeholder-icon { font-size: 2.5rem; opacity: 0.5; }
+    .gallery-item .gallery-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      color: var(--white); font-size: var(--fs-sm); font-weight: 500;
+      padding: 20px 12px 10px; opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .gallery-item:hover .gallery-label { opacity: 1; }
+    .lightbox {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      z-index: 1000; align-items: center; justify-content: center; padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px; color: var(--white); font-size: 2rem;
+      cursor: pointer; background: none; border: none; line-height: 1;
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .ueberuns-story { padding: 32px 18px 8px; }
+      .ueberuns-story p { font-size: var(--fs-base); }
+      .ueberuns-story p.big { font-size: var(--fs-md); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:var(--fs-sm);opacity:0.9;margin-bottom:6px;letter-spacing:0.3px;">Personalisierte Ballons & Geschenke für jeden Anlass</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner" style="display:flex;flex-direction:row;align-items:center;">
+    <div class="logo-wrap" style="position:relative;flex-shrink:0;">
+      <img src="Dandelionlogo .svg" alt="Dandelion 11:11">
+      <div class="scan-me">
+        <span class="scan-arrow">←</span>
+        <span>Scan me</span>
+      </div>
+    </div>
+    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;">
+      <li style="list-style:none;"><a href="#" onclick="showPage('shop');return false;" id="nav-shop" class="nav-page-link active-nav">Shop</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');return false;" id="nav-kollektionen" class="nav-page-link">Kollektionen</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');return false;" id="nav-ueberuns" class="nav-page-link">Über uns</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');return false;" id="nav-kontakt" class="nav-page-link">Kontakt</a></li>
+    </ul>
+    <div class="nav-icons" style="margin-left:auto;">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-heart"></i>
+      <span onclick="showPage('shop');setTimeout(()=>document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}),80);return false;" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ KONTAKT PAGE ═══ -->
+<div id="page-kontakt" style="display:none;">
+  <div class="ueberuns-hero">
+    <div style="font-size:2.8rem;margin-bottom:12px;">💌</div>
+    <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h1>
+    <p style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+      ← Zurück zum Konfigurator
+    </a>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:48px 20px 60px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
+        <div style="font-size:var(--fs-lg);margin-bottom:10px;">📍</div>
+        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">Standort</h3>
+        <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Dandelion 11:11<br>Bad Wörishofen, Bayern</p>
+      </div>
+      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
+        <div style="font-size:var(--fs-lg);margin-bottom:10px;">⏰</div>
+        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">Erreichbarkeit</h3>
+        <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Montag – Freitag<br>8:00 – 19:00 Uhr<br><span style="color:var(--pink);font-weight:500;">💬 WhatsApp: immer erreichbar</span></p>
+      </div>
+      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
+        <div style="font-size:var(--fs-lg);margin-bottom:10px;">📧</div>
+        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">E-Mail</h3>
+        <a href="mailto:dandelionll.floral.design@gmail.com" style="color:var(--pink);font-size:var(--fs-base);font-weight:500;text-decoration:none;">dandelionll.floral.design@gmail.com</a>
+      </div>
+      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
+        <div style="font-size:var(--fs-lg);margin-bottom:10px;">💬</div>
+        <h3 style="font-weight:700;color:var(--purple);margin-bottom:10px;">WhatsApp</h3>
+        <a href="https://wa.me/491757668955" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:10px 20px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+          <i class="fab fa-whatsapp"></i> Jetzt schreiben
+        </a>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:18px;padding:32px;box-shadow:var(--shadow);">
+      <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:var(--fs-md);">Nachricht senden</h3>
+      <p style="color:var(--text-light);font-size:var(--fs-sm);margin-bottom:22px;">Wir melden uns innerhalb von 24 Stunden.</p>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
+        <input id="k-name" type="text" placeholder="Dein Name" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
+        <input id="k-email" type="email" placeholder="deine@email.de" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
+        <input id="k-subject" type="text" placeholder="Worum geht es?" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
+        <textarea id="k-msg" placeholder="Schreib uns deine Frage oder Wünsche..." rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+      </div>
+      <!-- Honeypot: hidden field, real users never fill this in -->
+      <div style="position:absolute;left:-9999px;" aria-hidden="true">
+        <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Sicherheitsfrage: <span id="k-captcha-q"></span></label>
+        <input id="k-captcha" type="text" inputmode="numeric" placeholder="Antwort eingeben" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+      <button onclick="sendKontaktWA()" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+        <i class="fab fa-whatsapp"></i> Via WhatsApp senden
+      </button>
+      <p style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:10px;">Das Formular öffnet WhatsApp mit deiner Nachricht.</p>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width:650px) {
+      #page-kontakt > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</div>
+
+<!-- ═══ ÜBER UNS PAGE ═══ -->
+<div id="page-ueberuns" style="display:none;">
+  <div class="ueberuns-hero">
+    <div style="font-size:2.8rem;margin-bottom:12px;">🌼</div>
+    <h1>Über Dandelion 11:11</h1>
+    <p class="subtitle">Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+      ← Zurück zum Konfigurator
+    </a>
+  </div>
+
+  <div class="ueberuns-story">
+    <p class="big">Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.</p>
+    <p>Wenn ich eine fliegende Dandelion fing und mir einen Wunsch wünschte… fertig. Er ging in Erfüllung.</p>
+    <div class="ueberuns-divider"></div>
+    <p>Heute weiß ich, dass es nicht ganz so einfach ist.</p>
+    <p>Der Traum kommt nicht einfach.<br>
+    Der Traum wird aufgebaut. Mit den Händen. Mit Verzicht.<br>
+    Manchmal auf Schlaf. Manchmal… auf Menschen.</p>
+    <p class="big">So entstand Dandelion.</p>
+    <p>Nicht aus einem perfekten Plan.<br>
+    Sondern aus einer Küche, in der mehr Kleber als Ordnung herrschte.<br>
+    Aus einem Keller, der mit Wandfarbe und Hoffnungen gestrichen wurde.<br>
+    Aus Tagen, an denen ich nicht wusste, ob ich Kunst mache…<br>
+    oder nur ein großes buntes Chaos.</p>
+    <p>Ich habe Möbel montiert, Kartons geschleppt, Ballons zum Platzen gebracht –<br>
+    und manchmal auch die eine oder andere Existenzkrise durchgestanden.</p>
+    <p>Aber jedes Mal habe ich neu aufgebaut.<br>
+    <em>Wie eine Dandelion, die fällt und trotzdem wieder fliegt.</em></p>
+    <div class="ueberuns-divider"></div>
+    <p class="big">Dandelion ist kein Business.<br>
+    Es ist der Kindheitstraum,<br>mit beiden Händen festgehalten.</p>
+    <p>Und ja… vielleicht wirke ich wie ein verträumtes Mädchen.<br>
+    Aber jedes Detail, jede Blume, jedes Lächeln, das ich empfangen habe…<br>
+    war erarbeitet. Mit allem, was ich bin.</p>
+    <p class="big">Dandelion ist meine Welt.<br>
+    Eine Welt, die ein bisschen schöner,<br>ehrlicher, magischer ist.</p>
+    <p>Meine. Und vielleicht… ein bisschen auch deine. 🌼</p>
+    <span class="signature">✨ Raluca · Dandelion 11:11</span>
+  </div>
+
+  <div class="gallery-section">
+    <h2>🎈 Hinter den Kulissen</h2>
+    <p class="gallery-sub">Echte Momente von der Idee bis zum fertigen Ballon. Klick auf ein Bild zum Vergrößern.</p>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">🎈</span>
+        <span class="gallery-label">Erster Ballon geplatzt 😅</span>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">🔨</span>
+        <span class="gallery-label">Möbel montieren im Keller</span>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">🎨</span>
+        <span class="gallery-label">Kreatives Chaos in der Küche</span>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">📦</span>
+        <span class="gallery-label">Erste Bestellungen verpacken</span>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">🌸</span>
+        <span class="gallery-label">Details mit Liebe gestaltet</span>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('')">
+        <span class="placeholder-icon">✨</span>
+        <span class="gallery-label">Fertige Kreationen</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<!-- Product Detail Modal – at body level so it works from all pages -->
+<div id="prodModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;overflow-y:auto;padding:20px;" onclick="closeProdModal(event)">
+  <div id="prodModalInner" style="background:#fff;border-radius:20px;max-width:680px;margin:0 auto;overflow:hidden;position:relative;" onclick="event.stopPropagation()">
+    <button onclick="closeProdModal()" style="position:absolute;top:14px;right:16px;background:rgba(0,0,0,0.15);border:none;border-radius:50%;width:36px;height:36px;font-size:1.3rem;cursor:pointer;z-index:10;color:#333;display:flex;align-items:center;justify-content:center;">×</button>
+    <div id="prodModalImg" style="width:100%;background:#f3e6f9;"></div>
+    <div style="padding:24px 28px 28px;">
+      <div id="prodModalBadge"></div>
+      <h2 id="prodModalName" style="font-size:1.4rem;font-weight:700;color:#6b2f8c;margin:10px 0 12px;"></h2>
+      <p id="prodModalDesc" style="font-size:0.92rem;color:#666;line-height:1.7;margin-bottom:20px;"></p>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div id="prodModalPrice" style="font-size:1.5rem;font-weight:700;color:#8e44ad;"></div>
+        <button id="prodModalCartBtn" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px 24px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
+          <i class="fas fa-shopping-bag"></i> In den Warenkorb
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KOLLEKTIONEN PAGE ═══ -->
+<div id="page-kollektionen" style="display:none;">
+  <div style="background:linear-gradient(135deg,#fce4f3 0%,#ede7f6 100%);padding:40px 24px 28px;text-align:center;">
+    <h1 style="font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:var(--purple);margin-bottom:8px;">🎈 Unsere Kollektionen</h1>
+    <p style="color:var(--text-light);font-size:var(--fs-base);max-width:480px;margin:0 auto 18px;">Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+      ← Zurück zum Konfigurator
+    </a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:24px 16px 12px;max-width:1200px;margin:0 auto;" id="koll-filters">
+    <button class="koll-filter active" onclick="filterKoll('all',this)">Alle</button>
+    <button class="koll-filter" onclick="filterKoll('geburtstag',this)">🎂 Geburtstag</button>
+    <button class="koll-filter" onclick="filterKoll('hochzeit',this)">💍 Hochzeit</button>
+    <button class="koll-filter" onclick="filterKoll('babyparty',this)">👶 Babyparty</button>
+    <button class="koll-filter" onclick="filterKoll('liebe',this)">💕 Liebe</button>
+    <button class="koll-filter" onclick="filterKoll('fussball',this)">⚽ Fußball</button>
+    <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)">🧸 Kuscheltiere</button>
+    <button class="koll-filter" onclick="filterKoll('sonstiges',this)">✨ Sonstiges</button>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:8px 16px 60px;">
+    <div id="koll-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;"></div>
+  </div>
+</div>
+
+<!-- ═══ SHOP PAGE ═══ -->
+<div id="page-shop">
+
+<!-- ═══ PRODUCT AREA ═══ -->
+<div class="product-area">
+
+  <!-- LEFT: GALLERY -->
+  <div class="gallery-col">
+    <div class="main-preview-wrap">
+      <div class="balloon-stage">
+        <div class="balloon-svg-wrap">
+          <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" id="balloonSVG">
+            <defs>
+              <radialGradient id="balloonGrad" cx="38%" cy="32%" r="62%" fx="38%" fy="32%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.85)" id="gradStop0"/>
+                <stop offset="55%" stop-color="rgba(255,255,255,0.25)" id="gradStop1"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0.05)" id="gradStop2"/>
+              </radialGradient>
+              <radialGradient id="fillGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FF69B4" stop-opacity="0.18" id="fillGradStop"/>
+                <stop offset="100%" stop-color="#FF69B4" stop-opacity="0.04" id="fillGradStop2"/>
+              </radialGradient>
+              <clipPath id="balloonClip">
+                <ellipse cx="170" cy="180" rx="140" ry="160"/>
+              </clipPath>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <ellipse cx="170" cy="180" rx="140" ry="160" fill="#FF69B4" id="balloonBody" opacity="0.22"/>
+            <ellipse cx="170" cy="180" rx="140" ry="160" fill="url(#fillGrad)" id="balloonFillColor"/>
+            <g clip-path="url(#balloonClip)" id="svgFillingGroup"></g>
+            <ellipse cx="170" cy="180" rx="140" ry="160" fill="none" stroke="#d0a0c0" stroke-width="2" opacity="0.5"/>
+            <ellipse cx="130" cy="120" rx="38" ry="28" fill="url(#balloonGrad)" opacity="0.7"/>
+            <ellipse cx="118" cy="110" rx="14" ry="10" fill="white" opacity="0.45"/>
+            <path d="M164 340 Q170 350 176 340 Q172 358 170 365 Q168 358 164 340Z" fill="#c080a0" opacity="0.8"/>
+            <path d="M170 365 Q155 390 165 410" stroke="#c080a0" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="4 3"/>
+          </svg>
+          <div class="balloon-overlay" id="balloonOverlay">
+            <span class="balloon-emoji-display" id="emojiDisplay" style="display:none;"></span>
+            <div class="balloon-text-display" id="textDisplay" style="color:#8e44ad;"></div>
+          </div>
+          <div id="floatingEmojiContainer" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;border-radius:50%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="thumb-row">
+      <div class="thumb active" title="Standard" onclick="setPreviewTheme('default')">🎈</div>
+      <div class="thumb" title="Geburtstag" onclick="setPreviewTheme('birthday')">🎂</div>
+      <div class="thumb" title="Valentinstag" onclick="setPreviewTheme('valentine')">❤️</div>
+      <div class="thumb" title="Hochzeit" onclick="setPreviewTheme('wedding')">💍</div>
+      <div class="thumb" title="Neugeborenes" onclick="setPreviewTheme('newborn')">👶</div>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge"><i class="fas fa-leaf"></i> Nachhaltig</div>
+      <div class="badge"><i class="fas fa-hand-sparkles"></i> Handgemacht</div>
+      <div class="badge"><i class="fas fa-shield-alt"></i> Sicher bestellen</div>
+      <div class="badge"><i class="fas fa-truck"></i> Schnelle Lieferung</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: CONFIGURATOR -->
+  <div class="config-col">
+    <div class="product-header">
+      <h1 class="product-title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
+      <p class="product-subtitle">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
+      <div class="star-row">
+        <div class="stars"></div>
+        <span class="star-count"></span>
+      </div>
+      <div class="price-row">
+        <span class="price-main">29,90 €</span>
+        <span class="price-tax">inkl. MwSt. + Versand</span>
+      </div>
+    </div>
+
+    <div class="config-card">
+      <h3><i class="fas fa-pen"></i> Dein Text</h3>
+      <label class="form-label">Text auf dem Ballon <span style="font-weight:400;color:var(--text-light);">(max. 50 Zeichen)</span></label>
+      <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" maxlength="50">
+      <label class="form-label">Schriftfarbe</label>
+      <div class="swatches" id="textColorSwatches">
+        <div class="text-swatch active" style="background:#8e44ad;" data-color="#8e44ad" data-name="Lila" title="Lila"></div>
+        <div class="text-swatch" style="background:#d63384;" data-color="#d63384" data-name="Pink" title="Pink"></div>
+        <div class="text-swatch" style="background:#1a1a2e;" data-color="#1a1a2e" data-name="Dunkelblau" title="Dunkelblau"></div>
+        <div class="text-swatch" style="background:#ffffff;border:2px solid #ddd;" data-color="#ffffff" data-name="Weiß" title="Weiß"></div>
+        <div class="text-swatch" style="background:#c0392b;" data-color="#c0392b" data-name="Rot" title="Rot"></div>
+        <div class="text-swatch" style="background:#27ae60;" data-color="#27ae60" data-name="Grün" title="Grün"></div>
+        <div class="text-swatch" style="background:#f39c12;" data-color="#f39c12" data-name="Gold" title="Gold"></div>
+      </div>
+      <label class="form-label">Schriftgröße</label>
+      <div class="slider-row">
+        <input type="range" id="fontSizeSlider" min="14" max="32" value="20">
+        <span class="slider-val" id="fontSizeVal">20px</span>
+      </div>
+    </div>
+
+    <div class="config-card">
+      <h3><i class="fas fa-palette"></i> Füllung & Design</h3>
+      <label class="form-label">Ballonfarbe / Füllung</label>
+      <div class="swatch-label">
+        <span style="font-size:var(--fs-sm);color:var(--text-light);">Wähle eine Farbe</span>
+        <span class="selected-name" id="selectedColorName">Pink</span>
+      </div>
+      <div class="swatches" id="balloonColorSwatches">
+        <div class="swatch active" style="background:#FF69B4;" data-color="#FF69B4" data-name="Pink" title="Pink"></div>
+        <div class="swatch" style="background:#ADD8E6;" data-color="#ADD8E6" data-name="Hellblau" title="Hellblau"></div>
+        <div class="swatch" style="background:#FFD700;" data-color="#FFD700" data-name="Gold" title="Gold"></div>
+        <div class="swatch" style="background:#98FB98;" data-color="#98FB98" data-name="Mint" title="Mint"></div>
+        <div class="swatch" style="background:#FFA500;" data-color="#FFA500" data-name="Orange" title="Orange"></div>
+        <div class="swatch" style="background:#FF6B6B;" data-color="#FF6B6B" data-name="Koralle" title="Koralle"></div>
+        <div class="swatch" style="background:#C9A0DC;" data-color="#C9A0DC" data-name="Lila" title="Lila"></div>
+        <div class="swatch" style="background:#FFFFFF;" data-color="#FFFFFF" data-name="Weiß" title="Weiß"></div>
+        <div class="swatch" style="background:#B0C4DE;" data-color="#B0C4DE" data-name="Stahlblau" title="Stahlblau"></div>
+        <div class="swatch" style="background:#FFB6C1;" data-color="#FFB6C1" data-name="Hellrosa" title="Hellrosa"></div>
+        <div class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume"></div>
+        <div class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki"></div>
+      </div>
+      <label class="form-label">Art der Füllung</label>
+      <select id="fillingSelect" class="form-select">
+        <option value="none">Keine Füllung</option>
+        <option value="mini-balloons" selected>Mini-Ballons 🎈</option>
+        <option value="confetti">Konfetti 🎉</option>
+        <option value="hearts">Herzen ❤️</option>
+        <option value="stars">Sterne ⭐</option>
+        <option value="flowers">Blumen 🌸</option>
+        <option value="butterflies">Schmetterlinge 🦋</option>
+      </select>
+      <label class="form-label">Design-Vorlage</label>
+      <select id="designSelect" class="form-select">
+        <option value="default">Standard</option>
+        <option value="birthday">🎂 Geburtstag</option>
+        <option value="valentine">❤️ Valentinstag</option>
+        <option value="graduation">🎓 Abschluss</option>
+        <option value="wedding">💍 Hochzeit</option>
+        <option value="newborn">👶 Neugeborenes</option>
+        <option value="congrats">🎊 Glückwünsche</option>
+        <option value="christmas">🎄 Weihnachten</option>
+      </select>
+      <label class="form-label">Symbol hinzufügen</label>
+      <select id="symbolSelect" class="form-select">
+        <option value="">Kein Symbol</option>
+        <option value="❤️">❤️ Herz</option>
+        <option value="💍">💍 Ring</option>
+        <option value="🎓">🎓 Absolventenhut</option>
+        <option value="🧸">🧸 Teddy</option>
+        <option value="👣">👣 Babyfüße</option>
+        <option value="🎁">🎁 Geschenk</option>
+        <option value="🎉">🎉 Party</option>
+        <option value="💐">💐 Blumen</option>
+        <option value="⭐">⭐ Stern</option>
+        <option value="🦋">🦋 Schmetterling</option>
+        <option value="🌙">🌙 Mond</option>
+        <option value="✨">✨ Glitzer</option>
+      </select>
+    </div>
+
+    <div class="config-card">
+      <h3><i class="fas fa-envelope-open-heart"></i> Grußkarte & Extras</h3>
+      <label class="form-label">Grußkarte <span style="font-weight:400;color:var(--text-light);">(optional, max. 150 Zeichen)</span></label>
+      <div class="textarea-wrap">
+        <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." maxlength="150"></textarea>
+        <span class="char-counter"><span id="charCount">0</span>/150</span>
+      </div>
+      <label class="form-label">Beschreibe die Person <span style="font-weight:400;color:var(--text-light);">(optional für individuelle Empfehlung)</span></label>
+      <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person – welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" style="min-height:70px;margin-bottom:0;"></textarea>
+    </div>
+
+    <div class="config-card">
+      <h3><i class="fas fa-layer-group"></i> Menge</h3>
+      <div class="qty-row">
+        <button class="qty-btn" id="qtyMinus">−</button>
+        <input class="qty-val" type="text" id="qtyVal" value="1" readonly>
+        <button class="qty-btn" id="qtyPlus">+</button>
+      </div>
+    </div>
+
+    <div class="cta-area">
+      <button class="btn-main" id="addToCartBtn">
+        <i class="fas fa-shopping-bag"></i> In den Warenkorb
+      </button>
+      <button class="btn-whatsapp" id="whatsappBtn">
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Jetzt über WhatsApp bestellen
+      </button>
+      <div class="secure-row">
+        <div class="secure-item"><i class="fas fa-lock"></i> Sicher & verschlüsselt</div>
+        <div class="secure-item"><i class="fas fa-undo"></i> Zufriedenheitsgarantie</div>
+        <div class="secure-item"><i class="fas fa-truck"></i> 1–3 Werktage</div>
+      </div>
+    </div>
+
+    <div class="cart-card" id="cartCard">
+      <h3><i class="fas fa-shopping-bag"></i> Warenkorb <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
+      <div id="cartItemsList"></div>
+      <div class="cart-total-row">
+        <span>Gesamtbetrag</span>
+        <span id="cartTotalPrice">0,00 €</span>
+      </div>
+      <button class="btn-clear" id="clearCartBtn">🗑 Warenkorb leeren</button>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-inner">
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fas fa-hand-sparkles"></i></div>
+      <div class="feature-text">
+        <strong>Handgemacht</strong>
+        <span>Jeder Ballon wird mit Liebe individuell gefertigt</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+      <div class="feature-text">
+        <strong>Schnelle Lieferung</strong>
+        <span>1–3 Werktage nach Bestelleingang</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+      <div class="feature-text">
+        <strong>Nachhaltig</strong>
+        <span>100% natürlicher Latex, biologisch abbaubar</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="feature-text">
+        <strong>WhatsApp Support</strong>
+        <span>Persönliche Beratung einfach schreiben!</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO SECTION -->
+<div class="info-section">
+  <div class="info-card">
+    <h2>Was macht unsere Ballons <span>besonders?</span></h2>
+    <ul class="desc-list">
+      <li><i class="fas fa-check-circle"></i> Großer transparenter Ballon (Ø 45 cm) aus hochwertigem Latex</li>
+      <li><i class="fas fa-check-circle"></i> Gefüllt mit bunten Mini-Ballons, Konfetti, Herzen oder Sternen</li>
+      <li><i class="fas fa-check-circle"></i> Personalisierter Text und Wunschsymbol im Inneren</li>
+      <li><i class="fas fa-check-circle"></i> Handgeschriebene Grußkarte inklusive</li>
+      <li><i class="fas fa-check-circle"></i> Perfekt für Geburtstag, Hochzeit, Babyparty, Jubiläum & mehr</li>
+      <li><i class="fas fa-check-circle"></i> Jeder Ballon ein Unikat liebevoll gestaltet in Deutschland</li>
+      <li><i class="fas fa-check-circle"></i> Hält 24–48 Stunden aufgeblasen (Heliumfüllung vor Ort empfohlen)</li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <h2>Häufige <span>Fragen</span></h2>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Wie lange hält der Ballon? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Mit Helium gefüllt hält unser Ballon 24–48 Stunden. Mit Luftfüllung bleibt er mehrere Tage schön. Wir empfehlen die Heliumfüllung kurz vor dem Event.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Wie bestelle ich? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Konfiguriere deinen Ballon, lege ihn in den Warenkorb und sende deine Bestellung direkt über WhatsApp. Wir melden uns innerhalb weniger Stunden mit Bestätigung.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Wie schnell wird geliefert? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Nach Bestellbestätigung versenden wir innerhalb von 1–2 Werktagen. Die Lieferzeit beträgt in der Regel 1–3 Werktage in Deutschland.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Kann ich mehrere Ballons bestellen? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons gewähren wir 10% Rabatt.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Ist der Ballon mit Helium gefüllt? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Der Ballon wird unaufgeblasen geliefert, damit er sicher transportiert werden kann. Die Mini-Ballons und Füllung sind bereits im Inneren. Du kannst ihn lokal mit Helium aufblasen lassen.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VERSAND & RÜCKGABE -->
+<div class="info-section" style="grid-template-columns:1fr;max-width:900px;" id="versand">
+  <div class="info-card">
+    <h2>Versand & <span>Rückgabe</span> 📦</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Wie lange dauert die Lieferung? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a">Wir bearbeiten jede Bestellung individuell mit Liebe. Nach Bestellbestätigung versenden wir innerhalb von 1–3 Werktagen per DHL. Die Lieferzeit in Deutschland beträgt danach 2–4 Werktage.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Wie werden die Ballons verpackt? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a">Die Ballons werden sorgfältig und sicher verpackt, damit sie unbeschädigt bei dir ankommen. Wir verwenden schützende Verpackungsmaterialien speziell für empfindliche Artikel.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Kann ich meinen Ballon zurückgeben? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a">Da jeder Ballon individuell und personalisiert für dich gefertigt wird, ist eine Rückgabe leider nicht möglich. Sollte dein Ballon beschädigt ankommen, schick uns einfach ein Foto wir finden gemeinsam eine Lösung! 💛</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">Was kostet der Versand? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a">Der Versand erfolgt mit DHL Paket M und kostet 5,49 €. Ab einem Bestellwert von 60 € ist der Versand kostenlos.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <h2 class="section-title">Was unsere Kunden <span>sagen</span> 💬</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Absolut traumhaft! Der Ballon hat meine Tochter zu Tränen gerührt. Die Verarbeitung ist top, der Text wunderschön genau wie bestellt. Definitiv wieder!</p>
+      <div class="review-author">— Sandra M., München</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Schnelle Lieferung, liebevolle Verpackung und ein wunderschöner Ballon. Die Mini-Ballons in Hellblau waren perfekt für die Babyparty. Alle waren begeistert!</p>
+      <div class="review-author">— Julia K., Kaufbeuren</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Zum Heiratsantrag bestellt sie hat JA gesagt! 😍 Der Ballon mit den Herzchen war einfach magisch. Danke Dandelion 11:11 für diesen unvergesslichen Moment!</p>
+      <div class="review-author">— Andrei B., München</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#" onclick="showPage('kollektionen');return false;">Alle Ballons</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('geburtstag');return false;">Geburtstag</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('hochzeit');return false;">Hochzeit</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('babyparty');return false;">Babyparty</a>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <a href="#" onclick="showPage('ueberuns');return false;">Über uns</a>
+      <a href="#" onclick="showPage('kontakt');return false;">Kontakt</a>
+      <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;">Versand & Rückgabe</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://linktr.ee/Dandelion1111?subscribe" target="_blank" rel="noopener" style="font-size:var(--fs-xs);font-weight:700;letter-spacing:1px;opacity:0.8;">Linktree</a>
+    </div>
+  </div>
+</footer>
+</div><!-- end #page-shop -->
+
+<!-- TOAST -->
+<div class="toast" id="toast">🛒 Ballon wurde in den Warenkorb gelegt!</div>
+
+<!-- ═══ SCRIPT ═══ -->
+<script>
+  let state = {
+    message: '',
+    textColor: '#8e44ad',
+    fontSize: 20,
+    balloonColor: '#FF69B4',
+    filling: 'mini-balloons',
+    design: 'default',
+    symbol: '',
+    card: '',
+    persona: '',
+    qty: 1
+  };
+
+  let cart = [];
+  const PRICE = 42.90;
+  const WA_NUMBER = '491757668955';
+
+  const messageInput   = document.getElementById('messageInput');
+  const fontSizeSlider = document.getElementById('fontSizeSlider');
+  const fontSizeVal    = document.getElementById('fontSizeVal');
+  const fillingSelect  = document.getElementById('fillingSelect');
+  const designSelect   = document.getElementById('designSelect');
+  const symbolSelect   = document.getElementById('symbolSelect');
+  const SHIPPING_FEE       = 5.49;
+  const FREE_SHIPPING_FROM = 60;
+  const cardTextarea   = document.getElementById('cardTextarea');
+  const charCount      = document.getElementById('charCount');
+  const personaInput   = document.getElementById('personaInput');
+  const qtyMinus       = document.getElementById('qtyMinus');
+  const qtyPlus        = document.getElementById('qtyPlus');
+  const qtyVal         = document.getElementById('qtyVal');
+  const addToCartBtn   = document.getElementById('addToCartBtn');
+  const whatsappBtn    = document.getElementById('whatsappBtn');
+  const cartCard       = document.getElementById('cartCard');
+  const cartItemsList  = document.getElementById('cartItemsList');
+  const cartTotalPrice = document.getElementById('cartTotalPrice');
+  const cartCount      = document.getElementById('cartCount');
+  const clearCartBtn   = document.getElementById('clearCartBtn');
+  const textDisplay    = document.getElementById('textDisplay');
+  const emojiDisplay   = document.getElementById('emojiDisplay');
+  const balloonBody    = document.getElementById('balloonBody');
+  const balloonFillColor = document.getElementById('balloonFillColor');
+  const fillGradStop   = document.getElementById('fillGradStop');
+  const fillGradStop2  = document.getElementById('fillGradStop2');
+  const floatingEmojiContainer = document.getElementById('floatingEmojiContainer');
+  const toast          = document.getElementById('toast');
+
+  document.getElementById('balloonColorSwatches').addEventListener('click', e => {
+    const sw = e.target.closest('.swatch');
+    if (!sw) return;
+    document.querySelectorAll('#balloonColorSwatches .swatch').forEach(s => s.classList.remove('active'));
+    sw.classList.add('active');
+    state.balloonColor = sw.dataset.color;
+    document.getElementById('selectedColorName').textContent = sw.dataset.name;
+    updatePreview();
+  });
+
+  document.getElementById('textColorSwatches').addEventListener('click', e => {
+    const sw = e.target.closest('.text-swatch');
+    if (!sw) return;
+    document.querySelectorAll('#textColorSwatches .text-swatch').forEach(s => s.classList.remove('active'));
+    sw.classList.add('active');
+    state.textColor = sw.dataset.color;
+    updatePreview();
+  });
+
+  fontSizeSlider.addEventListener('input', () => {
+    state.fontSize = fontSizeSlider.value;
+    fontSizeVal.textContent = state.fontSize + 'px';
+    updatePreview();
+  });
+
+  messageInput.addEventListener('input', () => {
+    state.message = messageInput.value;
+    updatePreview();
+  });
+
+  fillingSelect.addEventListener('change', () => {
+    state.filling = fillingSelect.value;
+    updatePreview();
+  });
+
+  designSelect.addEventListener('change', () => {
+    state.design = designSelect.value;
+    applyDesignTemplate(state.design);
+  });
+
+  symbolSelect.addEventListener('change', () => {
+    state.symbol = symbolSelect.value;
+    updatePreview();
+  });
+
+  cardTextarea.addEventListener('input', () => {
+    state.card = cardTextarea.value;
+    charCount.textContent = cardTextarea.value.length;
+  });
+
+  personaInput.addEventListener('input', () => {
+    state.persona = personaInput.value;
+  });
+
+  qtyMinus.addEventListener('click', () => {
+    if (state.qty > 1) { state.qty--; qtyVal.value = state.qty; }
+  });
+
+  qtyPlus.addEventListener('click', () => {
+    if (state.qty < 20) { state.qty++; qtyVal.value = state.qty; }
+  });
+
+  addToCartBtn.addEventListener('click', () => {
+    for (let i = 0; i < state.qty; i++) {
+      cart.push({
+        id: Date.now() + i,
+        message: state.message,
+        symbol: state.symbol,
+        filling: state.filling,
+        balloonColor: state.balloonColor,
+        textColor: state.textColor,
+        design: state.design,
+        card: state.card,
+        persona: state.persona,
+        price: PRICE,
+        date: new Date()
+      });
+    }
+    updateCartUI();
+    showToast(`🛒 ${state.qty}x Ballon in den Warenkorb gelegt!`);
+  });
+
+  clearCartBtn.addEventListener('click', () => {
+    cart = [];
+    updateCartUI();
+  });
+
+  whatsappBtn.addEventListener('click', () => {
+    if (!cart.length) {
+      const persona = state.persona?.trim();
+      let msg = '🎈 *DANDELION 11:11 – ANFRAGE* 🎈\n\nHallo! Ich interessiere mich für eure Ballons und würde gerne mehr erfahren. 😊';
+      if (persona) msg += `\n\n💡 *Über die Person:*\n"${persona}"`;
+      msg += '\n\nKönnt ihr mir helfen?';
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+      return;
+    }
+    let msg = '🎈 *DANDELION 11:11 – BESTELLUNG* 🎈\n\n';
+    msg += `*Anzahl:* ${cart.length} Ballon(s)\n\n`;
+    cart.forEach((item, i) => {
+      msg += `*Ballon #${i+1}*\n`;
+      if (item.message) msg += `📝 Text: ${item.message}\n`;
+      if (item.symbol) msg += `✨ Symbol: ${item.symbol}\n`;
+      msg += `🎨 Farbe: ${item.balloonColor}\n`;
+      if (item.filling !== 'none') msg += `🎈 Füllung: ${item.filling}\n`;
+      if (item.card) msg += `💌 Karte: ${item.card}\n`;
+      msg += `💰 Preis: ${item.price.toFixed(2)} €\n`;
+      msg += `📅 ${item.date.toLocaleDateString('de-DE')}\n\n`;
+    });
+    const subtotal = cart.reduce((s, i) => s + i.price, 0);
+    const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+    msg += `🚚 Versand (DHL): ${shipping === 0 ? 'kostenlos' : shipping.toFixed(2) + ' €'}\n`;
+    msg += `*Gesamtbetrag: ${(subtotal + shipping).toFixed(2)} €*\n\n`;
+    msg += '📍 Lieferadresse bitte bei Bestätigung angeben.\n';
+    const persona = cart[cart.length - 1]?.persona || state.persona;
+    if (persona && persona.trim()) {
+      msg += `\n💡 *Individuelle Empfehlung gewünscht:*\n"${persona.trim()}"\n`;
+      msg += '_(Bitte helft uns mit kreativen Ideen für Farbe & Füllung!)_\n';
+    }
+    msg += '\n💖 Vielen Dank – wir melden uns bald!';
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+
+  function updateCartUI() {
+    if (!cart.length) {
+      cartCard.style.display = 'none';
+      return;
+    }
+    cartCard.style.display = 'block';
+    cartCount.textContent = cart.length;
+    let html = '';
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price;
+      html += `
+        <div class="cart-item-row">
+          <div>
+            <div class="cart-item-name">${item.isKollProduct ? item.productName : (item.message || 'Ballon ohne Text') + ' ' + (item.symbol||'')}</div>
+            <div class="cart-item-detail">${item.isKollProduct ? 'Fertigprodukt' : (item.filling !== 'none' ? item.filling : 'Keine Füllung') + ' · ' + item.design}</div>
+          </div>
+          <div class="cart-item-right">
+            <span class="cart-item-price">${item.price.toFixed(2)} €</span>
+            <button class="remove-btn" data-id="${item.id}">×</button>
+          </div>
+        </div>`;
+    });
+    const shipping = total >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+    html += `
+        <div class="cart-item-row">
+          <div class="cart-item-name">🚚 Versand (DHL)</div>
+          <div class="cart-item-right">
+            <span class="cart-item-price">${shipping === 0 ? 'kostenlos' : shipping.toFixed(2).replace('.', ',') + ' €'}</span>
+          </div>
+        </div>`;
+    cartItemsList.innerHTML = html;
+    cartTotalPrice.textContent = (total + shipping).toFixed(2).replace('.', ',') + ' €';
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cart = cart.filter(i => i.id !== parseInt(btn.dataset.id));
+        updateCartUI();
+      });
+    });
+  }
+
+  function updateNavBadge() {
+    const badge = document.getElementById('navCartBadge');
+    if (!badge) return;
+    if (cart.length) {
+      badge.textContent = cart.length;
+      badge.style.display = 'inline-flex';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  const _origUpdateCartUI = updateCartUI;
+  updateCartUI = function() {
+    _origUpdateCartUI();
+    updateNavBadge();
+  };
+
+  window.addKollProduct = function(id) {
+    const p = kollProducts.find(x => x.id === id);
+    if (!p) return;
+    cart.push({
+      id: Date.now(),
+      message: p.name,
+      symbol: p.emoji,
+      filling: 'none',
+      balloonColor: '#8e44ad',
+      textColor: '#ffffff',
+      design: 'standard',
+      card: '',
+      persona: '',
+      price: p.price,
+      productName: p.name,
+      date: new Date(),
+      isKollProduct: true
+    });
+    updateCartUI();
+    showToast(`🛒 ${p.name} in den Warenkorb gelegt!`);
+    showPage('shop');
+    setTimeout(() => document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}), 80);
+  };
+
+  window.openProdModal = function(id) {
+    const p = kollProducts.find(x => x.id === id);
+    if (!p) return;
+    const modal = document.getElementById('prodModal');
+    const imgDiv = document.getElementById('prodModalImg');
+    const imgs = p.imgs || (p.img ? [p.img] : []);
+    if (imgs.length > 1) {
+      imgDiv.innerHTML = `
+        <div style="position:relative;">
+          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${p.name}" style="width:100%;display:block;">
+          <button onclick="prodModalCarouselNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">‹</button>
+          <button onclick="prodModalCarouselNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">›</button>
+          <div style="position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
+            ${imgs.map((_,i) => `<span class="prodModalDot" data-i="${i}" style="width:8px;height:8px;border-radius:50%;background:${i===0?'#fff':'rgba(255,255,255,0.5)'};display:inline-block;"></span>`).join('')}
+          </div>
+        </div>`;
+      window._prodModalImgs = imgs;
+      window._prodModalIdx = 0;
+    } else {
+      imgDiv.innerHTML = imgs[0]
+        ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;display:block;">`
+        : `<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${p.emoji}</div>`;
+    }
+    document.getElementById('prodModalBadge').innerHTML = p.badge
+      ? `<span style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;">${p.badge}</span>` : '';
+    document.getElementById('prodModalName').textContent = p.name;
+    document.getElementById('prodModalDesc').textContent = p.desc;
+    document.getElementById('prodModalPrice').textContent = p.price.toFixed(2).replace('.',',') + ' €';
+    document.getElementById('prodModalCartBtn').onclick = function() {
+      closeProdModal();
+      addKollProduct(id);
+    };
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.prodModalCarouselNav = function(dir) {
+    const imgs = window._prodModalImgs;
+    if (!imgs) return;
+    window._prodModalIdx = (window._prodModalIdx + dir + imgs.length) % imgs.length;
+    document.getElementById('prodModalCarouselImg').src = imgs[window._prodModalIdx];
+    document.querySelectorAll('.prodModalDot').forEach((d,i) => {
+      d.style.background = i === window._prodModalIdx ? '#fff' : 'rgba(255,255,255,0.5)';
+    });
+  };
+
+  window.closeProdModal = function(e) {
+    if (e && e.target !== document.getElementById('prodModal')) return;
+    document.getElementById('prodModal').style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  window.openLbx = function(src) {
+    if (!src) return;
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    lbImg.src = src;
+    lb.style.display = 'flex';
+    lb.style.position = 'fixed';
+    lb.style.inset = '0';
+    lb.style.background = 'rgba(0,0,0,0.88)';
+    lb.style.zIndex = '9999';
+    lb.style.alignItems = 'center';
+    lb.style.justifyContent = 'center';
+    lb.style.padding = '20px';
+    lb.onclick = function() { lb.style.display = 'none'; };
+  };
+
+  function updatePreview() {
+    balloonBody.setAttribute('fill', state.balloonColor);
+    balloonBody.setAttribute('opacity', '0.28');
+    fillGradStop.setAttribute('stop-color', state.balloonColor);
+    fillGradStop2.setAttribute('stop-color', state.balloonColor);
+    if (state.message || state.symbol) {
+      emojiDisplay.style.display = state.symbol ? 'block' : 'none';
+      emojiDisplay.textContent = state.symbol;
+      textDisplay.textContent = state.message;
+      textDisplay.style.color = state.textColor;
+      textDisplay.style.fontSize = state.fontSize + 'px';
+    } else {
+      emojiDisplay.style.display = 'none';
+      textDisplay.textContent = '';
+    }
+    updateFilling();
+  }
+
+  const FILLING_MAP = {
+    'none':         { emoji: '', count: 0 },
+    'mini-balloons':{ emoji: '🎈', count: 40 },
+    'confetti':     { emoji: '🎊', count: 55 },
+    'hearts':       { emoji: '❤️', count: 38 },
+    'stars':        { emoji: '⭐', count: 42 },
+    'flowers':      { emoji: '🌸', count: 36 },
+    'butterflies':  { emoji: '🦋', count: 30 }
+  };
+
+  function updateFilling() {
+    floatingEmojiContainer.innerHTML = '';
+    const cfg = FILLING_MAP[state.filling] || FILLING_MAP['none'];
+    if (!cfg.emoji) return;
+    const cx = 170, cy = 210, rx = 120, ry = 110;
+    for (let i = 0; i < cfg.count; i++) {
+      const angle = Math.random() * Math.PI;
+      const r = Math.sqrt(Math.random());
+      const x = cx + Math.cos(angle) * r * rx * 0.88;
+      const y = cy + Math.abs(Math.sin(angle)) * r * ry * 0.9;
+      const el = document.createElement('div');
+      el.className = 'floating-emoji';
+      el.textContent = cfg.emoji;
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.fontSize = (11 + Math.random() * 6) + 'px';
+      el.style.animationDelay = (Math.random() * 3) + 's';
+      el.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+      floatingEmojiContainer.appendChild(el);
+    }
+  }
+
+  const DESIGNS = {
+    default:    { color: '#FF69B4', filling: 'mini-balloons', symbol: '',   text: '', textColor: '#8e44ad' },
+    birthday:   { color: '#FFD700', filling: 'confetti',      symbol: '🎉', text: 'Alles Gute!', textColor: '#d63384' },
+    valentine:  { color: '#FF69B4', filling: 'hearts',        symbol: '❤️', text: 'Ich liebe dich', textColor: '#c0392b' },
+    graduation: { color: '#C9A0DC', filling: 'stars',         symbol: '🎓', text: 'Herzlichen Glückwunsch!', textColor: '#2d1b69' },
+    wedding:    { color: '#FFFFFF', filling: 'hearts',         symbol: '💍', text: 'Just Married', textColor: '#8e44ad' },
+    newborn:    { color: '#ADD8E6', filling: 'stars',          symbol: '👶', text: 'Willkommen!', textColor: '#2980b9' },
+    congrats:   { color: '#98FB98', filling: 'confetti',       symbol: '🎊', text: 'Herzlichen Glückwunsch!', textColor: '#27ae60' },
+    christmas:  { color: '#FF6B6B', filling: 'stars',          symbol: '🎄', text: 'Frohe Weihnachten!', textColor: '#c0392b' }
+  };
+
+  function applyDesignTemplate(key) {
+    const d = DESIGNS[key];
+    if (!d) return;
+    document.querySelectorAll('#balloonColorSwatches .swatch').forEach(s => {
+      s.classList.remove('active');
+      if (s.dataset.color === d.color) s.classList.add('active');
+    });
+    state.balloonColor = d.color;
+    document.querySelectorAll('#textColorSwatches .text-swatch').forEach(s => {
+      s.classList.remove('active');
+      if (s.dataset.color === d.textColor) s.classList.add('active');
+    });
+    state.textColor = d.textColor;
+    fillingSelect.value = d.filling;
+    state.filling = d.filling;
+    symbolSelect.value = d.symbol;
+    state.symbol = d.symbol;
+    if (!state.message && d.text) {
+      messageInput.value = d.text;
+      state.message = d.text;
+    }
+    updatePreview();
+  }
+
+  function setPreviewTheme(key) {
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    designSelect.value = key;
+    applyDesignTemplate(key);
+  }
+
+  function toggleFAQ(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // Init
+  state.message = 'Alles Gute, Ralu! 🎂';
+  state.textColor = '#1a6bbf';
+  state.fontSize = 18;
+  state.filling = 'stars';
+  state.balloonColor = '#FF69B4';
+  state.symbol = '⭐';
+  messageInput.value = state.message;
+  fillingSelect.value = state.filling;
+  symbolSelect.value = state.symbol;
+  document.querySelectorAll('#balloonColorSwatches .swatch').forEach(s => {
+    s.classList.remove('active');
+    if (s.dataset.color === state.balloonColor) s.classList.add('active');
+  });
+  document.getElementById('selectedColorName').textContent = 'Pink';
+  document.querySelectorAll('#textColorSwatches .text-swatch').forEach(s => {
+    s.classList.remove('active');
+    if (s.dataset.color === state.textColor) s.classList.add('active');
+  });
+  fontSizeSlider.value = state.fontSize;
+  fontSizeVal.textContent = state.fontSize + 'px';
+  updatePreview();
+
+  // Page switching
+  function showPage(page) {
+    ['shop','kollektionen','ueberuns','kontakt'].forEach(p => {
+      document.getElementById('page-' + p).style.display = page === p ? '' : 'none';
+      const n = document.getElementById('nav-' + p);
+      if (n) n.classList.toggle('active-nav', page === p);
+    });
+    window.scrollTo(0, 0);
+    if (page === 'kollektionen') renderKoll('all');
+  }
+  window.showPage = showPage;
+
+  // Anti-Spam: einfache Rechenaufgabe
+  let captchaAnswer = 0;
+  function newCaptcha() {
+    const a = 1 + Math.floor(Math.random() * 9);
+    const b = 1 + Math.floor(Math.random() * 9);
+    captchaAnswer = a + b;
+    const q = document.getElementById('k-captcha-q');
+    if (q) q.textContent = `Wie viel ist ${a} + ${b}?`;
+    const inp = document.getElementById('k-captcha');
+    if (inp) inp.value = '';
+  }
+  newCaptcha();
+
+  window.sendKontaktWA = function() {
+    const name    = document.getElementById('k-name').value.trim();
+    const email   = document.getElementById('k-email').value.trim();
+    const subject = document.getElementById('k-subject').value.trim();
+    const msg     = document.getElementById('k-msg').value.trim();
+    const honeypot = document.getElementById('k-website').value.trim();
+    const captcha  = document.getElementById('k-captcha').value.trim();
+    if (honeypot) { return; } // Bot detected – silently ignore
+    if (!msg) { alert('Bitte schreib eine Nachricht.'); return; }
+    if (parseInt(captcha, 10) !== captchaAnswer) {
+      alert('Die Antwort auf die Sicherheitsfrage ist leider falsch. Bitte versuche es erneut.');
+      newCaptcha();
+      return;
+    }
+    let wa = '📩 *DANDELION 11:11 – KONTAKTANFRAGE*\n\n';
+    if (name)    wa += `👤 Name: ${name}\n`;
+    if (email)   wa += `📧 E-Mail: ${email}\n`;
+    if (subject) wa += `📌 Betreff: ${subject}\n`;
+    wa += `\n💬 Nachricht:\n${msg}`;
+    window.open('https://wa.me/491757668955?text=' + encodeURIComponent(wa), '_blank');
+    newCaptcha();
+  };
+
+  // Kollektionen
+  const kollProducts = [
+    { id:1, name:'Ballon-Box Boho Luxe', desc:'Ein großer personalisierter Chromballon in Blau-Gold mit Schmetterlingsdekor, umhüllt von einem üppigen Arrangement aus Trockenblumen, Rosen, Pampasgras und goldenen Bändern. Handgemacht und einzigartig.', price:89.00, cat:'geburtstag', badge:'Bestseller', emoji:'🦋', img:'boho-blue.jpg' },
+    { id:2, name:'Ballon-Box Schwarz & Gold', desc:'Luxuriöse Ballon-Box im eleganten Schwarz-Gold-Look: großer schwarzer Ballon mit Goldfolie und Schriftzug, goldene Chromballons, dunkelrote Rosen und schwarzes Krepp-Papier in einer stilvollen Geschenkbox.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'black-gold.jpg' },
+    { id:3, name:'Lila Champagner-Ballon', desc:'Romantischer personalisierter Ballon in leuchtendem Lila mit Goldflitter, dekoriert mit frischen Blumen in Rosa und Weiß sowie glitzernden Lila-Kugeln – präsentiert auf einer Champagnerflasche als besonderes Geschenk.', price:79.00, cat:'geburtstag', badge:'Neu', emoji:'💜', img:'purple-champagne.jpg' },
+    { id:4, name:'Romantischer Rosa Ballon', desc:'Großer rosafarbener Marmorballon mit individueller Pärchen-Silhouette und Initialen, umgeben von frischen Rosen, Gerbera und Schleierkraut sowie zarten Herzballons. Ein romantisches Geschenk für jeden besonderen Anlass.', price:89.00, cat:'hochzeit', badge:'Beliebt', emoji:'💑', img:'wedding-pink.png' },
+    { id:5, name:'Fußball Blumenbox', desc:'Einzigartiges Arrangement für Fußballfans: personalisierter Fußballballon mit Fußballschuhen als Dekorelement, umgeben von bunten Rosen in Rot, Blau, Weiß und Gold auf einem goldenen Tablett.', price:79.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-box.png' },
+    { id:6, name:'Ballon mit Wunsch-Illustration', desc:'Vollständig personalisierter Ballon mit individueller Illustration nach Wunsch – ideal für Unternehmen, Vereine oder besondere Hobbys. Jeder Ballon ist ein einzigartiges Kunstwerk, das bleibt.', price:69.00, cat:'sonstiges', badge:'Individuell', emoji:'🎨', img:'pilates-balloon.png' },
+    { id:7, name:'Dark-Chrome Ballon-Box', desc:'Dramatische und luxuriöse Ballon-Box mit großem dunkel-chromen Ballon in Schwarz-Gold, personalisiert mit Name oder Wunschbotschaft. Mit schwarzen Rosen, Goldkugeln, Perlen und weißen Blüten in einer eleganten runden Box.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'dark-chrome-box.png' },
+    { id:8, name:'Lila Hochzeits-Ballon-Box', desc:'Atemberaubende Hochzeitskomposition: violetter Marmorballon mit goldener Pärchen-Silhouette und Namen, dekoriert mit goldenen Schmetterlingen. Dazu eine opulente Blumenbox mit dunkelvioletten Rosen, Perlen und Schleierkraut.', price:99.00, cat:'hochzeit', badge:'Exklusiv', emoji:'💜', img:'purple-wedding-box.png' },
+    { id:9, name:'Teddybär Blumenbox', desc:'Zauberhafter Blumenkorb mit einem kuschligen weißen Teddybären, umgeben von frischen gelb-orangenen Rosen, Perlengirlanden, Schmetterlingen und Marienkäfern. Ein unvergessliches Geschenk für Kinder und Babys.', price:69.00, cat:'kuscheltiere', badge:'Süß', emoji:'🐻', img:'teddy-flower-box.png' },
+    { id:10, name:'Pilz-Gnom Blumenbox', desc:'Märchenhaftes Blumenarrangement mit einem charmanten Pilz-Gnom, eingebettet in sonnige gelb-orangene Rosen mit Perlen, Federn und bunten Schmetterlingen. Handgemacht mit viel Liebe für besondere Geburtstage.', price:65.00, cat:'geburtstag', badge:'', emoji:'🍄', img:'mushroom-flower-box.png' },
+    { id:11, name:'Drachen Blumenbox', desc:'Traumhaftes Blumenarrangement mit einer niedlichen Drachen-Figur in Lila, umgeben von bunten Blüten in Orange, Creme und Violett. Perfekt für Babypartys, Kindertaufen und besondere Kinderwünsche.', price:65.00, cat:'babyparty', badge:'Neu', emoji:'🐉', img:'dragon-flower-box.png' },
+    { id:12, name:'Gamer Geburtstags-Set', desc:'Das perfekte Geschenk für kleine und große Gamer: personalisierter Pinguin-Plüsch mit Namen, Folienballon im Gaming-Design und bunte Heliumballons im coolen Blau-Schwarz-Look.', price:75.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🎮', img:'gamer-birthday.png' },
+    { id:13, name:'Stitch Blumenstrauß', desc:'Zauberhafter Blumenstrauß mit dem beliebten Disney-Stitch Plüschtier, eingebettet in romantische rosa Rosen und schimmernde holografische Blüten in Blau-Grün mit Eukalyptuszweigen. Ein Geschenk, das Augen zum Leuchten bringt.', price:75.00, cat:'kuscheltiere', badge:'Disney', emoji:'💙', img:'stitch-flower-box.png' },
+    { id:14, name:'Feen-Blumenbox', desc:'Märchenhafte Blumenbox mit einer zauberhaften Feenpuppe mit lila Flügeln, umgeben von holografischen Rosen in Blau-Türkis, Pfingstrosen in Rosa und Weiß sowie Eukalyptuszweigen. Ein Traum für kleine Mädchen.', price:79.00, cat:'babyparty', badge:'Magisch', emoji:'🧚', img:'fairy-doll-flower-box.png' },
+    { id:15, name:'Ferrero Geburtstags-Box', desc:'Edle Geburtstags-Box im Schwarz-Gold-Look: Ferrero Rocher Pralinen, schwarze Fransendekoration, Pixel-Sonnenbrille und goldene Geburtstagsbeschriftung. Für alle, die es stilvoll und süß mögen.', price:65.00, cat:'geburtstag', badge:'Trendy', emoji:'🍫', img:'ferrero-birthday-box.png' },
+    { id:16, name:'Spiderman Geburtstags-Box', desc:'Personalisierter goldener Marmorballon mit individuellem Namen und Geburtstagswunsch, dekoriert mit einer Spiderman-Figur. Dazu eine bunte Box gefüllt mit Süßigkeiten wie Milka, Haribo und mehr – ein Highlight für kleine Superhelden-Fans.', price:75.00, cat:'geburtstag', badge:'Beliebt', emoji:'🕷️', img:'spiderman-birthday-box.png' },
+    { id:17, name:'Einhorn-Ballonstrauß', desc:'Verspielter Ballonstrauß mit einem schimmernden Einhorn-Folienballon, rosa Herzballon, silbernem Ei-Ballon und pastellfarbenen Heliumballons – liebevoll verpackt mit Schleifen in Rosa und Lila. Ein Traum für kleine Prinzessinnen.', price:55.00, cat:'kuscheltiere', badge:'Neu', emoji:'🦄', img:'unicorn-balloon-bouquet.png', fit:'contain' },
+    { id:18, name:'Teddy Geschenkbox mit Ballon', desc:'Liebevolle Geschenkbox mit kuscheligem Teddybären, personalisiertem Ballon mit Wunschtext in Lila-Weiß und einer großen Auswahl an Süßigkeiten wie Milka und Haribo. Perfekt für besondere Glückwünsche.', price:69.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-gift-box.png', fit:'contain' },
+    { id:19, name:'Regenbogen-Einhorn im Ballon', desc:'Magischer transparenter Stuffed-Ballon mit einem bunten Regenbogen-Einhorn-Plüschtier und pastellfarbenen Mini-Ballons im Inneren, verziert mit rosa Schleife und Geburtstags-Topper. Ein unvergessliches Highlight zum Auspacken.', price:79.00, cat:'kuscheltiere', badge:'Magisch', emoji:'🌈', img:'rainbow-unicorn-balloon.png', fit:'contain' },
+    { id:20, name:'Premium Blumenbox mit Schmetterling', desc:'Exklusive Blumenbox mit einer eleganten Mischung aus Anemonen, Rosen und Hortensien in Rosa, Lila und Violett, verziert mit einem bunten Schmetterling und edlen Bändern. Ein luxuriöses Geschenk für besondere Anlässe.', price:85.00, cat:'sonstiges', badge:'Exklusiv', emoji:'🦋', img:'butterfly-flower-box.png', fit:'contain' },
+    { id:21, name:'Whiskey & Ferrero Strauß', desc:'Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel\'s Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Papier mit passender Schleife.', price:69.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🥃', img:'whiskey-ferrero-bouquet.png', fit:'contain' },
+    { id:22, name:'Geburtstagsballon Blau mit Blumenbox', desc:'Großer personalisierter Ballon mit Glitzereffekt und Schriftzug "Alles Gute zum Geburtstag", umgeben von zartblauen Hortensien, pfirsichfarbenen Rosen und frischem Eukalyptus in einer eleganten Box mit Feen-Motiv.', price:85.00, cat:'geburtstag', badge:'Beliebt', emoji:'🧚', img:'birthday-balloon-blue-flowerbox.png', fit:'contain' },
+    { id:23, name:'Blumenkorb mit Foto-Medaillon', desc:'Wunderschöner Blumenkorb mit weißen, gelben und pinken Blüten sowie lila Hortensien, verziert mit einem individuell gestalteten Foto-Medaillon. Ein einzigartiges, persönliches Geschenk für besondere Menschen.', price:75.00, cat:'sonstiges', badge:'Individuell', emoji:'📷', img:'flower-basket-photo-medallion.png', fit:'contain' },
+    { id:24, name:'Heißluftballon "Happy Valentine\'s Day"', desc:'Romantische Geschenkbox in Heißluftballon-Form mit der Aufschrift "Happy Valentine\'s Day", goldenen Ferrero-Rocher-Pralinen, rosa Rosen und grünem Akzent. Ein Hingucker für Verliebte.', price:75.00, cat:'liebe', badge:'Romantisch', emoji:'💗', img:'valentines-balloon-box.png', fit:'contain' },
+    { id:25, name:'Teddybär im Geschenkballon', desc:'Kuscheliger Teddybär mit roter Satinschleife, eingehüllt in einen großen transparenten Stuffed-Ballon und präsentiert auf einer eleganten Box mit roter Dekoration. Ein herzerwärmendes Geschenk für jeden Anlass.', price:59.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-stuffed-balloon-red.png', fit:'contain' },
+    { id:26, name:'Herz-Box mit Ferrero & roten Rosen', desc:'Romantische herzförmige Geschenkbox gefüllt mit goldenen Ferrero-Rocher-Pralinen und umrahmt von samtroten Rosen. Verziert mit einer eleganten roten Schleife – das perfekte Geschenk für besondere Liebesbeweise.', price:55.00, cat:'liebe', badge:'Romantisch', emoji:'❤️', img:'heart-ferrero-roses-box.png', fit:'contain' },
+    { id:27, name:'Kinder Joy Blumenstrauß', desc:'Süßer Strauß mit drei Kinder-Joy-Überraschungseiern, eingebettet in zartrosa Schleierkraut und dekoriert mit rosafarbenem Verpackungspapier und Satinschleife. Eine fröhliche Überraschung für Kinder und Naschkatzen.', price:35.00, cat:'babyparty', badge:'Süß', emoji:'🍬', img:'kinder-joy-bouquet.png', fit:'contain' },
+    { id:28, name:'Fußballschuh-Blumenstrauß', desc:'Origineller Strauß für Fußballfans: ein Paar pinke Fußballschuhe eingebettet in pinke Rosen, Gerbera in Pink und Bordeaux sowie weißen Schleierkraut. Ein Geschenk, das garantiert in Erinnerung bleibt.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-shoes-bouquet.png', fit:'contain' },
+    { id:29, name:'Abschluss-Ballon "conGRADulations"', desc:'Eleganter weißer Ballon mit Doktorhut und goldener Quaste, individuell bedruckt mit "conGRADulations" und dem Namen des Absolventen. Verziert mit schwarzer Schleife – das perfekte Geschenk zum Schulabschluss oder Studienabschluss.', price:45.00, cat:'sonstiges', badge:'Individuell', emoji:'🎓', img:'graduation-balloon.png', fit:'contain' },
+    { id:30, name:'Fußball-Fan Strauß "Ronaldo"', desc:'Einzigartiger Strauß für Fußballfans mit Cristiano-Ronaldo-Motiven, Vereinswappen, Trikot mit Wunschnummer und Fußball-Dekoration auf marineblauem Papier. Das ultimative Geschenk für jeden Fußballfan.', price:55.00, cat:'fussball', badge:'Fan-Edition', emoji:'⚽', img:'ronaldo-fan-bouquet.png', fit:'contain' },
+    { id:31, name:'Fußballschuh-Strauß "Nike"', desc:'Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem Kraftpapier. Ein originelles Geschenk für jeden Fußballfan.', price:60.00, cat:'fussball', badge:'Sportlich', emoji:'⚽', img:'produs31.png', fit:'contain' },
+    { id:32, name:'Fußballschuh-Vase mit weißen Rosen', desc:'Außergewöhnliches Arrangement aus silbernen Fußballschuhen als Vase, gefüllt mit weißen Rosen und Schleierkraut, präsentiert auf einem eleganten Metalltablett mit einem Fußball als Deko-Element. Ein echter Hingucker für Fußballfans.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'produs32.png', fit:'contain' },
+    { id:33, name:'Gesicht-Skulptur mit Trockenblumen', desc:'Außergewöhnliche Deko-Skulptur in Silber – ein Gesicht mit verdeckenden Händen, gekrönt von einem üppigen Arrangement aus Trockenblumen, rosa Schleierkraut und Eukalyptus. Ein modernes Statement-Stück für Liebhaber außergewöhnlicher Deko.', price:79.00, cat:'sonstiges', badge:'Einzigartig', emoji:'🌿', img:'face-sculpture-dried-flowers.png', fit:'contain' },
+    { id:34, name:'Oster-Blumenbox mit Drachen', desc:'Fröhliche Osterdekoration mit einem niedlichen Drachen im Hasenkostüm und Osterkörbchen, umgeben von pastellfarbenen Rosen in Gelb, Rosa und Blau sowie bunten Ostereiern und einem Marienkäfer. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-dragon-flower-box.png', fit:'contain' },
+    { id:35, name:'Lamborghini Modellauto Bilderrahmen', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame.png', fit:'contain' },
+    { id:36, name:'Oster-Blumenbox mit Häschen', desc:'Bezaubernde Osterkomposition mit einem niedlichen Häschen-Pferd, umgeben von Rosen in Pink, Blau und Lila, Pastell-Ostereiern, einem Marienkäfer und einem kleinen gelben Küken. Ein wundervolles Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐣', img:'easter-bunny-flower-box.png', fit:'contain' },
+    { id:37, name:'Oster-Blumenbox mit Hase & Küken', desc:'Liebevolle Osterbox mit einem süßen weißen Hasen, der ein gelbes Küken hält, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein herzerwärmendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-rabbit-chick-box.png', fit:'contain' },
+    { id:38, name:'Oster-Blumenbox mit Macaron-Küken', desc:'Süße Osterdekoration mit einem Küken in Hasenohren, das bunte Macarons hält, eingebettet in zartblaue, lila und pinke Rosen mit Pastell-Ostereiern und Schoko-Figuren. Ein farbenfrohes Geschenk für Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐥', img:'easter-chick-macaron-box.png', fit:'contain' },
+    { id:39, name:'Oster-Blumenbox mit Astronauten-Küken', desc:'Originelle Osterkomposition mit einem niedlichen Küken im Astronautenanzug, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein außergewöhnliches Geschenk für kleine Entdecker.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🚀', img:'easter-astronaut-chick-box.png', fit:'contain' },
+    { id:40, name:'Oster-Blumenbox mit grünem Drachen', desc:'Fröhliche Osterbox mit einem freundlichen grünen Drachen mit Hasenohren, umgeben von zartblauen, lila und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐉', img:'easter-green-dragon-box.png', fit:'contain' },
+    { id:41, name:'Lamborghini Modellauto Bilderrahmen Blau', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit türkisfarbenem Hintergrund und gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame-blue.png', fit:'contain' },
+    { id:42, name:'Oster-Blumenbox mit Hasenfamilie', desc:'Herzerwärmende Osterbox mit zwei kuscheligen Hasenfiguren – ein großer Hase küsst liebevoll ein Baby-Häschen in einer Eierschale, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein rührendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-bunny-family-box.png', fit:'contain' },
+    { id:43, name:'Oster-Blumenbox mit Macaron-Hase', desc:'Charmante Osterkomposition mit einem Hasen im rosa Kleid, der einen bunten Turm aus glitzernden Macarons balanciert, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein süßes Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-macaron-bunny-box.png', fit:'contain' },
+    { id:44, name:'Geburtstags-Geschenkbox für Hunde "Dog Mom"', desc:'Liebevolle Geschenkbox "Alles Gute zum Geburtstag" für Hundeliebhaber: mit Pflegeprodukten, einer Tasse, einem "Dog Mom" Halstuch und Cap, einem Tennisball sowie selbstgemachten Hundekeksen und Leckerlis. Das perfekte Geschenk für jede Hundemama.', price:55.00, cat:'sonstiges', badge:'Für Hundeliebhaber', emoji:'🐶', imgs:['dogmom-box-1.png','dogmom-box-2.png','dogmom-box-3.png','dogmom-box-4.png','dogmom-box-5.png','dogmom-box-6.png','dogmom-box-7.png'], fit:'contain' },
+    { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball – beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain' },
+  ];
+
+  function renderKoll(filter) {
+    const list = filter === 'all' ? kollProducts : kollProducts.filter(p => p.cat === filter);
+    document.getElementById('koll-grid').innerHTML = list.map(p => `
+      <div class="koll-card">
+        <div class="koll-img" onclick="openProdModal(${p.id})" style="cursor:pointer;">
+          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
+          ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${p.badge}</span>` : ''}
+          <div style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;pointer-events:none;z-index:3;"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="koll-body">
+          <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${p.name}</div>
+          <div class="koll-desc">${p.desc.substring(0,90)}…</div>
+          <div class="koll-footer">
+            <div class="koll-price">${p.price.toFixed(2).replace('.',',')} €${p.oldPrice ? `<span class="old">${p.oldPrice.toFixed(2).replace('.',',')} €</span>` : ''}</div>
+            <button class="btn-koll-config" onclick="event.stopPropagation();addKollProduct(${p.id})">
+              <i class="fas fa-shopping-bag"></i> In den Warenkorb
+            </button>
+          </div>
+        </div>
+      </div>`
+    ).join('');
+  }
+
+  window.openLightbox = function(src) {
+    if (!src) return;
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  };
+  window.closeLightbox = function() {
+    document.getElementById('lightbox').classList.remove('open');
+  };
+  window.filterKoll = function(cat, btn) {
+    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderKoll(cat);
+  };
+</script>
+</body>
+</html>
+
+
