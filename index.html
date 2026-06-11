@@ -31,11 +31,16 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { overflow-x: hidden; }
+    @media (max-width: 768px) {
+      input, textarea, select { font-size: 16px !important; }
+    }
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ─── TOPBAR ─── */
@@ -188,21 +193,27 @@
     .hamburger { display: none; }
 
     @media (max-width: 768px) {
-      .nav-inner { height: auto; padding: 10px 16px; flex-wrap: wrap; }
-      .logo-wrap img { height: 70px; }
+      .nav-inner { height: auto; min-height: 0; padding: 10px 16px; position: relative; }
+      .logo-wrap { height: auto; }
+      .logo-wrap img { height: 50px; }
       .scan-me { display: none; }
       .nav-links {
         display: none !important;
-        width: 100%;
-        order: 3;
         flex-direction: column !important;
         gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        z-index: 200;
       }
       .nav-links.open { display: flex !important; }
       .nav-links li { width: 100%; }
       .nav-links a {
         display: block;
-        padding: 12px 0;
+        padding: 14px 16px;
         border-top: 1px solid var(--border);
       }
       .nav-icons { gap: 16px; }
@@ -235,6 +246,7 @@
 
     @media (max-width: 960px) {
       .product-area { grid-template-columns: 1fr; gap: 30px; }
+      .gallery-col { position: static; top: auto; }
     }
 
     /* ─── LEFT: GALLERY + PREVIEW ─── */
@@ -1030,11 +1042,13 @@
     .divider { height: 1px; background: var(--border); margin: 0 0 14px; }
     .mt-2 { margin-top: 8px; }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .product-area { padding: 0 16px; }
       .product-title { font-size: 1.5rem; }
       .price-main { font-size: 1.6rem; }
-      .balloon-stage { width: 260px; height: 320px; }
+      .balloon-stage { width: 240px; height: 300px; }
+      .main-preview-wrap { padding: 16px; min-height: auto; }
+      .gallery-col { position: static; top: auto; }
     }
 
     /* Kollektionen filter buttons */
