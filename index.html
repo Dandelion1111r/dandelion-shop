@@ -1707,6 +1707,9 @@
         <span>Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
       </div>
+      <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Bestellung über WhatsApp senden
+      </button>
       <button class="btn-clear" id="clearCartBtn">🗑 Warenkorb leeren</button>
     </div>
   </div>
@@ -2043,6 +2046,8 @@
     cart = [];
     updateCartUI();
   });
+
+  document.getElementById('cartWhatsappBtn')?.addEventListener('click', () => whatsappBtn.click());
 
   whatsappBtn.addEventListener('click', () => {
     if (!cart.length) {
