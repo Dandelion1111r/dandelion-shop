@@ -1256,13 +1256,22 @@
       <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:auto;">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-heart"></i>
+      <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;"></i>
+      <span onclick="showFavorites()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;">
+        <i class="fas fa-heart"></i>
+        <span id="navFavBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
+      </span>
       <span onclick="showPage('shop');setTimeout(()=>document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}),80);return false;" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;">
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
       <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();"></i>
+    </div>
+  </div>
+  <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
+    <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;">
+      <input id="navSearchInput" type="text" placeholder="Produkte durchsuchen…" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
+      <i class="fas fa-times" onclick="toggleSearchBar()" style="cursor:pointer;align-self:center;font-size:1.1rem;color:var(--text-light);"></i>
     </div>
   </div>
 </header>
@@ -2387,6 +2396,8 @@
   }
   window.showPage = showPage;
 
+  updateFavBadge();
+
   window.closeDiscountPopup = function() {
     document.getElementById('discountPopup').style.display = 'none';
     localStorage.setItem('discountPopupShown', '1');
@@ -2515,14 +2526,79 @@
     { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball – beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain' },
   ];
 
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem('favorites') || '[]'); } catch(e) { return []; }
+  }
+  function updateFavBadge() {
+    const favs = getFavorites();
+    const badge = document.getElementById('navFavBadge');
+    if (!badge) return;
+    if (favs.length > 0) {
+      badge.textContent = favs.length;
+      badge.style.display = 'flex';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+  window.toggleFavorite = function(id) {
+    let favs = getFavorites();
+    if (favs.includes(id)) favs = favs.filter(f => f !== id);
+    else favs.push(id);
+    localStorage.setItem('favorites', JSON.stringify(favs));
+    updateFavBadge();
+    if (currentKollFilter === 'favorites') renderKoll('favorites');
+    else {
+      const heart = document.getElementById('fav-' + id);
+      if (heart) heart.classList.toggle('active', favs.includes(id));
+    }
+  };
+  window.showFavorites = function() {
+    showPage('kollektionen');
+    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
+    renderKoll('favorites');
+  };
+  window.toggleSearchBar = function() {
+    const bar = document.getElementById('navSearchBar');
+    const show = bar.style.display !== 'block';
+    bar.style.display = show ? 'block' : 'none';
+    if (show) {
+      document.getElementById('navSearchInput').value = '';
+      document.getElementById('navSearchInput').focus();
+    } else {
+      runProductSearch('');
+    }
+  };
+  window.runProductSearch = function(query) {
+    showPage('kollektionen');
+    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
+    const q = query.trim().toLowerCase();
+    if (!q) { renderKoll('all'); return; }
+    currentKollFilter = 'search';
+    const list = kollProducts.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+    renderKollList(list);
+  };
+  let currentKollFilter = 'all';
   function renderKoll(filter) {
-    const list = filter === 'all' ? kollProducts : kollProducts.filter(p => p.cat === filter);
+    currentKollFilter = filter;
+    const favs = getFavorites();
+    let list;
+    if (filter === 'all') list = kollProducts;
+    else if (filter === 'favorites') list = kollProducts.filter(p => favs.includes(p.id));
+    else list = kollProducts.filter(p => p.cat === filter);
+    renderKollList(list);
+  }
+  function renderKollList(list) {
+    const favs = getFavorites();
+    if (list.length === 0) {
+      document.getElementById('koll-grid').innerHTML = `<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:40px 0;">Keine Produkte gefunden.</p>`;
+      return;
+    }
     document.getElementById('koll-grid').innerHTML = list.map(p => `
       <div class="koll-card">
         <div class="koll-img" onclick="openProdModal(${p.id})" style="cursor:pointer;">
           ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
           ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${p.badge}</span>` : ''}
-          <div style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;pointer-events:none;z-index:3;"><i class="fas fa-search"></i></div>
+          <div id="fav-${p.id}" class="fav-heart ${favs.includes(p.id) ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;z-index:3;"><i class="${favs.includes(p.id) ? 'fas' : 'far'} fa-heart"></i></div>
         </div>
         <div class="koll-body">
           <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${p.name}</div>
