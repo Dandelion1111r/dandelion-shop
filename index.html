@@ -2526,6 +2526,37 @@
     { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball, beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain' },
   ];
 
+  // SEO: Product schema markup (JSON-LD) for search engines
+  (function injectProductSchema() {
+    const baseUrl = 'https://dandelion1111r.github.io/dandelion-shop/';
+    const itemListElement = kollProducts.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Product",
+        "name": p.name,
+        "description": p.desc,
+        "image": baseUrl + encodeURIComponent(p.img || (p.imgs && p.imgs[0]) || ''),
+        "url": baseUrl + "#produkt-" + p.id,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": p.price.toFixed(2),
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }));
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": itemListElement
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  })();
+
   function getFavorites() {
     try { return JSON.parse(localStorage.getItem('favorites') || '[]'); } catch(e) { return []; }
   }
