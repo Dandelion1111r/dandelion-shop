@@ -1899,6 +1899,17 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- ═══ COOKIE CONSENT BANNER ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.15);z-index:3000;padding:16px 20px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;">
+    <p style="margin:0;font-size:var(--fs-sm);color:var(--text);flex:1 1 280px;">🍪 Wir verwenden Cookies, um deine Erfahrung zu verbessern und unsere Website zu analysieren. Mehr dazu in unserer Datenschutzerklärung.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button onclick="setCookieConsent(false)" style="padding:10px 18px;border-radius:10px;border:1px solid var(--purple);background:#fff;color:var(--purple);font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Nur notwendige</button>
+      <button onclick="setCookieConsent(true)" style="padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ DISCOUNT POPUP ═══ -->
 <div id="discountPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:32px 26px;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
@@ -2380,6 +2391,17 @@
     document.getElementById('discountPopup').style.display = 'none';
     localStorage.setItem('discountPopupShown', '1');
   };
+
+  window.setCookieConsent = function(accepted) {
+    localStorage.setItem('cookieConsent', accepted ? 'all' : 'necessary');
+    const el = document.getElementById('cookieBanner');
+    if (el) el.style.display = 'none';
+  };
+
+  if (!localStorage.getItem('cookieConsent')) {
+    const el = document.getElementById('cookieBanner');
+    if (el) el.style.display = 'block';
+  }
 
   if (!localStorage.getItem('discountPopupShown')) {
     setTimeout(() => {
