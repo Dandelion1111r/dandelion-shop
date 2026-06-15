@@ -334,6 +334,13 @@
       word-break: break-word;
     }
 
+    .balloon-text-display.fx-bold { font-weight: 900; }
+    .balloon-text-display.fx-italic { font-style: italic; }
+    .balloon-text-display.fx-shadow { text-shadow: 2px 3px 6px rgba(0,0,0,0.35); }
+    .balloon-text-display.fx-outline { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.25); -webkit-text-stroke: 1px rgba(0,0,0,0.15); }
+    .balloon-text-display.fx-glitter { background: linear-gradient(90deg,#f39c12,#e91e63,#8e44ad,#f39c12); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; animation: glitterShine 3s linear infinite; }
+    @keyframes glitterShine { to { background-position: 200% center; } }
+
     .balloon-emoji-display {
       font-size: 1.8rem;
       margin-bottom: 4px;
@@ -1250,10 +1257,14 @@
       </div>
     </div>
     <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;">
-      <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav">Shop</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link">Kollektionen</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link">Über uns</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link">Kontakt</a></li>
+      <li style="list-style:none;display:flex;gap:6px;align-items:center;">
+        <span onclick="setLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
+        <span onclick="setLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
+      </li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav" data-i18n="nav_shop">Shop</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:auto;">
       <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;"></i>
@@ -1460,6 +1471,7 @@
           <i class="fas fa-shopping-bag"></i> In den Warenkorb
         </button>
       </div>
+      <div id="prodModalBundle" style="margin-top:24px;border-top:1px solid #eee;padding-top:18px;"></div>
     </div>
   </div>
 </div>
@@ -1474,14 +1486,14 @@
     </a>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:24px 16px 12px;max-width:1200px;margin:0 auto;" id="koll-filters">
-    <button class="koll-filter active" onclick="filterKoll('all',this)">Alle</button>
-    <button class="koll-filter" onclick="filterKoll('geburtstag',this)">🎂 Geburtstag</button>
-    <button class="koll-filter" onclick="filterKoll('hochzeit',this)">💍 Hochzeit</button>
-    <button class="koll-filter" onclick="filterKoll('babyparty',this)">👶 Babyparty</button>
-    <button class="koll-filter" onclick="filterKoll('liebe',this)">💕 Liebe</button>
-    <button class="koll-filter" onclick="filterKoll('fussball',this)">⚽ Fußball</button>
-    <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)">🧸 Kuscheltiere</button>
-    <button class="koll-filter" onclick="filterKoll('sonstiges',this)">✨ Sonstiges</button>
+    <button class="koll-filter active" onclick="filterKoll('all',this)" data-i18n="filter_all">Alle</button>
+    <button class="koll-filter" onclick="filterKoll('geburtstag',this)" data-i18n="filter_geburtstag">🎂 Geburtstag</button>
+    <button class="koll-filter" onclick="filterKoll('hochzeit',this)" data-i18n="filter_hochzeit">💍 Hochzeit</button>
+    <button class="koll-filter" onclick="filterKoll('babyparty',this)" data-i18n="filter_babyparty">👶 Babyparty</button>
+    <button class="koll-filter" onclick="filterKoll('liebe',this)" data-i18n="filter_liebe">💕 Liebe</button>
+    <button class="koll-filter" onclick="filterKoll('fussball',this)" data-i18n="filter_fussball">⚽ Fußball</button>
+    <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)" data-i18n="filter_kuscheltiere">🧸 Kuscheltiere</button>
+    <button class="koll-filter" onclick="filterKoll('sonstiges',this)" data-i18n="filter_sonstiges">✨ Sonstiges</button>
   </div>
   <div style="max-width:1200px;margin:0 auto;padding:8px 16px 60px;">
     <div id="koll-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;"></div>
@@ -1555,6 +1567,7 @@
             <path d="M170 365 Q155 390 165 410" stroke="#c080a0" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="4 3"/>
           </svg>
           <div class="balloon-overlay" id="balloonOverlay">
+            <img id="customImageDisplay" style="display:none;max-width:55%;max-height:55%;object-fit:contain;border-radius:8px;">
             <span class="balloon-emoji-display" id="emojiDisplay" style="display:none;"></span>
             <div class="balloon-text-display" id="textDisplay" style="color:#8e44ad;"></div>
           </div>
@@ -1582,8 +1595,8 @@
   <!-- RIGHT: CONFIGURATOR -->
   <div class="config-col">
     <div class="product-header">
-      <h1 class="product-title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
-      <p class="product-subtitle">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
+      <h1 class="product-title" data-i18n="hero_title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
+      <p class="product-subtitle" data-i18n="hero_sub">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
       <div class="star-row">
         <div class="stars"></div>
         <span class="star-count"></span>
@@ -1613,6 +1626,13 @@
         <input type="range" id="fontSizeSlider" min="14" max="32" value="20">
         <span class="slider-val" id="fontSizeVal">20px</span>
       </div>
+      <label class="form-label">Eigenes Bild / Logo hochladen <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+      <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
+      <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
+        <img id="customImageThumb" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
+        <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;">Wird auf dem Ballon angezeigt</span>
+        <i class="fas fa-times" id="removeCustomImage" style="cursor:pointer;color:var(--text-light);"></i>
+      </div>
     </div>
 
     <div class="config-card">
@@ -1636,6 +1656,23 @@
         <div class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume"></div>
         <div class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki"></div>
       </div>
+      <label class="form-label">Ballontyp</label>
+      <select id="balloonTypeSelect" class="form-select">
+        <option value="latex" data-price="0">🎈 Latex-Ballon (rund)</option>
+        <option value="herz" data-price="3">💗 Herz-Ballon (+3,00 €)</option>
+        <option value="stern" data-price="3">⭐ Stern-Ballon (+3,00 €)</option>
+        <option value="folie" data-price="6">🌟 Folienballon Premium (+6,00 €)</option>
+        <option value="bubble" data-price="9">🔮 Bubble-Ballon (transparent) (+9,00 €)</option>
+      </select>
+      <label class="form-label">Text-Effekt</label>
+      <select id="textEffectSelect" class="form-select">
+        <option value="normal">Normal</option>
+        <option value="bold">Fett</option>
+        <option value="italic">Kursiv</option>
+        <option value="shadow">Mit Schatten</option>
+        <option value="outline">Umriss</option>
+        <option value="glitter">✨ Glitzer-Effekt</option>
+      </select>
       <label class="form-label">Art der Füllung</label>
       <select id="fillingSelect" class="form-select">
         <option value="none">Keine Füllung</option>
@@ -1696,8 +1733,17 @@
     </div>
 
     <div class="cta-area">
+      <div style="display:flex;gap:10px;margin-bottom:12px;">
+        <button class="qty-btn" id="saveDesignBtn" style="flex:1;width:auto;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);background:#f7eefb;border:1px solid var(--purple);padding:12px;">
+          <i class="fas fa-bookmark"></i> Speichern
+        </button>
+        <button class="qty-btn" id="shareDesignBtn" style="flex:1;width:auto;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);background:#f7eefb;border:1px solid var(--purple);padding:12px;">
+          <i class="fas fa-share-alt"></i> Teilen
+        </button>
+      </div>
+      <div id="savedDesignsRow" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
       <button class="btn-main" id="addToCartBtn">
-        <i class="fas fa-shopping-bag"></i> In den Warenkorb
+        <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
       </button>
       <button class="btn-whatsapp" id="whatsappBtn">
         <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Jetzt über WhatsApp bestellen
@@ -1710,16 +1756,16 @@
     </div>
 
     <div class="cart-card" id="cartCard">
-      <h3><i class="fas fa-shopping-bag"></i> Warenkorb <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
+      <h3><i class="fas fa-shopping-bag"></i> <span data-i18n="cart_title">Warenkorb</span> <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
       <div id="cartItemsList"></div>
       <div class="cart-total-row">
         <span>Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
       </div>
       <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
-        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Bestellung über WhatsApp senden
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="send_whatsapp">Bestellung über WhatsApp senden</span>
       </button>
-      <button class="btn-clear" id="clearCartBtn">🗑 Warenkorb leeren</button>
+      <button class="btn-clear" id="clearCartBtn"><span data-i18n="clear_cart">🗑 Warenkorb leeren</span></button>
     </div>
   </div>
 </div>
@@ -1943,7 +1989,10 @@
     symbol: '',
     card: '',
     persona: '',
-    qty: 1
+    qty: 1,
+    balloonType: 'latex',
+    balloonTypePrice: 0,
+    textEffect: 'normal'
   };
 
   let cart = [];
@@ -2010,6 +2059,21 @@
     updatePreview();
   });
 
+  document.getElementById('balloonTypeSelect').addEventListener('change', (e) => {
+    state.balloonType = e.target.value;
+    state.balloonTypePrice = parseFloat(e.target.selectedOptions[0].dataset.price) || 0;
+    updatePriceDisplay();
+  });
+
+  document.getElementById('textEffectSelect').addEventListener('change', (e) => {
+    state.textEffect = e.target.value;
+    updatePreview();
+  });
+
+  function updatePriceDisplay() {
+    document.querySelector('.price-main').textContent = (PRICE + state.balloonTypePrice).toFixed(2).replace('.',',') + ' €';
+  }
+
   fillingSelect.addEventListener('change', () => {
     state.filling = fillingSelect.value;
     updatePreview();
@@ -2042,6 +2106,126 @@
     if (state.qty < 20) { state.qty++; qtyVal.value = state.qty; }
   });
 
+  document.getElementById('customImageInput').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 4 * 1024 * 1024) {
+      showToast('⚠️ Bild ist zu groß (max. 4 MB)');
+      e.target.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      state.customImage = reader.result;
+      document.getElementById('customImageThumb').src = state.customImage;
+      document.getElementById('customImagePreviewRow').style.display = 'flex';
+      updatePreview();
+      showToast('🖼️ Bild hinzugefügt!');
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('removeCustomImage').addEventListener('click', () => {
+    state.customImage = null;
+    document.getElementById('customImageInput').value = '';
+    document.getElementById('customImagePreviewRow').style.display = 'none';
+    updatePreview();
+  });
+
+  function encodeDesign(s) {
+    return btoa(encodeURIComponent(JSON.stringify({
+      message: s.message, textColor: s.textColor, fontSize: s.fontSize,
+      balloonColor: s.balloonColor, filling: s.filling, design: s.design,
+      symbol: s.symbol, card: s.card, balloonType: s.balloonType,
+      balloonTypePrice: s.balloonTypePrice, textEffect: s.textEffect
+    })));
+  }
+  function decodeDesign(str) {
+    try { return JSON.parse(decodeURIComponent(atob(str))); } catch(e) { return null; }
+  }
+  function applyDesign(d) {
+    if (!d) return;
+    Object.assign(state, d);
+    messageInput.value = state.message || '';
+    cardTextarea.value = state.card || '';
+    charCount.textContent = (state.card || '').length;
+    fontSizeSlider.value = state.fontSize;
+    fontSizeVal.textContent = state.fontSize + 'px';
+    designSelect.value = state.design || 'default';
+    fillingSelect.value = state.filling || 'mini-balloons';
+    symbolSelect.value = state.symbol || '';
+    document.getElementById('balloonTypeSelect').value = state.balloonType || 'latex';
+    document.getElementById('textEffectSelect').value = state.textEffect || 'normal';
+    state.balloonTypePrice = parseFloat(document.getElementById('balloonTypeSelect').selectedOptions[0].dataset.price) || 0;
+    updatePriceDisplay();
+    document.querySelectorAll('#balloonColorSwatches .swatch').forEach(s => {
+      s.classList.toggle('active', s.dataset.color === state.balloonColor);
+      if (s.dataset.color === state.balloonColor) document.getElementById('selectedColorName').textContent = s.dataset.name;
+    });
+    document.querySelectorAll('#textColorSwatches .text-swatch').forEach(s => {
+      s.classList.toggle('active', s.dataset.color === state.textColor);
+    });
+    if (state.customImage) {
+      document.getElementById('customImageThumb').src = state.customImage;
+      document.getElementById('customImagePreviewRow').style.display = 'flex';
+    } else {
+      document.getElementById('customImagePreviewRow').style.display = 'none';
+    }
+    updatePreview();
+  }
+  function getSavedDesigns() {
+    try { return JSON.parse(localStorage.getItem('savedDesigns') || '[]'); } catch(e) { return []; }
+  }
+  function renderSavedDesigns() {
+    const saved = getSavedDesigns();
+    const row = document.getElementById('savedDesignsRow');
+    if (saved.length === 0) { row.style.display = 'none'; row.innerHTML = ''; return; }
+    row.style.display = 'flex';
+    row.innerHTML = saved.map((d, i) => `
+      <span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #eee;border-radius:20px;padding:6px 10px;font-size:var(--fs-xs);cursor:pointer;" onclick="loadSavedDesign(${i})">
+        <span style="width:14px;height:14px;border-radius:50%;background:${d.balloonColor};display:inline-block;border:1px solid #ddd;"></span>
+        ${d.message ? d.message.substring(0,16) : 'Design ' + (i+1)}
+        <i class="fas fa-times" style="color:var(--text-light);" onclick="event.stopPropagation();deleteSavedDesign(${i})"></i>
+      </span>`).join('');
+  }
+  window.loadSavedDesign = function(i) {
+    const saved = getSavedDesigns();
+    applyDesign(saved[i]);
+    showToast('💾 Design geladen!');
+  };
+  window.deleteSavedDesign = function(i) {
+    const saved = getSavedDesigns();
+    saved.splice(i, 1);
+    localStorage.setItem('savedDesigns', JSON.stringify(saved));
+    renderSavedDesigns();
+  };
+  document.getElementById('saveDesignBtn').addEventListener('click', () => {
+    const saved = getSavedDesigns();
+    saved.push({
+      message: state.message, textColor: state.textColor, fontSize: state.fontSize,
+      balloonColor: state.balloonColor, filling: state.filling, design: state.design,
+      symbol: state.symbol, card: state.card, balloonType: state.balloonType,
+      balloonTypePrice: state.balloonTypePrice, textEffect: state.textEffect
+    });
+    localStorage.setItem('savedDesigns', JSON.stringify(saved));
+    renderSavedDesigns();
+    showToast('💾 Design gespeichert!');
+  });
+  document.getElementById('shareDesignBtn').addEventListener('click', () => {
+    const url = location.origin + location.pathname + '?design=' + encodeDesign(state);
+    if (navigator.share) {
+      navigator.share({ title: 'Mein Dandelion 11:11 Ballon-Design', text: 'Schau dir mein personalisiertes Ballon-Design an!', url }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(url).then(() => showToast('🔗 Link kopiert!'));
+    }
+  });
+  renderSavedDesigns();
+  (function loadDesignFromUrl() {
+    const params = new URLSearchParams(location.search);
+    const d = params.get('design');
+    if (d) applyDesign(decodeDesign(d));
+  })();
+
   addToCartBtn.addEventListener('click', () => {
     for (let i = 0; i < state.qty; i++) {
       cart.push({
@@ -2054,7 +2238,10 @@
         design: state.design,
         card: state.card,
         persona: state.persona,
-        price: PRICE,
+        customImage: state.customImage,
+        balloonType: state.balloonType,
+        textEffect: state.textEffect,
+        price: PRICE + state.balloonTypePrice,
         date: new Date()
       });
     }
@@ -2084,9 +2271,12 @@
       msg += `*Ballon #${i+1}*\n`;
       if (item.message) msg += `📝 Text: ${item.message}\n`;
       if (item.symbol) msg += `✨ Symbol: ${item.symbol}\n`;
+      if (item.balloonType && item.balloonType !== 'latex') msg += `🎈 Ballontyp: ${item.balloonType}\n`;
+      if (item.textEffect && item.textEffect !== 'normal') msg += `🔠 Text-Effekt: ${item.textEffect}\n`;
       msg += `🎨 Farbe: ${item.balloonColor}\n`;
       if (item.filling !== 'none') msg += `🎈 Füllung: ${item.filling}\n`;
       if (item.card) msg += `💌 Karte: ${item.card}\n`;
+      if (item.customImage) msg += `🖼️ Eigenes Bild hochgeladen (wird separat hier im Chat gesendet)\n`;
       msg += `💰 Preis: ${item.price.toFixed(2)} €\n`;
       msg += `📅 ${item.date.toLocaleDateString('de-DE')}\n\n`;
     });
@@ -2218,8 +2408,48 @@
       closeProdModal();
       addKollProduct(id);
     };
+    renderProdBundle(p);
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+  };
+
+  function renderProdBundle(p) {
+    const box = document.getElementById('prodModalBundle');
+    const candidates = kollProducts.filter(x => x.id !== p.id && x.cat === p.cat);
+    const pool = candidates.length >= 2 ? candidates : kollProducts.filter(x => x.id !== p.id);
+    const partner = pool[Math.floor(Math.random() * pool.length)];
+    if (!partner) { box.innerHTML = ''; return; }
+    const bundlePrice = (p.price + partner.price) * 0.9;
+    box.innerHTML = `
+      <h3 style="font-size:1rem;font-weight:700;color:var(--purple);margin-bottom:10px;">💡 Passt perfekt dazu</h3>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:200px;">
+          <img src="${partner.img || (partner.imgs && partner.imgs[0]) || ''}" alt="${partner.name}" style="width:56px;height:56px;object-fit:cover;border-radius:10px;">
+          <div>
+            <div style="font-weight:600;font-size:var(--fs-sm);">${partner.name}</div>
+            <div style="font-size:var(--fs-xs);color:var(--text-light);">${partner.price.toFixed(2).replace('.',',')} €</div>
+          </div>
+        </div>
+        <button onclick="addBundle(${p.id},${partner.id})" style="background:#f7eefb;border:1px solid var(--purple);color:var(--purple);border-radius:50px;padding:10px 18px;font-size:var(--fs-sm);font-weight:600;cursor:pointer;white-space:nowrap;">
+          🎁 Bundle für ${bundlePrice.toFixed(2).replace('.',',')} € <span style="text-decoration:line-through;color:var(--text-light);font-weight:400;">${(p.price+partner.price).toFixed(2).replace('.',',')} €</span>
+        </button>
+      </div>`;
+  }
+
+  window.addBundle = function(id1, id2) {
+    addKollProduct(id1);
+    addKollProduct(id2);
+    const last = cart[cart.length - 1];
+    const beforeLast = cart[cart.length - 2];
+    if (last && beforeLast) {
+      const total = beforeLast.price + last.price;
+      const discounted = total * 0.9;
+      const diff = total - discounted;
+      last.price = Math.max(0, last.price - diff);
+      updateCartUI();
+    }
+    closeProdModal();
+    showToast('🎁 Bundle mit 10% Rabatt zum Warenkorb hinzugefügt!');
   };
 
   window.prodModalCarouselNav = function(dir) {
@@ -2265,9 +2495,18 @@
       textDisplay.textContent = state.message;
       textDisplay.style.color = state.textColor;
       textDisplay.style.fontSize = state.fontSize + 'px';
+      textDisplay.className = 'balloon-text-display' + (state.textEffect !== 'normal' ? ' fx-' + state.textEffect : '');
+      if (state.textEffect === 'glitter') textDisplay.style.color = '';
     } else {
       emojiDisplay.style.display = 'none';
       textDisplay.textContent = '';
+    }
+    const customImageDisplay = document.getElementById('customImageDisplay');
+    if (state.customImage) {
+      customImageDisplay.src = state.customImage;
+      customImageDisplay.style.display = 'block';
+    } else {
+      customImageDisplay.style.display = 'none';
     }
     updateFilling();
   }
@@ -2396,6 +2635,39 @@
   }
   window.showPage = showPage;
 
+  const i18n = {
+    de: {
+      nav_shop: 'Shop', nav_koll: 'Kollektionen', nav_ueber: 'Über uns', nav_kontakt: 'Kontakt',
+      hero_title: 'Personalisierter Ballon nach deinem Wunsch ✨',
+      hero_sub: 'Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung',
+      filter_all: 'Alle', filter_geburtstag: '🎂 Geburtstag', filter_hochzeit: '💍 Hochzeit',
+      filter_babyparty: '👶 Babyparty', filter_liebe: '💕 Liebe', filter_fussball: '⚽ Fußball',
+      filter_kuscheltiere: '🧸 Kuscheltiere', filter_sonstiges: '✨ Sonstiges',
+      add_to_cart: 'In den Warenkorb', send_whatsapp: 'Bestellung über WhatsApp senden',
+      clear_cart: '🗑 Warenkorb leeren', cart_title: 'Warenkorb'
+    },
+    ro: {
+      nav_shop: 'Magazin', nav_koll: 'Colecții', nav_ueber: 'Despre noi', nav_kontakt: 'Contact',
+      hero_title: 'Balon personalizat după dorința ta ✨',
+      hero_sub: 'Balonul tău unic, personalizat cu text, simboluri și umplutură colorată',
+      filter_all: 'Toate', filter_geburtstag: '🎂 Aniversare', filter_hochzeit: '💍 Nuntă',
+      filter_babyparty: '👶 Botez/Baby', filter_liebe: '💕 Dragoste', filter_fussball: '⚽ Fotbal',
+      filter_kuscheltiere: '🧸 Jucării', filter_sonstiges: '✨ Diverse',
+      add_to_cart: 'Adaugă în coș', send_whatsapp: 'Trimite comanda pe WhatsApp',
+      clear_cart: '🗑 Golește coșul', cart_title: 'Coș'
+    }
+  };
+  window.setLang = function(lang) {
+    localStorage.setItem('lang', lang);
+    document.getElementById('lang-de').style.opacity = lang === 'de' ? '1' : '0.4';
+    document.getElementById('lang-ro').style.opacity = lang === 'ro' ? '1' : '0.4';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+  };
+  setLang(localStorage.getItem('lang') || 'de');
+
   updateFavBadge();
 
   window.closeDiscountPopup = function() {
@@ -2499,165 +2771,4 @@
     { id:18, name:'Teddy Geschenkbox mit Ballon', desc:'Liebevolle Geschenkbox mit kuscheligem Teddybären, personalisiertem Ballon mit Wunschtext in Lila-Weiß und einer großen Auswahl an Süßigkeiten wie Milka und Haribo. Perfekt für besondere Glückwünsche.', price:69.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-gift-box.png', fit:'contain' },
     { id:19, name:'Regenbogen-Einhorn im Ballon', desc:'Magischer transparenter Stuffed-Ballon mit einem bunten Regenbogen-Einhorn-Plüschtier und pastellfarbenen Mini-Ballons im Inneren, verziert mit rosa Schleife und Geburtstags-Topper. Ein unvergessliches Highlight zum Auspacken.', price:79.00, cat:'kuscheltiere', badge:'Magisch', emoji:'🌈', img:'rainbow-unicorn-balloon.png', fit:'contain' },
     { id:20, name:'Premium Blumenbox mit Schmetterling', desc:'Exklusive Blumenbox mit einer eleganten Mischung aus Anemonen, Rosen und Hortensien in Rosa, Lila und Violett, verziert mit einem bunten Schmetterling und edlen Bändern. Ein luxuriöses Geschenk für besondere Anlässe.', price:85.00, cat:'sonstiges', badge:'Exklusiv', emoji:'🦋', img:'butterfly-flower-box.png', fit:'contain' },
-    { id:21, name:'Whiskey & Ferrero Strauß', desc:'Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel\'s Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Papier mit passender Schleife.', price:69.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🥃', img:'whiskey-ferrero-bouquet.png', fit:'contain' },
-    { id:22, name:'Geburtstagsballon Blau mit Blumenbox', desc:'Großer personalisierter Ballon mit Glitzereffekt und Schriftzug "Alles Gute zum Geburtstag", umgeben von zartblauen Hortensien, pfirsichfarbenen Rosen und frischem Eukalyptus in einer eleganten Box mit Feen-Motiv.', price:85.00, cat:'geburtstag', badge:'Beliebt', emoji:'🧚', img:'birthday-balloon-blue-flowerbox.png', fit:'contain' },
-    { id:23, name:'Blumenkorb mit Foto-Medaillon', desc:'Wunderschöner Blumenkorb mit weißen, gelben und pinken Blüten sowie lila Hortensien, verziert mit einem individuell gestalteten Foto-Medaillon. Ein einzigartiges, persönliches Geschenk für besondere Menschen.', price:75.00, cat:'sonstiges', badge:'Individuell', emoji:'📷', img:'flower-basket-photo-medallion.png', fit:'contain' },
-    { id:24, name:'Heißluftballon "Happy Valentine\'s Day"', desc:'Romantische Geschenkbox in Heißluftballon-Form mit der Aufschrift "Happy Valentine\'s Day", goldenen Ferrero-Rocher-Pralinen, rosa Rosen und grünem Akzent. Ein Hingucker für Verliebte.', price:75.00, cat:'liebe', badge:'Romantisch', emoji:'💗', img:'valentines-balloon-box.png', fit:'contain' },
-    { id:25, name:'Teddybär im Geschenkballon', desc:'Kuscheliger Teddybär mit roter Satinschleife, eingehüllt in einen großen transparenten Stuffed-Ballon und präsentiert auf einer eleganten Box mit roter Dekoration. Ein herzerwärmendes Geschenk für jeden Anlass.', price:59.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-stuffed-balloon-red.png', fit:'contain' },
-    { id:26, name:'Herz-Box mit Ferrero & roten Rosen', desc:'Romantische herzförmige Geschenkbox gefüllt mit goldenen Ferrero-Rocher-Pralinen und umrahmt von samtroten Rosen. Verziert mit einer eleganten roten Schleife, das perfekte Geschenk für besondere Liebesbeweise.', price:55.00, cat:'liebe', badge:'Romantisch', emoji:'❤️', img:'heart-ferrero-roses-box.png', fit:'contain' },
-    { id:27, name:'Kinder Joy Blumenstrauß', desc:'Süßer Strauß mit drei Kinder-Joy-Überraschungseiern, eingebettet in zartrosa Schleierkraut und dekoriert mit rosafarbenem Verpackungspapier und Satinschleife. Eine fröhliche Überraschung für Kinder und Naschkatzen.', price:35.00, cat:'babyparty', badge:'Süß', emoji:'🍬', img:'kinder-joy-bouquet.png', fit:'contain' },
-    { id:28, name:'Fußballschuh-Blumenstrauß', desc:'Origineller Strauß für Fußballfans: ein Paar pinke Fußballschuhe eingebettet in pinke Rosen, Gerbera in Pink und Bordeaux sowie weißen Schleierkraut. Ein Geschenk, das garantiert in Erinnerung bleibt.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-shoes-bouquet.png', fit:'contain' },
-    { id:29, name:'Abschluss-Ballon "conGRADulations"', desc:'Eleganter weißer Ballon mit Doktorhut und goldener Quaste, individuell bedruckt mit "conGRADulations" und dem Namen des Absolventen. Verziert mit schwarzer Schleife, das perfekte Geschenk zum Schulabschluss oder Studienabschluss.', price:45.00, cat:'sonstiges', badge:'Individuell', emoji:'🎓', img:'graduation-balloon.png', fit:'contain' },
-    { id:30, name:'Fußball-Fan Strauß "Ronaldo"', desc:'Einzigartiger Strauß für Fußballfans mit Cristiano-Ronaldo-Motiven, Vereinswappen, Trikot mit Wunschnummer und Fußball-Dekoration auf marineblauem Papier. Das ultimative Geschenk für jeden Fußballfan.', price:55.00, cat:'fussball', badge:'Fan-Edition', emoji:'⚽', img:'ronaldo-fan-bouquet.png', fit:'contain' },
-    { id:31, name:'Fußballschuh-Strauß "Nike"', desc:'Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem Kraftpapier. Ein originelles Geschenk für jeden Fußballfan.', price:60.00, cat:'fussball', badge:'Sportlich', emoji:'⚽', img:'produs31.png', fit:'contain' },
-    { id:32, name:'Fußballschuh-Vase mit weißen Rosen', desc:'Außergewöhnliches Arrangement aus silbernen Fußballschuhen als Vase, gefüllt mit weißen Rosen und Schleierkraut, präsentiert auf einem eleganten Metalltablett mit einem Fußball als Deko-Element. Ein echter Hingucker für Fußballfans.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'produs32.png', fit:'contain' },
-    { id:33, name:'Gesicht-Skulptur mit Trockenblumen', desc:'Außergewöhnliche Deko-Skulptur in Silber, ein Gesicht mit verdeckenden Händen, gekrönt von einem üppigen Arrangement aus Trockenblumen, rosa Schleierkraut und Eukalyptus. Ein modernes Statement-Stück für Liebhaber außergewöhnlicher Deko.', price:79.00, cat:'sonstiges', badge:'Einzigartig', emoji:'🌿', img:'face-sculpture-dried-flowers.png', fit:'contain' },
-    { id:34, name:'Oster-Blumenbox mit Drachen', desc:'Fröhliche Osterdekoration mit einem niedlichen Drachen im Hasenkostüm und Osterkörbchen, umgeben von pastellfarbenen Rosen in Gelb, Rosa und Blau sowie bunten Ostereiern und einem Marienkäfer. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-dragon-flower-box.png', fit:'contain' },
-    { id:35, name:'Lamborghini Modellauto Bilderrahmen', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame.png', fit:'contain' },
-    { id:36, name:'Oster-Blumenbox mit Häschen', desc:'Bezaubernde Osterkomposition mit einem niedlichen Häschen-Pferd, umgeben von Rosen in Pink, Blau und Lila, Pastell-Ostereiern, einem Marienkäfer und einem kleinen gelben Küken. Ein wundervolles Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐣', img:'easter-bunny-flower-box.png', fit:'contain' },
-    { id:37, name:'Oster-Blumenbox mit Hase & Küken', desc:'Liebevolle Osterbox mit einem süßen weißen Hasen, der ein gelbes Küken hält, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein herzerwärmendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-rabbit-chick-box.png', fit:'contain' },
-    { id:38, name:'Oster-Blumenbox mit Macaron-Küken', desc:'Süße Osterdekoration mit einem Küken in Hasenohren, das bunte Macarons hält, eingebettet in zartblaue, lila und pinke Rosen mit Pastell-Ostereiern und Schoko-Figuren. Ein farbenfrohes Geschenk für Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐥', img:'easter-chick-macaron-box.png', fit:'contain' },
-    { id:39, name:'Oster-Blumenbox mit Astronauten-Küken', desc:'Originelle Osterkomposition mit einem niedlichen Küken im Astronautenanzug, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein außergewöhnliches Geschenk für kleine Entdecker.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🚀', img:'easter-astronaut-chick-box.png', fit:'contain' },
-    { id:40, name:'Oster-Blumenbox mit grünem Drachen', desc:'Fröhliche Osterbox mit einem freundlichen grünen Drachen mit Hasenohren, umgeben von zartblauen, lila und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐉', img:'easter-green-dragon-box.png', fit:'contain' },
-    { id:41, name:'Lamborghini Modellauto Bilderrahmen Blau', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit türkisfarbenem Hintergrund und gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame-blue.png', fit:'contain' },
-    { id:42, name:'Oster-Blumenbox mit Hasenfamilie', desc:'Herzerwärmende Osterbox mit zwei kuscheligen Hasenfiguren, ein großer Hase küsst liebevoll ein Baby-Häschen in einer Eierschale, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein rührendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-bunny-family-box.png', fit:'contain' },
-    { id:43, name:'Oster-Blumenbox mit Macaron-Hase', desc:'Charmante Osterkomposition mit einem Hasen im rosa Kleid, der einen bunten Turm aus glitzernden Macarons balanciert, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein süßes Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-macaron-bunny-box.png', fit:'contain' },
-    { id:44, name:'Geburtstags-Geschenkbox für Hunde "Dog Mom"', desc:'Liebevolle Geschenkbox "Alles Gute zum Geburtstag" für Hundeliebhaber: mit Pflegeprodukten, einer Tasse, einem "Dog Mom" Halstuch und Cap, einem Tennisball sowie selbstgemachten Hundekeksen und Leckerlis. Das perfekte Geschenk für jede Hundemama.', price:55.00, cat:'sonstiges', badge:'Für Hundeliebhaber', emoji:'🐶', imgs:['dogmom-box-1.png','dogmom-box-2.png','dogmom-box-3.png','dogmom-box-4.png','dogmom-box-5.png','dogmom-box-6.png','dogmom-box-7.png'], fit:'contain' },
-    { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball, beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain' },
-  ];
-
-  // SEO: Product schema markup (JSON-LD) for search engines
-  (function injectProductSchema() {
-    const baseUrl = 'https://dandelion1111r.github.io/dandelion-shop/';
-    const itemListElement = kollProducts.map((p, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "item": {
-        "@type": "Product",
-        "name": p.name,
-        "description": p.desc,
-        "image": baseUrl + encodeURIComponent(p.img || (p.imgs && p.imgs[0]) || ''),
-        "url": baseUrl + "#produkt-" + p.id,
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": p.price.toFixed(2),
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    }));
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": itemListElement
-    };
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
-  })();
-
-  function getFavorites() {
-    try { return JSON.parse(localStorage.getItem('favorites') || '[]'); } catch(e) { return []; }
-  }
-  function updateFavBadge() {
-    const favs = getFavorites();
-    const badge = document.getElementById('navFavBadge');
-    if (!badge) return;
-    if (favs.length > 0) {
-      badge.textContent = favs.length;
-      badge.style.display = 'flex';
-    } else {
-      badge.style.display = 'none';
-    }
-  }
-  window.toggleFavorite = function(id) {
-    let favs = getFavorites();
-    if (favs.includes(id)) favs = favs.filter(f => f !== id);
-    else favs.push(id);
-    localStorage.setItem('favorites', JSON.stringify(favs));
-    updateFavBadge();
-    if (currentKollFilter === 'favorites') renderKoll('favorites');
-    else {
-      const heart = document.getElementById('fav-' + id);
-      if (heart) heart.classList.toggle('active', favs.includes(id));
-    }
-  };
-  window.showFavorites = function() {
-    showPage('kollektionen');
-    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
-    renderKoll('favorites');
-  };
-  window.toggleSearchBar = function() {
-    const bar = document.getElementById('navSearchBar');
-    const show = bar.style.display !== 'block';
-    bar.style.display = show ? 'block' : 'none';
-    if (show) {
-      document.getElementById('navSearchInput').value = '';
-      document.getElementById('navSearchInput').focus();
-    } else {
-      runProductSearch('');
-    }
-  };
-  window.runProductSearch = function(query) {
-    showPage('kollektionen');
-    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
-    const q = query.trim().toLowerCase();
-    if (!q) { renderKoll('all'); return; }
-    currentKollFilter = 'search';
-    const list = kollProducts.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
-    renderKollList(list);
-  };
-  let currentKollFilter = 'all';
-  function renderKoll(filter) {
-    currentKollFilter = filter;
-    const favs = getFavorites();
-    let list;
-    if (filter === 'all') list = kollProducts;
-    else if (filter === 'favorites') list = kollProducts.filter(p => favs.includes(p.id));
-    else list = kollProducts.filter(p => p.cat === filter);
-    renderKollList(list);
-  }
-  function renderKollList(list) {
-    const favs = getFavorites();
-    if (list.length === 0) {
-      document.getElementById('koll-grid').innerHTML = `<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:40px 0;">Keine Produkte gefunden.</p>`;
-      return;
-    }
-    document.getElementById('koll-grid').innerHTML = list.map(p => `
-      <div class="koll-card">
-        <div class="koll-img" onclick="openProdModal(${p.id})" style="cursor:pointer;">
-          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
-          ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${p.badge}</span>` : ''}
-          <div id="fav-${p.id}" class="fav-heart ${favs.includes(p.id) ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;z-index:3;"><i class="${favs.includes(p.id) ? 'fas' : 'far'} fa-heart"></i></div>
-        </div>
-        <div class="koll-body">
-          <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${p.name}</div>
-          <div class="koll-desc">${p.desc.substring(0,90)}…</div>
-          <div class="koll-footer">
-            <div class="koll-price">${p.price.toFixed(2).replace('.',',')} €${p.oldPrice ? `<span class="old">${p.oldPrice.toFixed(2).replace('.',',')} €</span>` : ''}</div>
-            <button class="btn-koll-config" onclick="event.stopPropagation();addKollProduct(${p.id})">
-              <i class="fas fa-shopping-bag"></i> In den Warenkorb
-            </button>
-          </div>
-        </div>
-      </div>`
-    ).join('');
-  }
-
-  window.openLightbox = function(src) {
-    if (!src) return;
-    document.getElementById('lightbox-img').src = src;
-    document.getElementById('lightbox').classList.add('open');
-  };
-  window.closeLightbox = function() {
-    document.getElementById('lightbox').classList.remove('open');
-  };
-  window.filterKoll = function(cat, btn) {
-    document.querySelectorAll('.koll-filter').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderKoll(cat);
-  };
-</script>
-</body>
-</html>
+    { id:21, name:'Whiskey & Ferrero Strauß', desc:'Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel\'s Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Pap
