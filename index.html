@@ -1257,10 +1257,14 @@
       </div>
     </div>
     <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;">
-      <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav">Shop</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link">Kollektionen</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link">Über uns</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link">Kontakt</a></li>
+      <li style="list-style:none;display:flex;gap:6px;align-items:center;">
+        <span onclick="setLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
+        <span onclick="setLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
+      </li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav" data-i18n="nav_shop">Shop</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:auto;">
       <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;"></i>
@@ -1277,7 +1281,7 @@
   </div>
   <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
     <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;">
-      <input id="navSearchInput" type="text" placeholder="Produkte durchsuchen…" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
+      <input id="navSearchInput" type="text" placeholder="Produkte durchsuchen…" data-i18n-placeholder="search_placeholder" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
       <i class="fas fa-times" onclick="toggleSearchBar()" style="cursor:pointer;align-self:center;font-size:1.1rem;color:var(--text-light);"></i>
     </div>
   </div>
@@ -1287,9 +1291,9 @@
 <div id="page-kontakt" style="display:none;">
   <div class="ueberuns-hero">
     <div style="font-size:2.8rem;margin-bottom:12px;">💌</div>
-    <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h1>
-    <p style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼</p>
-    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+    <h1 data-i18n="nav_kontakt" style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h1>
+    <p data-i18n="kontakt_sub" style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
     </a>
   </div>
@@ -1298,45 +1302,45 @@
     <div style="display:flex;flex-direction:column;gap:20px;">
       <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
         <div style="font-size:var(--fs-lg);margin-bottom:10px;">📍</div>
-        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">Standort</h3>
+        <h3 data-i18n="kontakt_standort" style="font-weight:700;color:var(--purple);margin-bottom:6px;">Standort</h3>
         <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Dandelion 11:11<br>Bad Wörishofen, Bayern</p>
       </div>
       <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
         <div style="font-size:var(--fs-lg);margin-bottom:10px;">⏰</div>
-        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">Erreichbarkeit</h3>
+        <h3 data-i18n="kontakt_erreichbarkeit" style="font-weight:700;color:var(--purple);margin-bottom:6px;">Erreichbarkeit</h3>
         <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Montag – Freitag<br>8:00 – 19:00 Uhr<br><span style="color:var(--pink);font-weight:500;">💬 WhatsApp: immer erreichbar</span></p>
       </div>
       <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
         <div style="font-size:var(--fs-lg);margin-bottom:10px;">📧</div>
-        <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;">E-Mail</h3>
+        <h3 data-i18n="kontakt_email" style="font-weight:700;color:var(--purple);margin-bottom:6px;">E-Mail</h3>
         <a href="mailto:dandelionll.floral.design@gmail.com" style="color:var(--pink);font-size:var(--fs-base);font-weight:500;text-decoration:none;">dandelionll.floral.design@gmail.com</a>
       </div>
       <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
         <div style="font-size:var(--fs-lg);margin-bottom:10px;">💬</div>
-        <h3 style="font-weight:700;color:var(--purple);margin-bottom:10px;">WhatsApp</h3>
+        <h3 data-i18n="kontakt_whatsapp" style="font-weight:700;color:var(--purple);margin-bottom:10px;">WhatsApp</h3>
         <a href="https://wa.me/491757668955" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:10px 20px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
-          <i class="fab fa-whatsapp"></i> Jetzt schreiben
+          <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_jetzt_schreiben">Jetzt schreiben</span>
         </a>
       </div>
     </div>
 
     <div style="background:#fff;border-radius:18px;padding:32px;box-shadow:var(--shadow);">
-      <h3 style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:var(--fs-md);">Nachricht senden</h3>
-      <p style="color:var(--text-light);font-size:var(--fs-sm);margin-bottom:22px;">Wir melden uns innerhalb von 24 Stunden.</p>
+      <h3 data-i18n="kontakt_nachricht_senden" style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:var(--fs-md);">Nachricht senden</h3>
+      <p data-i18n="kontakt_antwortzeit" style="color:var(--text-light);font-size:var(--fs-sm);margin-bottom:22px;">Wir melden uns innerhalb von 24 Stunden.</p>
       <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
+        <label data-i18n="kontakt_label_name" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
         <input id="k-name" type="text" placeholder="Dein Name" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
+        <label data-i18n="kontakt_label_email" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
         <input id="k-email" type="email" placeholder="deine@email.de" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
+        <label data-i18n="kontakt_label_betreff" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
         <input id="k-subject" type="text" placeholder="Worum geht es?" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:20px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
+        <label data-i18n="kontakt_label_nachricht" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
         <textarea id="k-msg" placeholder="Schreib uns deine Frage oder Wünsche..." rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'"></textarea>
       </div>
       <!-- Honeypot: hidden field, real users never fill this in -->
@@ -1344,13 +1348,13 @@
         <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
       </div>
       <div style="margin-bottom:20px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Sicherheitsfrage: <span id="k-captcha-q"></span></label>
+        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;"><span data-i18n="kontakt_sicherheitsfrage">Sicherheitsfrage:</span> <span id="k-captcha-q"></span></label>
         <input id="k-captcha" type="text" inputmode="numeric" placeholder="Antwort eingeben" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <button onclick="sendKontaktWA()" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-        <i class="fab fa-whatsapp"></i> Via WhatsApp senden
+        <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_send_btn">Via WhatsApp senden</span>
       </button>
-      <p style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:10px;">Das Formular öffnet WhatsApp mit deiner Nachricht.</p>
+      <p data-i18n="kontakt_form_hinweis" style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:10px;">Das Formular öffnet WhatsApp mit deiner Nachricht.</p>
     </div>
   </div>
 
@@ -1365,46 +1369,46 @@
 <div id="page-ueberuns" style="display:none;">
   <div class="ueberuns-hero">
     <img src="Dandelionlogo .svg" alt="Dandelion 11:11" style="height:90px;width:auto;margin:0 auto 12px;display:block;mix-blend-mode:darken;">
-    <h1>Über Dandelion 11:11</h1>
-    <p class="subtitle">Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.</p>
-    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+    <h1 data-i18n="ueber_h1">Über Dandelion 11:11</h1>
+    <p class="subtitle" data-i18n="ueber_subtitle">Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
     </a>
   </div>
 
   <div class="ueberuns-story">
-    <p class="big">Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.</p>
-    <p>Wenn ich eine fliegende Dandelion fing und mir einen Wunsch wünschte… fertig. Er ging in Erfüllung.</p>
+    <p class="big" data-i18n-html="ueber_p1">Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.</p>
+    <p data-i18n="ueber_p2">Wenn ich eine fliegende Dandelion fing und mir einen Wunsch wünschte… fertig. Er ging in Erfüllung.</p>
     <div class="ueberuns-divider"></div>
-    <p>Heute weiß ich, dass es nicht ganz so einfach ist.</p>
-    <p>Der Traum kommt nicht einfach.<br>
+    <p data-i18n="ueber_p3">Heute weiß ich, dass es nicht ganz so einfach ist.</p>
+    <p data-i18n-html="ueber_p4">Der Traum kommt nicht einfach.<br>
     Der Traum wird aufgebaut. Mit den Händen. Mit Verzicht.<br>
     Manchmal auf Schlaf. Manchmal… auf Menschen.</p>
-    <p class="big">So entstand Dandelion.</p>
-    <p>Nicht aus einem perfekten Plan.<br>
+    <p class="big" data-i18n="ueber_p5">So entstand Dandelion.</p>
+    <p data-i18n-html="ueber_p6">Nicht aus einem perfekten Plan.<br>
     Sondern aus einer Küche, in der mehr Kleber als Ordnung herrschte.<br>
     Aus einem Keller, der mit Wandfarbe und Hoffnungen gestrichen wurde.<br>
     Aus Tagen, an denen ich nicht wusste, ob ich Kunst mache…<br>
     oder nur ein großes buntes Chaos.</p>
-    <p>Ich habe Möbel montiert, Kartons geschleppt, Ballons zum Platzen gebracht,<br>
+    <p data-i18n-html="ueber_p7">Ich habe Möbel montiert, Kartons geschleppt, Ballons zum Platzen gebracht,<br>
     und manchmal auch die eine oder andere Existenzkrise durchgestanden.</p>
-    <p>Aber jedes Mal habe ich neu aufgebaut.<br>
+    <p data-i18n-html="ueber_p8">Aber jedes Mal habe ich neu aufgebaut.<br>
     <em>Wie eine Dandelion, die fällt und trotzdem wieder fliegt.</em></p>
     <div class="ueberuns-divider"></div>
-    <p class="big">Dandelion ist kein Business.<br>
+    <p class="big" data-i18n-html="ueber_p9">Dandelion ist kein Business.<br>
     Es ist der Kindheitstraum,<br>mit beiden Händen festgehalten.</p>
-    <p>Und ja… vielleicht wirke ich wie ein verträumtes Mädchen.<br>
+    <p data-i18n-html="ueber_p10">Und ja… vielleicht wirke ich wie ein verträumtes Mädchen.<br>
     Aber jedes Detail, jede Blume, jedes Lächeln, das ich empfangen habe…<br>
     war erarbeitet. Mit allem, was ich bin.</p>
-    <p class="big">Dandelion ist meine Welt.<br>
+    <p class="big" data-i18n-html="ueber_p11">Dandelion ist meine Welt.<br>
     Eine Welt, die ein bisschen schöner,<br>ehrlicher, magischer ist.</p>
-    <p>Meine. Und vielleicht… ein bisschen auch deine. 🌼</p>
+    <p data-i18n="ueber_p12">Meine. Und vielleicht… ein bisschen auch deine. 🌼</p>
     <span class="signature">✨ Raluca · Dandelion 11:11</span>
   </div>
 
   <div class="gallery-section">
-    <h2>🏆 Ausgezeichnet: Adventskranz-Wettbewerb 2023</h2>
-    <p class="gallery-sub">Im Dezember 2023 habe ich mit meinem selbstgestalteten Adventskranz beim Wettbewerb unserer lokalen Zeitung in Mindelheim gewonnen, mit liebevoll gestalteten Nussknacker-Figuren in Pink, Schwarz und Lila. Es war eine riesige Ehre, dass meine Arbeit in der Zeitung vorgestellt wurde! 🌟</p>
+    <h2 data-i18n="ueber_award_title">🏆 Ausgezeichnet: Adventskranz-Wettbewerb 2023</h2>
+    <p class="gallery-sub" data-i18n="ueber_award_text">Im Dezember 2023 habe ich mit meinem selbstgestalteten Adventskranz beim Wettbewerb unserer lokalen Zeitung in Mindelheim gewonnen, mit liebevoll gestalteten Nussknacker-Figuren in Pink, Schwarz und Lila. Es war eine riesige Ehre, dass meine Arbeit in der Zeitung vorgestellt wurde! 🌟</p>
     <div class="gallery-grid" style="grid-template-columns: repeat(2, minmax(220px, 320px)); max-width: 700px; margin: 0 auto; justify-content: center;">
       <div class="gallery-item" onclick="openLightbox('award-newspaper.png')">
         <img src="award-newspaper.png" alt="Zeitungsartikel über den Adventskranz-Wettbewerb" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
@@ -1416,32 +1420,32 @@
   </div>
 
   <div class="gallery-section">
-    <h2>🎈 Hinter den Kulissen</h2>
-    <p class="gallery-sub">Echte Momente von der Idee bis zum fertigen Ballon. Klick auf ein Bild zum Vergrößern.</p>
+    <h2 data-i18n="ueber_behind_title">🎈 Hinter den Kulissen</h2>
+    <p class="gallery-sub" data-i18n="ueber_behind_text">Echte Momente von der Idee bis zum fertigen Ballon. Klick auf ein Bild zum Vergrößern.</p>
     <div class="gallery-grid" id="galleryGrid">
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">🎈</span>
-        <span class="gallery-label">Erster Ballon geplatzt 😅</span>
+        <span class="gallery-label" data-i18n="ueber_g1">Erster Ballon geplatzt 😅</span>
       </div>
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">🔨</span>
-        <span class="gallery-label">Möbel montieren im Keller</span>
+        <span class="gallery-label" data-i18n="ueber_g2">Möbel montieren im Keller</span>
       </div>
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">🎨</span>
-        <span class="gallery-label">Kreatives Chaos in der Küche</span>
+        <span class="gallery-label" data-i18n="ueber_g3">Kreatives Chaos in der Küche</span>
       </div>
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">📦</span>
-        <span class="gallery-label">Erste Bestellungen verpacken</span>
+        <span class="gallery-label" data-i18n="ueber_g4">Erste Bestellungen verpacken</span>
       </div>
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">🌸</span>
-        <span class="gallery-label">Details mit Liebe gestaltet</span>
+        <span class="gallery-label" data-i18n="ueber_g5">Details mit Liebe gestaltet</span>
       </div>
       <div class="gallery-item" onclick="openLightbox('')">
         <span class="placeholder-icon">✨</span>
-        <span class="gallery-label">Fertige Kreationen</span>
+        <span class="gallery-label" data-i18n="ueber_g6">Fertige Kreationen</span>
       </div>
     </div>
   </div>
@@ -1464,7 +1468,7 @@
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div id="prodModalPrice" style="font-size:1.5rem;font-weight:700;color:#8e44ad;"></div>
         <button id="prodModalCartBtn" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px 24px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
-          <i class="fas fa-shopping-bag"></i> In den Warenkorb
+          <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
         </button>
       </div>
       <div id="prodModalBundle" style="margin-top:24px;border-top:1px solid #eee;padding-top:18px;"></div>
@@ -1475,21 +1479,21 @@
 <!-- ═══ KOLLEKTIONEN PAGE ═══ -->
 <div id="page-kollektionen" style="display:none;">
   <div style="background:linear-gradient(135deg,#fce4f3 0%,#ede7f6 100%);padding:40px 24px 28px;text-align:center;">
-    <h1 style="font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:var(--purple);margin-bottom:8px;">🎈 Unsere Kollektionen</h1>
-    <p style="color:var(--text-light);font-size:var(--fs-base);max-width:480px;margin:0 auto 18px;">Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet</p>
-    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
+    <h1 style="font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:var(--purple);margin-bottom:8px;" data-i18n="koll_title">🎈 Unsere Kollektionen</h1>
+    <p style="color:var(--text-light);font-size:var(--fs-base);max-width:480px;margin:0 auto 18px;" data-i18n="koll_sub">Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet</p>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
     </a>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:24px 16px 12px;max-width:1200px;margin:0 auto;" id="koll-filters">
-    <button class="koll-filter active" onclick="filterKoll('all',this)">Alle</button>
-    <button class="koll-filter" onclick="filterKoll('geburtstag',this)">🎂 Geburtstag</button>
-    <button class="koll-filter" onclick="filterKoll('hochzeit',this)">💍 Hochzeit</button>
-    <button class="koll-filter" onclick="filterKoll('babyparty',this)">👶 Babyparty</button>
-    <button class="koll-filter" onclick="filterKoll('liebe',this)">💕 Liebe</button>
-    <button class="koll-filter" onclick="filterKoll('fussball',this)">⚽ Fußball</button>
-    <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)">🧸 Kuscheltiere</button>
-    <button class="koll-filter" onclick="filterKoll('sonstiges',this)">✨ Sonstiges</button>
+    <button class="koll-filter active" onclick="filterKoll('all',this)" data-i18n="filter_all">Alle</button>
+    <button class="koll-filter" onclick="filterKoll('geburtstag',this)" data-i18n="filter_geburtstag">🎂 Geburtstag</button>
+    <button class="koll-filter" onclick="filterKoll('hochzeit',this)" data-i18n="filter_hochzeit">💍 Hochzeit</button>
+    <button class="koll-filter" onclick="filterKoll('babyparty',this)" data-i18n="filter_babyparty">👶 Babyparty</button>
+    <button class="koll-filter" onclick="filterKoll('liebe',this)" data-i18n="filter_liebe">💕 Liebe</button>
+    <button class="koll-filter" onclick="filterKoll('fussball',this)" data-i18n="filter_fussball">⚽ Fußball</button>
+    <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)" data-i18n="filter_kuscheltiere">🧸 Kuscheltiere</button>
+    <button class="koll-filter" onclick="filterKoll('sonstiges',this)" data-i18n="filter_sonstiges">✨ Sonstiges</button>
   </div>
   <div style="max-width:1200px;margin:0 auto;padding:8px 16px 60px;">
     <div id="koll-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;"></div>
@@ -1503,26 +1507,26 @@
 <div style="max-width:1300px;margin:0 auto;padding:30px 30px 0;">
   <div class="how-it-works-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center;">
     <div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;">⭐ 4.9/5 aus 100+ Bewertungen</div>
+      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;" data-i18n="hiw_rating">⭐ 4.9/5 aus 100+ Bewertungen</div>
       <div style="font-size:2.2rem;">🎨</div>
-      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;">1. Wähle & personalisiere</h3>
-      <p style="font-size:var(--fs-sm);color:var(--text-light);">Wähle Farbe, Text & Füllung für deinen Ballon.</p>
+      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;" data-i18n="hiw_step1_title">1. Wähle & personalisiere</h3>
+      <p style="font-size:var(--fs-sm);color:var(--text-light);" data-i18n="hiw_step1_text">Wähle Farbe, Text & Füllung für deinen Ballon.</p>
     </div>
     <div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;">💜 Handgemacht mit Liebe in Deutschland</div>
+      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;" data-i18n="hiw_madein">💜 Handgemacht mit Liebe in Deutschland</div>
       <div style="font-size:2.2rem;">📦</div>
-      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;">2. Wir fertigen mit Liebe</h3>
-      <p style="font-size:var(--fs-sm);color:var(--text-light);">Jeder Ballon wird liebevoll von Hand vorbereitet.</p>
+      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;" data-i18n="hiw_step2_title">2. Wir fertigen mit Liebe</h3>
+      <p style="font-size:var(--fs-sm);color:var(--text-light);" data-i18n="hiw_step2_text">Jeder Ballon wird liebevoll von Hand vorbereitet.</p>
     </div>
     <div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;">🚚 Kostenlose Lieferung ab 60 €</div>
+      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--purple);margin-bottom:6px;" data-i18n="hiw_freeship">🚚 Kostenlose Lieferung ab 60 €</div>
       <div style="font-size:2.2rem;">🚚</div>
-      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;">3. Schnelle Lieferung</h3>
-      <p style="font-size:var(--fs-sm);color:var(--text-light);">In 1–3 Werktagen direkt zu dir nach Hause.</p>
+      <h3 style="font-size:var(--fs-md);font-weight:700;color:var(--purple);margin:8px 0 4px;" data-i18n="hiw_step3_title">3. Schnelle Lieferung</h3>
+      <p data-i18n="ship_home_text" style="font-size:var(--fs-sm);color:var(--text-light);">In 1–3 Werktagen direkt zu dir nach Hause.</p>
     </div>
   </div>
   <div style="text-align:center;margin-top:20px;">
-    <a href="#" onclick="showPage('kollektionen');return false;" style="font-size:var(--fs-sm);color:var(--purple);font-weight:600;text-decoration:underline;">Nicht sicher, was du möchtest? Entdecke unsere Kollektionen →</a>
+    <a href="#" onclick="showPage('kollektionen');return false;" style="font-size:var(--fs-sm);color:var(--purple);font-weight:600;text-decoration:underline;" data-i18n="hiw_discover">Nicht sicher, was du möchtest? Entdecke unsere Kollektionen →</a>
   </div>
 </div>
 
@@ -1581,18 +1585,18 @@
     </div>
 
     <div class="badge-row">
-      <div class="badge"><i class="fas fa-leaf"></i> Nachhaltig</div>
-      <div class="badge"><i class="fas fa-hand-sparkles"></i> Handgemacht</div>
-      <div class="badge"><i class="fas fa-shield-alt"></i> Sicher bestellen</div>
-      <div class="badge"><i class="fas fa-truck"></i> Schnelle Lieferung</div>
+      <div class="badge"><i class="fas fa-leaf"></i> <span data-i18n="badge_sustainable">Nachhaltig</span></div>
+      <div class="badge"><i class="fas fa-hand-sparkles"></i> <span data-i18n="badge_handmade">Handgemacht</span></div>
+      <div class="badge"><i class="fas fa-shield-alt"></i> <span data-i18n="badge_secure">Sicher bestellen</span></div>
+      <div class="badge"><i class="fas fa-truck"></i> <span data-i18n="badge_fastship">Schnelle Lieferung</span></div>
     </div>
   </div>
 
   <!-- RIGHT: CONFIGURATOR -->
   <div class="config-col">
     <div class="product-header">
-      <h1 class="product-title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
-      <p class="product-subtitle">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
+      <h1 class="product-title" data-i18n="hero_title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
+      <p class="product-subtitle" data-i18n="hero_sub">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
       <div class="star-row">
         <div class="stars"></div>
         <span class="star-count"></span>
@@ -1739,29 +1743,29 @@
       </div>
       <div id="savedDesignsRow" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
       <button class="btn-main" id="addToCartBtn">
-        <i class="fas fa-shopping-bag"></i> In den Warenkorb
+        <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
       </button>
       <button class="btn-whatsapp" id="whatsappBtn">
-        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Jetzt über WhatsApp bestellen
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="order_whatsapp_now">Jetzt über WhatsApp bestellen</span>
       </button>
       <div class="secure-row">
-        <div class="secure-item"><i class="fas fa-lock"></i> Sicher & verschlüsselt</div>
-        <div class="secure-item"><i class="fas fa-undo"></i> Zufriedenheitsgarantie</div>
-        <div class="secure-item"><i class="fas fa-truck"></i> 1–3 Werktage</div>
+        <div class="secure-item"><i class="fas fa-lock"></i> <span data-i18n="secure_encrypted">Sicher & verschlüsselt</span></div>
+        <div class="secure-item"><i class="fas fa-undo"></i> <span data-i18n="satisfaction_guarantee">Zufriedenheitsgarantie</span></div>
+        <div class="secure-item"><i class="fas fa-truck"></i> <span data-i18n="ship_home_text2">1–3 Werktage</span></div>
       </div>
     </div>
 
     <div class="cart-card" id="cartCard">
-      <h3><i class="fas fa-shopping-bag"></i> Warenkorb <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
+      <h3><i class="fas fa-shopping-bag"></i> <span data-i18n="cart_title">Warenkorb</span> <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
       <div id="cartItemsList"></div>
       <div class="cart-total-row">
-        <span>Gesamtbetrag</span>
+        <span data-i18n="cart_total">Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
       </div>
       <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
-        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Bestellung über WhatsApp senden
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="send_whatsapp">Bestellung über WhatsApp senden</span>
       </button>
-      <button class="btn-clear" id="clearCartBtn">🗑 Warenkorb leeren</button>
+      <button class="btn-clear" id="clearCartBtn"><span data-i18n="clear_cart">🗑 Warenkorb leeren</span></button>
     </div>
   </div>
 </div>
@@ -1772,29 +1776,29 @@
     <div class="feature-item">
       <div class="feature-icon"><i class="fas fa-hand-sparkles"></i></div>
       <div class="feature-text">
-        <strong>Handgemacht</strong>
-        <span>Jeder Ballon wird mit Liebe individuell gefertigt</span>
+        <strong data-i18n="feat_handmade_title">Handgemacht</strong>
+        <span data-i18n="feat_handmade_text">Jeder Ballon wird mit Liebe individuell gefertigt</span>
       </div>
     </div>
     <div class="feature-item">
       <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
       <div class="feature-text">
-        <strong>Schnelle Lieferung</strong>
-        <span>1–3 Werktage nach Bestelleingang</span>
+        <strong data-i18n="feat_ship_title">Schnelle Lieferung</strong>
+        <span data-i18n="ship_home_text3">1–3 Werktage nach Bestelleingang</span>
       </div>
     </div>
     <div class="feature-item">
       <div class="feature-icon"><i class="fas fa-leaf"></i></div>
       <div class="feature-text">
-        <strong>Nachhaltig</strong>
-        <span>100% natürlicher Latex, biologisch abbaubar</span>
+        <strong data-i18n="feat_sustainable_title">Nachhaltig</strong>
+        <span data-i18n="feat_sustainable_text">100% natürlicher Latex, biologisch abbaubar</span>
       </div>
     </div>
     <div class="feature-item">
       <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
       <div class="feature-text">
-        <strong>WhatsApp Support</strong>
-        <span>Persönliche Beratung einfach schreiben!</span>
+        <strong data-i18n="feat_whatsapp_title">WhatsApp Support</strong>
+        <span data-i18n="feat_whatsapp_text">Persönliche Beratung einfach schreiben!</span>
       </div>
     </div>
   </div>
@@ -1803,38 +1807,38 @@
 <!-- INFO SECTION -->
 <div class="info-section">
   <div class="info-card">
-    <h2>Was macht unsere Ballons <span>besonders?</span></h2>
+    <h2 data-i18n-html="info_what_makes">Was macht unsere Ballons <span>besonders?</span></h2>
     <ul class="desc-list">
-      <li><i class="fas fa-check-circle"></i> Großer transparenter Ballon (Ø 45 cm) aus hochwertigem Latex</li>
-      <li><i class="fas fa-check-circle"></i> Gefüllt mit bunten Mini-Ballons, Konfetti, Herzen oder Sternen</li>
-      <li><i class="fas fa-check-circle"></i> Personalisierter Text und Wunschsymbol im Inneren</li>
-      <li><i class="fas fa-check-circle"></i> Handgeschriebene Grußkarte inklusive</li>
-      <li><i class="fas fa-check-circle"></i> Perfekt für Geburtstag, Hochzeit, Babyparty, Jubiläum & mehr</li>
-      <li><i class="fas fa-check-circle"></i> Jeder Ballon ein Unikat liebevoll gestaltet in Deutschland</li>
-      <li><i class="fas fa-check-circle"></i> Hält 24–48 Stunden aufgeblasen (Heliumfüllung vor Ort empfohlen)</li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list1">Großer transparenter Ballon (Ø 45 cm) aus hochwertigem Latex</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list2">Gefüllt mit bunten Mini-Ballons, Konfetti, Herzen oder Sternen</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list3">Personalisierter Text und Wunschsymbol im Inneren</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list4">Handgeschriebene Grußkarte inklusive</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list5">Perfekt für Geburtstag, Hochzeit, Babyparty, Jubiläum & mehr</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list6">Jeder Ballon ein Unikat liebevoll gestaltet in Deutschland</span></li>
+      <li><i class="fas fa-check-circle"></i> <span data-i18n="info_list7">Hält 24–48 Stunden aufgeblasen (Heliumfüllung vor Ort empfohlen)</span></li>
     </ul>
   </div>
   <div class="info-card">
-    <h2>Häufige <span>Fragen</span></h2>
+    <h2 data-i18n-html="faq_title">Häufige <span>Fragen</span></h2>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">Wie lange hält der Ballon? <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Mit Helium gefüllt hält unser Ballon 24–48 Stunden. Mit Luftfüllung bleibt er mehrere Tage schön. Wir empfehlen die Heliumfüllung kurz vor dem Event.</div>
+      <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="faq_q1">Wie lange hält der Ballon?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a1">Mit Helium gefüllt hält unser Ballon 24–48 Stunden. Mit Luftfüllung bleibt er mehrere Tage schön. Wir empfehlen die Heliumfüllung kurz vor dem Event.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">Wie bestelle ich? <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Konfiguriere deinen Ballon, lege ihn in den Warenkorb und sende deine Bestellung direkt über WhatsApp. Wir melden uns innerhalb weniger Stunden mit Bestätigung.</div>
+      <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="faq_q2">Wie bestelle ich?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a2">Konfiguriere deinen Ballon, lege ihn in den Warenkorb und sende deine Bestellung direkt über WhatsApp. Wir melden uns innerhalb weniger Stunden mit Bestätigung.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">Wie schnell wird geliefert? <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Nach Bestellbestätigung versenden wir innerhalb von 1–2 Werktagen. Die Lieferzeit beträgt in der Regel 1–3 Werktage in Deutschland.</div>
+      <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="faq_q3">Wie schnell wird geliefert?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a3">Nach Bestellbestätigung versenden wir innerhalb von 1–2 Werktagen. Die Lieferzeit beträgt in der Regel 1–3 Werktage in Deutschland.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">Kann ich mehrere Ballons bestellen? <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons gewähren wir 10% Rabatt.</div>
+      <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="faq_q4">Kann ich mehrere Ballons bestellen?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a4">Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons gewähren wir 10% Rabatt.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFAQ(this)">Ist der Ballon mit Helium gefüllt? <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Der Ballon wird unaufgeblasen geliefert, damit er sicher transportiert werden kann. Die Mini-Ballons und Füllung sind bereits im Inneren. Du kannst ihn lokal mit Helium aufblasen lassen.</div>
+      <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="faq_q5">Ist der Ballon mit Helium gefüllt?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a5">Der Ballon wird unaufgeblasen geliefert, damit er sicher transportiert werden kann. Die Mini-Ballons und Füllung sind bereits im Inneren. Du kannst ihn lokal mit Helium aufblasen lassen.</div>
     </div>
   </div>
 </div>
@@ -1842,23 +1846,23 @@
 <!-- VERSAND & RÜCKGABE -->
 <div class="info-section" style="grid-template-columns:1fr;max-width:900px;" id="versand">
   <div class="info-card">
-    <h2>Versand & <span>Rückgabe</span> 📦</h2>
+    <h2 data-i18n-html="versand_title">Versand & <span>Rückgabe</span> 📦</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFAQ(this)">Wie lange dauert die Lieferung? <i class="fas fa-chevron-down"></i></button>
-        <div class="faq-a">Wir bearbeiten jede Bestellung individuell mit Liebe. Nach Bestellbestätigung versenden wir innerhalb von 1–3 Werktagen per DHL. Die Lieferzeit in Deutschland beträgt danach 2–4 Werktage.</div>
+        <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="vfaq_q1">Wie lange dauert die Lieferung?</span> <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a" data-i18n="vfaq_a1">Wir bearbeiten jede Bestellung individuell mit Liebe. Nach Bestellbestätigung versenden wir innerhalb von 1–3 Werktagen per DHL. Die Lieferzeit in Deutschland beträgt danach 2–4 Werktage.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFAQ(this)">Wie werden die Ballons verpackt? <i class="fas fa-chevron-down"></i></button>
-        <div class="faq-a">Die Ballons werden sorgfältig und sicher verpackt, damit sie unbeschädigt bei dir ankommen. Wir verwenden schützende Verpackungsmaterialien speziell für empfindliche Artikel.</div>
+        <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="vfaq_q2">Wie werden die Ballons verpackt?</span> <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a" data-i18n="vfaq_a2">Die Ballons werden sorgfältig und sicher verpackt, damit sie unbeschädigt bei dir ankommen. Wir verwenden schützende Verpackungsmaterialien speziell für empfindliche Artikel.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFAQ(this)">Kann ich meinen Ballon zurückgeben? <i class="fas fa-chevron-down"></i></button>
-        <div class="faq-a">Da jeder Ballon individuell und personalisiert für dich gefertigt wird, ist eine Rückgabe leider nicht möglich. Sollte dein Ballon beschädigt ankommen, schick uns einfach ein Foto wir finden gemeinsam eine Lösung! 💛</div>
+        <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="vfaq_q3">Kann ich meinen Ballon zurückgeben?</span> <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a" data-i18n="vfaq_a3">Da jeder Ballon individuell und personalisiert für dich gefertigt wird, ist eine Rückgabe leider nicht möglich. Sollte dein Ballon beschädigt ankommen, schick uns einfach ein Foto wir finden gemeinsam eine Lösung! 💛</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFAQ(this)">Was kostet der Versand? <i class="fas fa-chevron-down"></i></button>
-        <div class="faq-a">Der Versand erfolgt mit DHL Paket M und kostet 5,49 €. Ab einem Bestellwert von 60 € ist der Versand kostenlos.</div>
+        <button class="faq-q" onclick="toggleFAQ(this)"><span data-i18n="vfaq_q4">Was kostet der Versand?</span> <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-a" data-i18n="vfaq_a4">Der Versand erfolgt mit DHL Paket M und kostet 5,49 €. Ab einem Bestellwert von 60 € ist der Versand kostenlos.</div>
       </div>
     </div>
   </div>
@@ -1866,7 +1870,7 @@
 
 <!-- ═══ REAL CUSTOMER PHOTOS ═══ -->
 <div class="reviews-section">
-  <h2 class="section-title">Echte Ballons, echte <span>Momente</span> 📸</h2>
+  <h2 class="section-title" data-i18n-html="real_photos_title">Echte Ballons, echte <span>Momente</span> 📸</h2>
   <div style="display:flex;justify-content:center;flex-wrap:wrap;overflow-x:auto;gap:12px;max-width:1100px;margin:0 auto 24px;padding:0 16px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
     <img src="real-photo-1.jpeg" alt="Echter Kunden-Blumenstrauß 1" loading="lazy" style="flex:0 0 200px;height:200px;object-fit:cover;border-radius:14px;scroll-snap-align:center;">
     <img src="real-photo-2.jpeg" alt="Echter Kunden-Blumenstrauß 2" loading="lazy" style="flex:0 0 200px;height:200px;object-fit:cover;border-radius:14px;scroll-snap-align:center;">
@@ -1879,7 +1883,7 @@
     <img src="real-photo-9.jpeg" alt="Kundin mit Rosenstrauß und Geburtstagsballon" loading="lazy" style="flex:0 0 200px;height:200px;object-fit:cover;border-radius:14px;scroll-snap-align:center;">
   </div>
 
-  <h3 style="text-align:center;font-size:var(--fs-base);font-weight:700;color:var(--purple);margin-bottom:12px;">🚗 Direkt zu dir geliefert</h3>
+  <h3 style="text-align:center;font-size:var(--fs-base);font-weight:700;color:var(--purple);margin-bottom:12px;" data-i18n="delivered_title">🚗 Direkt zu dir geliefert</h3>
   <div style="display:flex;justify-content:center;flex-wrap:wrap;overflow-x:auto;gap:12px;max-width:1100px;margin:0 auto;padding:0 16px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
     <img src="delivery-1.png" alt="Übergabe beim Kunden" loading="lazy" style="flex:0 0 200px;height:200px;object-fit:cover;border-radius:14px;scroll-snap-align:center;">
     <img src="delivery-2.png" alt="Ballon im Auto" loading="lazy" style="flex:0 0 200px;height:200px;object-fit:cover;border-radius:14px;scroll-snap-align:center;">
@@ -1889,21 +1893,21 @@
 
 <!-- REVIEWS -->
 <div class="reviews-section">
-  <h2 class="section-title">Was unsere Kunden <span>sagen</span> 💬</h2>
+  <h2 class="section-title" data-i18n-html="reviews_title">Was unsere Kunden <span>sagen</span> 💬</h2>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">Absolut traumhaft! Der Ballon hat meine Tochter zu Tränen gerührt. Die Verarbeitung ist top, der Text wunderschön genau wie bestellt. Definitiv wieder!</p>
+      <p class="review-text" data-i18n="review_text1">Absolut traumhaft! Der Ballon hat meine Tochter zu Tränen gerührt. Die Verarbeitung ist top, der Text wunderschön genau wie bestellt. Definitiv wieder!</p>
       <div class="review-author">— Sandra M., München</div>
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">Schnelle Lieferung, liebevolle Verpackung und ein wunderschöner Ballon. Die Mini-Ballons in Hellblau waren perfekt für die Babyparty. Alle waren begeistert!</p>
+      <p class="review-text" data-i18n="review_text2">Schnelle Lieferung, liebevolle Verpackung und ein wunderschöner Ballon. Die Mini-Ballons in Hellblau waren perfekt für die Babyparty. Alle waren begeistert!</p>
       <div class="review-author">— Julia K., Kaufbeuren</div>
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">Zum Heiratsantrag bestellt sie hat JA gesagt! 😍 Der Ballon mit den Herzchen war einfach magisch. Danke Dandelion 11:11 für diesen unvergesslichen Moment!</p>
+      <p class="review-text" data-i18n="review_text3">Zum Heiratsantrag bestellt sie hat JA gesagt! 😍 Der Ballon mit den Herzchen war einfach magisch. Danke Dandelion 11:11 für diesen unvergesslichen Moment!</p>
       <div class="review-author">— Andrei B., München</div>
     </div>
   </div>
@@ -1914,24 +1918,24 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
-      <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+      <p data-i18n="footer_brand_text">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
     </div>
     <div class="footer-col">
-      <h4>Shop</h4>
-      <a href="#" onclick="showPage('kollektionen');return false;">Alle Ballons</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('geburtstag');return false;">Geburtstag</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('hochzeit');return false;">Hochzeit</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('babyparty');return false;">Babyparty</a>
+      <h4 data-i18n="footer_shop_title">Shop</h4>
+      <a href="#" onclick="showPage('kollektionen');return false;" data-i18n="footer_link_all">Alle Ballons</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('geburtstag');return false;" data-i18n="footer_link_geburtstag">Geburtstag</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('hochzeit');return false;" data-i18n="footer_link_hochzeit">Hochzeit</a>
+      <a href="#" onclick="showPage('kollektionen');renderKoll('babyparty');return false;" data-i18n="footer_link_babyparty">Babyparty</a>
     </div>
     <div class="footer-col">
-      <h4>Info</h4>
-      <a href="#" onclick="showPage('ueberuns');return false;">Über uns</a>
-      <a href="#" onclick="showPage('kontakt');return false;">Kontakt</a>
-      <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;">Versand & Rückgabe</a>
+      <h4 data-i18n="footer_info_title">Info</h4>
+      <a href="#" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
+      <a href="#" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
+      <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <span data-i18n="footer_copyright">© 2025 Dandelion 11:11 · Alle Rechte vorbehalten</span>
     <div class="social-links">
       <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1944,7 +1948,7 @@
 </div><!-- end #page-shop -->
 
 <!-- TOAST -->
-<div class="toast" id="toast">🛒 Ballon wurde in den Warenkorb gelegt!</div>
+<div class="toast" id="toast" data-i18n="toast_default">🛒 Ballon wurde in den Warenkorb gelegt!</div>
 
 <a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" style="position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;">
   <i class="fab fa-whatsapp"></i>
@@ -1953,10 +1957,10 @@
 <!-- ═══ COOKIE CONSENT BANNER ═══ -->
 <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.15);z-index:3000;padding:16px 20px;">
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;">
-    <p style="margin:0;font-size:var(--fs-sm);color:var(--text);flex:1 1 280px;">🍪 Wir verwenden Cookies, um deine Erfahrung zu verbessern und unsere Website zu analysieren. Mehr dazu in unserer Datenschutzerklärung.</p>
+    <p data-i18n="cookie_text" style="margin:0;font-size:var(--fs-sm);color:var(--text);flex:1 1 280px;">🍪 Wir verwenden Cookies, um deine Erfahrung zu verbessern und unsere Website zu analysieren. Mehr dazu in unserer Datenschutzerklärung.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button onclick="setCookieConsent(false)" style="padding:10px 18px;border-radius:10px;border:1px solid var(--purple);background:#fff;color:var(--purple);font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Nur notwendige</button>
-      <button onclick="setCookieConsent(true)" style="padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Alle akzeptieren</button>
+      <button data-i18n="cookie_necessary" onclick="setCookieConsent(false)" style="padding:10px 18px;border-radius:10px;border:1px solid var(--purple);background:#fff;color:var(--purple);font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Nur notwendige</button>
+      <button data-i18n="cookie_accept" onclick="setCookieConsent(true)" style="padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Alle akzeptieren</button>
     </div>
   </div>
 </div>
@@ -1966,10 +1970,10 @@
   <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:32px 26px;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
     <i class="fas fa-times" onclick="closeDiscountPopup()" style="position:absolute;top:14px;right:16px;cursor:pointer;color:var(--text-light);font-size:1.1rem;"></i>
     <div style="font-size:2.6rem;">🎈</div>
-    <h3 style="font-size:1.4rem;font-weight:700;color:var(--purple);margin:10px 0 6px;">Willkommen bei Dandelion 11:11!</h3>
-    <p style="font-size:var(--fs-base);color:var(--text-light);margin-bottom:16px;">Sichere dir <strong style="color:var(--pink);">10% Rabatt</strong> auf deine erste Bestellung mit dem Code:</p>
+    <h3 data-i18n="discount_title" style="font-size:1.4rem;font-weight:700;color:var(--purple);margin:10px 0 6px;">Willkommen bei Dandelion 11:11!</h3>
+    <p data-i18n="discount_text" style="font-size:var(--fs-base);color:var(--text-light);margin-bottom:16px;">Sichere dir 10% Rabatt auf deine erste Bestellung mit dem Code:</p>
     <div style="background:var(--bg);border:2px dashed var(--purple);border-radius:12px;padding:10px;font-size:1.2rem;font-weight:700;letter-spacing:2px;color:var(--purple);margin-bottom:18px;">WILLKOMMEN10</div>
-    <button onclick="closeDiscountPopup()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;">Jetzt einkaufen</button>
+    <button data-i18n="discount_btn" onclick="closeDiscountPopup()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;">Jetzt einkaufen</button>
   </div>
 </div>
 
@@ -2242,7 +2246,7 @@
       });
     }
     updateCartUI();
-    showToast(`🛒 ${state.qty}x Ballon in den Warenkorb gelegt!`);
+    showToast(localStorage.getItem('lang')==='ro' ? `🛒 ${state.qty}x balon adăugat în coș!` : `🛒 ${state.qty}x Ballon in den Warenkorb gelegt!`);
   });
 
   clearCartBtn.addEventListener('click', () => {
@@ -2353,7 +2357,7 @@
     if (!p) return;
     cart.push({
       id: Date.now(),
-      message: p.name,
+      message: lp(p,'name'),
       symbol: p.emoji,
       filling: 'none',
       balloonColor: '#8e44ad',
@@ -2362,12 +2366,12 @@
       card: '',
       persona: '',
       price: p.price,
-      productName: p.name,
+      productName: lp(p,'name'),
       date: new Date(),
       isKollProduct: true
     });
     updateCartUI();
-    showToast(`🛒 ${p.name} in den Warenkorb gelegt!`);
+    showToast(localStorage.getItem('lang')==='ro' ? `🛒 ${lp(p,'name')} adăugat în coș!` : `🛒 ${lp(p,'name')} in den Warenkorb gelegt!`);
     showPage('shop');
     setTimeout(() => document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}), 80);
   };
@@ -2381,7 +2385,7 @@
     if (imgs.length > 1) {
       imgDiv.innerHTML = `
         <div style="position:relative;">
-          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${p.name}" style="width:100%;display:block;">
+          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" style="width:100%;display:block;">
           <button onclick="prodModalCarouselNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">‹</button>
           <button onclick="prodModalCarouselNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">›</button>
           <div style="position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
@@ -2392,13 +2396,13 @@
       window._prodModalIdx = 0;
     } else {
       imgDiv.innerHTML = imgs[0]
-        ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;display:block;">`
+        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" style="width:100%;display:block;">`
         : `<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${p.emoji}</div>`;
     }
     document.getElementById('prodModalBadge').innerHTML = p.badge
-      ? `<span style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;">${p.badge}</span>` : '';
-    document.getElementById('prodModalName').textContent = p.name;
-    document.getElementById('prodModalDesc').textContent = p.desc;
+      ? `<span style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;">${lp(p,'badge')}</span>` : '';
+    document.getElementById('prodModalName').textContent = lp(p,'name');
+    document.getElementById('prodModalDesc').textContent = lp(p,'desc');
     document.getElementById('prodModalPrice').textContent = p.price.toFixed(2).replace('.',',') + ' €';
     document.getElementById('prodModalCartBtn').onclick = function() {
       closeProdModal();
@@ -2407,6 +2411,7 @@
     renderProdBundle(p);
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    setLang(localStorage.getItem('lang') || 'de');
   };
 
   function renderProdBundle(p) {
@@ -2417,12 +2422,12 @@
     if (!partner) { box.innerHTML = ''; return; }
     const bundlePrice = (p.price + partner.price) * 0.9;
     box.innerHTML = `
-      <h3 style="font-size:1rem;font-weight:700;color:var(--purple);margin-bottom:10px;">💡 Passt perfekt dazu</h3>
+      <h3 style="font-size:1rem;font-weight:700;color:var(--purple);margin-bottom:10px;">💡 ${localStorage.getItem('lang')==='ro' ? 'Se asortează perfect' : 'Passt perfekt dazu'}</h3>
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:200px;">
-          <img src="${partner.img || (partner.imgs && partner.imgs[0]) || ''}" alt="${partner.name}" style="width:56px;height:56px;object-fit:cover;border-radius:10px;">
+          <img src="${partner.img || (partner.imgs && partner.imgs[0]) || ''}" alt="${lp(partner,'name')}" style="width:56px;height:56px;object-fit:cover;border-radius:10px;">
           <div>
-            <div style="font-weight:600;font-size:var(--fs-sm);">${partner.name}</div>
+            <div style="font-weight:600;font-size:var(--fs-sm);">${lp(partner,'name')}</div>
             <div style="font-size:var(--fs-xs);color:var(--text-light);">${partner.price.toFixed(2).replace('.',',')} €</div>
           </div>
         </div>
@@ -2631,6 +2636,221 @@
   }
   window.showPage = showPage;
 
+  const i18n = {
+    de: {
+      nav_shop: 'Shop', nav_koll: 'Kollektionen', nav_ueber: 'Über uns', nav_kontakt: 'Kontakt',
+      hero_title: 'Personalisierter Ballon nach deinem Wunsch ✨',
+      hero_sub: 'Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung',
+      filter_all: 'Alle', filter_geburtstag: '🎂 Geburtstag', filter_hochzeit: '💍 Hochzeit',
+      filter_babyparty: '👶 Babyparty', filter_liebe: '💕 Liebe', filter_fussball: '⚽ Fußball',
+      filter_kuscheltiere: '🧸 Kuscheltiere', filter_sonstiges: '✨ Sonstiges',
+      add_to_cart: 'In den Warenkorb', send_whatsapp: 'Bestellung über WhatsApp senden',
+      clear_cart: '🗑 Warenkorb leeren', cart_title: 'Warenkorb',
+      koll_title: '🎈 Unsere Kollektionen', koll_sub: 'Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet',
+      back_to_config: '← Zurück zum Konfigurator',
+      cookie_text: '🍪 Wir verwenden Cookies, um deine Erfahrung zu verbessern und unsere Website zu analysieren. Mehr dazu in unserer Datenschutzerklärung.',
+      cookie_necessary: 'Nur notwendige', cookie_accept: 'Alle akzeptieren',
+      discount_title: 'Willkommen bei Dandelion 11:11!',
+      discount_text: 'Sichere dir 10% Rabatt auf deine erste Bestellung mit dem Code:',
+      discount_btn: 'Jetzt einkaufen',
+      kontakt_sub: 'Wir freuen uns, von dir zu hören! Schreib uns einfach, wir antworten so schnell wie möglich. 🌼',
+      kontakt_standort: 'Standort', kontakt_erreichbarkeit: 'Erreichbarkeit', kontakt_email: 'E-Mail', kontakt_whatsapp: 'WhatsApp',
+      kontakt_jetzt_schreiben: 'Jetzt schreiben', kontakt_nachricht_senden: 'Nachricht senden',
+      kontakt_antwortzeit: 'Wir melden uns innerhalb von 24 Stunden.',
+      kontakt_label_name: 'Name', kontakt_label_email: 'E-Mail', kontakt_label_betreff: 'Betreff', kontakt_label_nachricht: 'Nachricht',
+      kontakt_placeholder_name: 'Dein Name', kontakt_placeholder_email: 'deine@email.de', kontakt_placeholder_betreff: 'Worum geht es?',
+      kontakt_placeholder_nachricht: 'Schreib uns deine Frage oder Wünsche...', kontakt_placeholder_captcha: 'Antwort eingeben',
+      kontakt_sicherheitsfrage: 'Sicherheitsfrage:', kontakt_send_btn: 'Via WhatsApp senden',
+      kontakt_form_hinweis: 'Das Formular öffnet WhatsApp mit deiner Nachricht.',
+      werktage_badge: '1–3 Werktage', search_placeholder: 'Produkte durchsuchen…',
+      ship_home_text: 'In 1–3 Werktagen direkt zu dir nach Hause.',
+      ship_home_text2: '1–3 Werktage', ship_home_text3: '1–3 Werktage nach Bestelleingang',
+      ueber_h1: 'Über Dandelion 11:11',
+      ueber_subtitle: 'Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.',
+      ueber_p1: 'Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.',
+      ueber_p2: 'Wenn ich eine fliegende Dandelion fing und mir einen Wunsch wünschte… fertig. Er ging in Erfüllung.',
+      ueber_p3: 'Heute weiß ich, dass es nicht ganz so einfach ist.',
+      ueber_p4: 'Der Traum kommt nicht einfach.<br>\n    Der Traum wird aufgebaut. Mit den Händen. Mit Verzicht.<br>\n    Manchmal auf Schlaf. Manchmal… auf Menschen.',
+      ueber_p5: 'So entstand Dandelion.',
+      ueber_p6: 'Nicht aus einem perfekten Plan.<br>\n    Sondern aus einer Küche, in der mehr Kleber als Ordnung herrschte.<br>\n    Aus einem Keller, der mit Wandfarbe und Hoffnungen gestrichen wurde.<br>\n    Aus Tagen, an denen ich nicht wusste, ob ich Kunst mache…<br>\n    oder nur ein großes buntes Chaos.',
+      ueber_p7: 'Ich habe Möbel montiert, Kartons geschleppt, Ballons zum Platzen gebracht,<br>\n    und manchmal auch die eine oder andere Existenzkrise durchgestanden.',
+      ueber_p8: 'Aber jedes Mal habe ich neu aufgebaut.<br>\n    <em>Wie eine Dandelion, die fällt und trotzdem wieder fliegt.</em>',
+      ueber_p9: 'Dandelion ist kein Business.<br>\n    Es ist der Kindheitstraum,<br>mit beiden Händen festgehalten.',
+      ueber_p10: 'Und ja… vielleicht wirke ich wie ein verträumtes Mädchen.<br>\n    Aber jedes Detail, jede Blume, jedes Lächeln, das ich empfangen habe…<br>\n    war erarbeitet. Mit allem, was ich bin.',
+      ueber_p11: 'Dandelion ist meine Welt.<br>\n    Eine Welt, die ein bisschen schöner,<br>ehrlicher, magischer ist.',
+      ueber_p12: 'Meine. Und vielleicht… ein bisschen auch deine. 🌼',
+      ueber_award_title: '🏆 Ausgezeichnet: Adventskranz-Wettbewerb 2023',
+      ueber_award_text: 'Im Dezember 2023 habe ich mit meinem selbstgestalteten Adventskranz beim Wettbewerb unserer lokalen Zeitung in Mindelheim gewonnen, mit liebevoll gestalteten Nussknacker-Figuren in Pink, Schwarz und Lila. Es war eine riesige Ehre, dass meine Arbeit in der Zeitung vorgestellt wurde! 🌟',
+      ueber_behind_title: '🎈 Hinter den Kulissen',
+      ueber_behind_text: 'Echte Momente von der Idee bis zum fertigen Ballon. Klick auf ein Bild zum Vergrößern.',
+      ueber_g1: 'Erster Ballon geplatzt 😅', ueber_g2: 'Möbel montieren im Keller',
+      ueber_g3: 'Kreatives Chaos in der Küche', ueber_g4: 'Erste Bestellungen verpacken',
+      ueber_g5: 'Details mit Liebe gestaltet', ueber_g6: 'Fertige Kreationen',
+      hiw_rating: '⭐ 4.9/5 aus 100+ Bewertungen',
+      hiw_step1_title: '1. Wähle & personalisiere', hiw_step1_text: 'Wähle Farbe, Text & Füllung für deinen Ballon.',
+      hiw_madein: '💜 Handgemacht mit Liebe in Deutschland',
+      hiw_step2_title: '2. Wir fertigen mit Liebe', hiw_step2_text: 'Jeder Ballon wird liebevoll von Hand vorbereitet.',
+      hiw_freeship: '🚚 Kostenlose Lieferung ab 60 €',
+      hiw_step3_title: '3. Schnelle Lieferung',
+      hiw_discover: 'Nicht sicher, was du möchtest? Entdecke unsere Kollektionen →',
+      badge_sustainable: 'Nachhaltig', badge_handmade: 'Handgemacht', badge_secure: 'Sicher bestellen', badge_fastship: 'Schnelle Lieferung',
+      order_whatsapp_now: 'Jetzt über WhatsApp bestellen', secure_encrypted: 'Sicher & verschlüsselt',
+      satisfaction_guarantee: 'Zufriedenheitsgarantie', cart_total: 'Gesamtbetrag',
+      feat_handmade_title: 'Handgemacht', feat_handmade_text: 'Jeder Ballon wird mit Liebe individuell gefertigt',
+      feat_ship_title: 'Schnelle Lieferung', feat_sustainable_title: 'Nachhaltig',
+      feat_sustainable_text: '100% natürlicher Latex, biologisch abbaubar',
+      feat_whatsapp_title: 'WhatsApp Support', feat_whatsapp_text: 'Persönliche Beratung einfach schreiben!',
+      info_what_makes: 'Was macht unsere Ballons <span>besonders?</span>',
+      info_list1: 'Großer transparenter Ballon (Ø 45 cm) aus hochwertigem Latex',
+      info_list2: 'Gefüllt mit bunten Mini-Ballons, Konfetti, Herzen oder Sternen',
+      info_list3: 'Personalisierter Text und Wunschsymbol im Inneren',
+      info_list4: 'Handgeschriebene Grußkarte inklusive',
+      info_list5: 'Perfekt für Geburtstag, Hochzeit, Babyparty, Jubiläum & mehr',
+      info_list6: 'Jeder Ballon ein Unikat liebevoll gestaltet in Deutschland',
+      info_list7: 'Hält 24–48 Stunden aufgeblasen (Heliumfüllung vor Ort empfohlen)',
+      faq_title: 'Häufige <span>Fragen</span>',
+      faq_q1: 'Wie lange hält der Ballon?', faq_a1: 'Mit Helium gefüllt hält unser Ballon 24–48 Stunden. Mit Luftfüllung bleibt er mehrere Tage schön. Wir empfehlen die Heliumfüllung kurz vor dem Event.',
+      faq_q2: 'Wie bestelle ich?', faq_a2: 'Konfiguriere deinen Ballon, lege ihn in den Warenkorb und sende deine Bestellung direkt über WhatsApp. Wir melden uns innerhalb weniger Stunden mit Bestätigung.',
+      faq_q3: 'Wie schnell wird geliefert?', faq_a3: 'Nach Bestellbestätigung versenden wir innerhalb von 1–2 Werktagen. Die Lieferzeit beträgt in der Regel 1–3 Werktage in Deutschland.',
+      faq_q4: 'Kann ich mehrere Ballons bestellen?', faq_a4: 'Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons gewähren wir 10% Rabatt.',
+      faq_q5: 'Ist der Ballon mit Helium gefüllt?', faq_a5: 'Der Ballon wird unaufgeblasen geliefert, damit er sicher transportiert werden kann. Die Mini-Ballons und Füllung sind bereits im Inneren. Du kannst ihn lokal mit Helium aufblasen lassen.',
+      versand_title: 'Versand & <span>Rückgabe</span> 📦',
+      vfaq_q1: 'Wie lange dauert die Lieferung?', vfaq_a1: 'Wir bearbeiten jede Bestellung individuell mit Liebe. Nach Bestellbestätigung versenden wir innerhalb von 1–3 Werktagen per DHL. Die Lieferzeit in Deutschland beträgt danach 2–4 Werktage.',
+      vfaq_q2: 'Wie werden die Ballons verpackt?', vfaq_a2: 'Die Ballons werden sorgfältig und sicher verpackt, damit sie unbeschädigt bei dir ankommen. Wir verwenden schützende Verpackungsmaterialien speziell für empfindliche Artikel.',
+      vfaq_q3: 'Kann ich meinen Ballon zurückgeben?', vfaq_a3: 'Da jeder Ballon individuell und personalisiert für dich gefertigt wird, ist eine Rückgabe leider nicht möglich. Sollte dein Ballon beschädigt ankommen, schick uns einfach ein Foto, wir finden gemeinsam eine Lösung! 💛',
+      vfaq_q4: 'Was kostet der Versand?', vfaq_a4: 'Der Versand erfolgt mit DHL Paket M und kostet 5,49 €. Ab einem Bestellwert von 60 € ist der Versand kostenlos.',
+      real_photos_title: 'Echte Ballons, echte <span>Momente</span> 📸',
+      delivered_title: '🚗 Direkt zu dir geliefert',
+      reviews_title: 'Was unsere Kunden <span>sagen</span> 💬',
+      review_text1: 'Absolut traumhaft! Der Ballon hat meine Tochter zu Tränen gerührt. Die Verarbeitung ist top, der Text wunderschön genau wie bestellt. Definitiv wieder!',
+      review_text2: 'Schnelle Lieferung, liebevolle Verpackung und ein wunderschöner Ballon. Die Mini-Ballons in Hellblau waren perfekt für die Babyparty. Alle waren begeistert!',
+      review_text3: 'Zum Heiratsantrag bestellt sie hat JA gesagt! 😍 Der Ballon mit den Herzchen war einfach magisch. Danke Dandelion 11:11 für diesen unvergesslichen Moment!',
+      footer_brand_text: 'Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.',
+      footer_shop_title: 'Shop', footer_link_all: 'Alle Ballons', footer_link_geburtstag: 'Geburtstag',
+      footer_link_hochzeit: 'Hochzeit', footer_link_babyparty: 'Babyparty',
+      footer_info_title: 'Info', footer_link_ueber: 'Über uns', footer_link_kontakt: 'Kontakt', footer_link_versand: 'Versand & Rückgabe',
+      footer_copyright: '© 2025 Dandelion 11:11 · Alle Rechte vorbehalten',
+      toast_default: '🛒 Ballon wurde in den Warenkorb gelegt!'
+    },
+    ro: {
+      nav_shop: 'Magazin', nav_koll: 'Colecții', nav_ueber: 'Despre noi', nav_kontakt: 'Contact',
+      hero_title: 'Balon personalizat după dorința ta ✨',
+      hero_sub: 'Balonul tău unic, personalizat cu text, simboluri și umplutură colorată',
+      filter_all: 'Toate', filter_geburtstag: '🎂 Aniversare', filter_hochzeit: '💍 Nuntă',
+      filter_babyparty: '👶 Botez/Baby', filter_liebe: '💕 Dragoste', filter_fussball: '⚽ Fotbal',
+      filter_kuscheltiere: '🧸 Jucării', filter_sonstiges: '✨ Diverse',
+      add_to_cart: 'Adaugă în coș', send_whatsapp: 'Trimite comanda pe WhatsApp',
+      clear_cart: '🗑 Golește coșul', cart_title: 'Coș',
+      koll_title: '🎈 Colecțiile noastre', koll_sub: 'Baloane lucrate manual pentru orice ocazie, cu drag',
+      back_to_config: '← Înapoi la configurator',
+      cookie_text: '🍪 Folosim cookie-uri pentru a-ți îmbunătăți experiența și pentru a analiza site-ul nostru. Mai multe detalii în politica noastră de confidențialitate.',
+      cookie_necessary: 'Doar necesare', cookie_accept: 'Acceptă toate',
+      discount_title: 'Bine ai venit la Dandelion 11:11!',
+      discount_text: 'Beneficiezi de 10% reducere la prima ta comandă cu codul:',
+      discount_btn: 'Cumpără acum',
+      kontakt_sub: 'Ne bucurăm să te citim! Scrie-ne și îți răspundem cât mai rapid posibil. 🌼',
+      kontakt_standort: 'Locație', kontakt_erreichbarkeit: 'Disponibilitate', kontakt_email: 'E-Mail', kontakt_whatsapp: 'WhatsApp',
+      kontakt_jetzt_schreiben: 'Scrie-ne acum', kontakt_nachricht_senden: 'Trimite un mesaj',
+      kontakt_antwortzeit: 'Răspundem în maximum 24 de ore.',
+      kontakt_label_name: 'Nume', kontakt_label_email: 'E-Mail', kontakt_label_betreff: 'Subiect', kontakt_label_nachricht: 'Mesaj',
+      kontakt_placeholder_name: 'Numele tău', kontakt_placeholder_email: 'emailul@tau.de', kontakt_placeholder_betreff: 'Despre ce este vorba?',
+      kontakt_placeholder_nachricht: 'Scrie-ne întrebarea sau dorințele tale...', kontakt_placeholder_captcha: 'Introdu răspunsul',
+      kontakt_sicherheitsfrage: 'Întrebare de securitate:', kontakt_send_btn: 'Trimite pe WhatsApp',
+      kontakt_form_hinweis: 'Formularul deschide WhatsApp cu mesajul tău.',
+      werktage_badge: '1–3 zile lucrătoare', search_placeholder: 'Caută produse…',
+      ship_home_text: 'Livrare în 1–3 zile lucrătoare direct la tine acasă.',
+      ship_home_text2: '1–3 zile lucrătoare', ship_home_text3: '1–3 zile lucrătoare după comandă',
+      ueber_h1: 'Despre Dandelion 11:11',
+      ueber_subtitle: 'O poveste despre vise, lipici, baloane sparte și magia din spatele lor.',
+      ueber_p1: 'Când eram mică, credeam<br>că păpădiile sunt magice.',
+      ueber_p2: 'Dacă prindeam o păpădie zburătoare și îmi puneam o dorință… se îndeplinea.',
+      ueber_p3: 'Astăzi știu că nu este chiar așa de simplu.',
+      ueber_p4: 'Visul nu vine pur și simplu.<br>\n    Visul se construiește. Cu mâinile. Cu sacrificii.<br>\n    Câteodată renunțând la somn. Câteodată… la oameni.',
+      ueber_p5: 'Așa a apărut Dandelion.',
+      ueber_p6: 'Nu dintr-un plan perfect.<br>\n    Ci dintr-o bucătărie în care era mai mult lipici decât ordine.<br>\n    Dintr-un subsol vopsit cu speranțe și culori de perete.<br>\n    Din zile în care nu știam dacă fac artă…<br>\n    sau doar un mare haos colorat.',
+      ueber_p7: 'Am montat mobilă, am cărat cutii, am spart baloane,<br>\n    și câteodată am trecut și prin câte o mică criză existențială.',
+      ueber_p8: 'Dar de fiecare dată am construit din nou.<br>\n    <em>Ca o păpădie care cade și totuși zboară din nou.</em>',
+      ueber_p9: 'Dandelion nu este o afacere.<br>\n    Este visul din copilărie,<br>ținut cu ambele mâini.',
+      ueber_p10: 'Și da… poate par o fată visătoare.<br>\n    Dar fiecare detaliu, fiecare floare, fiecare zâmbet pe care l-am primit…<br>\n    a fost muncit. Cu tot ce sunt.',
+      ueber_p11: 'Dandelion este lumea mea.<br>\n    O lume puțin mai frumoasă,<br>mai sinceră, mai magică.',
+      ueber_p12: 'A mea. Și poate… puțin și a ta. 🌼',
+      ueber_award_title: '🏆 Premiat: Concursul de Coronițe de Advent 2023',
+      ueber_award_text: 'În decembrie 2023 am câștigat cu coronița mea de Advent creată manual concursul jurnalului local din Mindelheim, cu figurine de spărgător de nuci create cu drag în roz, negru și mov. A fost o onoare imensă ca lucrarea mea să fie prezentată în jurnal! 🌟',
+      ueber_behind_title: '🎈 În culise',
+      ueber_behind_text: 'Momente reale de la idee până la balonul finit. Apasă pe o imagine pentru a o mări.',
+      ueber_g1: 'Primul balon spart 😅', ueber_g2: 'Montat mobilă în subsol',
+      ueber_g3: 'Haos creativ în bucătărie', ueber_g4: 'Împachetarea primelor comenzi',
+      ueber_g5: 'Detalii create cu drag', ueber_g6: 'Creații finite',
+      hiw_rating: '⭐ 4.9/5 din peste 100 de recenzii',
+      hiw_step1_title: '1. Alege & personalizează', hiw_step1_text: 'Alege culoarea, textul și umplutura balonului tău.',
+      hiw_madein: '💜 Lucrat manual cu drag în Germania',
+      hiw_step2_title: '2. Pregătim cu drag', hiw_step2_text: 'Fiecare balon este pregătit manual cu multă grijă.',
+      hiw_freeship: '🚚 Livrare gratuită de la 60 €',
+      hiw_step3_title: '3. Livrare rapidă',
+      hiw_discover: 'Nu ești sigur ce vrei? Descoperă colecțiile noastre →',
+      badge_sustainable: 'Sustenabil', badge_handmade: 'Lucrat manual', badge_secure: 'Comandă sigură', badge_fastship: 'Livrare rapidă',
+      order_whatsapp_now: 'Comandă acum pe WhatsApp', secure_encrypted: 'Sigur & criptat',
+      satisfaction_guarantee: 'Garanția satisfacției', cart_total: 'Total',
+      feat_handmade_title: 'Lucrat manual', feat_handmade_text: 'Fiecare balon este creat individual cu drag',
+      feat_ship_title: 'Livrare rapidă', feat_sustainable_title: 'Sustenabil',
+      feat_sustainable_text: 'Latex 100% natural, biodegradabil',
+      feat_whatsapp_title: 'Suport WhatsApp', feat_whatsapp_text: 'Scrie-ne pentru o consiliere personală!',
+      info_what_makes: 'Ce face baloanele noastre <span>speciale?</span>',
+      info_list1: 'Balon transparent mare (Ø 45 cm) din latex de înaltă calitate',
+      info_list2: 'Umplut cu mini-baloane colorate, confetti, inimioare sau stele',
+      info_list3: 'Text personalizat și simbol la dorință în interior',
+      info_list4: 'Felicitare scrisă de mână inclusă',
+      info_list5: 'Perfect pentru aniversări, nunți, baby shower, jubilee & multe altele',
+      info_list6: 'Fiecare balon este unicat, creat cu drag în Germania',
+      info_list7: 'Rezistă 24–48 de ore umflat (recomandăm umplerea cu heliu chiar înainte de eveniment)',
+      faq_title: 'Întrebări <span>frecvente</span>',
+      faq_q1: 'Cât rezistă balonul?', faq_a1: 'Umplut cu heliu, balonul nostru rezistă 24–48 de ore. Cu aer rămâne frumos câteva zile. Recomandăm umplerea cu heliu chiar înainte de evenimentul tău.',
+      faq_q2: 'Cum comand?', faq_a2: 'Configurează-ți balonul, adaugă-l în coș și trimite comanda direct pe WhatsApp. Îți răspundem în câteva ore cu confirmarea.',
+      faq_q3: 'Cât de rapid se livrează?', faq_a3: 'După confirmarea comenzii, expediem în 1–2 zile lucrătoare. Timpul de livrare este de obicei 1–3 zile lucrătoare în Germania.',
+      faq_q4: 'Pot comanda mai multe baloane?', faq_a4: 'Da! Poți configura mai multe baloane diferite și le poți adăuga pe toate în coș. De la 3 baloane oferim 10% reducere.',
+      faq_q5: 'Balonul este umplut cu heliu?', faq_a5: 'Balonul este livrat neumflat, pentru a putea fi transportat în siguranță. Mini-baloanele și umplutura sunt deja în interior. Îl poți umfla local cu heliu.',
+      versand_title: 'Livrare & <span>retur</span> 📦',
+      vfaq_q1: 'Cât durează livrarea?', vfaq_a1: 'Procesăm fiecare comandă individual, cu drag. După confirmarea comenzii, expediem în 1–3 zile lucrătoare prin DHL. Timpul de livrare în Germania este apoi de 2–4 zile lucrătoare.',
+      vfaq_q2: 'Cum sunt împachetate baloanele?', vfaq_a2: 'Baloanele sunt împachetate cu grijă și în siguranță, pentru a ajunge nedeteriorate la tine. Folosim materiale de protecție special pentru articole fragile.',
+      vfaq_q3: 'Pot returna balonul meu?', vfaq_a3: 'Deoarece fiecare balon este realizat individual și personalizat pentru tine, returul nu este posibil. Dacă balonul tău ajunge deteriorat, trimite-ne o poză și găsim împreună o soluție! 💛',
+      vfaq_q4: 'Cât costă livrarea?', vfaq_a4: 'Livrarea se face cu DHL Paket M și costă 5,49 €. De la o valoare a comenzii de 60 €, livrarea este gratuită.',
+      real_photos_title: 'Baloane reale, momente <span>reale</span> 📸',
+      delivered_title: '🚗 Livrat direct la tine',
+      reviews_title: 'Ce spun <span>clienții</span> noștri 💬',
+      review_text1: 'Absolut fantastic! Balonul a emoționat-o pe fiica mea până la lacrimi. Calitatea este excelentă, textul exact cum l-am comandat. Cu siguranță vom reveni!',
+      review_text2: 'Livrare rapidă, ambalaj plin de grijă și un balon superb. Mini-baloanele albastre au fost perfecte pentru baby shower. Toată lumea a fost încântată!',
+      review_text3: 'L-am comandat pentru o cerere în căsătorie ea a zis DA! 😍 Balonul cu inimioare a fost pur și simplu magic. Mulțumim Dandelion 11:11 pentru acest moment de neuitat!',
+      footer_brand_text: 'Baloane experiență lucrate manual pentru momentele tale de neuitat. Create cu drag, livrate personal.',
+      footer_shop_title: 'Magazin', footer_link_all: 'Toate baloanele', footer_link_geburtstag: 'Aniversare',
+      footer_link_hochzeit: 'Nuntă', footer_link_babyparty: 'Baby Shower',
+      footer_info_title: 'Info', footer_link_ueber: 'Despre noi', footer_link_kontakt: 'Contact', footer_link_versand: 'Livrare & retur',
+      footer_copyright: '© 2025 Dandelion 11:11 · Toate drepturile rezervate',
+      toast_default: '🛒 Balonul a fost adăugat în coș!'
+    }
+  };
+  window.setLang = function(lang) {
+    localStorage.setItem('lang', lang);
+    document.getElementById('lang-de').style.opacity = lang === 'de' ? '1' : '0.4';
+    document.getElementById('lang-ro').style.opacity = lang === 'ro' ? '1' : '0.4';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (i18n[lang][key]) el.placeholder = i18n[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (i18n[lang][key]) el.setAttribute('placeholder', i18n[lang][key]);
+    });
+  };
+  setLang(localStorage.getItem('lang') || 'de');
+
   updateFavBadge();
 
   window.closeDiscountPopup = function() {
@@ -2666,7 +2886,13 @@
     shipDay.setDate(now.getDate() + (cutoff ? 1 : 2));
     if (shipDay.getDay() === 0) shipDay.setDate(shipDay.getDate() + 1);
     if (shipDay.getDay() === 6) shipDay.setDate(shipDay.getDate() + 2);
-    el.textContent = `⏰ Bestelle innerhalb der nächsten Stunden, Versand am ${days[shipDay.getDay()]}!`;
+    const lang = localStorage.getItem('lang');
+    if (lang === 'ro') {
+      const daysRo = ['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+      el.textContent = `⏰ Comandă în următoarele ore, livrare ${daysRo[shipDay.getDay()]}!`;
+    } else {
+      el.textContent = `⏰ Bestelle innerhalb der nächsten Stunden, Versand am ${days[shipDay.getDay()]}!`;
+    }
   })();
 
   document.addEventListener('click', function(e) {
@@ -2683,7 +2909,7 @@
     const b = 1 + Math.floor(Math.random() * 9);
     captchaAnswer = a + b;
     const q = document.getElementById('k-captcha-q');
-    if (q) q.textContent = `Wie viel ist ${a} + ${b}?`;
+    if (q) q.textContent = localStorage.getItem('lang')==='ro' ? `Cât este ${a} + ${b}?` : `Wie viel ist ${a} + ${b}?`;
     const inp = document.getElementById('k-captcha');
     if (inp) inp.value = '';
   }
@@ -2697,9 +2923,10 @@
     const honeypot = document.getElementById('k-website').value.trim();
     const captcha  = document.getElementById('k-captcha').value.trim();
     if (honeypot) { return; } // Bot detected – silently ignore
-    if (!msg) { alert('Bitte schreib eine Nachricht.'); return; }
+    const _ro = localStorage.getItem('lang')==='ro';
+    if (!msg) { alert(_ro ? 'Te rugăm să scrii un mesaj.' : 'Bitte schreib eine Nachricht.'); return; }
     if (parseInt(captcha, 10) !== captchaAnswer) {
-      alert('Die Antwort auf die Sicherheitsfrage ist leider falsch. Bitte versuche es erneut.');
+      alert(_ro ? 'Răspunsul la întrebarea de securitate este greșit. Te rugăm să încerci din nou.' : 'Die Antwort auf die Sicherheitsfrage ist leider falsch. Bitte versuche es erneut.');
       newCaptcha();
       return;
     }
@@ -2713,52 +2940,56 @@
   };
 
   // Kollektionen
+  function lp(p, field) {
+    return localStorage.getItem('lang')==='ro' ? (p[field+'_ro'] || p[field]) : p[field];
+  }
+  window.lp = lp;
   const kollProducts = [
-    { id:1, name:'Ballon-Box Boho Luxe', desc:'Ein großer personalisierter Chromballon in Blau-Gold mit Schmetterlingsdekor, umhüllt von einem üppigen Arrangement aus Trockenblumen, Rosen, Pampasgras und goldenen Bändern. Handgemacht und einzigartig.', price:89.00, cat:'geburtstag', badge:'Bestseller', emoji:'🦋', img:'boho-blue.jpg' },
-    { id:2, name:'Ballon-Box Schwarz & Gold', desc:'Luxuriöse Ballon-Box im eleganten Schwarz-Gold-Look: großer schwarzer Ballon mit Goldfolie und Schriftzug, goldene Chromballons, dunkelrote Rosen und schwarzes Krepp-Papier in einer stilvollen Geschenkbox.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'black-gold.jpg' },
-    { id:3, name:'Lila Champagner-Ballon', desc:'Romantischer personalisierter Ballon in leuchtendem Lila mit Goldflitter, dekoriert mit frischen Blumen in Rosa und Weiß sowie glitzernden Lila-Kugeln, präsentiert auf einer Champagnerflasche als besonderes Geschenk.', price:79.00, cat:'geburtstag', badge:'Neu', emoji:'💜', img:'purple-champagne.jpg' },
-    { id:4, name:'Romantischer Rosa Ballon', desc:'Großer rosafarbener Marmorballon mit individueller Pärchen-Silhouette und Initialen, umgeben von frischen Rosen, Gerbera und Schleierkraut sowie zarten Herzballons. Ein romantisches Geschenk für jeden besonderen Anlass.', price:89.00, cat:'hochzeit', badge:'Beliebt', emoji:'💑', img:'wedding-pink.png' },
-    { id:5, name:'Fußball Blumenbox', desc:'Einzigartiges Arrangement für Fußballfans: personalisierter Fußballballon mit Fußballschuhen als Dekorelement, umgeben von bunten Rosen in Rot, Blau, Weiß und Gold auf einem goldenen Tablett.', price:79.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-box.png' },
-    { id:6, name:'Ballon mit Wunsch-Illustration', desc:'Vollständig personalisierter Ballon mit individueller Illustration nach Wunsch, ideal für Unternehmen, Vereine oder besondere Hobbys. Jeder Ballon ist ein einzigartiges Kunstwerk, das bleibt.', price:69.00, cat:'sonstiges', badge:'Individuell', emoji:'🎨', img:'pilates-balloon.png' },
-    { id:7, name:'Dark-Chrome Ballon-Box', desc:'Dramatische und luxuriöse Ballon-Box mit großem dunkel-chromen Ballon in Schwarz-Gold, personalisiert mit Name oder Wunschbotschaft. Mit schwarzen Rosen, Goldkugeln, Perlen und weißen Blüten in einer eleganten runden Box.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'dark-chrome-box.png' },
-    { id:8, name:'Lila Hochzeits-Ballon-Box', desc:'Atemberaubende Hochzeitskomposition: violetter Marmorballon mit goldener Pärchen-Silhouette und Namen, dekoriert mit goldenen Schmetterlingen. Dazu eine opulente Blumenbox mit dunkelvioletten Rosen, Perlen und Schleierkraut.', price:99.00, cat:'hochzeit', badge:'Exklusiv', emoji:'💜', img:'purple-wedding-box.png' },
-    { id:9, name:'Teddybär Blumenbox', desc:'Zauberhafter Blumenkorb mit einem kuschligen weißen Teddybären, umgeben von frischen gelb-orangenen Rosen, Perlengirlanden, Schmetterlingen und Marienkäfern. Ein unvergessliches Geschenk für Kinder und Babys.', price:69.00, cat:'kuscheltiere', badge:'Süß', emoji:'🐻', img:'teddy-flower-box.png' },
-    { id:10, name:'Pilz-Gnom Blumenbox', desc:'Märchenhaftes Blumenarrangement mit einem charmanten Pilz-Gnom, eingebettet in sonnige gelb-orangene Rosen mit Perlen, Federn und bunten Schmetterlingen. Handgemacht mit viel Liebe für besondere Geburtstage.', price:65.00, cat:'geburtstag', badge:'', emoji:'🍄', img:'mushroom-flower-box.png' },
-    { id:11, name:'Drachen Blumenbox', desc:'Traumhaftes Blumenarrangement mit einer niedlichen Drachen-Figur in Lila, umgeben von bunten Blüten in Orange, Creme und Violett. Perfekt für Babypartys, Kindertaufen und besondere Kinderwünsche.', price:65.00, cat:'babyparty', badge:'Neu', emoji:'🐉', img:'dragon-flower-box.png' },
-    { id:12, name:'Gamer Geburtstags-Set', desc:'Das perfekte Geschenk für kleine und große Gamer: personalisierter Pinguin-Plüsch mit Namen, Folienballon im Gaming-Design und bunte Heliumballons im coolen Blau-Schwarz-Look.', price:75.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🎮', img:'gamer-birthday.png' },
-    { id:13, name:'Stitch Blumenstrauß', desc:'Zauberhafter Blumenstrauß mit dem beliebten Disney-Stitch Plüschtier, eingebettet in romantische rosa Rosen und schimmernde holografische Blüten in Blau-Grün mit Eukalyptuszweigen. Ein Geschenk, das Augen zum Leuchten bringt.', price:75.00, cat:'kuscheltiere', badge:'Disney', emoji:'💙', img:'stitch-flower-box.png' },
-    { id:14, name:'Feen-Blumenbox', desc:'Märchenhafte Blumenbox mit einer zauberhaften Feenpuppe mit lila Flügeln, umgeben von holografischen Rosen in Blau-Türkis, Pfingstrosen in Rosa und Weiß sowie Eukalyptuszweigen. Ein Traum für kleine Mädchen.', price:79.00, cat:'babyparty', badge:'Magisch', emoji:'🧚', img:'fairy-doll-flower-box.png' },
-    { id:15, name:'Ferrero Geburtstags-Box', desc:'Edle Geburtstags-Box im Schwarz-Gold-Look: Ferrero Rocher Pralinen, schwarze Fransendekoration, Pixel-Sonnenbrille und goldene Geburtstagsbeschriftung. Für alle, die es stilvoll und süß mögen.', price:65.00, cat:'geburtstag', badge:'Trendy', emoji:'🍫', img:'ferrero-birthday-box.png' },
-    { id:16, name:'Spiderman Geburtstags-Box', desc:'Personalisierter goldener Marmorballon mit individuellem Namen und Geburtstagswunsch, dekoriert mit einer Spiderman-Figur. Dazu eine bunte Box gefüllt mit Süßigkeiten wie Milka, Haribo und mehr, ein Highlight für kleine Superhelden-Fans.', price:75.00, cat:'geburtstag', badge:'Beliebt', emoji:'🕷️', img:'spiderman-birthday-box.png' },
-    { id:17, name:'Einhorn-Ballonstrauß', desc:'Verspielter Ballonstrauß mit einem schimmernden Einhorn-Folienballon, rosa Herzballon, silbernem Ei-Ballon und pastellfarbenen Heliumballons, liebevoll verpackt mit Schleifen in Rosa und Lila. Ein Traum für kleine Prinzessinnen.', price:55.00, cat:'kuscheltiere', badge:'Neu', emoji:'🦄', img:'unicorn-balloon-bouquet.png', fit:'contain' },
-    { id:18, name:'Teddy Geschenkbox mit Ballon', desc:'Liebevolle Geschenkbox mit kuscheligem Teddybären, personalisiertem Ballon mit Wunschtext in Lila-Weiß und einer großen Auswahl an Süßigkeiten wie Milka und Haribo. Perfekt für besondere Glückwünsche.', price:69.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-gift-box.png', fit:'contain' },
-    { id:19, name:'Regenbogen-Einhorn im Ballon', desc:'Magischer transparenter Stuffed-Ballon mit einem bunten Regenbogen-Einhorn-Plüschtier und pastellfarbenen Mini-Ballons im Inneren, verziert mit rosa Schleife und Geburtstags-Topper. Ein unvergessliches Highlight zum Auspacken.', price:79.00, cat:'kuscheltiere', badge:'Magisch', emoji:'🌈', img:'rainbow-unicorn-balloon.png', fit:'contain' },
-    { id:20, name:'Premium Blumenbox mit Schmetterling', desc:'Exklusive Blumenbox mit einer eleganten Mischung aus Anemonen, Rosen und Hortensien in Rosa, Lila und Violett, verziert mit einem bunten Schmetterling und edlen Bändern. Ein luxuriöses Geschenk für besondere Anlässe.', price:85.00, cat:'sonstiges', badge:'Exklusiv', emoji:'🦋', img:'butterfly-flower-box.png', fit:'contain' },
-    { id:21, name:'Whiskey & Ferrero Strauß', desc:'Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel\'s Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Papier mit passender Schleife.', price:69.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🥃', img:'whiskey-ferrero-bouquet.png', fit:'contain' },
-    { id:22, name:'Geburtstagsballon Blau mit Blumenbox', desc:'Großer personalisierter Ballon mit Glitzereffekt und Schriftzug "Alles Gute zum Geburtstag", umgeben von zartblauen Hortensien, pfirsichfarbenen Rosen und frischem Eukalyptus in einer eleganten Box mit Feen-Motiv.', price:85.00, cat:'geburtstag', badge:'Beliebt', emoji:'🧚', img:'birthday-balloon-blue-flowerbox.png', fit:'contain' },
-    { id:23, name:'Blumenkorb mit Foto-Medaillon', desc:'Wunderschöner Blumenkorb mit weißen, gelben und pinken Blüten sowie lila Hortensien, verziert mit einem individuell gestalteten Foto-Medaillon. Ein einzigartiges, persönliches Geschenk für besondere Menschen.', price:75.00, cat:'sonstiges', badge:'Individuell', emoji:'📷', img:'flower-basket-photo-medallion.png', fit:'contain' },
-    { id:24, name:'Heißluftballon "Happy Valentine\'s Day"', desc:'Romantische Geschenkbox in Heißluftballon-Form mit der Aufschrift "Happy Valentine\'s Day", goldenen Ferrero-Rocher-Pralinen, rosa Rosen und grünem Akzent. Ein Hingucker für Verliebte.', price:75.00, cat:'liebe', badge:'Romantisch', emoji:'💗', img:'valentines-balloon-box.png', fit:'contain' },
-    { id:25, name:'Teddybär im Geschenkballon', desc:'Kuscheliger Teddybär mit roter Satinschleife, eingehüllt in einen großen transparenten Stuffed-Ballon und präsentiert auf einer eleganten Box mit roter Dekoration. Ein herzerwärmendes Geschenk für jeden Anlass.', price:59.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-stuffed-balloon-red.png', fit:'contain' },
-    { id:26, name:'Herz-Box mit Ferrero & roten Rosen', desc:'Romantische herzförmige Geschenkbox gefüllt mit goldenen Ferrero-Rocher-Pralinen und umrahmt von samtroten Rosen. Verziert mit einer eleganten roten Schleife, das perfekte Geschenk für besondere Liebesbeweise.', price:55.00, cat:'liebe', badge:'Romantisch', emoji:'❤️', img:'heart-ferrero-roses-box.png', fit:'contain' },
-    { id:27, name:'Kinder Joy Blumenstrauß', desc:'Süßer Strauß mit drei Kinder-Joy-Überraschungseiern, eingebettet in zartrosa Schleierkraut und dekoriert mit rosafarbenem Verpackungspapier und Satinschleife. Eine fröhliche Überraschung für Kinder und Naschkatzen.', price:35.00, cat:'babyparty', badge:'Süß', emoji:'🍬', img:'kinder-joy-bouquet.png', fit:'contain' },
-    { id:28, name:'Fußballschuh-Blumenstrauß', desc:'Origineller Strauß für Fußballfans: ein Paar pinke Fußballschuhe eingebettet in pinke Rosen, Gerbera in Pink und Bordeaux sowie weißen Schleierkraut. Ein Geschenk, das garantiert in Erinnerung bleibt.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-shoes-bouquet.png', fit:'contain' },
-    { id:29, name:'Abschluss-Ballon "conGRADulations"', desc:'Eleganter weißer Ballon mit Doktorhut und goldener Quaste, individuell bedruckt mit "conGRADulations" und dem Namen des Absolventen. Verziert mit schwarzer Schleife, das perfekte Geschenk zum Schulabschluss oder Studienabschluss.', price:45.00, cat:'sonstiges', badge:'Individuell', emoji:'🎓', img:'graduation-balloon.png', fit:'contain' },
-    { id:30, name:'Fußball-Fan Strauß "Ronaldo"', desc:'Einzigartiger Strauß für Fußballfans mit Cristiano-Ronaldo-Motiven, Vereinswappen, Trikot mit Wunschnummer und Fußball-Dekoration auf marineblauem Papier. Das ultimative Geschenk für jeden Fußballfan.', price:55.00, cat:'fussball', badge:'Fan-Edition', emoji:'⚽', img:'ronaldo-fan-bouquet.png', fit:'contain' },
-    { id:31, name:'Fußballschuh-Strauß "Nike"', desc:'Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem Kraftpapier. Ein originelles Geschenk für jeden Fußballfan.', price:60.00, cat:'fussball', badge:'Sportlich', emoji:'⚽', img:'produs31.png', fit:'contain' },
-    { id:32, name:'Fußballschuh-Vase mit weißen Rosen', desc:'Außergewöhnliches Arrangement aus silbernen Fußballschuhen als Vase, gefüllt mit weißen Rosen und Schleierkraut, präsentiert auf einem eleganten Metalltablett mit einem Fußball als Deko-Element. Ein echter Hingucker für Fußballfans.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'produs32.png', fit:'contain' },
-    { id:33, name:'Gesicht-Skulptur mit Trockenblumen', desc:'Außergewöhnliche Deko-Skulptur in Silber, ein Gesicht mit verdeckenden Händen, gekrönt von einem üppigen Arrangement aus Trockenblumen, rosa Schleierkraut und Eukalyptus. Ein modernes Statement-Stück für Liebhaber außergewöhnlicher Deko.', price:79.00, cat:'sonstiges', badge:'Einzigartig', emoji:'🌿', img:'face-sculpture-dried-flowers.png', fit:'contain' },
-    { id:34, name:'Oster-Blumenbox mit Drachen', desc:'Fröhliche Osterdekoration mit einem niedlichen Drachen im Hasenkostüm und Osterkörbchen, umgeben von pastellfarbenen Rosen in Gelb, Rosa und Blau sowie bunten Ostereiern und einem Marienkäfer. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-dragon-flower-box.png', fit:'contain' },
-    { id:35, name:'Lamborghini Modellauto Bilderrahmen', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame.png', fit:'contain' },
-    { id:36, name:'Oster-Blumenbox mit Häschen', desc:'Bezaubernde Osterkomposition mit einem niedlichen Häschen-Pferd, umgeben von Rosen in Pink, Blau und Lila, Pastell-Ostereiern, einem Marienkäfer und einem kleinen gelben Küken. Ein wundervolles Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐣', img:'easter-bunny-flower-box.png', fit:'contain' },
-    { id:37, name:'Oster-Blumenbox mit Hase & Küken', desc:'Liebevolle Osterbox mit einem süßen weißen Hasen, der ein gelbes Küken hält, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein herzerwärmendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-rabbit-chick-box.png', fit:'contain' },
-    { id:38, name:'Oster-Blumenbox mit Macaron-Küken', desc:'Süße Osterdekoration mit einem Küken in Hasenohren, das bunte Macarons hält, eingebettet in zartblaue, lila und pinke Rosen mit Pastell-Ostereiern und Schoko-Figuren. Ein farbenfrohes Geschenk für Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐥', img:'easter-chick-macaron-box.png', fit:'contain' },
-    { id:39, name:'Oster-Blumenbox mit Astronauten-Küken', desc:'Originelle Osterkomposition mit einem niedlichen Küken im Astronautenanzug, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein außergewöhnliches Geschenk für kleine Entdecker.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🚀', img:'easter-astronaut-chick-box.png', fit:'contain' },
-    { id:40, name:'Oster-Blumenbox mit grünem Drachen', desc:'Fröhliche Osterbox mit einem freundlichen grünen Drachen mit Hasenohren, umgeben von zartblauen, lila und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐉', img:'easter-green-dragon-box.png', fit:'contain' },
-    { id:41, name:'Lamborghini Modellauto Bilderrahmen Blau', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit türkisfarbenem Hintergrund und gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame-blue.png', fit:'contain' },
-    { id:42, name:'Oster-Blumenbox mit Hasenfamilie', desc:'Herzerwärmende Osterbox mit zwei kuscheligen Hasenfiguren, ein großer Hase küsst liebevoll ein Baby-Häschen in einer Eierschale, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein rührendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-bunny-family-box.png', fit:'contain' },
-    { id:43, name:'Oster-Blumenbox mit Macaron-Hase', desc:'Charmante Osterkomposition mit einem Hasen im rosa Kleid, der einen bunten Turm aus glitzernden Macarons balanciert, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein süßes Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-macaron-bunny-box.png', fit:'contain' },
-    { id:44, name:'Geburtstags-Geschenkbox für Hunde "Dog Mom"', desc:'Liebevolle Geschenkbox "Alles Gute zum Geburtstag" für Hundeliebhaber: mit Pflegeprodukten, einer Tasse, einem "Dog Mom" Halstuch und Cap, einem Tennisball sowie selbstgemachten Hundekeksen und Leckerlis. Das perfekte Geschenk für jede Hundemama.', price:55.00, cat:'sonstiges', badge:'Für Hundeliebhaber', emoji:'🐶', imgs:['dogmom-box-1.png','dogmom-box-2.png','dogmom-box-3.png','dogmom-box-4.png','dogmom-box-5.png','dogmom-box-6.png','dogmom-box-7.png'], fit:'contain' },
-    { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball, beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain' },
+    { id:1, name:'Ballon-Box Boho Luxe', desc:'Ein großer personalisierter Chromballon in Blau-Gold mit Schmetterlingsdekor, umhüllt von einem üppigen Arrangement aus Trockenblumen, Rosen, Pampasgras und goldenen Bändern. Handgemacht und einzigartig.', price:89.00, cat:'geburtstag', badge:'Bestseller', emoji:'🦋', img:'boho-blue.jpg', name_ro:'Cutie cu Baloane Boho Luxe', desc_ro:'Un balon mare personalizat din crom în albastru-auriu cu decor de fluturi, înconjurat de un aranjament generos din flori uscate, trandafiri, iarba pampas și panglici aurii. Realizat manual și unic.', badge_ro:'Cel mai vândut' },
+    { id:2, name:'Ballon-Box Schwarz & Gold', desc:'Luxuriöse Ballon-Box im eleganten Schwarz-Gold-Look: großer schwarzer Ballon mit Goldfolie und Schriftzug, goldene Chromballons, dunkelrote Rosen und schwarzes Krepp-Papier in einer stilvollen Geschenkbox.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'black-gold.jpg', name_ro:'Cutie cu Baloane Negru & Auriu', desc_ro:'Cutie cu baloane luxoasă în stilul elegant negru-auriu: balon mare negru cu folie aurie și mesaj personalizat, baloane cromate aurii, trandafiri roșu-închis și hârtie creponată neagră într-o cutie cadou stilată.', badge_ro:'Premium' },
+    { id:3, name:'Lila Champagner-Ballon', desc:'Romantischer personalisierter Ballon in leuchtendem Lila mit Goldflitter, dekoriert mit frischen Blumen in Rosa und Weiß sowie glitzernden Lila-Kugeln, präsentiert auf einer Champagnerflasche als besonderes Geschenk.', price:79.00, cat:'geburtstag', badge:'Neu', emoji:'💜', img:'purple-champagne.jpg', name_ro:'Balon Mov cu Șampanie', desc_ro:'Balon personalizat romantic în mov strălucitor cu sclipici auriu, decorat cu flori proaspete roz și albe, precum și sfere mov sclipitoare, prezentat pe o sticlă de șampanie ca un cadou special.', badge_ro:'Nou' },
+    { id:4, name:'Romantischer Rosa Ballon', desc:'Großer rosafarbener Marmorballon mit individueller Pärchen-Silhouette und Initialen, umgeben von frischen Rosen, Gerbera und Schleierkraut sowie zarten Herzballons. Ein romantisches Geschenk für jeden besonderen Anlass.', price:89.00, cat:'hochzeit', badge:'Beliebt', emoji:'💑', img:'wedding-pink.png', name_ro:'Balon Roz Romantic', desc_ro:'Balon marmorat roz mare cu silueta personalizată a unui cuplu și inițiale, înconjurat de trandafiri proaspeți, gerbera și miuță, precum și baloane în formă de inimă. Un cadou romantic pentru orice ocazie specială.', badge_ro:'Popular' },
+    { id:5, name:'Fußball Blumenbox', desc:'Einzigartiges Arrangement für Fußballfans: personalisierter Fußballballon mit Fußballschuhen als Dekorelement, umgeben von bunten Rosen in Rot, Blau, Weiß und Gold auf einem goldenen Tablett.', price:79.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-box.png', name_ro:'Cutie Florală Fotbal', desc_ro:'Aranjament unic pentru fanii fotbalului: balon de fotbal personalizat cu ghete de fotbal ca element decorativ, înconjurat de trandafiri colorați în roșu, albastru, alb și auriu, pe o tavă aurie.', badge_ro:'Unicat' },
+    { id:6, name:'Ballon mit Wunsch-Illustration', desc:'Vollständig personalisierter Ballon mit individueller Illustration nach Wunsch, ideal für Unternehmen, Vereine oder besondere Hobbys. Jeder Ballon ist ein einzigartiges Kunstwerk, das bleibt.', price:69.00, cat:'sonstiges', badge:'Individuell', emoji:'🎨', img:'pilates-balloon.png', name_ro:'Balon cu Ilustrație Personalizată', desc_ro:'Balon complet personalizat cu o ilustrație individuală la cerere, ideal pentru firme, asociații sau hobby-uri speciale. Fiecare balon este o operă de artă unică, care rămâne.', badge_ro:'Personalizat' },
+    { id:7, name:'Dark-Chrome Ballon-Box', desc:'Dramatische und luxuriöse Ballon-Box mit großem dunkel-chromen Ballon in Schwarz-Gold, personalisiert mit Name oder Wunschbotschaft. Mit schwarzen Rosen, Goldkugeln, Perlen und weißen Blüten in einer eleganten runden Box.', price:95.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'dark-chrome-box.png', name_ro:'Cutie cu Balon Dark-Chrome', desc_ro:'Cutie cu baloane dramatică și luxoasă cu un balon mare cromat-întunecat în negru-auriu, personalizat cu numele sau mesajul dorit. Cu trandafiri negri, sfere aurii, perle și flori albe într-o cutie rotundă elegantă.', badge_ro:'Premium' },
+    { id:8, name:'Lila Hochzeits-Ballon-Box', desc:'Atemberaubende Hochzeitskomposition: violetter Marmorballon mit goldener Pärchen-Silhouette und Namen, dekoriert mit goldenen Schmetterlingen. Dazu eine opulente Blumenbox mit dunkelvioletten Rosen, Perlen und Schleierkraut.', price:99.00, cat:'hochzeit', badge:'Exklusiv', emoji:'💜', img:'purple-wedding-box.png', name_ro:'Cutie cu Balon de Nuntă Mov', desc_ro:'Compoziție impresionantă pentru nuntă: balon marmorat violet cu silueta aurie a unui cuplu și numele lor, decorat cu fluturi aurii. Plus o cutie florală opulentă cu trandafiri violet-închis, perle și miuță.', badge_ro:'Exclusiv' },
+    { id:9, name:'Teddybär Blumenbox', desc:'Zauberhafter Blumenkorb mit einem kuschligen weißen Teddybären, umgeben von frischen gelb-orangenen Rosen, Perlengirlanden, Schmetterlingen und Marienkäfern. Ein unvergessliches Geschenk für Kinder und Babys.', price:69.00, cat:'kuscheltiere', badge:'Süß', emoji:'🐻', img:'teddy-flower-box.png', name_ro:'Cutie Florală cu Ursuleț de Pluș', desc_ro:'Coș floral fermecător cu un ursuleț de pluș alb și pufos, înconjurat de trandafiri proaspeți galben-portocalii, ghirlande de perle, fluturi și buburuze. Un cadou neuitat pentru copii și bebeluși.', badge_ro:'Drăguț' },
+    { id:10, name:'Pilz-Gnom Blumenbox', desc:'Märchenhaftes Blumenarrangement mit einem charmanten Pilz-Gnom, eingebettet in sonnige gelb-orangene Rosen mit Perlen, Federn und bunten Schmetterlingen. Handgemacht mit viel Liebe für besondere Geburtstage.', price:65.00, cat:'geburtstag', badge:'', emoji:'🍄', img:'mushroom-flower-box.png', name_ro:'Cutie Florală cu Gnom Ciupercă', desc_ro:'Aranjament floral de poveste cu un gnom-ciupercă fermecător, încadrat de trandafiri galben-portocalii însorit, cu perle, pene și fluturi colorați. Realizat manual cu multă dragoste pentru zile de naștere speciale.', badge_ro:'' },
+    { id:11, name:'Drachen Blumenbox', desc:'Traumhaftes Blumenarrangement mit einer niedlichen Drachen-Figur in Lila, umgeben von bunten Blüten in Orange, Creme und Violett. Perfekt für Babypartys, Kindertaufen und besondere Kinderwünsche.', price:65.00, cat:'babyparty', badge:'Neu', emoji:'🐉', img:'dragon-flower-box.png', name_ro:'Cutie Florală cu Dragon', desc_ro:'Aranjament floral de poveste cu o figurină drăguță de dragon mov, înconjurată de flori colorate în portocaliu, crem și violet. Perfect pentru baby showere, botezuri și dorințe speciale pentru copii.', badge_ro:'Nou' },
+    { id:12, name:'Gamer Geburtstags-Set', desc:'Das perfekte Geschenk für kleine und große Gamer: personalisierter Pinguin-Plüsch mit Namen, Folienballon im Gaming-Design und bunte Heliumballons im coolen Blau-Schwarz-Look.', price:75.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🎮', img:'gamer-birthday.png', name_ro:'Set Aniversar Gamer', desc_ro:'Cadoul perfect pentru micii și marii gameri: pluș personalizat în formă de pinguin cu numele, balon folie cu design gaming și baloane colorate cu heliu într-un look cool albastru-negru.', badge_ro:'Popular' },
+    { id:13, name:'Stitch Blumenstrauß', desc:'Zauberhafter Blumenstrauß mit dem beliebten Disney-Stitch Plüschtier, eingebettet in romantische rosa Rosen und schimmernde holografische Blüten in Blau-Grün mit Eukalyptuszweigen. Ein Geschenk, das Augen zum Leuchten bringt.', price:75.00, cat:'kuscheltiere', badge:'Disney', emoji:'💙', img:'stitch-flower-box.png', name_ro:'Buchet Floral Stitch', desc_ro:'Buchet floral fermecător cu îndrăgita jucărie de pluș Disney Stitch, înconjurată de trandafiri roz romantici și flori holografice strălucitoare în albastru-verde cu crenguțe de eucalipt. Un cadou care face ochii să sclipească.', badge_ro:'Disney' },
+    { id:14, name:'Feen-Blumenbox', desc:'Märchenhafte Blumenbox mit einer zauberhaften Feenpuppe mit lila Flügeln, umgeben von holografischen Rosen in Blau-Türkis, Pfingstrosen in Rosa und Weiß sowie Eukalyptuszweigen. Ein Traum für kleine Mädchen.', price:79.00, cat:'babyparty', badge:'Magisch', emoji:'🧚', img:'fairy-doll-flower-box.png', name_ro:'Cutie Florală cu Zână', desc_ro:'Cutie florală de poveste cu o păpușă zână fermecătoare cu aripi violet, înconjurată de trandafiri holografici albastru-turcoaz, bujori roz și albi și crenguțe de eucalipt. Un vis pentru fetițe.', badge_ro:'Magic' },
+    { id:15, name:'Ferrero Geburtstags-Box', desc:'Edle Geburtstags-Box im Schwarz-Gold-Look: Ferrero Rocher Pralinen, schwarze Fransendekoration, Pixel-Sonnenbrille und goldene Geburtstagsbeschriftung. Für alle, die es stilvoll und süß mögen.', price:65.00, cat:'geburtstag', badge:'Trendy', emoji:'🍫', img:'ferrero-birthday-box.png', name_ro:'Cutie Aniversară Ferrero', desc_ro:'Cutie aniversară elegantă în stil negru-auriu: bomboane Ferrero Rocher, decor cu franjuri negri, ochelari de soare pixelați și mesaj aniversar auriu. Pentru cei care iubesc stilul și dulciurile.', badge_ro:'Trendy' },
+    { id:16, name:'Spiderman Geburtstags-Box', desc:'Personalisierter goldener Marmorballon mit individuellem Namen und Geburtstagswunsch, dekoriert mit einer Spiderman-Figur. Dazu eine bunte Box gefüllt mit Süßigkeiten wie Milka, Haribo und mehr, ein Highlight für kleine Superhelden-Fans.', price:75.00, cat:'geburtstag', badge:'Beliebt', emoji:'🕷️', img:'spiderman-birthday-box.png', name_ro:'Cutie Aniversară Spiderman', desc_ro:'Balon marmorat auriu personalizat cu numele și mesajul de zi de naștere, decorat cu o figurină Spiderman. Plus o cutie colorată plină cu dulciuri precum Milka, Haribo și altele, un highlight pentru micii fani ai super-eroilor.', badge_ro:'Popular' },
+    { id:17, name:'Einhorn-Ballonstrauß', desc:'Verspielter Ballonstrauß mit einem schimmernden Einhorn-Folienballon, rosa Herzballon, silbernem Ei-Ballon und pastellfarbenen Heliumballons, liebevoll verpackt mit Schleifen in Rosa und Lila. Ein Traum für kleine Prinzessinnen.', price:55.00, cat:'kuscheltiere', badge:'Neu', emoji:'🦄', img:'unicorn-balloon-bouquet.png', fit:'contain', name_ro:'Buchet de Baloane Unicorn', desc_ro:'Buchet jucăuș de baloane cu un balon folie unicorn strălucitor, un balon roz în formă de inimă, un balon argintiu în formă de ou și baloane pastel cu heliu, ambalate cu drag cu fundițe roz și mov. Un vis pentru micile prințese.', badge_ro:'Nou' },
+    { id:18, name:'Teddy Geschenkbox mit Ballon', desc:'Liebevolle Geschenkbox mit kuscheligem Teddybären, personalisiertem Ballon mit Wunschtext in Lila-Weiß und einer großen Auswahl an Süßigkeiten wie Milka und Haribo. Perfekt für besondere Glückwünsche.', price:69.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-gift-box.png', fit:'contain', name_ro:'Cutie Cadou cu Ursuleț și Balon', desc_ro:'Cutie cadou plină de drag cu un ursuleț de pluș pufos, balon personalizat cu mesajul dorit în mov-alb și o selecție generoasă de dulciuri precum Milka și Haribo. Perfect pentru urări speciale.', badge_ro:'Popular' },
+    { id:19, name:'Regenbogen-Einhorn im Ballon', desc:'Magischer transparenter Stuffed-Ballon mit einem bunten Regenbogen-Einhorn-Plüschtier und pastellfarbenen Mini-Ballons im Inneren, verziert mit rosa Schleife und Geburtstags-Topper. Ein unvergessliches Highlight zum Auspacken.', price:79.00, cat:'kuscheltiere', badge:'Magisch', emoji:'🌈', img:'rainbow-unicorn-balloon.png', fit:'contain', name_ro:'Unicorn Curcubeu în Balon', desc_ro:'Balon transparent magic, umplut cu o jucărie de pluș unicorn-curcubeu colorată și mini-baloane pastel în interior, decorat cu fundă roz și topper aniversar. Un highlight de neuitat la despachetare.', badge_ro:'Magic' },
+    { id:20, name:'Premium Blumenbox mit Schmetterling', desc:'Exklusive Blumenbox mit einer eleganten Mischung aus Anemonen, Rosen und Hortensien in Rosa, Lila und Violett, verziert mit einem bunten Schmetterling und edlen Bändern. Ein luxuriöses Geschenk für besondere Anlässe.', price:85.00, cat:'sonstiges', badge:'Exklusiv', emoji:'🦋', img:'butterfly-flower-box.png', fit:'contain', name_ro:'Cutie Florală Premium cu Fluture', desc_ro:'Cutie florală exclusivă cu un amestec elegant de anemone, trandafiri și hortensii în roz, mov și violet, decorată cu un fluture colorat și panglici fine. Un cadou luxos pentru ocazii speciale.', badge_ro:'Exclusiv' },
+    { id:21, name:'Whiskey & Ferrero Strauß', desc:'Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel\'s Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Papier mit passender Schleife.', price:69.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🥃', img:'whiskey-ferrero-bouquet.png', fit:'contain', name_ro:'Buchet Whiskey & Ferrero', desc_ro:'Buchet extraordinar pentru bărbați deosebiți: trei sticluțe mini de whiskey Jack Daniel\'s combinate cu bomboane aurii Ferrero Rocher, ambalate elegant în hârtie neagră și aurie cu fundă asortată.', badge_ro:'Pentru El' },
+    { id:22, name:'Geburtstagsballon Blau mit Blumenbox', desc:'Großer personalisierter Ballon mit Glitzereffekt und Schriftzug "Alles Gute zum Geburtstag", umgeben von zartblauen Hortensien, pfirsichfarbenen Rosen und frischem Eukalyptus in einer eleganten Box mit Feen-Motiv.', price:85.00, cat:'geburtstag', badge:'Beliebt', emoji:'🧚', img:'birthday-balloon-blue-flowerbox.png', fit:'contain', name_ro:'Balon Aniversar Albastru cu Cutie Florală', desc_ro:'Balon mare personalizat cu efect sclipitor și mesajul "La mulți ani", înconjurat de hortensii bleu, trandafiri piersică și eucalipt proaspăt într-o cutie elegantă cu motiv de zână.', badge_ro:'Popular' },
+    { id:23, name:'Blumenkorb mit Foto-Medaillon', desc:'Wunderschöner Blumenkorb mit weißen, gelben und pinken Blüten sowie lila Hortensien, verziert mit einem individuell gestalteten Foto-Medaillon. Ein einzigartiges, persönliches Geschenk für besondere Menschen.', price:75.00, cat:'sonstiges', badge:'Individuell', emoji:'📷', img:'flower-basket-photo-medallion.png', fit:'contain', name_ro:'Coș Floral cu Medalion Foto', desc_ro:'Coș floral superb cu flori albe, galbene și roz, plus hortensii violet, decorat cu un medalion foto personalizat. Un cadou unic și personal pentru oamenii speciali.', badge_ro:'Personalizat' },
+    { id:24, name:'Heißluftballon "Happy Valentine\'s Day"', desc:'Romantische Geschenkbox in Heißluftballon-Form mit der Aufschrift "Happy Valentine\'s Day", goldenen Ferrero-Rocher-Pralinen, rosa Rosen und grünem Akzent. Ein Hingucker für Verliebte.', price:75.00, cat:'liebe', badge:'Romantisch', emoji:'💗', img:'valentines-balloon-box.png', fit:'contain', name_ro:'Balon cu Aer Cald "Happy Valentine\'s Day"', desc_ro:'Cutie cadou romantică în formă de balon cu aer cald, cu mesajul "Happy Valentine\'s Day", bomboane aurii Ferrero Rocher, trandafiri roz și accent verde. Un cadou care atrage privirile îndrăgostiților.', badge_ro:'Romantic' },
+    { id:25, name:'Teddybär im Geschenkballon', desc:'Kuscheliger Teddybär mit roter Satinschleife, eingehüllt in einen großen transparenten Stuffed-Ballon und präsentiert auf einer eleganten Box mit roter Dekoration. Ein herzerwärmendes Geschenk für jeden Anlass.', price:59.00, cat:'kuscheltiere', badge:'Beliebt', emoji:'🧸', img:'teddy-stuffed-balloon-red.png', fit:'contain', name_ro:'Ursuleț în Balon Cadou', desc_ro:'Ursuleț de pluș pufos cu fundă de satin roșie, învelit într-un balon transparent mare și prezentat pe o cutie elegantă cu decor roșu. Un cadou care încălzește sufletul pentru orice ocazie.', badge_ro:'Popular' },
+    { id:26, name:'Herz-Box mit Ferrero & roten Rosen', desc:'Romantische herzförmige Geschenkbox gefüllt mit goldenen Ferrero-Rocher-Pralinen und umrahmt von samtroten Rosen. Verziert mit einer eleganten roten Schleife, das perfekte Geschenk für besondere Liebesbeweise.', price:55.00, cat:'liebe', badge:'Romantisch', emoji:'❤️', img:'heart-ferrero-roses-box.png', fit:'contain', name_ro:'Cutie Inimă cu Ferrero & Trandafiri Roșii', desc_ro:'Cutie cadou romantică în formă de inimă, plină cu bomboane aurii Ferrero Rocher și încadrată de trandafiri roșu-catifelat. Decorată cu o fundă roșie elegantă, cadoul perfect pentru dovezi de dragoste speciale.', badge_ro:'Romantic' },
+    { id:27, name:'Kinder Joy Blumenstrauß', desc:'Süßer Strauß mit drei Kinder-Joy-Überraschungseiern, eingebettet in zartrosa Schleierkraut und dekoriert mit rosafarbenem Verpackungspapier und Satinschleife. Eine fröhliche Überraschung für Kinder und Naschkatzen.', price:35.00, cat:'babyparty', badge:'Süß', emoji:'🍬', img:'kinder-joy-bouquet.png', fit:'contain', name_ro:'Buchet Floral Kinder Joy', desc_ro:'Buchet dulce cu trei ouă-surpriză Kinder Joy, încadrate de miuță roz-pal și decorate cu hârtie de ambalaj roz și fundă de satin. O surpriză veselă pentru copii și iubitorii de dulciuri.', badge_ro:'Dulce' },
+    { id:28, name:'Fußballschuh-Blumenstrauß', desc:'Origineller Strauß für Fußballfans: ein Paar pinke Fußballschuhe eingebettet in pinke Rosen, Gerbera in Pink und Bordeaux sowie weißen Schleierkraut. Ein Geschenk, das garantiert in Erinnerung bleibt.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'football-shoes-bouquet.png', fit:'contain', name_ro:'Buchet Floral cu Ghete de Fotbal', desc_ro:'Buchet original pentru fanii fotbalului: o pereche de ghete de fotbal roz încadrate de trandafiri roz, gerbera roz și visiniu, plus miuță albă. Un cadou care rămâne garantat în memorie.', badge_ro:'Unicat' },
+    { id:29, name:'Abschluss-Ballon "conGRADulations"', desc:'Eleganter weißer Ballon mit Doktorhut und goldener Quaste, individuell bedruckt mit "conGRADulations" und dem Namen des Absolventen. Verziert mit schwarzer Schleife, das perfekte Geschenk zum Schulabschluss oder Studienabschluss.', price:45.00, cat:'sonstiges', badge:'Individuell', emoji:'🎓', img:'graduation-balloon.png', fit:'contain', name_ro:'Balon de Absolvire "conGRADulations"', desc_ro:'Balon alb elegant cu tocă de absolvire și ciucure auriu, personalizat cu "conGRADulations" și numele absolventului. Decorat cu fundă neagră, cadoul perfect pentru absolvirea școlii sau facultății.', badge_ro:'Personalizat' },
+    { id:30, name:'Fußball-Fan Strauß "Ronaldo"', desc:'Einzigartiger Strauß für Fußballfans mit Cristiano-Ronaldo-Motiven, Vereinswappen, Trikot mit Wunschnummer und Fußball-Dekoration auf marineblauem Papier. Das ultimative Geschenk für jeden Fußballfan.', price:55.00, cat:'fussball', badge:'Fan-Edition', emoji:'⚽', img:'ronaldo-fan-bouquet.png', fit:'contain', name_ro:'Buchet Fan Fotbal "Ronaldo"', desc_ro:'Buchet unic pentru fanii fotbalului cu motive Cristiano Ronaldo, sigla clubului, tricou cu numărul preferat și decor de fotbal pe hârtie bleumarin. Cadoul suprem pentru orice fan de fotbal.', badge_ro:'Ediție Fan' },
+    { id:31, name:'Fußballschuh-Strauß "Nike"', desc:'Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem Kraftpapier. Ein originelles Geschenk für jeden Fußballfan.', price:60.00, cat:'fussball', badge:'Sportlich', emoji:'⚽', img:'produs31.png', fit:'contain', name_ro:'Buchet cu Ghete de Fotbal "Nike"', desc_ro:'Buchet sportiv cu ghete de fotbal Nike crem, încadrate de miuță delicată galben-albă și ambalate stilat în hârtie kraft maro. Un cadou original pentru orice fan al fotbalului.', badge_ro:'Sportiv' },
+    { id:32, name:'Fußballschuh-Vase mit weißen Rosen', desc:'Außergewöhnliches Arrangement aus silbernen Fußballschuhen als Vase, gefüllt mit weißen Rosen und Schleierkraut, präsentiert auf einem eleganten Metalltablett mit einem Fußball als Deko-Element. Ein echter Hingucker für Fußballfans.', price:65.00, cat:'fussball', badge:'Einzigartig', emoji:'⚽', img:'produs32.png', fit:'contain', name_ro:'Vază din Ghete de Fotbal cu Trandafiri Albi', desc_ro:'Aranjament extraordinar din ghete de fotbal argintii folosite ca vază, umplute cu trandafiri albi și miuță, prezentate pe o tavă metalică elegantă cu o minge de fotbal ca element decorativ. Un adevărat punct de atracție pentru fanii fotbalului.', badge_ro:'Unicat' },
+    { id:33, name:'Gesicht-Skulptur mit Trockenblumen', desc:'Außergewöhnliche Deko-Skulptur in Silber, ein Gesicht mit verdeckenden Händen, gekrönt von einem üppigen Arrangement aus Trockenblumen, rosa Schleierkraut und Eukalyptus. Ein modernes Statement-Stück für Liebhaber außergewöhnlicher Deko.', price:79.00, cat:'sonstiges', badge:'Einzigartig', emoji:'🌿', img:'face-sculpture-dried-flowers.png', fit:'contain', name_ro:'Sculptură Față cu Flori Uscate', desc_ro:'Sculptură decorativă extraordinară în argintiu, o față cu mâini protectoare, încoronată de un aranjament generos din flori uscate, miuță roz și eucalipt. O piesă modernă pentru iubitorii de decor neobișnuit.', badge_ro:'Unicat' },
+    { id:34, name:'Oster-Blumenbox mit Drachen', desc:'Fröhliche Osterdekoration mit einem niedlichen Drachen im Hasenkostüm und Osterkörbchen, umgeben von pastellfarbenen Rosen in Gelb, Rosa und Blau sowie bunten Ostereiern und einem Marienkäfer. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-dragon-flower-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Dragon', desc_ro:'Decorație de Paște veselă cu un dragon drăguț în costum de iepuraș și coșuleț de Paște, înconjurat de trandafiri pastel în galben, roz și albastru, plus ouă de Paște colorate și o buburuză. Un cadou plin de drag de Paște.', badge_ro:'Paște' },
+    { id:35, name:'Lamborghini Modellauto Bilderrahmen', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame.png', fit:'contain', name_ro:'Ramă cu Macheta Lamborghini', desc_ro:'Obiect decorativ exclusiv pentru iubitorii de mașini: o machetă detaliată Lamborghini Huracán Performante într-o ramă elegantă neagră cu date tehnice gravate. Un cadou unic pentru orice fan al mașinilor sport.', badge_ro:'Pentru El' },
+    { id:36, name:'Oster-Blumenbox mit Häschen', desc:'Bezaubernde Osterkomposition mit einem niedlichen Häschen-Pferd, umgeben von Rosen in Pink, Blau und Lila, Pastell-Ostereiern, einem Marienkäfer und einem kleinen gelben Küken. Ein wundervolles Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐣', img:'easter-bunny-flower-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Iepuraș', desc_ro:'Compoziție fermecătoare de Paște cu un căluț-iepuraș drăguț, înconjurat de trandafiri roz, albastru și mov, ouă de Paște pastel, o buburuză și un pui mic galben. Un cadou minunat de Paște.', badge_ro:'Paște' },
+    { id:37, name:'Oster-Blumenbox mit Hase & Küken', desc:'Liebevolle Osterbox mit einem süßen weißen Hasen, der ein gelbes Küken hält, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein herzerwärmendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-rabbit-chick-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Iepuraș & Pui', desc_ro:'Cutie de Paște plină de drag cu un iepuraș alb dulce care ține un pui galben, înconjurat de trandafiri bleu și roz, ouă de Paște pastel și mici figurine din ciocolată. Un cadou care încălzește sufletul de Paște.', badge_ro:'Paște' },
+    { id:38, name:'Oster-Blumenbox mit Macaron-Küken', desc:'Süße Osterdekoration mit einem Küken in Hasenohren, das bunte Macarons hält, eingebettet in zartblaue, lila und pinke Rosen mit Pastell-Ostereiern und Schoko-Figuren. Ein farbenfrohes Geschenk für Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐥', img:'easter-chick-macaron-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Pui și Macaron', desc_ro:'Decorație dulce de Paște cu un pui cu urechi de iepuraș care ține macarons colorate, încadrat de trandafiri bleu, mov și roz cu ouă de Paște pastel și figurine din ciocolată. Un cadou colorat de Paște.', badge_ro:'Paște' },
+    { id:39, name:'Oster-Blumenbox mit Astronauten-Küken', desc:'Originelle Osterkomposition mit einem niedlichen Küken im Astronautenanzug, umgeben von zartblauen und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein außergewöhnliches Geschenk für kleine Entdecker.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🚀', img:'easter-astronaut-chick-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Pui-Astronaut', desc_ro:'Compoziție originală de Paște cu un pui drăguț în costum de astronaut, înconjurat de trandafiri bleu și roz, ouă de Paște pastel și mici figurine din ciocolată. Un cadou extraordinar pentru micii exploratori.', badge_ro:'Paște' },
+    { id:40, name:'Oster-Blumenbox mit grünem Drachen', desc:'Fröhliche Osterbox mit einem freundlichen grünen Drachen mit Hasenohren, umgeben von zartblauen, lila und pinken Rosen, Pastell-Ostereiern und kleinen Schoko-Figuren. Ein liebevolles Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐉', img:'easter-green-dragon-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Dragon Verde', desc_ro:'Cutie de Paște veselă cu un dragon verde prietenos cu urechi de iepuraș, înconjurat de trandafiri bleu, mov și roz, ouă de Paște pastel și mici figurine din ciocolată. Un cadou plin de drag de Paște.', badge_ro:'Paște' },
+    { id:41, name:'Lamborghini Modellauto Bilderrahmen Blau', desc:'Exklusives Deko-Objekt für Autoliebhaber: ein detailgetreues Lamborghini Huracán Performante Modellauto in einem eleganten schwarzen Schattenrahmen mit türkisfarbenem Hintergrund und gravierten technischen Daten. Ein einzigartiges Geschenk für jeden Sportwagen-Fan.', price:89.00, cat:'sonstiges', badge:'Für Ihn', emoji:'🏎️', img:'lamborghini-model-frame-blue.png', fit:'contain', name_ro:'Ramă cu Macheta Lamborghini Albastru', desc_ro:'Obiect decorativ exclusiv pentru iubitorii de mașini: o machetă detaliată Lamborghini Huracán Performante într-o ramă elegantă neagră cu fundal turcoaz și date tehnice gravate. Un cadou unic pentru orice fan al mașinilor sport.', badge_ro:'Pentru El' },
+    { id:42, name:'Oster-Blumenbox mit Hasenfamilie', desc:'Herzerwärmende Osterbox mit zwei kuscheligen Hasenfiguren, ein großer Hase küsst liebevoll ein Baby-Häschen in einer Eierschale, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein rührendes Geschenk zum Osterfest.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-bunny-family-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Familie de Iepurași', desc_ro:'Cutie de Paște emoționantă cu două figurine pufoase de iepuraș, un iepuraș mare sărută cu drag un iepuraș-bebeluș dintr-o coajă de ou, înconjurați de trandafiri bleu, mov și roz, ouă de Paște pastel și figurine din ciocolată. Un cadou tandru de Paște.', badge_ro:'Paște' },
+    { id:43, name:'Oster-Blumenbox mit Macaron-Hase', desc:'Charmante Osterkomposition mit einem Hasen im rosa Kleid, der einen bunten Turm aus glitzernden Macarons balanciert, umgeben von zartblauen, lila und pinken Rosen sowie Pastell-Ostereiern und Schoko-Figuren. Ein süßes Geschenk zu Ostern.', price:65.00, cat:'sonstiges', badge:'Ostern', emoji:'🐰', img:'easter-macaron-bunny-box.png', fit:'contain', name_ro:'Cutie Florală de Paște cu Iepuraș și Macaron', desc_ro:'Compoziție fermecătoare de Paște cu un iepuraș în rochiță roz, care echilibrează un turn colorat din macarons sclipitoare, înconjurat de trandafiri bleu, mov și roz, ouă de Paște pastel și figurine din ciocolată. Un cadou dulce de Paște.', badge_ro:'Paște' },
+    { id:44, name:'Geburtstags-Geschenkbox für Hunde "Dog Mom"', desc:'Liebevolle Geschenkbox "Alles Gute zum Geburtstag" für Hundeliebhaber: mit Pflegeprodukten, einer Tasse, einem "Dog Mom" Halstuch und Cap, einem Tennisball sowie selbstgemachten Hundekeksen und Leckerlis. Das perfekte Geschenk für jede Hundemama.', price:55.00, cat:'sonstiges', badge:'Für Hundeliebhaber', emoji:'🐶', imgs:['dogmom-box-1.png','dogmom-box-2.png','dogmom-box-3.png','dogmom-box-4.png','dogmom-box-5.png','dogmom-box-6.png','dogmom-box-7.png'], fit:'contain', name_ro:'Cutie Cadou Aniversară pentru Câini "Dog Mom"', desc_ro:'Cutie cadou plină de drag "La mulți ani" pentru iubitorii de câini: cu produse de îngrijire, o cană, o bandană și o șapcă "Dog Mom", o minge de tenis, plus biscuiți și recompense pentru câini făcute manual. Cadoul perfect pentru orice mămică de cățel.', badge_ro:'Pentru Iubitorii de Câini' },
+    { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball, beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain', name_ro:'Set Recompense pentru Câini cu Minge de Tenis', desc_ro:'Set ambalat cu drag cu biscuiți și recompense pentru câini făcute manual într-o pungă transparentă cu fundă, plus o minge de tenis, ambele cu drăgălașul motiv "Dandelion 11:11" câine-și-mână. Un mic cadou dulce pentru orice patruped.', badge_ro:'Pentru Câini' },
   ];
 
   // SEO: Product schema markup (JSON-LD) for search engines
@@ -2840,7 +3071,7 @@
     const q = query.trim().toLowerCase();
     if (!q) { renderKoll('all'); return; }
     currentKollFilter = 'search';
-    const list = kollProducts.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+    const list = kollProducts.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.name_ro||'').toLowerCase().includes(q) || (p.desc_ro||'').toLowerCase().includes(q));
     renderKollList(list);
   };
   let currentKollFilter = 'all';
@@ -2856,28 +3087,29 @@
   function renderKollList(list) {
     const favs = getFavorites();
     if (list.length === 0) {
-      document.getElementById('koll-grid').innerHTML = `<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:40px 0;">Keine Produkte gefunden.</p>`;
+      document.getElementById('koll-grid').innerHTML = `<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:40px 0;">${localStorage.getItem('lang')==='ro' ? 'Niciun produs găsit.' : 'Keine Produkte gefunden.'}</p>`;
       return;
     }
     document.getElementById('koll-grid').innerHTML = list.map(p => `
       <div class="koll-card">
         <div class="koll-img" onclick="openProdModal(${p.id})" style="cursor:pointer;">
-          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
-          ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${p.badge}</span>` : ''}
+          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${lp(p,'name')}" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
+          ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${lp(p,'badge')}</span>` : ''}
           <div id="fav-${p.id}" class="fav-heart ${favs.includes(p.id) ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;z-index:3;"><i class="${favs.includes(p.id) ? 'fas' : 'far'} fa-heart"></i></div>
         </div>
         <div class="koll-body">
-          <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${p.name}</div>
-          <div class="koll-desc">${p.desc.substring(0,90)}…</div>
+          <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${lp(p,'name')}</div>
+          <div class="koll-desc">${lp(p,'desc').substring(0,90)}…</div>
           <div class="koll-footer">
             <div class="koll-price">${p.price.toFixed(2).replace('.',',')} €${p.oldPrice ? `<span class="old">${p.oldPrice.toFixed(2).replace('.',',')} €</span>` : ''}</div>
             <button class="btn-koll-config" onclick="event.stopPropagation();addKollProduct(${p.id})">
-              <i class="fas fa-shopping-bag"></i> In den Warenkorb
+              <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
             </button>
           </div>
         </div>
       </div>`
     ).join('');
+    setLang(localStorage.getItem('lang') || 'de');
   }
 
   window.openLightbox = function(src) {
