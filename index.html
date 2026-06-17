@@ -1276,6 +1276,9 @@
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
+      <span onclick="onAccountIconClick()" style="cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" title="Konto">
+        <i class="fas fa-user"></i>
+      </span>
       <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();"></i>
     </div>
   </div>
@@ -1476,6 +1479,32 @@
   </div>
 </div>
 
+<!-- Auth Modal: Login / Register -->
+<div id="authModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeAuthModal()">
+  <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:30px;position:relative;">
+    <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
+    <h2 id="authModalTitle" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:18px;">Anmelden</h2>
+    <div id="authError" style="display:none;background:#fde8e8;color:#c0392b;padding:8px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:12px;"></div>
+    <input id="authEmail" type="email" placeholder="E-Mail" class="form-input" style="width:100%;margin-bottom:10px;">
+    <input id="authPassword" type="password" placeholder="Passwort" class="form-input" style="width:100%;margin-bottom:16px;">
+    <button id="authSubmitBtn" onclick="submitAuthForm()" style="width:100%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px;border-radius:50px;font-weight:600;cursor:pointer;margin-bottom:12px;">Anmelden</button>
+    <p style="text-align:center;font-size:0.85rem;color:#666;">
+      <span id="authToggleText">Noch kein Konto?</span> <a href="#" onclick="toggleAuthMode();return false;" id="authToggleLink" style="color:#d63384;font-weight:600;">Registrieren</a>
+    </p>
+  </div>
+</div>
+
+<!-- Orders Modal: order tracking for logged-in users -->
+<div id="ordersModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;" onclick="if(event.target===this)closeOrdersModal()">
+  <div style="background:#fff;border-radius:20px;max-width:600px;width:100%;padding:30px;position:relative;">
+    <button onclick="closeOrdersModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
+    <h2 style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:6px;">Meine Bestellungen</h2>
+    <p id="ordersAccountEmail" style="font-size:0.85rem;color:#888;margin-bottom:18px;"></p>
+    <div id="ordersList" style="display:flex;flex-direction:column;gap:14px;"></div>
+    <button onclick="logoutUser()" style="margin-top:20px;width:100%;background:#eee;color:#444;border:none;padding:10px;border-radius:50px;font-weight:600;cursor:pointer;">Abmelden</button>
+  </div>
+</div>
+
 <!-- ═══ KOLLEKTIONEN PAGE ═══ -->
 <div id="page-kollektionen" style="display:none;">
   <div style="background:linear-gradient(135deg,#fce4f3 0%,#ede7f6 100%);padding:40px 24px 28px;text-align:center;">
@@ -1594,6 +1623,7 @@
 
   <!-- RIGHT: CONFIGURATOR -->
   <div class="config-col">
+
     <div class="product-header">
       <h1 class="product-title" data-i18n="hero_title">Personalisierter Ballon nach deinem Wunsch ✨</h1>
       <p class="product-subtitle" data-i18n="hero_sub">Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung</p>
@@ -1762,8 +1792,9 @@
         <span data-i18n="cart_total">Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
       </div>
+      <div id="paypal-button-container" style="margin-bottom:10px;"></div>
       <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
-        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="send_whatsapp">Bestellung über WhatsApp senden</span>
+        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="send_whatsapp">Fragen über WhatsApp</span>
       </button>
       <button class="btn-clear" id="clearCartBtn"><span data-i18n="clear_cart">🗑 Warenkorb leeren</span></button>
     </div>
@@ -3125,6 +3156,160 @@
     btn.classList.add('active');
     renderKoll(cat);
   };
+
+</script>
+
+<!-- Firebase (account login + order tracking) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<!-- PayPal Smart Buttons (Sandbox) -->
+<script src="https://www.paypal.com/sdk/js?client-id=AVula-3nxxpkUXjtb76NJWmK6nD82f1Y6Zc57i7PZWC6Sh9cBIUI6WUkqnod_fxMW1oOLZw3jU05xElX&currency=EUR"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAgTZyCOj8iGztcVLvrfH1bMCT4bMeeLeg",
+    authDomain: "dandelion1111-5cff0.firebaseapp.com",
+    projectId: "dandelion1111-5cff0",
+    storageBucket: "dandelion1111-5cff0.firebasestorage.app",
+    messagingSenderId: "866002511071",
+    appId: "1:866002511071:web:6751757b0259fdfdad356a",
+    measurementId: "G-88K056PN19"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  let authMode = 'login'; // 'login' | 'register'
+  let currentUser = null;
+
+  function showAuthError(msg) {
+    const el = document.getElementById('authError');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  window.onAccountIconClick = function() {
+    if (currentUser) {
+      openOrdersModal();
+    } else {
+      openAuthModal();
+    }
+  };
+
+  window.openAuthModal = function() {
+    authMode = 'login';
+    updateAuthModalLabels();
+    document.getElementById('authError').style.display = 'none';
+    document.getElementById('authEmail').value = '';
+    document.getElementById('authPassword').value = '';
+    document.getElementById('authModal').style.display = 'flex';
+  };
+  window.closeAuthModal = function() {
+    document.getElementById('authModal').style.display = 'none';
+  };
+  window.toggleAuthMode = function() {
+    authMode = authMode === 'login' ? 'register' : 'login';
+    updateAuthModalLabels();
+  };
+  function updateAuthModalLabels() {
+    const isLogin = authMode === 'login';
+    document.getElementById('authModalTitle').textContent = isLogin ? 'Anmelden' : 'Konto erstellen';
+    document.getElementById('authSubmitBtn').textContent = isLogin ? 'Anmelden' : 'Registrieren';
+    document.getElementById('authToggleText').textContent = isLogin ? 'Noch kein Konto?' : 'Bereits ein Konto?';
+    document.getElementById('authToggleLink').textContent = isLogin ? 'Registrieren' : 'Anmelden';
+    document.getElementById('authError').style.display = 'none';
+  }
+
+  window.submitAuthForm = function() {
+    const email = document.getElementById('authEmail').value.trim();
+    const password = document.getElementById('authPassword').value;
+    if (!email || !password) { showAuthError('Bitte E-Mail und Passwort eingeben.'); return; }
+    const action = authMode === 'login'
+      ? auth.signInWithEmailAndPassword(email, password)
+      : auth.createUserWithEmailAndPassword(email, password);
+    action
+      .then(() => closeAuthModal())
+      .catch(err => showAuthError(err.message));
+  };
+
+  window.logoutUser = function() {
+    auth.signOut().then(() => closeOrdersModal());
+  };
+
+  auth.onAuthStateChanged(user => {
+    currentUser = user;
+    const icon = document.querySelector('#navAccountIcon i');
+    if (icon) icon.style.color = user ? 'var(--pink)' : '';
+  });
+
+  window.openOrdersModal = function() {
+    document.getElementById('ordersAccountEmail').textContent = currentUser ? currentUser.email : '';
+    document.getElementById('ordersModal').style.display = 'flex';
+    loadOrders();
+  };
+  window.closeOrdersModal = function() {
+    document.getElementById('ordersModal').style.display = 'none';
+  };
+
+  function loadOrders() {
+    const list = document.getElementById('ordersList');
+    if (!currentUser) { list.innerHTML = ''; return; }
+    list.innerHTML = '<p style="color:#888;font-size:0.9rem;">Lade Bestellungen…</p>';
+    db.collection('orders').where('userId', '==', currentUser.uid).orderBy('createdAt', 'desc').get()
+      .then(snap => {
+        if (snap.empty) {
+          list.innerHTML = '<p style="color:#888;font-size:0.9rem;">Noch keine Bestellungen.</p>';
+          return;
+        }
+        list.innerHTML = snap.docs.map(doc => {
+          const o = doc.data();
+          const date = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleDateString('de-DE') : '';
+          return `<div style="border:1px solid var(--border);border-radius:14px;padding:14px 16px;">
+            <div style="display:flex;justify-content:space-between;font-weight:600;color:#6b2f8c;">
+              <span>${o.items ? o.items.length : 0} Ballon(s)</span>
+              <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span>
+            </div>
+            <div style="font-size:0.85rem;color:#888;margin-top:4px;">${date} · Status: ${o.status === 'paid' ? 'Bezahlt ✅' : (o.status || '')}</div>
+          </div>`;
+        }).join('');
+      })
+      .catch(err => { list.innerHTML = '<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>'; console.error(err); });
+  }
+
+  // PayPal Smart Buttons – pays the current cart total and saves the order to Firestore
+  if (window.paypal) {
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
+      createOrder: function(data, actions) {
+        const subtotal = cart.reduce((s, i) => s + i.price, 0);
+        const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+        const total = (subtotal + shipping).toFixed(2);
+        return actions.order.create({
+          purchase_units: [{ amount: { value: total, currency_code: 'EUR' } }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          const subtotal = cart.reduce((s, i) => s + i.price, 0);
+          const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+          db.collection('orders').add({
+            userId: currentUser ? currentUser.uid : 'guest',
+            email: currentUser ? currentUser.email : null,
+            items: cart,
+            total: subtotal + shipping,
+            paypalOrderId: details.id,
+            status: 'paid',
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          }).then(() => {
+            alert('Vielen Dank für deine Bestellung! Sie wurde erfolgreich bezahlt.');
+            cart = [];
+            updateCartUI();
+          });
+        });
+      }
+    }).render('#paypal-button-container');
+  }
 </script>
 </body>
 </html>
