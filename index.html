@@ -1276,6 +1276,7 @@
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
+      <span id="navGreeting" onclick="onAccountIconClick()" style="display:none;cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--pink);white-space:nowrap;align-items:center;gap:4px;"></span>
       <span onclick="onAccountIconClick()" style="cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" title="Konto">
         <i class="fas fa-user"></i>
       </span>
@@ -1485,6 +1486,7 @@
     <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
     <h2 id="authModalTitle" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:18px;">Anmelden</h2>
     <div id="authError" style="display:none;background:#fde8e8;color:#c0392b;padding:8px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:12px;"></div>
+    <input id="authName" type="text" placeholder="Dein Name" class="form-input" style="width:100%;margin-bottom:10px;display:none;">
     <input id="authEmail" type="email" placeholder="E-Mail" class="form-input" style="width:100%;margin-bottom:10px;">
     <input id="authPassword" type="password" placeholder="Passwort" class="form-input" style="width:100%;margin-bottom:16px;">
     <button id="authSubmitBtn" onclick="submitAuthForm()" style="width:100%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px;border-radius:50px;font-weight:600;cursor:pointer;margin-bottom:12px;">Anmelden</button>
@@ -3201,6 +3203,7 @@
     authMode = 'login';
     updateAuthModalLabels();
     document.getElementById('authError').style.display = 'none';
+    document.getElementById('authName').value = '';
     document.getElementById('authEmail').value = '';
     document.getElementById('authPassword').value = '';
     document.getElementById('authModal').style.display = 'flex';
@@ -3218,16 +3221,19 @@
     document.getElementById('authSubmitBtn').textContent = isLogin ? 'Anmelden' : 'Registrieren';
     document.getElementById('authToggleText').textContent = isLogin ? 'Noch kein Konto?' : 'Bereits ein Konto?';
     document.getElementById('authToggleLink').textContent = isLogin ? 'Registrieren' : 'Anmelden';
+    document.getElementById('authName').style.display = isLogin ? 'none' : 'block';
     document.getElementById('authError').style.display = 'none';
   }
 
   window.submitAuthForm = function() {
+    const name = document.getElementById('authName').value.trim();
     const email = document.getElementById('authEmail').value.trim();
     const password = document.getElementById('authPassword').value;
     if (!email || !password) { showAuthError('Bitte E-Mail und Passwort eingeben.'); return; }
     const action = authMode === 'login'
       ? auth.signInWithEmailAndPassword(email, password)
-      : auth.createUserWithEmailAndPassword(email, password);
+      : auth.createUserWithEmailAndPassword(email, password)
+          .then(cred => name ? cred.user.updateProfile({ displayName: name }) : null);
     action
       .then(() => closeAuthModal())
       .catch(err => showAuthError(err.message));
@@ -3237,10 +3243,19 @@
     auth.signOut().then(() => closeOrdersModal());
   };
 
+  function updateGreeting(user) {
+    const greeting = document.getElementById('navGreeting');
+    if (!user) { greeting.style.display = 'none'; return; }
+    const name = user.displayName || (user.email ? user.email.split('@')[0] : '');
+    greeting.textContent = `✨ Hey, ${name}! 🧚 ✨`;
+    greeting.style.display = 'inline-flex';
+  }
+
   auth.onAuthStateChanged(user => {
     currentUser = user;
     const icon = document.querySelector('#navAccountIcon i');
     if (icon) icon.style.color = user ? 'var(--pink)' : '';
+    updateGreeting(user);
   });
 
   window.openOrdersModal = function() {
