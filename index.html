@@ -215,6 +215,7 @@
 
     .nav-icons i { cursor: pointer; transition: color 0.2s; }
     .nav-icons i:hover { color: var(--pink); }
+    #navAccountIcon:hover #navGreeting.has-greeting { display: block !important; }
 
     .hamburger { display: none; }
 
@@ -1276,9 +1277,9 @@
         <i class="fas fa-shopping-bag"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
-      <span id="navGreeting" onclick="onAccountIconClick()" style="display:none;cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--pink);white-space:nowrap;align-items:center;gap:4px;"></span>
-      <span onclick="onAccountIconClick()" style="cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" title="Konto">
+      <span onclick="onAccountIconClick()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" title="Konto">
         <i class="fas fa-user"></i>
+        <span id="navGreeting" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:#fff;color:var(--pink);font-size:0.85rem;font-weight:600;white-space:nowrap;padding:8px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.15);"></span>
       </span>
       <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();"></i>
     </div>
@@ -3245,10 +3246,10 @@
 
   function updateGreeting(user) {
     const greeting = document.getElementById('navGreeting');
-    if (!user) { greeting.style.display = 'none'; return; }
+    if (!user) { greeting.classList.remove('has-greeting'); greeting.style.display = 'none'; return; }
     const name = user.displayName || (user.email ? user.email.split('@')[0] : '');
     greeting.textContent = `✨ Hey, ${name}! 🧚 ✨`;
-    greeting.style.display = 'inline-flex';
+    greeting.classList.add('has-greeting');
   }
 
   auth.onAuthStateChanged(user => {
