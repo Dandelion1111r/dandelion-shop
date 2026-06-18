@@ -1469,7 +1469,8 @@
     <div style="padding:24px 28px 28px;">
       <div id="prodModalBadge"></div>
       <h2 id="prodModalName" style="font-size:1.4rem;font-weight:700;color:#6b2f8c;margin:10px 0 12px;"></h2>
-      <p id="prodModalDesc" style="font-size:0.92rem;color:#666;line-height:1.7;margin-bottom:20px;"></p>
+      <p id="prodModalDesc" style="font-size:0.92rem;color:#666;line-height:1.7;margin-bottom:14px;"></p>
+      <div id="prodModalSpecs" style="display:none;background:#f7eefb;border-radius:12px;padding:12px 16px;font-size:0.85rem;color:#555;line-height:1.6;margin-bottom:20px;"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div id="prodModalPrice" style="font-size:1.5rem;font-weight:700;color:#8e44ad;"></div>
         <button id="prodModalCartBtn" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px 24px;border-radius:50px;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;">
@@ -1637,6 +1638,15 @@
       <div class="price-row">
         <span class="price-main">29,90 €</span>
         <span class="price-tax">inkl. MwSt. + Versand</span>
+      </div>
+      <div class="hero-specs" style="margin-top:14px;background:#f7eefb;border-radius:12px;padding:14px 16px;font-size:0.88rem;color:#555;line-height:1.6;">
+        <strong style="color:var(--purple);" data-i18n="hero_specs_title">PRODUKTDETAILS</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;">
+          <li data-i18n="hero_specs_1">Transparenter Bubble-Ballon, Ø ca. 50 cm</li>
+          <li data-i18n="hero_specs_2">Gesamthöhe ca. 60 cm</li>
+          <li data-i18n="hero_specs_3">Mit Luft gefüllt (kein Helium)</li>
+          <li data-i18n="hero_specs_4">Haltbarkeit: ca. 4–12 Wochen oder länger bei richtiger Lagerung</li>
+        </ul>
       </div>
     </div>
 
@@ -2441,6 +2451,16 @@
       ? `<span style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;">${lp(p,'badge')}</span>` : '';
     document.getElementById('prodModalName').textContent = lp(p,'name');
     document.getElementById('prodModalDesc').textContent = lp(p,'desc');
+    const specsBox = document.getElementById('prodModalSpecs');
+    const specs = productSpecs[p.id];
+    if (specs) {
+      const lang = localStorage.getItem('lang') || 'de';
+      const title = lang === 'ro' ? '📏 Detalii produs (aprox.)' : '📏 Produktdetails (ca.)';
+      specsBox.innerHTML = `<strong style="color:var(--purple);">${title}</strong><div style="margin-top:6px;">${(lang === 'ro' ? specs.ro : specs.de)}</div>`;
+      specsBox.style.display = 'block';
+    } else {
+      specsBox.style.display = 'none';
+    }
     document.getElementById('prodModalPrice').textContent = p.price.toFixed(2).replace('.',',') + ' €';
     document.getElementById('prodModalCartBtn').onclick = function() {
       closeProdModal();
@@ -2679,6 +2699,11 @@
       nav_shop: 'Shop', nav_koll: 'Kollektionen', nav_ueber: 'Über uns', nav_kontakt: 'Kontakt',
       hero_title: 'Personalisierter Ballon nach deinem Wunsch ✨',
       hero_sub: 'Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung',
+      hero_specs_title: 'PRODUKTDETAILS',
+      hero_specs_1: 'Transparenter Bubble-Ballon, Ø ca. 50 cm',
+      hero_specs_2: 'Gesamthöhe ca. 60 cm',
+      hero_specs_3: 'Mit Luft gefüllt (kein Helium)',
+      hero_specs_4: 'Haltbarkeit: ca. 4–12 Wochen oder länger bei richtiger Lagerung',
       filter_all: 'Alle', filter_geburtstag: '🎂 Geburtstag', filter_hochzeit: '💍 Hochzeit',
       filter_babyparty: '👶 Babyparty', filter_liebe: '💕 Liebe', filter_fussball: '⚽ Fußball',
       filter_kuscheltiere: '🧸 Kuscheltiere', filter_sonstiges: '✨ Sonstiges',
@@ -2776,6 +2801,11 @@
       nav_shop: 'Magazin', nav_koll: 'Colecții', nav_ueber: 'Despre noi', nav_kontakt: 'Contact',
       hero_title: 'Balon personalizat după dorința ta ✨',
       hero_sub: 'Balonul tău unic, personalizat cu text, simboluri și umplutură colorată',
+      hero_specs_title: 'DETALII PRODUS',
+      hero_specs_1: 'Balon transparent tip bubble, Ø aprox. 50 cm',
+      hero_specs_2: 'Înălțime totală aprox. 60 cm',
+      hero_specs_3: 'Umplut cu aer (fără heliu)',
+      hero_specs_4: 'Durabilitate: aprox. 4–12 săptămâni sau mai mult, la depozitare corectă',
       filter_all: 'Toate', filter_geburtstag: '🎂 Aniversare', filter_hochzeit: '💍 Nuntă',
       filter_babyparty: '👶 Botez/Baby', filter_liebe: '💕 Dragoste', filter_fussball: '⚽ Fotbal',
       filter_kuscheltiere: '🧸 Jucării', filter_sonstiges: '✨ Diverse',
@@ -3033,6 +3063,56 @@
     { id:44, name:'Geburtstags-Geschenkbox für Hunde "Dog Mom"', desc:'Liebevolle Geschenkbox "Alles Gute zum Geburtstag" für Hundeliebhaber: mit Pflegeprodukten, einer Tasse, einem "Dog Mom" Halstuch und Cap, einem Tennisball sowie selbstgemachten Hundekeksen und Leckerlis. Das perfekte Geschenk für jede Hundemama.', price:55.00, cat:'sonstiges', badge:'Für Hundeliebhaber', emoji:'🐶', imgs:['dogmom-box-1.png','dogmom-box-2.png','dogmom-box-3.png','dogmom-box-4.png','dogmom-box-5.png','dogmom-box-6.png','dogmom-box-7.png'], fit:'contain', name_ro:'Cutie Cadou Aniversară pentru Câini "Dog Mom"', desc_ro:'Cutie cadou plină de drag "La mulți ani" pentru iubitorii de câini: cu produse de îngrijire, o cană, o bandană și o șapcă "Dog Mom", o minge de tenis, plus biscuiți și recompense pentru câini făcute manual. Cadoul perfect pentru orice mămică de cățel.', badge_ro:'Pentru Iubitorii de Câini' },
     { id:45, name:'Hundeleckerli-Set mit Tennisball', desc:'Liebevoll verpacktes Set mit selbstgemachten Hundekeksen und Leckerlis in einer transparenten Tüte mit Schleife, dazu ein Tennisball, beide mit niedlichem "Dandelion 11:11" Hund-und-Hand-Motiv. Ein süßes kleines Geschenk für jeden Vierbeiner.', price:15.00, cat:'sonstiges', badge:'Für Hunde', emoji:'🦴', imgs:['dogmom-box-4.png','dogmom-box-5.png'], fit:'contain', name_ro:'Set Recompense pentru Câini cu Minge de Tenis', desc_ro:'Set ambalat cu drag cu biscuiți și recompense pentru câini făcute manual într-o pungă transparentă cu fundă, plus o minge de tenis, ambele cu drăgălașul motiv "Dandelion 11:11" câine-și-mână. Un mic cadou dulce pentru orice patruped.', badge_ro:'Pentru Câini' },
   ];
+
+  // Approximate product dimensions (PRODUKTDETAILS). Estimates based on typical sizes
+  // for this kind of handmade balloon/flower-box product — not exact lab measurements.
+  const productSpecs = {
+    1:  { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Box: ca. 30×30×35 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie: aprox. 30×30×35 cm' },
+    2:  { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Box: ca. 30×30×35 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie: aprox. 30×30×35 cm' },
+    3:  { de:'Ballon: ø ca. 40 cm, mit Helium gefüllt | Gesamthöhe (auf Flasche): ca. 55 cm', ro:'Balon: ø aprox. 40 cm, umplut cu heliu | Înălțime totală (pe sticlă): aprox. 55 cm' },
+    4:  { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Arrangement: ca. 35×35 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Aranjament: aprox. 35×35 cm' },
+    5:  { de:'Ballon: ø ca. 35 cm, mit Helium gefüllt', ro:'Balon: ø aprox. 35 cm, umplut cu heliu' },
+    6:  { de:'Ballon: ø ca. 40 cm, mit Helium gefüllt', ro:'Balon: ø aprox. 40 cm, umplut cu heliu' },
+    7:  { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Box: ca. 30×30×35 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie: aprox. 30×30×35 cm' },
+    8:  { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Blumenbox: ca. 35×35×40 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie florală: aprox. 35×35×40 cm' },
+    9:  { de:'Korb: ca. 25×20×20 cm | Teddybär: ca. 20 cm', ro:'Coș: aprox. 25×20×20 cm | Ursuleț: aprox. 20 cm' },
+    10: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    11: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    12: { de:'Folienballon: ø ca. 45 cm | Heliumballons: ø ca. 25 cm | Plüsch: ca. 25 cm', ro:'Balon folie: ø aprox. 45 cm | Baloane heliu: ø aprox. 25 cm | Pluș: aprox. 25 cm' },
+    13: { de:'Straußhöhe: ca. 35 cm', ro:'Înălțime buchet: aprox. 35 cm' },
+    14: { de:'Box: ca. 22×22×20 cm', ro:'Cutie: aprox. 22×22×20 cm' },
+    15: { de:'Box: ca. 20×20×10 cm', ro:'Cutie: aprox. 20×20×10 cm' },
+    16: { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Box: ca. 25×25×30 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie: aprox. 25×25×30 cm' },
+    17: { de:'Folienballon: ø ca. 45 cm | Herzballon: ø ca. 40 cm | Heliumballons: ø ca. 25 cm | Gesamthöhe an Bändern: ca. 70 cm', ro:'Balon folie: ø aprox. 45 cm | Balon inimă: ø aprox. 40 cm | Baloane heliu: ø aprox. 25 cm | Înălțime totală pe panglici: aprox. 70 cm' },
+    18: { de:'Ballon: ø ca. 40 cm, mit Helium gefüllt | Box: ca. 25×25×30 cm', ro:'Balon: ø aprox. 40 cm, umplut cu heliu | Cutie: aprox. 25×25×30 cm' },
+    19: { de:'Transparenter Stuffed-Ballon: ø ca. 50 cm | Gesamthöhe: ca. 60 cm | Mit Luft gefüllt (kein Helium)', ro:'Balon transparent tip stuffed: ø aprox. 50 cm | Înălțime totală: aprox. 60 cm | Umplut cu aer (fără heliu)' },
+    20: { de:'Box: ca. 25×25×25 cm', ro:'Cutie: aprox. 25×25×25 cm' },
+    21: { de:'Straußhöhe: ca. 35 cm', ro:'Înălțime buchet: aprox. 35 cm' },
+    22: { de:'Ballon: ø ca. 45 cm, mit Helium gefüllt | Blumenbox: ca. 30×30×35 cm', ro:'Balon: ø aprox. 45 cm, umplut cu heliu | Cutie florală: aprox. 30×30×35 cm' },
+    23: { de:'Korb: ca. 25×20×20 cm', ro:'Coș: aprox. 25×20×20 cm' },
+    24: { de:'Box: ca. 20×20×25 cm', ro:'Cutie: aprox. 20×20×25 cm' },
+    25: { de:'Transparenter Stuffed-Ballon: ø ca. 45 cm | Gesamthöhe: ca. 55 cm | Mit Luft gefüllt (kein Helium)', ro:'Balon transparent tip stuffed: ø aprox. 45 cm | Înălțime totală: aprox. 55 cm | Umplut cu aer (fără heliu)' },
+    26: { de:'Box: ca. 18×16×8 cm', ro:'Cutie: aprox. 18×16×8 cm' },
+    27: { de:'Straußhöhe: ca. 30 cm', ro:'Înălțime buchet: aprox. 30 cm' },
+    28: { de:'Straußhöhe: ca. 35 cm', ro:'Înălțime buchet: aprox. 35 cm' },
+    29: { de:'Ballon: ø ca. 40 cm, mit Helium gefüllt', ro:'Balon: ø aprox. 40 cm, umplut cu heliu' },
+    30: { de:'Straußhöhe: ca. 35 cm', ro:'Înălțime buchet: aprox. 35 cm' },
+    31: { de:'Straußhöhe: ca. 35 cm', ro:'Înălțime buchet: aprox. 35 cm' },
+    32: { de:'Arrangement: ca. 30×20×15 cm', ro:'Aranjament: aprox. 30×20×15 cm' },
+    33: { de:'Skulptur: ca. 25×20×30 cm', ro:'Sculptură: aprox. 25×20×30 cm' },
+    34: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    35: { de:'Bilderrahmen: ca. 30×20×4 cm', ro:'Ramă: aprox. 30×20×4 cm' },
+    36: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    37: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    38: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    39: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    40: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    41: { de:'Bilderrahmen: ca. 30×20×4 cm', ro:'Ramă: aprox. 30×20×4 cm' },
+    42: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    43: { de:'Box: ca. 20×20×18 cm', ro:'Cutie: aprox. 20×20×18 cm' },
+    44: { de:'Box: ca. 25×20×15 cm', ro:'Cutie: aprox. 25×20×15 cm' },
+    45: { de:'Tüte: ca. 15×10 cm | Tennisball: ø ca. 6,5 cm', ro:'Pungă: aprox. 15×10 cm | Minge de tenis: ø aprox. 6,5 cm' },
+  };
 
   // SEO: Product schema markup (JSON-LD) for search engines
   (function injectProductSchema() {
