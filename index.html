@@ -1654,10 +1654,10 @@
     </div>
 
     <div class="config-card">
-      <h3><i class="fas fa-pen"></i> Dein Text</h3>
-      <label class="form-label">Text auf dem Ballon <span style="font-weight:400;color:var(--text-light);">(max. 50 Zeichen)</span></label>
-      <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" maxlength="50">
-      <label class="form-label">Schriftfarbe</label>
+      <h3><i class="fas fa-pen"></i> <span data-i18n="dein_text_title">Dein Text</span></h3>
+      <label class="form-label"><span data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
+      <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" data-i18n-placeholder="message_placeholder" maxlength="50">
+      <label class="form-label" data-i18n="font_color_label">Schriftfarbe</label>
       <div class="swatches" id="textColorSwatches">
         <div class="text-swatch active" style="background:#8e44ad;" data-color="#8e44ad" data-name="Lila" title="Lila"></div>
         <div class="text-swatch" style="background:#d63384;" data-color="#d63384" data-name="Pink" title="Pink"></div>
@@ -1667,25 +1667,25 @@
         <div class="text-swatch" style="background:#27ae60;" data-color="#27ae60" data-name="Grün" title="Grün"></div>
         <div class="text-swatch" style="background:#f39c12;" data-color="#f39c12" data-name="Gold" title="Gold"></div>
       </div>
-      <label class="form-label">Schriftgröße</label>
+      <label class="form-label" data-i18n="font_size_label">Schriftgröße</label>
       <div class="slider-row">
         <input type="range" id="fontSizeSlider" min="14" max="32" value="20">
         <span class="slider-val" id="fontSizeVal">20px</span>
       </div>
-      <label class="form-label">Eigenes Bild / Logo hochladen <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+      <label class="form-label"><span data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
       <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
       <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
         <img id="customImageThumb" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
-        <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;">Wird auf dem Ballon angezeigt</span>
+        <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;" data-i18n="shown_on_balloon_label">Wird auf dem Ballon angezeigt</span>
         <i class="fas fa-times" id="removeCustomImage" style="cursor:pointer;color:var(--text-light);"></i>
       </div>
     </div>
 
     <div class="config-card">
-      <h3><i class="fas fa-palette"></i> Füllung & Design</h3>
-      <label class="form-label">Ballonfarbe / Füllung</label>
+      <h3><i class="fas fa-palette"></i> <span data-i18n="filling_design_title">Füllung & Design</span></h3>
+      <label class="form-label" data-i18n="balloon_color_filling_label">Ballonfarbe / Füllung</label>
       <div class="swatch-label">
-        <span style="font-size:var(--fs-sm);color:var(--text-light);">Wähle eine Farbe</span>
+        <span style="font-size:var(--fs-sm);color:var(--text-light);" data-i18n="choose_color_label">Wähle eine Farbe</span>
         <span class="selected-name" id="selectedColorName">Pink</span>
       </div>
       <div class="swatches" id="balloonColorSwatches">
@@ -1702,75 +1702,75 @@
         <div class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume"></div>
         <div class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki"></div>
       </div>
-      <label class="form-label">Ballontyp</label>
+      <label class="form-label" data-i18n="balloon_type_label">Ballontyp</label>
       <select id="balloonTypeSelect" class="form-select">
-        <option value="latex" data-price="0">🎈 Latex-Ballon (rund)</option>
-        <option value="herz" data-price="3">💗 Herz-Ballon (+3,00 €)</option>
-        <option value="stern" data-price="3">⭐ Stern-Ballon (+3,00 €)</option>
-        <option value="folie" data-price="6">🌟 Folienballon Premium (+6,00 €)</option>
-        <option value="bubble" data-price="9">🔮 Bubble-Ballon (transparent) (+9,00 €)</option>
+        <option value="latex" data-price="0" data-i18n="opt_latex">🎈 Latex-Ballon (rund)</option>
+        <option value="herz" data-price="3" data-i18n="opt_herz">💗 Herz-Ballon (+3,00 €)</option>
+        <option value="stern" data-price="3" data-i18n="opt_stern_typ">⭐ Stern-Ballon (+3,00 €)</option>
+        <option value="folie" data-price="6" data-i18n="opt_folie">🌟 Folienballon Premium (+6,00 €)</option>
+        <option value="bubble" data-price="9" data-i18n="opt_bubble">🔮 Bubble-Ballon (transparent) (+9,00 €)</option>
       </select>
-      <label class="form-label">Text-Effekt</label>
+      <label class="form-label" data-i18n="text_effect_label">Text-Effekt</label>
       <select id="textEffectSelect" class="form-select">
-        <option value="normal">Normal</option>
-        <option value="bold">Fett</option>
-        <option value="italic">Kursiv</option>
-        <option value="shadow">Mit Schatten</option>
-        <option value="outline">Umriss</option>
-        <option value="glitter">✨ Glitzer-Effekt</option>
+        <option value="normal" data-i18n="opt_normal">Normal</option>
+        <option value="bold" data-i18n="opt_fett">Fett</option>
+        <option value="italic" data-i18n="opt_kursiv">Kursiv</option>
+        <option value="shadow" data-i18n="opt_schatten">Mit Schatten</option>
+        <option value="outline" data-i18n="opt_umriss">Umriss</option>
+        <option value="glitter" data-i18n="opt_glitzer">✨ Glitzer-Effekt</option>
       </select>
-      <label class="form-label">Art der Füllung</label>
+      <label class="form-label" data-i18n="filling_type_label">Art der Füllung</label>
       <select id="fillingSelect" class="form-select">
-        <option value="none">Keine Füllung</option>
-        <option value="mini-balloons" selected>Mini-Ballons 🎈</option>
-        <option value="confetti">Konfetti 🎉</option>
-        <option value="hearts">Herzen ❤️</option>
-        <option value="stars">Sterne ⭐</option>
-        <option value="flowers">Blumen 🌸</option>
-        <option value="butterflies">Schmetterlinge 🦋</option>
+        <option value="none" data-i18n="opt_keine_fuellung">Keine Füllung</option>
+        <option value="mini-balloons" selected data-i18n="opt_mini_balloons">Mini-Ballons 🎈</option>
+        <option value="confetti" data-i18n="opt_confetti">Konfetti 🎉</option>
+        <option value="hearts" data-i18n="opt_hearts">Herzen ❤️</option>
+        <option value="stars" data-i18n="opt_stars">Sterne ⭐</option>
+        <option value="flowers" data-i18n="opt_flowers">Blumen 🌸</option>
+        <option value="butterflies" data-i18n="opt_butterflies">Schmetterlinge 🦋</option>
       </select>
-      <label class="form-label">Design-Vorlage</label>
+      <label class="form-label" data-i18n="design_template_label">Design-Vorlage</label>
       <select id="designSelect" class="form-select">
-        <option value="default">Standard</option>
-        <option value="birthday">🎂 Geburtstag</option>
-        <option value="valentine">❤️ Valentinstag</option>
-        <option value="graduation">🎓 Abschluss</option>
-        <option value="wedding">💍 Hochzeit</option>
-        <option value="newborn">👶 Neugeborenes</option>
-        <option value="congrats">🎊 Glückwünsche</option>
-        <option value="christmas">🎄 Weihnachten</option>
+        <option value="default" data-i18n="opt_default">Standard</option>
+        <option value="birthday" data-i18n="opt_birthday">🎂 Geburtstag</option>
+        <option value="valentine" data-i18n="opt_valentine">❤️ Valentinstag</option>
+        <option value="graduation" data-i18n="opt_graduation">🎓 Abschluss</option>
+        <option value="wedding" data-i18n="opt_wedding">💍 Hochzeit</option>
+        <option value="newborn" data-i18n="opt_newborn">👶 Neugeborenes</option>
+        <option value="congrats" data-i18n="opt_congrats">🎊 Glückwünsche</option>
+        <option value="christmas" data-i18n="opt_christmas">🎄 Weihnachten</option>
       </select>
-      <label class="form-label">Symbol hinzufügen</label>
+      <label class="form-label" data-i18n="symbol_add_label">Symbol hinzufügen</label>
       <select id="symbolSelect" class="form-select">
-        <option value="">Kein Symbol</option>
-        <option value="❤️">❤️ Herz</option>
-        <option value="💍">💍 Ring</option>
-        <option value="🎓">🎓 Absolventenhut</option>
-        <option value="🧸">🧸 Teddy</option>
-        <option value="👣">👣 Babyfüße</option>
-        <option value="🎁">🎁 Geschenk</option>
-        <option value="🎉">🎉 Party</option>
-        <option value="💐">💐 Blumen</option>
-        <option value="⭐">⭐ Stern</option>
-        <option value="🦋">🦋 Schmetterling</option>
-        <option value="🌙">🌙 Mond</option>
-        <option value="✨">✨ Glitzer</option>
+        <option value="" data-i18n="opt_sym_none">Kein Symbol</option>
+        <option value="❤️" data-i18n="opt_sym_herz">❤️ Herz</option>
+        <option value="💍" data-i18n="opt_sym_ring">💍 Ring</option>
+        <option value="🎓" data-i18n="opt_sym_hut">🎓 Absolventenhut</option>
+        <option value="🧸" data-i18n="opt_sym_teddy">🧸 Teddy</option>
+        <option value="👣" data-i18n="opt_sym_fuesse">👣 Babyfüße</option>
+        <option value="🎁" data-i18n="opt_sym_geschenk">🎁 Geschenk</option>
+        <option value="🎉" data-i18n="opt_sym_party">🎉 Party</option>
+        <option value="💐" data-i18n="opt_sym_blumen">💐 Blumen</option>
+        <option value="⭐" data-i18n="opt_sym_stern">⭐ Stern</option>
+        <option value="🦋" data-i18n="opt_sym_schmetterling">🦋 Schmetterling</option>
+        <option value="🌙" data-i18n="opt_sym_mond">🌙 Mond</option>
+        <option value="✨" data-i18n="opt_sym_glitzer">✨ Glitzer</option>
       </select>
     </div>
 
     <div class="config-card">
-      <h3><i class="fas fa-envelope-open-heart"></i> Grußkarte & Extras</h3>
-      <label class="form-label">Grußkarte <span style="font-weight:400;color:var(--text-light);">(optional, max. 150 Zeichen)</span></label>
+      <h3><i class="fas fa-envelope-open-heart"></i> <span data-i18n="card_extras_title">Grußkarte & Extras</span></h3>
+      <label class="form-label"><span data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
       <div class="textarea-wrap">
-        <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." maxlength="150"></textarea>
+        <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." data-i18n-placeholder="card_placeholder" maxlength="150"></textarea>
         <span class="char-counter"><span id="charCount">0</span>/150</span>
       </div>
-      <label class="form-label">Beschreibe die Person <span style="font-weight:400;color:var(--text-light);">(optional für individuelle Empfehlung)</span></label>
-      <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" style="min-height:70px;margin-bottom:0;"></textarea>
+      <label class="form-label"><span data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
+      <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" data-i18n-placeholder="persona_placeholder" style="min-height:70px;margin-bottom:0;"></textarea>
     </div>
 
     <div class="config-card">
-      <h3><i class="fas fa-layer-group"></i> Menge</h3>
+      <h3><i class="fas fa-layer-group"></i> <span data-i18n="quantity_title">Menge</span></h3>
       <div class="qty-row">
         <button class="qty-btn" id="qtyMinus">−</button>
         <input class="qty-val" type="text" id="qtyVal" value="1" readonly>
@@ -1781,10 +1781,10 @@
     <div class="cta-area">
       <div style="display:flex;gap:10px;margin-bottom:12px;">
         <button class="qty-btn" id="saveDesignBtn" style="flex:1;width:auto;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);background:#f7eefb;border:1px solid var(--purple);padding:12px;">
-          <i class="fas fa-bookmark"></i> Speichern
+          <i class="fas fa-bookmark"></i> <span data-i18n="save_label">Speichern</span>
         </button>
         <button class="qty-btn" id="shareDesignBtn" style="flex:1;width:auto;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);background:#f7eefb;border:1px solid var(--purple);padding:12px;">
-          <i class="fas fa-share-alt"></i> Teilen
+          <i class="fas fa-share-alt"></i> <span data-i18n="share_label">Teilen</span>
         </button>
       </div>
       <div id="savedDesignsRow" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
@@ -2734,6 +2734,30 @@
       ship_home_text2: '1–3 Werktage', ship_home_text3: '1–3 Werktage nach Bestelleingang',
       local_delivery_note: '📍 Wohnst du in der Nähe von Bad Wörishofen? Dann liefere ich deinen Ballon gerne persönlich, auf Wunsch sogar mit einer handgeschriebenen Grußkarte vom Schenkenden.',
       damage_note: '📦 Sollte der Ballon beschädigt ankommen, schick uns einfach ein Foto über WhatsApp, wir finden gemeinsam eine schnelle Lösung.',
+      dein_text_title: 'Dein Text', text_label: 'Text auf dem Ballon', max_chars_50: '(max. 50 Zeichen)',
+      message_placeholder: 'z.B. Alles Gute zum Geburtstag!',
+      font_color_label: 'Schriftfarbe', font_size_label: 'Schriftgröße',
+      custom_image_label: 'Eigenes Bild / Logo hochladen', optional_label: '(optional)',
+      shown_on_balloon_label: 'Wird auf dem Ballon angezeigt',
+      filling_design_title: 'Füllung & Design', balloon_color_filling_label: 'Ballonfarbe / Füllung',
+      choose_color_label: 'Wähle eine Farbe', balloon_type_label: 'Ballontyp',
+      opt_latex: '🎈 Latex-Ballon (rund)', opt_herz: '💗 Herz-Ballon (+3,00 €)', opt_stern_typ: '⭐ Stern-Ballon (+3,00 €)',
+      opt_folie: '🌟 Folienballon Premium (+6,00 €)', opt_bubble: '🔮 Bubble-Ballon (transparent) (+9,00 €)',
+      text_effect_label: 'Text-Effekt', opt_normal: 'Normal', opt_fett: 'Fett', opt_kursiv: 'Kursiv',
+      opt_schatten: 'Mit Schatten', opt_umriss: 'Umriss', opt_glitzer: '✨ Glitzer-Effekt',
+      filling_type_label: 'Art der Füllung', opt_keine_fuellung: 'Keine Füllung', opt_mini_balloons: 'Mini-Ballons 🎈',
+      opt_confetti: 'Konfetti 🎉', opt_hearts: 'Herzen ❤️', opt_stars: 'Sterne ⭐', opt_flowers: 'Blumen 🌸', opt_butterflies: 'Schmetterlinge 🦋',
+      design_template_label: 'Design-Vorlage', opt_default: 'Standard', opt_birthday: '🎂 Geburtstag', opt_valentine: '❤️ Valentinstag',
+      opt_graduation: '🎓 Abschluss', opt_wedding: '💍 Hochzeit', opt_newborn: '👶 Neugeborenes', opt_congrats: '🎊 Glückwünsche', opt_christmas: '🎄 Weihnachten',
+      symbol_add_label: 'Symbol hinzufügen', opt_sym_none: 'Kein Symbol', opt_sym_herz: '❤️ Herz', opt_sym_ring: '💍 Ring',
+      opt_sym_hut: '🎓 Absolventenhut', opt_sym_teddy: '🧸 Teddy', opt_sym_fuesse: '👣 Babyfüße', opt_sym_geschenk: '🎁 Geschenk',
+      opt_sym_party: '🎉 Party', opt_sym_blumen: '💐 Blumen', opt_sym_stern: '⭐ Stern', opt_sym_schmetterling: '🦋 Schmetterling',
+      opt_sym_mond: '🌙 Mond', opt_sym_glitzer: '✨ Glitzer',
+      card_extras_title: 'Grußkarte & Extras', card_label: 'Grußkarte', optional_150_label: '(optional, max. 150 Zeichen)',
+      card_placeholder: 'Dein persönlicher Gruß für die Karte...',
+      describe_person_label: 'Beschreibe die Person', optional_recommendation_label: '(optional für individuelle Empfehlung)',
+      persona_placeholder: '💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!',
+      quantity_title: 'Menge', save_label: 'Speichern', share_label: 'Teilen',
       ueber_h1: 'Über Dandelion 11:11',
       ueber_subtitle: 'Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.',
       ueber_p1: 'Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.',
@@ -2837,6 +2861,30 @@
       ship_home_text2: '1–3 zile lucrătoare', ship_home_text3: '1–3 zile lucrătoare după comandă',
       local_delivery_note: '📍 Locuiești în apropiere de Bad Wörishofen? Atunci îți pot livra balonul personal, la cerere chiar și cu o felicitare scrisă de mână din partea celui care face cadoul.',
       damage_note: '📦 Dacă coletul ajunge avariat sau balonul stricat, trimite-ne pur și simplu o poză pe WhatsApp, găsim împreună o soluție rapidă.',
+      dein_text_title: 'Textul tău', text_label: 'Text pe balon', max_chars_50: '(max. 50 de caractere)',
+      message_placeholder: 'ex. La mulți ani!',
+      font_color_label: 'Culoarea textului', font_size_label: 'Mărimea textului',
+      custom_image_label: 'Încarcă o imagine / logo propriu', optional_label: '(opțional)',
+      shown_on_balloon_label: 'Va fi afișat pe balon',
+      filling_design_title: 'Umplutură & Design', balloon_color_filling_label: 'Culoare balon / Umplutură',
+      choose_color_label: 'Alege o culoare', balloon_type_label: 'Tip de balon',
+      opt_latex: '🎈 Balon din latex (rotund)', opt_herz: '💗 Balon inimă (+3,00 €)', opt_stern_typ: '⭐ Balon stea (+3,00 €)',
+      opt_folie: '🌟 Balon folie Premium (+6,00 €)', opt_bubble: '🔮 Balon Bubble (transparent) (+9,00 €)',
+      text_effect_label: 'Efect text', opt_normal: 'Normal', opt_fett: 'Bold', opt_kursiv: 'Cursiv',
+      opt_schatten: 'Cu umbră', opt_umriss: 'Contur', opt_glitzer: '✨ Efect sclipici',
+      filling_type_label: 'Tip de umplutură', opt_keine_fuellung: 'Fără umplutură', opt_mini_balloons: 'Mini-baloane 🎈',
+      opt_confetti: 'Confetti 🎉', opt_hearts: 'Inimioare ❤️', opt_stars: 'Stele ⭐', opt_flowers: 'Flori 🌸', opt_butterflies: 'Fluturi 🦋',
+      design_template_label: 'Șablon design', opt_default: 'Standard', opt_birthday: '🎂 Aniversare', opt_valentine: '❤️ Valentine',
+      opt_graduation: '🎓 Absolvire', opt_wedding: '💍 Nuntă', opt_newborn: '👶 Nou-născut', opt_congrats: '🎊 Felicitări', opt_christmas: '🎄 Crăciun',
+      symbol_add_label: 'Adaugă un simbol', opt_sym_none: 'Fără simbol', opt_sym_herz: '❤️ Inimă', opt_sym_ring: '💍 Inel',
+      opt_sym_hut: '🎓 Tichie absolvire', opt_sym_teddy: '🧸 Ursuleț', opt_sym_fuesse: '👣 Tălpi de bebeluș', opt_sym_geschenk: '🎁 Cadou',
+      opt_sym_party: '🎉 Petrecere', opt_sym_blumen: '💐 Flori', opt_sym_stern: '⭐ Stea', opt_sym_schmetterling: '🦋 Fluture',
+      opt_sym_mond: '🌙 Lună', opt_sym_glitzer: '✨ Sclipici',
+      card_extras_title: 'Felicitare & Extra', card_label: 'Felicitare', optional_150_label: '(opțional, max. 150 de caractere)',
+      card_placeholder: 'Mesajul tău personal pentru felicitare...',
+      describe_person_label: 'Descrie persoana', optional_recommendation_label: '(opțional, pentru recomandare personalizată)',
+      persona_placeholder: '💡 Nu știi ce culoare sau umplutură se potrivește? Nicio problemă! 😊 Descrie-ne persoana: ce culori îi plac, ce iubește, care sunt hobby-urile ei? Te ajutăm cu idei creative!',
+      quantity_title: 'Cantitate', save_label: 'Salvează', share_label: 'Trimite',
       ueber_h1: 'Despre Dandelion 11:11',
       ueber_subtitle: 'O poveste despre vise, lipici, baloane sparte și magia din spatele lor.',
       ueber_p1: 'Când eram mică, credeam<br>că păpădiile sunt magice.',
