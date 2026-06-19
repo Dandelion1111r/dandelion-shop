@@ -18,18 +18,68 @@
   <meta property="og:image" content="https://dandelion1111r.github.io/dandelion-shop/Dandelionlogo%20.svg">
   <meta property="og:url" content="https://dandelion1111r.github.io/dandelion-shop/">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Store",
+    "@type": "LocalBusiness",
     "name": "Dandelion 11:11",
     "description": "Personalisierte Ballons & Geschenke für jeden Anlass, handgemacht mit Liebe in Deutschland.",
     "url": "https://dandelion1111r.github.io/dandelion-shop/",
     "image": "https://dandelion1111r.github.io/dandelion-shop/Dandelionlogo%20.svg",
+    "logo": "https://dandelion1111r.github.io/dandelion-shop/Dandelionlogo%20.svg",
+    "email": "dandelionll.floral.design@gmail.com",
+    "telephone": "+491757668955",
     "priceRange": "€€",
-    "areaServed": "DE"
+    "areaServed": "DE",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bad Wörishofen",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie lange hält der Ballon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Mit Helium gefüllt hält unser Ballon 24–48 Stunden. Mit Luftfüllung bleibt er mehrere Tage schön. Wir empfehlen die Heliumfüllung kurz vor dem Event." }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie bestelle ich?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Konfiguriere deinen Ballon, lege ihn in den Warenkorb und sende deine Bestellung direkt über WhatsApp. Wir melden uns innerhalb weniger Stunden mit Bestätigung." }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie schnell wird geliefert?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nach Bestellbestätigung versenden wir innerhalb von 1–2 Werktagen. Die Lieferzeit beträgt in der Regel 1–3 Werktage in Deutschland." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann ich mehrere Ballons bestellen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons gewähren wir 10% Rabatt." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist der Ballon mit Luft oder Helium gefüllt?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Der Ballon wird unaufgeblasen geliefert, damit er sicher transportiert werden kann. Die Mini-Ballons und Füllung sind bereits im Inneren. Du kannst ihn lokal mit Helium aufblasen lassen." }
+      }
+    ]
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1296,7 +1346,7 @@
 <div id="page-kontakt" style="display:none;">
   <div class="ueberuns-hero">
     <div style="font-size:2.8rem;margin-bottom:12px;">💌</div>
-    <h1 data-i18n="nav_kontakt" style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h1>
+    <h2 data-i18n="nav_kontakt" style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h2>
     <p data-i18n="kontakt_sub" style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼</p>
     <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
@@ -1374,7 +1424,7 @@
 <div id="page-ueberuns" style="display:none;">
   <div class="ueberuns-hero">
     <img src="Dandelionlogo .svg" alt="Dandelion 11:11" style="height:90px;width:auto;margin:0 auto 12px;display:block;mix-blend-mode:darken;">
-    <h1 data-i18n="ueber_h1">Über Dandelion 11:11</h1>
+    <h2 data-i18n="ueber_h1">Über Dandelion 11:11</h2>
     <p class="subtitle" data-i18n="ueber_subtitle">Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.</p>
     <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
@@ -1513,7 +1563,7 @@
 <!-- ═══ KOLLEKTIONEN PAGE ═══ -->
 <div id="page-kollektionen" style="display:none;">
   <div style="background:linear-gradient(135deg,#fce4f3 0%,#ede7f6 100%);padding:40px 24px 28px;text-align:center;">
-    <h1 style="font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:var(--purple);margin-bottom:8px;" data-i18n="koll_title">🎈 Unsere Kollektionen</h1>
+    <h2 style="font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:var(--purple);margin-bottom:8px;" data-i18n="koll_title">🎈 Unsere Kollektionen</h2>
     <p style="color:var(--text-light);font-size:var(--fs-base);max-width:480px;margin:0 auto 18px;" data-i18n="koll_sub">Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet</p>
     <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
       ← Zurück zum Konfigurator
@@ -1806,6 +1856,10 @@
     <div class="cart-card" id="cartCard">
       <h3><i class="fas fa-shopping-bag"></i> <span data-i18n="cart_title">Warenkorb</span> <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
       <div id="cartItemsList"></div>
+      <div style="display:flex;gap:8px;margin:12px 0;">
+        <input type="text" id="discountCodeInput" class="form-input" style="margin-bottom:0;" data-i18n-placeholder="discount_code_placeholder" placeholder="Rabattcode">
+        <button id="applyDiscountBtn" class="qty-btn" style="width:auto;padding:0 16px;border-radius:10px;" data-i18n="discount_code_apply">Anwenden</button>
+      </div>
       <div class="cart-total-row">
         <span data-i18n="cart_total">Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
@@ -2067,6 +2121,21 @@
   const cartCard       = document.getElementById('cartCard');
   const cartItemsList  = document.getElementById('cartItemsList');
   const cartTotalPrice = document.getElementById('cartTotalPrice');
+  const discountCodeInput = document.getElementById('discountCodeInput');
+  const applyDiscountBtn  = document.getElementById('applyDiscountBtn');
+  const VALID_DISCOUNT_CODE = 'WILLKOMMEN10';
+  let appliedDiscount = false;
+  applyDiscountBtn.addEventListener('click', () => {
+    const code = discountCodeInput.value.trim().toUpperCase();
+    const lang = localStorage.getItem('lang') || 'de';
+    if (code === VALID_DISCOUNT_CODE) {
+      appliedDiscount = true;
+      showToast(lang === 'ro' ? '🎉 Codul de reducere a fost aplicat!' : '🎉 Rabattcode wurde angewendet!');
+      updateCartUI();
+    } else {
+      showToast(lang === 'ro' ? '❌ Cod de reducere invalid.' : '❌ Ungültiger Rabattcode.');
+    }
+  });
   const cartCount      = document.getElementById('cartCount');
   const clearCartBtn   = document.getElementById('clearCartBtn');
   const textDisplay    = document.getElementById('textDisplay');
@@ -2374,8 +2443,18 @@
             <span class="cart-item-price">${shipping === 0 ? 'kostenlos' : shipping.toFixed(2).replace('.', ',') + ' €'}</span>
           </div>
         </div>`;
+    const discountAmount = appliedDiscount ? total * 0.1 : 0;
+    if (appliedDiscount) {
+      html += `
+        <div class="cart-item-row">
+          <div class="cart-item-name">🎉 ${VALID_DISCOUNT_CODE} (-10%)</div>
+          <div class="cart-item-right">
+            <span class="cart-item-price">-${discountAmount.toFixed(2).replace('.', ',')} €</span>
+          </div>
+        </div>`;
+    }
     cartItemsList.innerHTML = html;
-    cartTotalPrice.textContent = (total + shipping).toFixed(2).replace('.', ',') + ' €';
+    cartTotalPrice.textContent = (total - discountAmount + shipping).toFixed(2).replace('.', ',') + ' €';
     document.querySelectorAll('.remove-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         cart = cart.filter(i => i.id !== parseInt(btn.dataset.id));
@@ -2718,6 +2797,7 @@
       discount_title: 'Willkommen bei Dandelion 11:11!',
       discount_text: 'Sichere dir 10% Rabatt auf deine erste Bestellung mit dem Code:',
       discount_btn: 'Jetzt einkaufen',
+      discount_code_placeholder: 'Rabattcode', discount_code_apply: 'Anwenden',
       kontakt_sub: 'Wir freuen uns, von dir zu hören! Schreib uns einfach, wir antworten so schnell wie möglich. 🌼',
       kontakt_standort: 'Standort', kontakt_erreichbarkeit: 'Erreichbarkeit', kontakt_email: 'E-Mail', kontakt_whatsapp: 'WhatsApp',
       kontakt_jetzt_schreiben: 'Jetzt schreiben', kontakt_nachricht_senden: 'Nachricht senden',
@@ -2850,6 +2930,7 @@
       discount_title: 'Bine ai venit la Dandelion 11:11!',
       discount_text: 'Beneficiezi de 10% reducere la prima ta comandă cu codul:',
       discount_btn: 'Cumpără acum',
+      discount_code_placeholder: 'Cod de reducere', discount_code_apply: 'Aplică',
       kontakt_sub: 'Ne bucurăm să te citim! Scrie-ne și îți răspundem cât mai rapid posibil. 🌼',
       kontakt_standort: 'Locație', kontakt_erreichbarkeit: 'Disponibilitate', kontakt_email: 'E-Mail', kontakt_whatsapp: 'WhatsApp',
       kontakt_jetzt_schreiben: 'Scrie-ne acum', kontakt_nachricht_senden: 'Trimite un mesaj',
@@ -3448,8 +3529,9 @@
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
       createOrder: function(data, actions) {
         const subtotal = cart.reduce((s, i) => s + i.price, 0);
+        const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
         const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
-        const total = (subtotal + shipping).toFixed(2);
+        const total = (subtotal - discountAmount + shipping).toFixed(2);
         return actions.order.create({
           purchase_units: [{ amount: { value: total, currency_code: 'EUR' } }]
         });
@@ -3457,18 +3539,21 @@
       onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
           const subtotal = cart.reduce((s, i) => s + i.price, 0);
+          const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
           const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
           db.collection('orders').add({
             userId: currentUser ? currentUser.uid : 'guest',
             email: currentUser ? currentUser.email : null,
             items: cart,
-            total: subtotal + shipping,
+            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
+            total: subtotal - discountAmount + shipping,
             paypalOrderId: details.id,
             status: 'paid',
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           }).then(() => {
             alert('Vielen Dank für deine Bestellung! Sie wurde erfolgreich bezahlt.');
             cart = [];
+            appliedDiscount = false;
             updateCartUI();
           });
         });
