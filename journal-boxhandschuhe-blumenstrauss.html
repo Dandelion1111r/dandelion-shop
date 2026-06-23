@@ -115,13 +115,15 @@
     <div class="nav-inner">
       <a class="logo-link" href="index.html"><img src="Dandelionlogo%20.svg" alt="Dandelion 11:11">Dandelion 11:11</a>
       <ul class="nav-links" id="siteNavLinks">
-        <li><a href="index.html">Shop</a></li>
-        <li><a href="index.html">Kollektionen</a></li>
-        <li><a href="index.html">Über uns</a></li>
-        <li><a href="journal.html" class="active-nav">Dandelion Journal</a></li>
-        <li><a href="index.html">Kontakt</a></li>
+        <li><a href="index.html" data-i18n="nav_shop">Shop</a></li>
+        <li><a href="index.html" data-i18n="nav_kollektionen">Kollektionen</a></li>
+        <li><a href="index.html" data-i18n="nav_ueber">Über uns</a></li>
+        <li><a href="journal.html" class="active-nav" data-i18n="nav_journal">Dandelion Journal</a></li>
+        <li><a href="index.html" data-i18n="nav_kontakt">Kontakt</a></li>
       </ul>
       <div class="nav-icons">
+        <span onclick="setJournalLang('de')" id="lang-de" style="cursor:pointer;font-size:1.2rem;" title="Deutsch">🇩🇪</span>
+        <span onclick="setJournalLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.2rem;opacity:0.4;" title="Română">🇷🇴</span>
         <a href="index.html" title="Suche"><i class="fas fa-search"></i></a>
         <a href="index.html" title="Favoriten"><i class="fas fa-heart"></i></a>
         <a href="index.html" title="Warenkorb"><i class="fas fa-shopping-bag"></i></a>
@@ -131,63 +133,63 @@
     </div>
   </header>
   <div class="wrap">
-    <a class="back" href="journal.html">← Zurück zum Journal</a>
+    <a class="back" href="journal.html" data-i18n="back_link">← Zurück zum Journal</a>
     <div class="eyebrow">Dandelion Journal · Where Opposites Bloom</div>
-    <h1>Zwischen Kraft und Blüten</h1>
-    <div class="meta">23. Juni 2026 · Dandelion 11:11</div>
-    <span class="entry-tag">Staffel 1 · Ep. 1 · Journal Entry</span>
+    <h1 data-i18n="h1">Zwischen Kraft und Blüten</h1>
+    <div class="meta" data-i18n="meta">23. Juni 2026 · Dandelion 11:11</div>
+    <span class="entry-tag" data-i18n="entry_tag">Staffel 1 · Ep. 1 · Journal Entry</span>
     <div class="featured-image"><img src="Dandelionlogo%20.svg" alt=""></div>
 
     <article>
       <div class="verse">
-        <p>Die meisten Menschen würden Boxhandschuhe wohl nie mit Blumen verbinden.</p>
-        <p>Ich schon.</p>
-        <p>Denn wenn ich an das Boxen denke, sehe ich nicht den Ring.</p>
-        <p>Ich sehe die Disziplin.</p>
-        <p>Die Geduld.</p>
-        <p>Den Mut, immer wieder aufzustehen.</p>
+        <p data-i18n="v1_1">Die meisten Menschen würden Boxhandschuhe wohl nie mit Blumen verbinden.</p>
+        <p data-i18n="v1_2">Ich schon.</p>
+        <p data-i18n="v1_3">Denn wenn ich an das Boxen denke, sehe ich nicht den Ring.</p>
+        <p data-i18n="v1_4">Ich sehe die Disziplin.</p>
+        <p data-i18n="v1_5">Die Geduld.</p>
+        <p data-i18n="v1_6">Den Mut, immer wieder aufzustehen.</p>
       </div>
 
-      <p>Für viele sind Boxhandschuhe einfach nur Sportausrüstung. Für andere stehen sie für unzählige Stunden Training. Für Ziele, die nicht über Nacht erreicht werden. Für kleine Fortschritte, die irgendwann etwas Großes werden.</p>
+      <p data-i18n="p1">Für viele sind Boxhandschuhe einfach nur Sportausrüstung. Für andere stehen sie für unzählige Stunden Training. Für Ziele, die nicht über Nacht erreicht werden. Für kleine Fortschritte, die irgendwann etwas Großes werden.</p>
 
-      <p>Vielleicht berührt mich diese Idee auch deshalb so sehr. Ich weiß aus eigener Erfahrung, wie viel Disziplin, Geduld und Herzblut hinter jedem Training steckt.</p>
+      <p data-i18n="p2">Vielleicht berührt mich diese Idee auch deshalb so sehr. Ich weiß aus eigener Erfahrung, wie viel Disziplin, Geduld und Herzblut hinter jedem Training steckt.</p>
 
       <div class="verse">
-        <p>Als ich diesen Blumenstrauß gestaltet habe, dachte ich deshalb nicht an einen Sport.</p>
-        <p>Ich dachte an den Menschen dahinter.</p>
-        <p>An jemanden, der niemals aufgegeben hat.</p>
-        <p>An jemanden, der für seine Leidenschaft kämpft.</p>
+        <p data-i18n="v2_1">Als ich diesen Blumenstrauß gestaltet habe, dachte ich deshalb nicht an einen Sport.</p>
+        <p data-i18n="v2_2">Ich dachte an den Menschen dahinter.</p>
+        <p data-i18n="v2_3">An jemanden, der niemals aufgegeben hat.</p>
+        <p data-i18n="v2_4">An jemanden, der für seine Leidenschaft kämpft.</p>
       </div>
 
-      <p>Genau das wollte ich sichtbar machen. Nicht mit Worten. Sondern mit Blumen.</p>
+      <p data-i18n="p3">Genau das wollte ich sichtbar machen. Nicht mit Worten. Sondern mit Blumen.</p>
 
-      <p>Tagsüber arbeite ich in der IT. Dort begleiten mich Struktur, Logik und Lösungen. Wenn ich gestalte, lasse ich Raum für Emotionen. Für Geschichten. Für Ideen, die auf den ersten Blick vielleicht ungewöhnlich wirken.</p>
+      <p data-i18n="p4">Tagsüber arbeite ich in der IT. Dort begleiten mich Struktur, Logik und Lösungen. Wenn ich gestalte, lasse ich Raum für Emotionen. Für Geschichten. Für Ideen, die auf den ersten Blick vielleicht ungewöhnlich wirken.</p>
 
-      <p>Und genau darin liegt für mich die Schönheit. Dandelion bedeutet für mich nicht, Gegensätze voneinander zu trennen. Sondern sie miteinander zu verbinden. Denn manchmal entstehen die schönsten Geschichten genau dort, wo zwei Welten aufeinandertreffen.</p>
+      <p data-i18n="p5">Und genau darin liegt für mich die Schönheit. Dandelion bedeutet für mich nicht, Gegensätze voneinander zu trennen. Sondern sie miteinander zu verbinden. Denn manchmal entstehen die schönsten Geschichten genau dort, wo zwei Welten aufeinandertreffen.</p>
 
-      <p>Ein Blumenstrauß muss nicht nur schön aussehen. Er darf auch erzählen, wer ein Mensch ist. Und vielleicht ist genau das das schönste Geschenk.</p>
+      <p data-i18n="p6">Ein Blumenstrauß muss nicht nur schön aussehen. Er darf auch erzählen, wer ein Mensch ist. Und vielleicht ist genau das das schönste Geschenk.</p>
 
       <p class="signoff">Some stories aren't written.<br>They bloom.</p>
 
       <div class="inspiration-box">
-        <h3>The inspiration behind this creation</h3>
+        <h3 data-i18n="insp_title">The inspiration behind this creation</h3>
         <ul>
-          <li>Gestaltet mit konservierten Blumen in neutralen Tönen</li>
-          <li>Personalisiert mit Boxhandschuhen</li>
-          <li>Entworfen, um Disziplin, Stärke und Leidenschaft zu feiern</li>
+          <li data-i18n="insp_1">Gestaltet mit konservierten Blumen in neutralen Tönen</li>
+          <li data-i18n="insp_2">Personalisiert mit Boxhandschuhen</li>
+          <li data-i18n="insp_3">Entworfen, um Disziplin, Stärke und Leidenschaft zu feiern</li>
         </ul>
       </div>
 
-      <a class="cta" href="index.html">Dein eigenes Geschenk gestalten →</a>
+      <a class="cta" href="index.html" data-i18n="cta">Dein eigenes Geschenk gestalten →</a>
     </article>
 
     <div class="more">
-      <h2>Mehr aus dem Journal</h2>
+      <h2 data-i18n="more_title">Mehr aus dem Journal</h2>
       <a class="more-card" href="journal.html">
         <div class="more-thumb"></div>
         <div>
-          <div class="more-title">Alle Geschichten im Dandelion Journal</div>
-          <div class="more-excerpt">Wo Gegensätze blühen – weitere Geschichten hinter unseren Ballons und Blumen.</div>
+          <div class="more-title" data-i18n="more_card_title">Alle Geschichten im Dandelion Journal</div>
+          <div class="more-excerpt" data-i18n="more_card_excerpt">Wo Gegensätze blühen – weitere Geschichten hinter unseren Ballons und Blumen.</div>
         </div>
       </a>
     </div>
@@ -197,25 +199,25 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="brand-name">✨ Dandelion 11:11 ✨</div>
-        <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+        <p data-i18n="footer_brand_text">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
       </div>
       <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="index.html">Alle Ballons</a>
-        <a href="geburtstag.html">Geburtstag</a>
-        <a href="hochzeit.html">Hochzeit</a>
-        <a href="babyparty.html">Babyparty</a>
-        <a href="fussball.html">Fußball</a>
+        <h4 data-i18n="footer_shop_title">Shop</h4>
+        <a href="index.html" data-i18n="footer_link_all">Alle Ballons</a>
+        <a href="geburtstag.html" data-i18n="footer_link_geburtstag">Geburtstag</a>
+        <a href="hochzeit.html" data-i18n="footer_link_hochzeit">Hochzeit</a>
+        <a href="babyparty.html" data-i18n="footer_link_babyparty">Babyparty</a>
+        <a href="fussball.html" data-i18n="footer_link_fussball">Fußball</a>
       </div>
       <div class="footer-col">
-        <h4>Info</h4>
-        <a href="index.html">Über uns</a>
-        <a href="journal.html">Dandelion Journal</a>
-        <a href="index.html">Kontakt</a>
+        <h4 data-i18n="footer_info_title">Info</h4>
+        <a href="index.html" data-i18n="footer_link_ueber">Über uns</a>
+        <a href="journal.html" data-i18n="nav_journal">Dandelion Journal</a>
+        <a href="index.html" data-i18n="footer_link_kontakt">Kontakt</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+      <span data-i18n="footer_copyright">© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
       <div class="social-links">
         <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
@@ -223,5 +225,70 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const journalI18n = {
+      de: {
+        nav_shop: 'Shop', nav_kollektionen: 'Kollektionen', nav_ueber: 'Über uns', nav_journal: 'Dandelion Journal', nav_kontakt: 'Kontakt',
+        back_link: '← Zurück zum Journal', h1: 'Zwischen Kraft und Blüten',
+        meta: '23. Juni 2026 · Dandelion 11:11', entry_tag: 'Staffel 1 · Ep. 1 · Journal Entry',
+        v1_1: 'Die meisten Menschen würden Boxhandschuhe wohl nie mit Blumen verbinden.', v1_2: 'Ich schon.',
+        v1_3: 'Denn wenn ich an das Boxen denke, sehe ich nicht den Ring.', v1_4: 'Ich sehe die Disziplin.',
+        v1_5: 'Die Geduld.', v1_6: 'Den Mut, immer wieder aufzustehen.',
+        p1: 'Für viele sind Boxhandschuhe einfach nur Sportausrüstung. Für andere stehen sie für unzählige Stunden Training. Für Ziele, die nicht über Nacht erreicht werden. Für kleine Fortschritte, die irgendwann etwas Großes werden.',
+        p2: 'Vielleicht berührt mich diese Idee auch deshalb so sehr. Ich weiß aus eigener Erfahrung, wie viel Disziplin, Geduld und Herzblut hinter jedem Training steckt.',
+        v2_1: 'Als ich diesen Blumenstrauß gestaltet habe, dachte ich deshalb nicht an einen Sport.', v2_2: 'Ich dachte an den Menschen dahinter.',
+        v2_3: 'An jemanden, der niemals aufgegeben hat.', v2_4: 'An jemanden, der für seine Leidenschaft kämpft.',
+        p3: 'Genau das wollte ich sichtbar machen. Nicht mit Worten. Sondern mit Blumen.',
+        p4: 'Tagsüber arbeite ich in der IT. Dort begleiten mich Struktur, Logik und Lösungen. Wenn ich gestalte, lasse ich Raum für Emotionen. Für Geschichten. Für Ideen, die auf den ersten Blick vielleicht ungewöhnlich wirken.',
+        p5: 'Und genau darin liegt für mich die Schönheit. Dandelion bedeutet für mich nicht, Gegensätze voneinander zu trennen. Sondern sie miteinander zu verbinden. Denn manchmal entstehen die schönsten Geschichten genau dort, wo zwei Welten aufeinandertreffen.',
+        p6: 'Ein Blumenstrauß muss nicht nur schön aussehen. Er darf auch erzählen, wer ein Mensch ist. Und vielleicht ist genau das das schönste Geschenk.',
+        insp_title: 'The inspiration behind this creation', insp_1: 'Gestaltet mit konservierten Blumen in neutralen Tönen',
+        insp_2: 'Personalisiert mit Boxhandschuhen', insp_3: 'Entworfen, um Disziplin, Stärke und Leidenschaft zu feiern',
+        cta: 'Dein eigenes Geschenk gestalten →', more_title: 'Mehr aus dem Journal',
+        more_card_title: 'Alle Geschichten im Dandelion Journal', more_card_excerpt: 'Wo Gegensätze blühen – weitere Geschichten hinter unseren Ballons und Blumen.',
+        footer_brand_text: 'Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.',
+        footer_shop_title: 'Shop', footer_link_all: 'Alle Ballons', footer_link_geburtstag: 'Geburtstag',
+        footer_link_hochzeit: 'Hochzeit', footer_link_babyparty: 'Babyparty', footer_link_fussball: 'Fußball',
+        footer_info_title: 'Info', footer_link_ueber: 'Über uns', footer_link_kontakt: 'Kontakt',
+        footer_copyright: '© 2026 Dandelion 11:11 · Alle Rechte vorbehalten'
+      },
+      ro: {
+        nav_shop: 'Magazin', nav_kollektionen: 'Colecții', nav_ueber: 'Despre noi', nav_journal: 'Dandelion Journal', nav_kontakt: 'Contact',
+        back_link: '← Înapoi la Journal', h1: 'Între forță și petale',
+        meta: '23 iunie 2026 · Dandelion 11:11', entry_tag: 'Sezonul 1 · Ep. 1 · Jurnal',
+        v1_1: 'Cei mai mulți oameni nu ar lega niciodată mănușile de box de flori.', v1_2: 'Eu, da.',
+        v1_3: 'Pentru că atunci când mă gândesc la box, nu văd ringul.', v1_4: 'Văd disciplina.',
+        v1_5: 'Răbdarea.', v1_6: 'Curajul de a te ridica mereu din nou.',
+        p1: 'Pentru mulți, mănușile de box sunt doar echipament sportiv. Pentru alții, reprezintă nenumărate ore de antrenament. Obiective care nu se ating peste noapte. Mici progrese care, la un moment dat, devin ceva mare.',
+        p2: 'Poate de aceea mă mișcă atât de mult această idee. Știu din experiență proprie cât de multă disciplină, răbdare și pasiune se află în spatele fiecărui antrenament.',
+        v2_1: 'Când am creat acest buchet, nu m-am gândit la un sport.', v2_2: 'M-am gândit la omul din spatele lui.',
+        v2_3: 'La cineva care nu a renunțat niciodată.', v2_4: 'La cineva care luptă pentru pasiunea sa.',
+        p3: 'Exact asta am vrut să fac vizibil. Nu prin cuvinte. Ci prin flori.',
+        p4: 'Ziua lucrez în IT. Acolo mă ghidez după structură, logică și soluții. Când creez, las loc emoțiilor. Poveștilor. Ideilor care, la prima vedere, pot părea neobișnuite.',
+        p5: 'Și exact acolo se află frumusețea, pentru mine. Dandelion nu înseamnă să separi contrastele. Ci să le unești. Pentru că, uneori, cele mai frumoase povești se nasc exact acolo unde se întâlnesc două lumi.',
+        p6: 'Un buchet de flori nu trebuie să fie doar frumos. Poate spune și povestea unui om. Și poate că acesta este cel mai frumos cadou.',
+        insp_title: 'Inspirația din spatele acestei creații', insp_1: 'Creat cu flori conservate în tonuri neutre',
+        insp_2: 'Personalizat cu mănuși de box', insp_3: 'Conceput pentru a celebra disciplina, forța și pasiunea',
+        cta: 'Creează-ți propriul cadou →', more_title: 'Mai multe din Journal',
+        more_card_title: 'Toate poveștile din Dandelion Journal', more_card_excerpt: 'Unde înfloresc contrastele – mai multe povești din spatele baloanelor și florilor noastre.',
+        footer_brand_text: 'Baloane experiență lucrate manual pentru momentele tale de neuitat. Create cu drag, livrate personal.',
+        footer_shop_title: 'Magazin', footer_link_all: 'Toate baloanele', footer_link_geburtstag: 'Aniversare',
+        footer_link_hochzeit: 'Nuntă', footer_link_babyparty: 'Baby Shower', footer_link_fussball: 'Fotbal',
+        footer_info_title: 'Info', footer_link_ueber: 'Despre noi', footer_link_kontakt: 'Contact',
+        footer_copyright: '© 2026 Dandelion 11:11 · Toate drepturile rezervate'
+      }
+    };
+    window.setJournalLang = function(lang) {
+      localStorage.setItem('lang', lang);
+      document.getElementById('lang-de').style.opacity = lang === 'de' ? '1' : '0.4';
+      document.getElementById('lang-ro').style.opacity = lang === 'ro' ? '1' : '0.4';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (journalI18n[lang][key]) el.textContent = journalI18n[lang][key];
+      });
+    };
+    setJournalLang(localStorage.getItem('lang') || 'de');
+  </script>
 </body>
 </html>
