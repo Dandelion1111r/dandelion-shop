@@ -309,7 +309,7 @@
     .nav-links {
       display: flex !important;
       flex-direction: row !important;
-      gap: 28px;
+      gap: 22px;
       list-style: none !important;
       padding: 0;
       margin: 0;
@@ -326,6 +326,7 @@
       font-size: var(--fs-base);
       font-weight: 500;
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--pink); }
@@ -1382,7 +1383,7 @@
         <span>Scan me</span>
       </div>
     </div>
-    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;">
+    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:22px;padding:0;margin:0;">
       <li style="list-style:none;display:flex;gap:6px;align-items:center;">
         <span onclick="setLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
         <span onclick="setLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
@@ -2190,7 +2191,7 @@
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
       <a href="#" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
-      <a href="journal.html">Journal</a>
+      <a href="journal.html">Dandelion Journal</a>
       <a href="#" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
       <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
       <a href="#" onclick="showPage('impressum');return false;">Impressum</a>
