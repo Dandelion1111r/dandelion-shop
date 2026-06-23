@@ -54,6 +54,13 @@
   .ep-status { font-size:.72rem; text-transform:uppercase; letter-spacing:1px; color:#a98aab; font-weight:600; }
   .season-upcoming { margin-top:40px; }
   .season-upcoming .season-title { font-size:1.2rem; opacity:.6; }
+
+  @media (max-width:480px) {
+    .wrap { padding:36px 16px 60px; }
+    .posts { grid-template-columns:1fr; }
+    .episode { flex-wrap:wrap; padding:14px 16px; gap:8px 16px; }
+    .ep-status { width:100%; }
+  }
 </style>
 </head>
 <body>
