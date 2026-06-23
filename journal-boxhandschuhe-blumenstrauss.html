@@ -48,20 +48,36 @@
   .back { display:inline-block; margin-bottom:24px; color:#d63384; text-decoration:none; font-weight:600; }
   .eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:.75rem; color:#d63384; font-weight:600; margin-bottom:10px; }
   h1 { color:#8e44ad; font-size:clamp(1.8rem,4.5vw,2.8rem); margin:0 0 14px; line-height:1.2; }
-  .meta { font-size:.85rem; color:#a98aab; margin-bottom:36px; }
+  .meta { font-size:.85rem; color:#a98aab; margin-bottom:6px; }
+  .entry-tag { font-size:.75rem; text-transform:uppercase; letter-spacing:1.5px; font-weight:600; color:#3a2e3f; margin-bottom:34px; display:block; }
+  .featured-image { width:100%; aspect-ratio:16/9; border-radius:18px; background:linear-gradient(135deg,#8e44ad,#d63384); display:flex; align-items:center; justify-content:center; margin-bottom:36px; }
+  .featured-image img { width:64px; height:64px; filter:brightness(0) invert(1); opacity:.9; }
   article p { font-size:1.05rem; line-height:1.9; margin:0 0 22px; }
   article .lead { font-size:1.15rem; color:#5a4a60; }
   blockquote { border-left:3px solid #d63384; margin:0 0 28px; padding:4px 0 4px 20px; font-style:italic; color:#7a5d80; }
   .signoff { font-style:italic; color:#8e44ad; margin-top:10px; }
   .cta { display:inline-flex; align-items:center; gap:8px; background:#8e44ad; color:#fff; padding:13px 28px; border-radius:50px; font-weight:600; text-decoration:none; margin-top:14px; }
+  .more { margin-top:70px; padding-top:40px; border-top:1px solid #efdcf0; }
+  .more h2 { font-size:1.1rem; color:#3a2e3f; margin:0 0 22px; text-transform:uppercase; letter-spacing:1.5px; font-weight:600; }
+  .more-card { display:flex; gap:18px; align-items:center; background:#fff; border-radius:16px; padding:18px 20px; text-decoration:none; color:inherit; box-shadow:0 4px 18px rgba(142,68,173,.08); }
+  .more-thumb { width:64px; height:64px; flex-shrink:0; border-radius:12px; background:linear-gradient(135deg,#8e44ad,#d63384); }
+  .more-title { color:#8e44ad; font-weight:600; font-size:1rem; margin-bottom:4px; }
+  .more-excerpt { font-size:.85rem; color:#5a4a60; }
+
+  @media (max-width:480px) {
+    .wrap { padding:36px 16px 70px; }
+    .more-card { padding:16px; gap:14px; }
+  }
 </style>
 </head>
 <body>
   <div class="wrap">
     <a class="back" href="journal.html">← Zurück zum Journal</a>
-    <div class="eyebrow">Where Opposites Bloom · #1</div>
+    <div class="eyebrow">Staffel 1 · Ep. 1</div>
     <h1>Wie kommen Boxhandschuhe in einen Blumenstrauß?</h1>
     <div class="meta">23. Juni 2026 · Dandelion 11:11</div>
+    <span class="entry-tag">Journal Entry</span>
+    <div class="featured-image"><img src="Dandelionlogo%20.svg" alt=""></div>
 
     <article>
       <p class="lead">Wenn mir jemand schreibt „Ich brauche einen Strauß für jemanden, der boxt", höre ich meistens den gleichen Satz direkt danach: „Aber Blumen passen doch nicht zum Boxen."</p>
@@ -86,6 +102,17 @@
 
       <a class="cta" href="index.html">Dein eigenes Geschenk gestalten →</a>
     </article>
+
+    <div class="more">
+      <h2>Mehr aus dem Journal</h2>
+      <a class="more-card" href="journal.html">
+        <div class="more-thumb"></div>
+        <div>
+          <div class="more-title">Alle Geschichten im Dandelion Journal</div>
+          <div class="more-excerpt">Wo Gegensätze blühen – weitere Geschichten hinter unseren Ballons und Blumen.</div>
+        </div>
+      </a>
+    </div>
   </div>
 </body>
 </html>
