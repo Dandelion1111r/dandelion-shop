@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://dandelion1111r.github.io/dandelion-shop/Dandelionlogo%20.svg">
 <meta property="og:url" content="https://dandelion1111r.github.io/dandelion-shop/journal.html">
 <meta name="robots" content="index, follow">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,9 +62,60 @@
     .episode { flex-wrap:wrap; padding:14px 16px; gap:8px 16px; }
     .ep-status { width:100%; }
   }
+
+  .site-header { background:#fff; border-bottom:1px solid #f1e1f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .site-header .nav-inner { max-width:1300px; margin:0 auto; padding:14px 30px; display:flex; align-items:center; gap:20px; }
+  .site-header .logo-link { display:flex; align-items:center; gap:8px; text-decoration:none; color:#8e44ad; font-weight:700; letter-spacing:.5px; flex-shrink:0; }
+  .site-header .logo-link img { height:48px; }
+  .site-header .nav-links { display:flex; align-items:center; gap:16px; list-style:none; padding:0; margin:0; }
+  .site-header .nav-links a { text-decoration:none; color:#3a2e3f; font-size:.88rem; font-weight:500; white-space:nowrap; }
+  .site-header .nav-links a:hover, .site-header .nav-links a.active-nav { color:#d63384; }
+  .site-header .nav-icons { display:flex; align-items:center; gap:18px; font-size:1.1rem; color:#3a2e3f; margin-left:auto; }
+  .site-header .nav-icons a { color:inherit; text-decoration:none; }
+  .site-header .hamburger { display:none; cursor:pointer; }
+  @media (max-width:768px) {
+    .site-header .nav-inner { padding:10px 16px; position:relative; }
+    .site-header .nav-links { display:none; flex-direction:column; align-items:flex-start; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.08); padding:8px 0; }
+    .site-header .nav-links.open { display:flex; }
+    .site-header .nav-links li { width:100%; }
+    .site-header .nav-links a { display:block; padding:12px 16px; width:100%; border-top:1px solid #f1e1f0; }
+    .site-header .hamburger { display:block; font-size:1.3rem; }
+  }
+
+  footer { background:linear-gradient(135deg,#2d1b69,#5b1c5a); color:rgba(255,255,255,.8); padding:50px 30px 24px; margin-top:60px; }
+  .footer-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+  .footer-brand div.brand-name { font-size:1.3rem; font-weight:700; letter-spacing:2px; color:#fff; margin-bottom:12px; }
+  .footer-brand p { font-size:.9rem; line-height:1.65; }
+  .footer-col h4 { color:#fff; font-size:.95rem; font-weight:600; margin-bottom:14px; }
+  .footer-col a { display:block; font-size:.88rem; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#f3a6c6; }
+  .footer-bottom { max-width:1300px; margin:0 auto; border-top:1px solid rgba(255,255,255,.1); padding-top:20px; display:flex; justify-content:space-between; align-items:center; font-size:.88rem; flex-wrap:wrap; gap:10px; }
+  .social-links { display:flex; gap:14px; }
+  .social-links a { color:rgba(255,255,255,.6); font-size:1.1rem; text-decoration:none; }
+  @media (max-width:768px) { .footer-inner { grid-template-columns:1fr 1fr; } }
+  @media (max-width:480px) { .footer-inner { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo-link" href="index.html"><img src="Dandelionlogo%20.svg" alt="Dandelion 11:11">Dandelion 11:11</a>
+      <ul class="nav-links" id="siteNavLinks">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="index.html">Kollektionen</a></li>
+        <li><a href="index.html">Über uns</a></li>
+        <li><a href="journal.html" class="active-nav">Dandelion Journal</a></li>
+        <li><a href="index.html">Kontakt</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="index.html" title="Suche"><i class="fas fa-search"></i></a>
+        <a href="index.html" title="Favoriten"><i class="fas fa-heart"></i></a>
+        <a href="index.html" title="Warenkorb"><i class="fas fa-shopping-bag"></i></a>
+        <a href="index.html" title="Konto"><i class="fas fa-user"></i></a>
+        <i class="fas fa-bars hamburger" onclick="document.getElementById('siteNavLinks').classList.toggle('open')"></i>
+      </div>
+    </div>
+  </header>
   <div class="wrap">
     <a class="back" href="index.html">← Zurück zum Shop</a>
     <div class="eyebrow">Where Opposites Bloom</div>
@@ -103,5 +155,36 @@
       <h2 class="season-title">Die Kunst des Schenkens</h2>
     </div>
   </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">✨ Dandelion 11:11 ✨</div>
+        <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="index.html">Alle Ballons</a>
+        <a href="geburtstag.html">Geburtstag</a>
+        <a href="hochzeit.html">Hochzeit</a>
+        <a href="babyparty.html">Babyparty</a>
+        <a href="fussball.html">Fußball</a>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <a href="index.html">Über uns</a>
+        <a href="journal.html">Dandelion Journal</a>
+        <a href="index.html">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://linktr.ee/Dandelion1111?subscribe" target="_blank" rel="noopener">Linktree</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
