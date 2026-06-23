@@ -44,10 +44,13 @@
   .post-excerpt { font-size:.95rem; line-height:1.7; color:#5a4a60; }
   .post-date { font-size:.8rem; color:#a98aab; margin-top:14px; display:block; }
   .post-more { display:inline-block; margin-top:16px; font-size:.78rem; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:#8e44ad; }
-  .motto { font-size:1.1rem; font-style:italic; color:#a98aab; max-width:560px; margin-bottom:44px; }
+  .motto { font-size:1.1rem; font-style:italic; color:#a98aab; max-width:560px; margin:0 auto 44px; }
+  .page-header { text-align:center; }
+  .page-header .eyebrow { display:block; }
   .season { margin-bottom:64px; }
-  .season-eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:.72rem; color:#a98aab; font-weight:600; margin-bottom:6px; }
-  .season-title { font-size:1.5rem; color:#8e44ad; font-weight:600; margin:0 0 26px; }
+  .season-header { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+  .season-eyebrow { letter-spacing:2px; text-transform:uppercase; font-size:.68rem; color:#a98aab; font-weight:600; }
+  .season-title { font-size:1.15rem; color:#8e44ad; font-weight:600; margin:0; }
   .episodes { display:flex; flex-direction:column; gap:14px; }
   .episode { display:flex; align-items:center; gap:16px; background:#fff; border-radius:14px; padding:16px 22px; box-shadow:0 4px 18px rgba(142,68,173,.06); text-decoration:none; color:inherit; }
   .episode.is-soon { opacity:.55; }
@@ -55,7 +58,7 @@
   .ep-title { font-weight:600; color:#3a2e3f; flex:1; }
   .ep-status { font-size:.72rem; text-transform:uppercase; letter-spacing:1px; color:#a98aab; font-weight:600; }
   .season-upcoming { margin-top:40px; }
-  .season-upcoming .season-title { font-size:1.2rem; opacity:.6; }
+  .season-upcoming .season-title, .season-upcoming .season-eyebrow { opacity:.6; }
 
   @media (max-width:480px) {
     .wrap { padding:36px 16px 60px; }
@@ -119,13 +122,17 @@
   </header>
   <div class="wrap">
     <a class="back" href="index.html">← Zurück zum Shop</a>
-    <div class="eyebrow">Where Opposites Bloom</div>
-    <h1>Dandelion Journal</h1>
-    <p class="motto">Geschichten, inspiriert von Leidenschaft, Blumen und der Schönheit der Gegensätze.</p>
+    <div class="page-header">
+      <div class="eyebrow">Where Opposites Bloom</div>
+      <h1>Dandelion Journal</h1>
+      <p class="motto">Geschichten, inspiriert von Leidenschaft, Blumen und der Schönheit der Gegensätze.</p>
+    </div>
 
     <div class="season">
-      <div class="season-eyebrow">Staffel 1</div>
-      <h2 class="season-title">Die Schönheit der Gegensätze</h2>
+      <div class="season-header">
+        <span class="season-eyebrow">Staffel 1</span>
+        <h2 class="season-title">Die Schönheit der Gegensätze</h2>
+      </div>
       <div class="posts">
         <a class="post-card" href="journal-boxhandschuhe-blumenstrauss.html">
           <div class="post-image"><img src="Dandelionlogo%20.svg" alt=""></div>
@@ -156,13 +163,17 @@
     </div>
 
     <div class="season season-upcoming">
-      <div class="season-eyebrow">Staffel 2</div>
-      <h2 class="season-title">Die Sprache der Blumen</h2>
+      <div class="season-header">
+        <span class="season-eyebrow">Staffel 2</span>
+        <h2 class="season-title">Die Sprache der Blumen</h2>
+      </div>
     </div>
 
     <div class="season season-upcoming">
-      <div class="season-eyebrow">Staffel 3</div>
-      <h2 class="season-title">Die Kunst des Schenkens</h2>
+      <div class="season-header">
+        <span class="season-eyebrow">Staffel 3</span>
+        <h2 class="season-title">Die Kunst des Schenkens</h2>
+      </div>
     </div>
   </div>
 
