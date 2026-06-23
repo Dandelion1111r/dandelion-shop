@@ -2136,9 +2136,10 @@
     <div class="footer-col">
       <h4 data-i18n="footer_shop_title">Shop</h4>
       <a href="#" onclick="showPage('kollektionen');return false;" data-i18n="footer_link_all">Alle Ballons</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('geburtstag');return false;" data-i18n="footer_link_geburtstag">Geburtstag</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('hochzeit');return false;" data-i18n="footer_link_hochzeit">Hochzeit</a>
-      <a href="#" onclick="showPage('kollektionen');renderKoll('babyparty');return false;" data-i18n="footer_link_babyparty">Babyparty</a>
+      <a href="geburtstag.html" onclick="showPage('kollektionen');renderKoll('geburtstag');return false;" data-i18n="footer_link_geburtstag">Geburtstag</a>
+      <a href="hochzeit.html" onclick="showPage('kollektionen');renderKoll('hochzeit');return false;" data-i18n="footer_link_hochzeit">Hochzeit</a>
+      <a href="babyparty.html" onclick="showPage('kollektionen');renderKoll('babyparty');return false;" data-i18n="footer_link_babyparty">Babyparty</a>
+      <a href="fussball.html" onclick="showPage('kollektionen');renderKoll('fussball');return false;">Fußball</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
@@ -2454,6 +2455,14 @@
     const params = new URLSearchParams(location.search);
     const d = params.get('design');
     if (d) applyDesign(decodeDesign(d));
+    const kat = params.get('kat');
+    if (kat) {
+      showPage('kollektionen');
+      setTimeout(() => {
+        const btn = document.querySelector(`.koll-filter[data-cat="${kat}"]`);
+        if (btn) filterKoll(kat, btn); else renderKoll(kat);
+      }, 0);
+    }
   })();
 
   addToCartBtn.addEventListener('click', () => {
