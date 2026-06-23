@@ -2189,6 +2189,7 @@
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
       <a href="#" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
+      <a href="journal.html">Journal</a>
       <a href="#" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
       <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
       <a href="#" onclick="showPage('impressum');return false;">Impressum</a>
@@ -3680,4 +3681,52 @@
           return `<div style="border:1px solid var(--border);border-radius:14px;padding:14px 16px;">
             <div style="display:flex;justify-content:space-between;font-weight:600;color:#6b2f8c;">
               <span>${o.items ? o.items.length : 0} Ballon(s)</span>
-              <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span
+              <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span>
+            </div>
+            <div style="font-size:0.85rem;color:#888;margin-top:4px;">${date} · Status: ${o.status === 'paid' ? 'Bezahlt ✅' : (o.status || '')}</div>
+          </div>`;
+        }).join('');
+      })
+      .catch(err => { list.innerHTML = '<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>'; console.error(err); });
+  }
+
+  // PayPal Smart Buttons – pays the current cart total and saves the order to Firestore
+  if (window.paypal) {
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
+      createOrder: function(data, actions) {
+        const subtotal = cart.reduce((s, i) => s + i.price, 0);
+        const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+        const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+        const total = (subtotal - discountAmount + shipping).toFixed(2);
+        return actions.order.create({
+          purchase_units: [{ amount: { value: total, currency_code: 'EUR' } }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          const subtotal = cart.reduce((s, i) => s + i.price, 0);
+          const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+          const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+          db.collection('orders').add({
+            userId: currentUser ? currentUser.uid : 'guest',
+            email: currentUser ? currentUser.email : null,
+            items: cart,
+            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
+            total: subtotal - discountAmount + shipping,
+            paypalOrderId: details.id,
+            status: 'paid',
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          }).then(() => {
+            alert('Vielen Dank für deine Bestellung! Sie wurde erfolgreich bezahlt.');
+            cart = [];
+            appliedDiscount = false;
+            updateCartUI();
+          });
+        });
+      }
+    }).render('#paypal-button-container');
+  }
+</script>
+</body>
+</html>
