@@ -31,13 +31,17 @@
   .eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:.75rem; color:#d63384; font-weight:600; margin-bottom:8px; }
   h1 { color:#8e44ad; font-size:clamp(1.8rem,4.5vw,2.8rem); margin:0 0 14px; line-height:1.2; }
   .intro { font-size:1.05rem; line-height:1.85; color:#5a4a60; max-width:620px; margin-bottom:50px; }
-  .posts { display:flex; flex-direction:column; gap:28px; }
-  .post-card { display:block; background:#fff; border-radius:18px; padding:28px 30px; text-decoration:none; color:inherit; box-shadow:0 4px 18px rgba(142,68,173,.08); transition:transform .15s ease; }
-  .post-card:hover { transform:translateY(-2px); }
+  .posts { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
+  .post-card { display:block; background:#fff; border-radius:18px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 4px 18px rgba(142,68,173,.08); transition:transform .15s ease; }
+  .post-card:hover { transform:translateY(-3px); }
+  .post-image { width:100%; aspect-ratio:4/3; background:linear-gradient(135deg,#8e44ad,#d63384); display:flex; align-items:center; justify-content:center; }
+  .post-image img { width:60px; height:60px; opacity:.9; }
+  .post-body { padding:24px 26px 28px; }
   .post-tag { font-size:.72rem; text-transform:uppercase; letter-spacing:2px; color:#d63384; font-weight:600; }
-  .post-title { font-size:1.3rem; color:#8e44ad; margin:8px 0 10px; font-weight:600; }
+  .post-title { font-size:1.3rem; color:#8e44ad; margin:8px 0 10px; font-weight:600; line-height:1.3; }
   .post-excerpt { font-size:.95rem; line-height:1.7; color:#5a4a60; }
   .post-date { font-size:.8rem; color:#a98aab; margin-top:14px; display:block; }
+  .post-more { display:inline-block; margin-top:16px; font-size:.78rem; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:#8e44ad; }
 </style>
 </head>
 <body>
@@ -48,10 +52,14 @@
     <p class="intro">Manchmal entsteht das Schönste genau dort, wo zwei Welten aufeinandertreffen, die eigentlich nicht zusammengehören sollen. Hier erzählen wir die Geschichten hinter unseren Ballons und Blumen – und warum Gegensätze uns immer wieder inspirieren.</p>
     <div class="posts">
       <a class="post-card" href="journal-boxhandschuhe-blumenstrauss.html">
-        <div class="post-tag">Where Opposites Bloom · #1</div>
-        <div class="post-title">Wie kommen Boxhandschuhe in einen Blumenstrauß?</div>
-        <p class="post-excerpt">„Aber Blumen passen doch nicht zum Boxen." Ich sehe das genau anders. Eine Geschichte über Disziplin, Zartheit – und warum die schönsten Dinge entstehen, wenn sich zwei gegensätzliche Welten treffen.</p>
-        <span class="post-date">23. Juni 2026</span>
+        <div class="post-image"><img src="Dandelionlogo .svg" alt=""></div>
+        <div class="post-body">
+          <div class="post-tag">Where Opposites Bloom · #1</div>
+          <div class="post-title">Wie kommen Boxhandschuhe in einen Blumenstrauß?</div>
+          <p class="post-excerpt">„Aber Blumen passen doch nicht zum Boxen." Ich sehe das genau anders. Eine Geschichte über Disziplin, Zartheit – und warum die schönsten Dinge entstehen, wenn sich zwei gegensätzliche Welten treffen.</p>
+          <span class="post-date">23. Juni 2026</span>
+          <span class="post-more">Weiterlesen →</span>
+        </div>
       </a>
     </div>
   </div>
