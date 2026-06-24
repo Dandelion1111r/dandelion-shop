@@ -2589,9 +2589,9 @@
     if (d) applyDesign(decodeDesign(d));
     const kat = params.get('kat');
     if (kat) {
-      showPage('kollektionen');
       setTimeout(() => {
-        const btn = document.querySelector(`.koll-filter[data-cat="${kat}"]`);
+        showPage('kollektionen');
+        const btn = document.querySelector(`.koll-filter[onclick="filterKoll('${kat}',this)"]`);
         if (btn) filterKoll(kat, btn); else renderKoll(kat);
       }, 0);
     }
