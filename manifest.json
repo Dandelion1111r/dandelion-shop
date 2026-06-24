@@ -1,0 +1,13 @@
+{
+  "name": "Dandelion 11:11 – Personalisierte Ballons",
+  "short_name": "Dandelion 11:11",
+  "description": "Personalisierte Ballons & Geschenke aus Bad Wörishofen, Bayern.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdf6fb",
+  "theme_color": "#8e44ad",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

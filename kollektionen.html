@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kollektionen – Dandelion 11:11</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --pink: #d63384;
+      --pink-light: #f472b6;
+      --purple: #8e44ad;
+      --purple-light: #c084fc;
+      --bg: #fdf0f6;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --text: #2d2d2d;
+      --text-light: #777;
+      --border: #e8d5e8;
+      --radius: 18px;
+      --shadow: 0 8px 32px rgba(142,68,173,0.10);
+      --shadow-hover: 0 16px 48px rgba(142,68,173,0.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── Topbar ── */
+    .topbar {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      text-align: center;
+      padding: 6px 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .topbar-brand { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; }
+    .topbar-divider { height: 1px; background: rgba(255,255,255,0.3); margin: 3px 0; }
+    .topbar-info { opacity: 0.95; }
+
+    /* ── Header ── */
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      height: 175px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(142,68,173,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+    .logo-wrap { position: relative; flex-shrink: 0; }
+    .logo-wrap img { height: 155px; width: auto; display: block; }
+    .nav-links { display: flex; flex-direction: row; list-style: none; gap: 28px; padding: 0; margin: 0; margin-left: auto; }
+    .nav-links li { list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; padding: 4px 0; }
+    .nav-links a:hover, .nav-links a.active { color: var(--pink); border-bottom: 2px solid var(--pink); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #fce4f3 0%, #ede7f6 100%);
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: var(--purple); margin-bottom: 10px; }
+    .hero p { color: var(--text-light); font-size: 1rem; max-width: 500px; margin: 0 auto; }
+
+    /* ── Filter tabs ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 28px 16px 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .filter-btn {
+      background: var(--white);
+      border: 2px solid var(--border);
+      color: var(--text);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* ── Product grid ── */
+    .products-section { max-width: 1200px; margin: 0 auto; padding: 16px 16px 60px; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── Product card ── */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+
+    .product-img-wrap {
+      position: relative;
+      background: linear-gradient(135deg, #fce4f3, #ede7f6);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-img-wrap .no-img {
+      font-size: 4rem;
+      line-height: 1;
+    }
+    .badge-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-sale {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #e53e3e;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    .product-body { padding: 18px 18px 14px; flex: 1; display: flex; flex-direction: column; }
+    .product-name { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .product-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; flex: 1; margin-bottom: 14px; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .product-price { font-size: 1.15rem; font-weight: 700; color: var(--purple); }
+    .product-price .old-price { font-size: 0.8rem; color: #aaa; text-decoration: line-through; font-weight: 400; margin-left: 6px; }
+
+    .btn-cart {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-cart:hover { opacity: 0.88; transform: scale(1.04); }
+    .btn-cart.added { background: linear-gradient(135deg, #38a169, #48bb78); }
+
+    .btn-configure {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid var(--pink);
+      color: var(--pink);
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-configure:hover { background: var(--pink); color: #fff; }
+
+    /* ── Cart toast ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #2d2d2d;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      z-index: 999;
+      transition: transform 0.3s ease;
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── Cart floating button ── */
+    .cart-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 20px rgba(142,68,173,0.4);
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 200;
+      transition: transform 0.2s;
+    }
+    .cart-fab:hover { transform: scale(1.1); }
+    .cart-fab .fab-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #fff;
+      color: var(--pink);
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--pink);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      header { height: auto; padding: 12px 0; }
+      .nav-inner { flex-wrap: wrap; gap: 12px; padding: 0 16px; }
+      .logo-wrap img { height: 70px; }
+      .nav-links { gap: 16px; font-size: 0.85rem; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .product-body { padding: 12px 12px 10px; }
+      .product-name { font-size: 0.88rem; }
+      .product-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .btn-cart { width: 100%; justify-content: center; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 0.82rem;
+    }
+    footer a { color: #fff; text-decoration: none; margin: 0 8px; }
+  </style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <a href="configurator.html">
+        <img src="Dandelionlogo-fixed.png" alt="Dandelion 11:11">
+      </a>
+    </div>
+    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;margin-left:auto;">
+      <li style="list-style:none;"><a href="configurator.html">Shop</a></li>
+      <li style="list-style:none;"><a href="kollektionen.html" class="active">Kollektionen</a></li>
+      <li style="list-style:none;"><a href="#">Über uns</a></li>
+      <li style="list-style:none;"><a href="#">Kontakt</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>🎈 Unsere Kollektionen</h1>
+  <p>Handgefertigte Ballons für jeden Anlass – mit Liebe gestaltet</p>
+  <a href="configurator.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:9px 22px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='var(--purple)';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='var(--purple)'">
+    <i class="fas fa-arrow-left"></i> Zurück zum Konfigurator
+  </a>
+</div>
+
+<!-- Filter -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterProducts('all', this)">Alle</button>
+  <button class="filter-btn" onclick="filterProducts('geburtstag', this)">🎂 Geburtstag</button>
+  <button class="filter-btn" onclick="filterProducts('hochzeit', this)">💍 Hochzeit</button>
+  <button class="filter-btn" onclick="filterProducts('babyparty', this)">👶 Babyparty</button>
+  <button class="filter-btn" onclick="filterProducts('liebe', this)">💕 Liebe & Valentinstag</button>
+  <button class="filter-btn" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
+</div>
+
+<!-- Products -->
+<div class="products-section">
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">🛒 In den Warenkorb gelegt!</div>
+
+<!-- Cart FAB -->
+<a href="configurator.html" class="cart-fab" title="Zum Konfigurator">
+  <i class="fas fa-shopping-bag"></i>
+  <span class="fab-count" id="fabCount" style="display:none">0</span>
+</a>
+
+<!-- Footer -->
+<footer>
+  <p>© 2024 Dandelion 11:11 &nbsp;·&nbsp;
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+    <a href="#">Kontakt</a>
+  </p>
+</footer>
+
+<script>
+  // ── Produktdaten – hier kannst du einfach neue Produkte hinzufügen ──
+  const products = [
+    {
+      id: 1,
+      name: 'Geburtstags-Ballon Classic',
+      desc: 'Personalisierter Ballon für den besonderen Geburtstag – mit individuellem Text und Sternchen-Füllung.',
+      price: 12.90,
+      category: 'geburtstag',
+      tag: 'Bestseller',
+      emoji: '🎂',
+      img: '',
+    },
+    {
+      id: 2,
+      name: 'Hochzeits-Ballon Gold',
+      desc: 'Eleganter Ballon in Cremeweiß mit goldener Beschriftung – perfekt für den schönsten Tag.',
+      price: 15.90,
+      oldPrice: 18.90,
+      category: 'hochzeit',
+      tag: 'Neu',
+      emoji: '💍',
+      img: '',
+    },
+    {
+      id: 3,
+      name: 'Baby Shower Blau',
+      desc: 'Zarter Babyblauer Ballon mit niedlichem Sternchen-Muster – ideal zur Geburt oder Babyparty.',
+      price: 11.90,
+      category: 'babyparty',
+      tag: '',
+      emoji: '👶',
+      img: '',
+    },
+    {
+      id: 4,
+      name: 'Baby Shower Rosa',
+      desc: 'Zartrosa Ballon mit Herzchen-Füllung und persönlicher Botschaft für das neue Mädchen.',
+      price: 11.90,
+      category: 'babyparty',
+      tag: '',
+      emoji: '🌸',
+      img: '',
+    },
+    {
+      id: 5,
+      name: 'Liebes-Ballon Herz',
+      desc: 'Tiefrosa Ballon mit Herz-Füllung und romantischer Botschaft – für Valentinstag, Jahrestag & Co.',
+      price: 13.90,
+      category: 'liebe',
+      tag: 'Beliebt',
+      emoji: '💕',
+      img: '',
+    },
+    {
+      id: 6,
+      name: 'Konfetti-Ballon Regenbogen',
+      desc: 'Bunter Ballon mit glitzernder Konfetti-Füllung – bringt gute Laune auf jede Party!',
+      price: 14.50,
+      oldPrice: 16.90,
+      category: 'sonstiges',
+      tag: 'Sale',
+      emoji: '🌈',
+      img: '',
+      sale: true,
+    },
+    {
+      id: 7,
+      name: 'Geburtstags-Ballon Mädchen',
+      desc: 'Lilafarbener Ballon mit Schmetterlings-Füllung und süßem Geburtstags-Text.',
+      price: 12.90,
+      category: 'geburtstag',
+      tag: '',
+      emoji: '🦋',
+      img: '',
+    },
+    {
+      id: 8,
+      name: 'Jubiläums-Ballon Gold & Lila',
+      desc: 'Eleganter Ballon in Lila-Gold für besondere Jubiläen, Abschlüsse oder Erfolge.',
+      price: 16.90,
+      category: 'sonstiges',
+      tag: 'Premium',
+      emoji: '✨',
+      img: '',
+    },
+  ];
+
+  let cartCount = 0;
+  let currentFilter = 'all';
+
+  function renderProducts(filter) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card" data-id="${p.id}">
+        <div class="product-img-wrap">
+          ${p.img
+            ? `<img src="${p.img}" alt="${p.name}">`
+            : `<span class="no-img">${p.emoji}</span>`
+          }
+          ${p.tag ? `<span class="badge-tag">${p.tag}</span>` : ''}
+          ${p.sale ? `<span class="badge-sale">SALE</span>` : ''}
+        </div>
+        <div class="product-body">
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div class="product-price">
+              ${p.price.toFixed(2).replace('.', ',')} €
+              ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toFixed(2).replace('.', ',')} €</span>` : ''}
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <a href="configurator.html" class="btn-configure" title="Personalisieren">
+                <i class="fas fa-magic"></i> Gestalten
+              </a>
+              <button class="btn-cart" onclick="addToCart(${p.id}, this)">
+                <i class="fas fa-cart-plus"></i> In den Korb
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterProducts(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+
+  function addToCart(id, btn) {
+    cartCount++;
+    const fab = document.getElementById('fabCount');
+    fab.textContent = cartCount;
+    fab.style.display = 'flex';
+    btn.classList.add('added');
+    btn.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      btn.innerHTML = '<i class="fas fa-cart-plus"></i> In den Korb';
+    }, 2000);
+    showToast();
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  renderProducts('all');
+</script>
+</body>
+</html>
