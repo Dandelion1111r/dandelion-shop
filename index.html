@@ -1583,7 +1583,7 @@
 
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="" alt="Vergrößerte Ansicht des Ballon-Designs">
   </div>
 </div>
 
@@ -1876,7 +1876,7 @@
             <path d="M170 365 Q155 390 165 410" stroke="#c080a0" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="4 3"/>
           </svg>
           <div class="balloon-overlay" id="balloonOverlay">
-            <img id="customImageDisplay" style="display:none;max-width:55%;max-height:55%;object-fit:contain;border-radius:8px;">
+            <img id="customImageDisplay" alt="Hochgeladenes Bild auf dem Ballon" style="display:none;max-width:55%;max-height:55%;object-fit:contain;border-radius:8px;">
             <span class="balloon-emoji-display" id="emojiDisplay" style="display:none;"></span>
             <div class="balloon-text-display" id="textDisplay" style="color:#8e44ad;"></div>
           </div>
@@ -1948,7 +1948,7 @@
       <label class="form-label"><span data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
       <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
       <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
-        <img id="customImageThumb" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
+        <img id="customImageThumb" alt="Vorschau des hochgeladenen Bildes" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
         <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;" data-i18n="shown_on_balloon_label">Wird auf dem Ballon angezeigt</span>
         <i class="fas fa-times" id="removeCustomImage" style="cursor:pointer;color:var(--text-light);"></i>
       </div>
