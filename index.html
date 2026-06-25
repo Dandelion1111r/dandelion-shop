@@ -2766,8 +2766,8 @@
     const imgs = p.imgs || (p.img ? [p.img] : []);
     if (imgs.length > 1) {
       imgDiv.innerHTML = `
-        <div style="position:relative;">
-          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;display:block;">
+        <div style="position:relative;min-height:260px;background:#f3e6f9;">
+          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;min-height:260px;max-height:70vh;object-fit:contain;display:block;">
           <button onclick="prodModalCarouselNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">‹</button>
           <button onclick="prodModalCarouselNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">›</button>
           <div style="position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
@@ -2778,7 +2778,7 @@
       window._prodModalIdx = 0;
     } else {
       imgDiv.innerHTML = imgs[0]
-        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;display:block;">`
+        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;min-height:260px;max-height:70vh;object-fit:contain;background:#f3e6f9;display:block;">`
         : `<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${p.emoji}</div>`;
     }
     document.getElementById('prodModalBadge').innerHTML = p.badge
