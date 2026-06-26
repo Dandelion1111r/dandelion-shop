@@ -44,8 +44,8 @@
   .posts { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,340px)); gap:30px; justify-content:start; }
   .post-card { display:block; background:#fff; border-radius:18px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 4px 18px rgba(142,68,173,.08); transition:transform .15s ease; }
   .post-card:hover { transform:translateY(-3px); }
-  .post-image { width:100%; aspect-ratio:4/3; background:linear-gradient(135deg,#8e44ad,#d63384); display:flex; align-items:center; justify-content:center; }
-  .post-image img { width:60px; height:60px; opacity:.9; filter:brightness(0) invert(1); }
+  .post-image { width:100%; aspect-ratio:4/3; background:linear-gradient(135deg,#8e44ad,#d63384); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .post-image img { width:100%; height:100%; object-fit:cover; }
   .post-body { padding:24px 26px 28px; }
   .post-tag { font-size:.72rem; text-transform:uppercase; letter-spacing:2px; color:#d63384; font-weight:600; }
   .post-title { font-size:1.3rem; color:#8e44ad; margin:8px 0 10px; font-weight:600; line-height:1.3; }
@@ -147,7 +147,7 @@
       </div>
       <div class="posts">
         <a class="post-card" href="journal-boxhandschuhe-blumenstrauss.html">
-          <div class="post-image"><img src="Dandelionlogo%20.svg" alt="Dandelion 11:11 Logo"></div>
+          <div class="post-image"><img width="1199" height="1487" src="boxhandschuh-blumenstrauss-frontal.webp" alt="Boxhandschuh-Blumenstrauß mit roten und schwarzen Pfingstrosen"></div>
           <div class="post-body">
             <div class="post-tag" data-i18n="ep1_tag">Ep. 1 · Boxen & Blumen</div>
             <div class="post-title" data-i18n="ep1_title">Zwischen Kraft und Blüten</div>
@@ -157,7 +157,7 @@
           </div>
         </a>
         <a class="post-card" href="journal-fussball-blumenstrauss.html">
-          <div class="post-image"><img src="Dandelionlogo%20.svg" alt="Dandelion 11:11 Logo"></div>
+          <div class="post-image"><img width="1333" height="2000" src="fussballschuh-blumenstrauss.webp" alt="Fußballschuh-Blumenstrauß für Fußballfans"></div>
           <div class="post-body">
             <div class="post-tag" data-i18n="ep2_tag">Ep. 2 · Fußball & Blumen</div>
             <div class="post-title" data-i18n="ep2_title">Für die Liebe zum Fußball</div>
