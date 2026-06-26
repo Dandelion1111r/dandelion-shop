@@ -2596,6 +2596,10 @@
         if (btn) filterKoll(kat, btn); else renderKoll(kat);
       }, 0);
     }
+    const page = params.get('page');
+    if (page) {
+      setTimeout(() => showPage(page), 0);
+    }
   })();
 
   addToCartBtn.addEventListener('click', () => {
