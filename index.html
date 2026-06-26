@@ -2294,12 +2294,11 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span data-i18n="footer_copyright">© 2025 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <span>© <span id="footerYear">2026</span> <span data-i18n="footer_copyright">Dandelion 11:11 · Alle Rechte vorbehalten</span></span>
     <div class="social-links">
       <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
       <a href="https://linktr.ee/Dandelion1111?subscribe" target="_blank" rel="noopener" style="font-size:var(--fs-xs);font-weight:700;letter-spacing:1px;opacity:0.8;">Linktree</a>
     </div>
   </div>
@@ -3128,7 +3127,7 @@
       ueber_g1: 'Erster Ballon geplatzt 😅', ueber_g2: 'Möbel montieren im Keller',
       ueber_g3: 'Kreatives Chaos in der Küche', ueber_g4: 'Erste Bestellungen verpacken',
       ueber_g5: 'Details mit Liebe gestaltet', ueber_g6: 'Fertige Kreationen',
-      hiw_rating: '⭐ 4.9/5 aus 100+ Bewertungen',
+      hiw_rating: '⭐ 4.9/5 von unseren Kunden',
       hiw_step1_title: '1. Wähle & personalisiere', hiw_step1_text: 'Wähle Farbe, Text & Füllung für deinen Ballon.',
       topbar_tagline: 'Personalisierte Ballons & Geschenke für jeden Anlass',
       topbar_info: '🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp',
@@ -3174,7 +3173,7 @@
       footer_shop_title: 'Shop', footer_link_all: 'Alle Ballons', footer_link_geburtstag: 'Geburtstag',
       footer_link_hochzeit: 'Hochzeit', footer_link_babyparty: 'Babyparty',
       footer_info_title: 'Info', footer_link_ueber: 'Über uns', footer_link_kontakt: 'Kontakt', footer_link_versand: 'Versand & Rückgabe',
-      footer_copyright: '© 2025 Dandelion 11:11 · Alle Rechte vorbehalten',
+      footer_copyright: 'Dandelion 11:11 · Alle Rechte vorbehalten',
       toast_default: '🛒 Ballon wurde in den Warenkorb gelegt!'
     },
     ro: {
@@ -3262,7 +3261,7 @@
       ueber_g1: 'Primul balon spart 😅', ueber_g2: 'Montat mobilă în subsol',
       ueber_g3: 'Haos creativ în bucătărie', ueber_g4: 'Împachetarea primelor comenzi',
       ueber_g5: 'Detalii create cu drag', ueber_g6: 'Creații finite',
-      hiw_rating: '⭐ 4.9/5 din peste 100 de recenzii',
+      hiw_rating: '⭐ 4.9/5 din recenziile clienților',
       hiw_step1_title: '1. Alege & personalizează', hiw_step1_text: 'Alege culoarea, textul și umplutura balonului tău.',
       topbar_tagline: 'Baloane și cadouri personalizate pentru orice ocazie',
       topbar_info: '🎈 Livrare gratuită de la 60 € &nbsp;|&nbsp; Lucrat manual cu drag în Germania &nbsp;|&nbsp; Consiliere personală prin WhatsApp',
@@ -3308,7 +3307,7 @@
       footer_shop_title: 'Magazin', footer_link_all: 'Toate baloanele', footer_link_geburtstag: 'Aniversare',
       footer_link_hochzeit: 'Nuntă', footer_link_babyparty: 'Baby Shower',
       footer_info_title: 'Info', footer_link_ueber: 'Despre noi', footer_link_kontakt: 'Contact', footer_link_versand: 'Livrare & retur',
-      footer_copyright: '© 2025 Dandelion 11:11 · Toate drepturile rezervate',
+      footer_copyright: 'Dandelion 11:11 · Toate drepturile rezervate',
       toast_default: '🛒 Balonul a fost adăugat în coș!'
     }
   };
@@ -3852,6 +3851,7 @@
       }
     }).render('#paypal-button-container');
   }
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
