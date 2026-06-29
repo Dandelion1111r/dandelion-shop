@@ -3427,6 +3427,13 @@
     return localStorage.getItem('lang')==='ro' ? (p[field+'_ro'] || p[field]) : p[field];
   }
   window.lp = lp;
+  function truncateWords(str, max) {
+    if (str.length <= max) return str;
+    const cut = str.slice(0, max);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + '…';
+  }
+  window.truncateWords = truncateWords;
   const kollProducts = [
     { id:1, name:'Ballon-Box Boho Luxe', desc:'Ein großer personalisierter Chromballon in Blau-Gold mit Schmetterlingsdekor, umhüllt von einem üppigen Arrangement aus Trockenblumen, Rosen, Pampasgras und goldenen Bändern. Handgemacht und einzigartig.', price:79.00, cat:'geburtstag', badge:'Bestseller', emoji:'🦋', img:'ballon-box-boho-blau-gold.webp', name_ro:'Cutie cu Baloane Boho Luxe', desc_ro:'Un balon mare personalizat din crom în albastru-auriu cu decor de fluturi, înconjurat de un aranjament generos din flori uscate, trandafiri, iarba pampas și panglici aurii. Realizat manual și unic.', badge_ro:'Cel mai vândut' },
     { id:2, name:'Ballon-Box Schwarz & Gold', desc:'Luxuriöse Ballon-Box im eleganten Schwarz-Gold-Look: großer schwarzer Ballon mit Goldfolie und Schriftzug, goldene Chromballons, dunkelrote Rosen und schwarzes Krepp-Papier in einer stilvollen Geschenkbox.', price:85.00, cat:'geburtstag', badge:'Premium', emoji:'🖤', img:'ballon-box-schwarz-gold.webp', name_ro:'Cutie cu Baloane Negru & Auriu', desc_ro:'Cutie cu baloane luxoasă în stilul elegant negru-auriu: balon mare negru cu folie aurie și mesaj personalizat, baloane cromate aurii, trandafiri roșu-închis și hârtie creponată neagră într-o cutie cadou stilată.', badge_ro:'Premium' },
@@ -3654,7 +3661,7 @@
         </div>
         <div class="koll-body">
           <div class="koll-name" onclick="openProdModal(${p.id})" style="cursor:pointer;">${lp(p,'name')}</div>
-          <div class="koll-desc">${lp(p,'desc').substring(0,90)}…</div>
+          <div class="koll-desc">${truncateWords(lp(p,'desc'), 90)}</div>
           <div class="koll-footer">
             <div class="koll-price">${p.price.toFixed(2).replace('.',',')} €${p.oldPrice ? `<span class="old">${p.oldPrice.toFixed(2).replace('.',',')} €</span>` : ''}</div>
             <button class="btn-koll-config" onclick="event.stopPropagation();addKollProduct(${p.id})">
