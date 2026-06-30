@@ -3640,9 +3640,17 @@
     if (!q) { renderKoll('all'); return; }
     currentKollFilter = 'search';
     const list = kollProducts.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.name_ro||'').toLowerCase().includes(q) || (p.desc_ro||'').toLowerCase().includes(q));
-    renderKollList(list);
+    renderKollList(sortKollList(list));
   };
   let currentKollFilter = 'all';
+  function sortKollList(list) {
+    return [...list].sort((a, b) => {
+      const aBest = a.badge === 'Bestseller' ? 0 : 1;
+      const bBest = b.badge === 'Bestseller' ? 0 : 1;
+      if (aBest !== bBest) return aBest - bBest;
+      return a.price - b.price;
+    });
+  }
   function renderKoll(filter) {
     currentKollFilter = filter;
     const favs = getFavorites();
@@ -3650,7 +3658,7 @@
     if (filter === 'all') list = kollProducts;
     else if (filter === 'favorites') list = kollProducts.filter(p => favs.includes(p.id));
     else list = kollProducts.filter(p => p.cat === filter);
-    renderKollList(list);
+    renderKollList(sortKollList(list));
   }
   function renderKollList(list) {
     const favs = getFavorites();
