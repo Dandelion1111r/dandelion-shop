@@ -108,16 +108,17 @@
   /* PRODUCT GRID */
   .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
   @media(min-width:600px){ .prod-grid { grid-template-columns:repeat(3,1fr); } }
-  @media(min-width:900px){ .prod-grid { grid-template-columns:repeat(4,1fr); } }
+  @media(min-width:900px){ .prod-grid { grid-template-columns:repeat(3,1fr); } }
   .prod-card { text-decoration:none; color:inherit; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(142,68,173,.08); transition:transform .18s,box-shadow .18s; display:flex; flex-direction:column; }
   .prod-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(142,68,173,.16); }
-  .prod-card img { width:100%; aspect-ratio:1/1; object-fit:contain; display:block; background:#f3e6f9; }
+  .prod-card img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
   .prod-card-body { padding:10px 12px 14px; flex:1; display:flex; flex-direction:column; gap:4px; }
   .prod-card-name { font-size:.88rem; font-weight:600; line-height:1.4; }
   .prod-card-price { font-size:.85rem; color:var(--pink); font-weight:700; margin-top:auto; padding-top:4px; }
 
   /* SEO TEXT */
-  .seo-text { max-width:760px; }
+  .seo-text { max-width:760px; margin:0 auto; }
+  .seo-text h1, .seo-text h2 { text-align:center; }
   .seo-text ul { line-height:1.9; padding-left:20px; }
   .more-links { font-size:.95rem; margin-top:30px; }
   .more-links a { color:var(--purple); }
@@ -184,7 +185,6 @@
     <div class="intro-block">
       <h1>Hochzeitsballons & Brautgeschenke</h1>
       <p class="intro">Handgemacht in Bad Wörishofen, Bayern — personalisiert mit Namen des Brautpaars, Hochzeitsdatum oder Wunschtext. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
-      <div class="cta-wrap"><a class="cta" href="index.html?kat=hochzeit">Alle Hochzeits-Produkte ansehen →</a></div>
     </div>
 
     <div class="prod-grid">
@@ -209,21 +209,9 @@
           <div class="prod-card-price">65,00 €</div>
         </div>
       </a>
-      <a class="prod-card" href="index.html?kat=hochzeit">
-        <img src="brauthaarschmuck-perlen-orchideen.webp" alt="Brauthaarschmuck Perlen &amp; Orchideen" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Brauthaarschmuck Perlen &amp; Orchideen</div>
-          <div class="prod-card-price">45,00 €</div>
-        </div>
-      </a>
-      <a class="prod-card" href="index.html?kat=hochzeit">
-        <img src="ringkissen-tablett-rote-rosen.webp" alt="Personalisiertes Ringkissen-Tablett" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Ringkissen-Tablett mit Namen &amp; Datum</div>
-          <div class="prod-card-price">35,00 €</div>
-        </div>
-      </a>
     </div>
+
+    <div class="cta-wrap"><a class="cta" href="index.html?kat=hochzeit">Alle Hochzeits-Produkte ansehen →</a></div>
 
     <div class="seo-text">
       <h1 style="font-size:1.4rem;margin-top:0;">Personalisierter Hochzeitsballon aus Bayern</h1>
