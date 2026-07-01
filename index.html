@@ -335,6 +335,50 @@
 
     .nav-links a:hover { color: var(--pink); }
 
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      min-width: 180px;
+      z-index: 999;
+      list-style: none;
+      margin: 0;
+    }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu a:hover { background: #f3e6f9; color: var(--purple); }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    @media (max-width: 768px) {
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0 0 0 16px;
+        background: transparent;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: 7px 0; font-size: 0.85rem; color: var(--text-light); }
+      .nav-dropdown-menu a:hover { background: transparent; color: var(--pink); }
+    }
+
     .nav-icons {
       display: flex;
       gap: 18px;
@@ -1395,7 +1439,16 @@
         <span onclick="setLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
       </li>
       <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav" data-i18n="nav_shop">Shop</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a></li>
+      <li style="list-style:none;" class="nav-dropdown">
+        <a href="#" onclick="showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="#" onclick="showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
+        </ul>
+      </li>
       <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
       <li style="list-style:none;"><a href="journal.html" id="nav-journal" class="nav-page-link">Dandelion Journal</a></li>
       <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
@@ -3007,7 +3060,7 @@
 
   const i18n = {
     de: {
-      nav_shop: 'Shop', nav_koll: 'Kollektionen', nav_ueber: 'Über uns', nav_kontakt: 'Kontakt',
+      nav_shop: 'Shop', nav_koll: 'Kollektionen', nav_ueber: 'Über uns', nav_kontakt: 'Kontakt', nav_all_koll: 'Alle ansehen →',
       hero_title: 'Personalisierter Ballon nach deinem Wunsch ✨',
       hero_sub: 'Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung, handgemacht in Bad Wörishofen, Bayern',
       hero_specs_title: 'PRODUKTDETAILS',
@@ -3141,7 +3194,7 @@
       toast_default: '🛒 Ballon wurde in den Warenkorb gelegt!'
     },
     ro: {
-      nav_shop: 'Magazin', nav_koll: 'Colecții', nav_ueber: 'Despre noi', nav_kontakt: 'Contact',
+      nav_shop: 'Magazin', nav_koll: 'Colecții', nav_ueber: 'Despre noi', nav_kontakt: 'Contact', nav_all_koll: 'Vezi toate →',
       hero_title: 'Balon personalizat după dorința ta ✨',
       hero_sub: 'Balonul tău unic, personalizat cu text, simboluri și umplutură colorată, realizat manual în Bad Wörishofen, Bayern',
       hero_specs_title: 'DETALII PRODUS',
