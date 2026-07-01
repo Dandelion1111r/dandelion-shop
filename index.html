@@ -870,7 +870,7 @@
       box-shadow: 0 8px 28px rgba(37,211,102,0.4);
     }
 
-    .btn-whatsapp:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn-whatsapp:disabled { background: #b2dfca; color: #fff; opacity: 1; cursor: not-allowed; transform: none; box-shadow: none; }
 
     .secure-row {
       display: flex;
@@ -1596,7 +1596,7 @@
 <div id="prodModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;overflow-y:auto;padding:20px;" onclick="closeProdModal(event)">
   <div id="prodModalInner" style="background:#fff;border-radius:20px;max-width:680px;margin:0 auto;overflow:hidden;position:relative;" onclick="event.stopPropagation()">
     <button onclick="closeProdModal()" style="position:absolute;top:14px;right:16px;background:rgba(0,0,0,0.15);border:none;border-radius:50%;width:36px;height:36px;font-size:1.3rem;cursor:pointer;z-index:10;color:#333;display:flex;align-items:center;justify-content:center;">×</button>
-    <div id="prodModalImg" style="width:100%;background:#f3e6f9;"></div>
+    <div id="prodModalImg" style="width:100%;background:#f3e6f9;min-height:260px;"></div>
     <div style="padding:24px 28px 28px;">
       <div id="prodModalBadge"></div>
       <h2 id="prodModalName" style="font-size:1.4rem;font-weight:700;color:#6b2f8c;margin:10px 0 12px;"></h2>
@@ -2779,8 +2779,8 @@
     const imgs = p.imgs || (p.img ? [p.img] : []);
     if (imgs.length > 1) {
       imgDiv.innerHTML = `
-        <div style="position:relative;min-height:260px;background:#f3e6f9;">
-          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;min-height:260px;max-height:70vh;object-fit:contain;display:block;">
+        <div style="position:relative;background:#f3e6f9;">
+          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;display:block;">
           <button onclick="prodModalCarouselNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">‹</button>
           <button onclick="prodModalCarouselNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">›</button>
           <div style="position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
@@ -2791,7 +2791,7 @@
       window._prodModalIdx = 0;
     } else {
       imgDiv.innerHTML = imgs[0]
-        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;min-height:260px;max-height:70vh;object-fit:contain;background:#f3e6f9;display:block;">`
+        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;background:#f3e6f9;display:block;">`
         : `<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${p.emoji}</div>`;
     }
     document.getElementById('prodModalBadge').innerHTML = p.badge
