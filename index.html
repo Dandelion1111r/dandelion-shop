@@ -154,7 +154,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Kollektionen",
-        "item": "https://dandelion1111r.github.io/dandelion-shop/index.html"
+        "item": "https://dandelion1111r.github.io/dandelion-shop/kollektionen.html"
       }
     ]
   }
@@ -1401,20 +1401,20 @@
       <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:24px;">
-      <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;"></i>
-      <span onclick="showFavorites()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;">
-        <i class="fas fa-heart"></i>
+      <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;" role="button" aria-label="Suche öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()"></i>
+      <span onclick="showFavorites()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Favoriten anzeigen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')showFavorites()">
+        <i class="fas fa-heart" aria-hidden="true"></i>
         <span id="navFavBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
-      <span onclick="showPage('shop');setTimeout(()=>document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}),80);return false;" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;">
-        <i class="fas fa-shopping-bag"></i>
+      <span onclick="showPage('shop');setTimeout(()=>document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}),80);return false;" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Warenkorb anzeigen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){showPage('shop');setTimeout(()=>document.getElementById('cartCard')?.scrollIntoView({behavior:'smooth'}),80);}">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
         <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;align-items:center;justify-content:center;"></span>
       </span>
-      <span onclick="onAccountIconClick()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" title="Konto">
-        <i class="fas fa-user"></i>
+      <span onclick="onAccountIconClick()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" id="navAccountIcon" role="button" aria-label="Konto" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')onAccountIconClick()">
+        <i class="fas fa-user" aria-hidden="true"></i>
         <span id="navGreeting" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:#fff;color:var(--pink);font-size:0.85rem;font-weight:600;white-space:nowrap;padding:8px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.15);"></span>
       </span>
-      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();"></i>
+      <i class="fas fa-bars hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();" role="button" aria-label="Menü öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){document.querySelector('.nav-links').classList.toggle('open');event.stopPropagation();}"></i>
     </div>
   </div>
   <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
@@ -1466,19 +1466,19 @@
       <h3 data-i18n="kontakt_nachricht_senden" style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:var(--fs-md);">Nachricht senden</h3>
       <p data-i18n="kontakt_antwortzeit" style="color:var(--text-light);font-size:var(--fs-sm);margin-bottom:22px;">Wir melden uns innerhalb von 24 Stunden.</p>
       <div style="margin-bottom:14px;">
-        <label data-i18n="kontakt_label_name" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
+        <label for="k-name" data-i18n="kontakt_label_name" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
         <input id="k-name" type="text" placeholder="Dein Name" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:14px;">
-        <label data-i18n="kontakt_label_email" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
+        <label for="k-email" data-i18n="kontakt_label_email" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
         <input id="k-email" type="email" placeholder="deine@email.de" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:14px;">
-        <label data-i18n="kontakt_label_betreff" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
+        <label for="k-subject" data-i18n="kontakt_label_betreff" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
         <input id="k-subject" type="text" placeholder="Worum geht es?" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <div style="margin-bottom:20px;">
-        <label data-i18n="kontakt_label_nachricht" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
+        <label for="k-msg" data-i18n="kontakt_label_nachricht" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
         <textarea id="k-msg" placeholder="Schreib uns deine Frage oder Wünsche..." rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'"></textarea>
       </div>
       <!-- Honeypot: hidden field, real users never fill this in -->
@@ -1486,7 +1486,7 @@
         <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
       </div>
       <div style="margin-bottom:20px;">
-        <label style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;"><span data-i18n="kontakt_sicherheitsfrage">Sicherheitsfrage:</span> <span id="k-captcha-q"></span></label>
+        <label for="k-captcha" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;"><span data-i18n="kontakt_sicherheitsfrage">Sicherheitsfrage:</span> <span id="k-captcha-q"></span></label>
         <input id="k-captcha" type="text" inputmode="numeric" placeholder="Antwort eingeben" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
       </div>
       <button onclick="sendKontaktWA()" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
@@ -1622,9 +1622,9 @@
     <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
     <h2 id="authModalTitle" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:18px;">Anmelden</h2>
     <div id="authError" style="display:none;background:#fde8e8;color:#c0392b;padding:8px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:12px;"></div>
-    <input id="authName" type="text" placeholder="Dein Name" class="form-input" style="width:100%;margin-bottom:10px;display:none;">
-    <input id="authEmail" type="email" placeholder="E-Mail" class="form-input" style="width:100%;margin-bottom:10px;">
-    <input id="authPassword" type="password" placeholder="Passwort" class="form-input" style="width:100%;margin-bottom:16px;">
+    <input id="authName" type="text" placeholder="Dein Name" aria-label="Dein Name" class="form-input" style="width:100%;margin-bottom:10px;display:none;">
+    <input id="authEmail" type="email" placeholder="E-Mail" aria-label="E-Mail-Adresse" class="form-input" style="width:100%;margin-bottom:10px;">
+    <input id="authPassword" type="password" placeholder="Passwort" aria-label="Passwort" class="form-input" style="width:100%;margin-bottom:16px;">
     <button id="authSubmitBtn" onclick="submitAuthForm()" style="width:100%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:12px;border-radius:50px;font-weight:600;cursor:pointer;margin-bottom:12px;">Anmelden</button>
     <p style="text-align:center;font-size:0.85rem;color:#666;">
       <span id="authToggleText">Noch kein Konto?</span> <a href="#" onclick="toggleAuthMode();return false;" id="authToggleLink" style="color:#d63384;font-weight:600;">Registrieren</a>
