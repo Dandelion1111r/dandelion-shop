@@ -100,8 +100,10 @@
   h1 { color:var(--purple); font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:8px; }
   h2 { color:var(--purple); font-size:1.2rem; margin-top:50px; }
   p { line-height:1.8; font-size:1rem; }
-  .intro { max-width:680px; margin-bottom:24px; }
-  .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; margin-bottom:36px; font-size:.95rem; }
+  .intro-block { text-align:center; padding:20px 0 10px; }
+  .intro { max-width:680px; margin:0 auto 24px; }
+  .cta-wrap { text-align:center; margin-bottom:36px; }
+  .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; font-size:.95rem; }
 
   /* PRODUCT GRID */
   .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
@@ -179,9 +181,11 @@
 </header>
 
   <div class="wrap">
-    <h1>Fußball-Geschenke & Fan-Artikel</h1>
-    <p class="intro">Handgemacht in Bad Wörishofen, Bayern — für Fußballfans, CR7-Fans und Sportsbegeisterte. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
-    <a class="cta" href="index.html?kat=fussball">Alle Fußball-Produkte ansehen →</a>
+    <div class="intro-block">
+      <h1>Fußball-Geschenke & Fan-Artikel</h1>
+      <p class="intro">Handgemacht in Bad Wörishofen, Bayern — für Fußballfans, CR7-Fans und Sportsbegeisterte. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
+      <div class="cta-wrap"><a class="cta" href="index.html?kat=fussball">Alle Fußball-Produkte ansehen →</a></div>
+    </div>
 
     <div class="prod-grid">
       <a class="prod-card" href="index.html?kat=fussball">
@@ -246,12 +250,7 @@
       <h1 style="font-size:1.4rem;margin-top:0;">Personalisierter Fußball- & Auto-Motiv-Ballon aus Bayern</h1>
       <p>Für kleine und große Fans von Fußball und Autos: Bei <strong>Dandelion 11:11</strong> fertigen wir <strong>personalisierte Ballons im Fußball- und Auto-Motiv</strong> von Hand in Bad Wörishofen, Bayern, mit Namen, Wunschtext und Lieblingsfarben ganz nach deinen Vorstellungen.</p>
       <p>Ob als Geschenk zum Kindergeburtstag, für den kleinen Rennfahrer oder den größten Fußballfan: Wir gestalten dein Ballongeschenk individuell und liefern es persönlich in der Region rund um Bad Wörishofen. Deutschlandweit ist der Versand ab 60 € kostenlos.</p>
-      <ul>
-        <li>Fußball- und Auto-Motive, individuell mit Namen oder Wunschtext</li>
-        <li>Handgemacht in Bad Wörishofen, Bayern</li>
-        <li>Persönliche Lieferung in der Region oder Versand deutschlandweit</li>
-        <li>Als Kleinunternehmer (§ 19 UStG) ohne ausgewiesene MwSt.</li>
-      </ul>
+      <p>Jedes Geschenk ist ein Unikat — mit Fußball- oder Auto-Motiv, individuellem Namen oder Wunschtext. Als Kleinunternehmer (§ 19 UStG) weisen wir keine Mehrwertsteuer aus.</p>
 
       <h2>Materialien & Verarbeitung</h2>
       <p>Für unsere Fußball- und Auto-Motiv-Ballons verwenden wir robuste Folien- und Latexballons in den Vereinsfarben des Lieblingsclubs oder im klassischen Schwarz-Weiß-Muster eines Fußballs. Auf Wunsch beschriften wir den Ballon mit dem Namen des Fans, der Trikotnummer oder einem Fanspruch und ergänzen ihn mit kleinen Konfetti-Ballons in den passenden Farben.</p>
