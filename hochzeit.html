@@ -100,8 +100,10 @@
   h1 { color:var(--purple); font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:8px; }
   h2 { color:var(--purple); font-size:1.2rem; margin-top:50px; }
   p { line-height:1.8; font-size:1rem; }
-  .intro { max-width:680px; margin-bottom:24px; }
-  .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; margin-bottom:36px; font-size:.95rem; }
+  .intro-block { text-align:center; padding:20px 0 10px; }
+  .intro { max-width:680px; margin:0 auto 24px; }
+  .cta-wrap { text-align:center; margin-bottom:36px; }
+  .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; font-size:.95rem; }
 
   /* PRODUCT GRID */
   .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
@@ -179,9 +181,11 @@
 </header>
 
   <div class="wrap">
-    <h1>Hochzeitsballons & Brautgeschenke</h1>
-    <p class="intro">Handgemacht in Bad Wörishofen, Bayern — personalisiert mit Namen des Brautpaars, Hochzeitsdatum oder Wunschtext. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
-    <a class="cta" href="index.html?kat=hochzeit">Alle Hochzeits-Produkte ansehen →</a>
+    <div class="intro-block">
+      <h1>Hochzeitsballons & Brautgeschenke</h1>
+      <p class="intro">Handgemacht in Bad Wörishofen, Bayern — personalisiert mit Namen des Brautpaars, Hochzeitsdatum oder Wunschtext. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
+      <div class="cta-wrap"><a class="cta" href="index.html?kat=hochzeit">Alle Hochzeits-Produkte ansehen →</a></div>
+    </div>
 
     <div class="prod-grid">
       <a class="prod-card" href="index.html?kat=hochzeit">
@@ -225,12 +229,7 @@
       <h1 style="font-size:1.4rem;margin-top:0;">Personalisierter Hochzeitsballon aus Bayern</h1>
       <p>Für den schönsten Tag im Leben: Bei <strong>Dandelion 11:11</strong> fertigen wir <strong>personalisierte Hochzeitsballons</strong> von Hand in Bad Wörishofen, Bayern, mit den Namen des Brautpaars, dem Hochzeitsdatum oder einem persönlichen Wunschtext.</p>
       <p>Ob als Deko für die Hochzeitsfeier, als Geschenk für das Brautpaar oder als Überraschung für den Junggesellinnenabschied: Wir gestalten dein Ballongeschenk individuell und liefern es persönlich in der Region rund um Bad Wörishofen. Deutschlandweit ist der Versand ab 60 € kostenlos.</p>
-      <ul>
-        <li>Namen des Brautpaars, Hochzeitsdatum oder Wunschtext</li>
-        <li>Handgemacht in Bad Wörishofen, Bayern</li>
-        <li>Persönliche Lieferung in der Region oder Versand deutschlandweit</li>
-        <li>Als Kleinunternehmer (§ 19 UStG) ohne ausgewiesene MwSt.</li>
-      </ul>
+      <p>Jeder Hochzeitsballon ist ein Unikat — mit den Namen des Brautpaars, dem Datum oder einem persönlichen Wunschtext. Als Kleinunternehmer (§ 19 UStG) weisen wir keine Mehrwertsteuer aus.</p>
 
       <h2>Materialien & Verarbeitung</h2>
       <p>Unsere Hochzeitsballons fertigen wir aus hochwertigen Latex- und Folienballons in Weiß, Gold, Roségold oder den Wunschfarben des Brautpaars. Auf Wunsch beschriften wir den Ballon mit den Initialen, dem Hochzeitsdatum oder einem kurzen Liebesspruch und kombinieren ihn mit Satinbändern und kleinen Deko-Elementen für ein elegantes Gesamtbild.</p>
