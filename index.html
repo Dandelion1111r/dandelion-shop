@@ -1419,8 +1419,8 @@
   </div>
   <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
     <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;">
-      <input id="navSearchInput" type="text" placeholder="Produkte durchsuchen…" data-i18n-placeholder="search_placeholder" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
-      <i class="fas fa-times" onclick="toggleSearchBar()" style="cursor:pointer;align-self:center;font-size:1.1rem;color:var(--text-light);"></i>
+      <input id="navSearchInput" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" data-i18n-placeholder="search_placeholder" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
+      <i class="fas fa-times" onclick="toggleSearchBar()" role="button" aria-label="Suche schließen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()" style="cursor:pointer;align-self:center;font-size:1.1rem;color:var(--text-light);"></i>
     </div>
   </div>
 </header>
