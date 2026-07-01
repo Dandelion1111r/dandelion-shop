@@ -2074,9 +2074,6 @@
       <button class="btn-main" id="addToCartBtn">
         <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
       </button>
-      <button class="btn-whatsapp" id="whatsappBtn">
-        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span data-i18n="order_whatsapp_now">Jetzt über WhatsApp bestellen</span>
-      </button>
       <div class="secure-row">
         <div class="secure-item"><i class="fas fa-lock"></i> <span data-i18n="secure_encrypted">Sicher & verschlüsselt</span></div>
         <div class="secure-item"><i class="fas fa-undo"></i> <span data-i18n="satisfaction_guarantee">Zufriedenheitsgarantie</span></div>
@@ -2085,7 +2082,7 @@
       <div class="secure-row" style="margin-top:8px;">
         <div class="secure-item"><i class="fab fa-paypal"></i> <span>PayPal</span></div>
         <div class="secure-item"><i class="fas fa-university"></i> <span data-i18n="bank_transfer">Banküberweisung</span></div>
-        <div class="secure-item"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp_order_label">WhatsApp-Bestellung</span></div>
+        <div class="secure-item"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp_support_label">WhatsApp-Support</span></div>
       </div>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-top:14px;display:flex;flex-direction:column;gap:10px;">
         <p style="font-size:var(--fs-sm);color:var(--text);margin:0;" data-i18n="local_delivery_note">📍 Wohnst du in der Nähe von Bad Wörishofen? Dann liefere ich deinen Ballon gerne persönlich, auf Wunsch sogar mit einer handgeschriebenen Grußkarte vom Schenkenden.</p>
@@ -2372,7 +2369,6 @@
   const qtyPlus        = document.getElementById('qtyPlus');
   const qtyVal         = document.getElementById('qtyVal');
   const addToCartBtn   = document.getElementById('addToCartBtn');
-  const whatsappBtn    = document.getElementById('whatsappBtn');
   const cartCard       = document.getElementById('cartCard');
   const cartItemsList  = document.getElementById('cartItemsList');
   const cartTotalPrice = document.getElementById('cartTotalPrice');
@@ -2639,43 +2635,11 @@
     updateCartUI();
   });
 
-  document.getElementById('cartWhatsappBtn')?.addEventListener('click', () => whatsappBtn.click());
-
-  whatsappBtn.addEventListener('click', () => {
-    if (!cart.length) {
-      const persona = state.persona?.trim();
-      let msg = '🎈 *DANDELION 11:11 – ANFRAGE* 🎈\n\nHallo! Ich interessiere mich für eure Ballons und würde gerne mehr erfahren. 😊';
-      if (persona) msg += `\n\n💡 *Über die Person:*\n"${persona}"`;
-      msg += '\n\nKönnt ihr mir helfen?';
-      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-      return;
-    }
-    let msg = '🎈 *DANDELION 11:11 – BESTELLUNG* 🎈\n\n';
-    msg += `*Anzahl:* ${cart.length} Ballon(s)\n\n`;
-    cart.forEach((item, i) => {
-      msg += `*Ballon #${i+1}*\n`;
-      if (item.message) msg += `📝 Text: ${item.message}\n`;
-      if (item.symbol) msg += `✨ Symbol: ${item.symbol}\n`;
-      if (item.balloonType && item.balloonType !== 'latex') msg += `🎈 Ballontyp: ${item.balloonType}\n`;
-      if (item.textEffect && item.textEffect !== 'normal') msg += `🔠 Text-Effekt: ${item.textEffect}\n`;
-      msg += `🎨 Farbe: ${item.balloonColor}\n`;
-      if (item.filling !== 'none') msg += `🎈 Füllung: ${item.filling}\n`;
-      if (item.card) msg += `💌 Karte: ${item.card}\n`;
-      if (item.customImage) msg += `🖼️ Eigenes Bild hochgeladen (wird separat hier im Chat gesendet)\n`;
-      msg += `💰 Preis: ${item.price.toFixed(2)} €\n`;
-      msg += `📅 ${item.date.toLocaleDateString('de-DE')}\n\n`;
-    });
-    const subtotal = cart.reduce((s, i) => s + i.price, 0);
-    const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
-    msg += `🚚 Versand (DHL): ${shipping === 0 ? 'kostenlos' : shipping.toFixed(2) + ' €'}\n`;
-    msg += `*Gesamtbetrag: ${(subtotal + shipping).toFixed(2)} €*\n\n`;
-    msg += '📍 Lieferadresse bitte bei Bestätigung angeben.\n';
-    const persona = cart[cart.length - 1]?.persona || state.persona;
-    if (persona && persona.trim()) {
-      msg += `\n💡 *Individuelle Empfehlung gewünscht:*\n"${persona.trim()}"\n`;
-      msg += '_(Bitte helft uns mit kreativen Ideen für Farbe & Füllung!)_\n';
-    }
-    msg += '\n💖 Vielen Dank, wir melden uns bald!';
+  document.getElementById('cartWhatsappBtn')?.addEventListener('click', () => {
+    const persona = state.persona?.trim();
+    let msg = '🎈 *DANDELION 11:11 – ANFRAGE* 🎈\n\nHallo! Ich interessiere mich für eure Ballons und würde gerne mehr erfahren. 😊';
+    if (persona) msg += `\n\n💡 *Über die Person:*\n"${persona}"`;
+    msg += '\n\nKönnt ihr mir helfen?';
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
   });
 
@@ -3138,7 +3102,7 @@
       hiw_discover: 'Nicht sicher, was du möchtest? Entdecke unsere Kollektionen →',
       badge_sustainable: 'Nachhaltig', badge_handmade: 'Handgemacht', badge_secure: 'Sicher bestellen', badge_fastship: 'Schnelle Lieferung',
       order_whatsapp_now: 'Jetzt über WhatsApp bestellen', secure_encrypted: 'Sicher & verschlüsselt',
-      bank_transfer: 'Banküberweisung', whatsapp_order_label: 'WhatsApp-Bestellung',
+      bank_transfer: 'Banküberweisung', whatsapp_order_label: 'WhatsApp-Bestellung', whatsapp_support_label: 'WhatsApp-Support',
       satisfaction_guarantee: 'Zufriedenheitsgarantie', cart_total: 'Gesamtbetrag',
       feat_handmade_title: 'Handgemacht', feat_handmade_text: 'Jeder Ballon wird mit Liebe individuell gefertigt',
       feat_ship_title: 'Schnelle Lieferung', feat_sustainable_title: 'Nachhaltig',
@@ -3272,7 +3236,7 @@
       hiw_discover: 'Nu ești sigur ce vrei? Descoperă colecțiile noastre →',
       badge_sustainable: 'Sustenabil', badge_handmade: 'Lucrat manual', badge_secure: 'Comandă sigură', badge_fastship: 'Livrare rapidă',
       order_whatsapp_now: 'Comandă acum pe WhatsApp', secure_encrypted: 'Sigur & criptat',
-      bank_transfer: 'Transfer bancar', whatsapp_order_label: 'Comandă prin WhatsApp',
+      bank_transfer: 'Transfer bancar', whatsapp_order_label: 'Comandă prin WhatsApp', whatsapp_support_label: 'Suport WhatsApp',
       satisfaction_guarantee: 'Garanția satisfacției', cart_total: 'Total',
       feat_handmade_title: 'Lucrat manual', feat_handmade_text: 'Fiecare balon este creat individual cu drag',
       feat_ship_title: 'Livrare rapidă', feat_sustainable_title: 'Sustenabil',
