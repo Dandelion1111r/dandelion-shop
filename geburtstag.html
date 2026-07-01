@@ -42,39 +42,143 @@
   ]
 }
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:'Poppins',sans-serif; color:#3a2e3f; background:#fdf6fb; }
-  .wrap { max-width:1100px; margin:0 auto; padding:32px 20px 70px; }
-  h1 { color:#8e44ad; font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:8px; }
-  h2 { color:#8e44ad; font-size:1.2rem; margin-top:50px; }
-  p { line-height:1.8; font-size:1rem; }
-  .back { display:inline-block; margin-bottom:20px; color:#d63384; text-decoration:none; font-weight:600; }
-  .intro { max-width:680px; margin-bottom:24px; }
-  .cta { display:inline-flex; align-items:center; gap:8px; background:#8e44ad; color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; margin-bottom:36px; font-size:.95rem; }
+  :root {
+    --pink: #d63384; --purple: #8e44ad; --bg: #fdf0f6;
+    --white: #ffffff; --text: #2d2d2d; --text-light: #777;
+    --border: #e8d5e8; --fs-xs:0.75rem; --fs-sm:0.85rem;
+    --fs-base:0.95rem; --fs-md:1.1rem; --fs-lg:1.4rem;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
 
-  /* Product grid */
+  /* TOPBAR */
+  .topbar { background:linear-gradient(90deg,var(--purple),var(--pink)); color:#fff; text-align:center; padding:10px 20px 12px; }
+  .topbar-brand { font-size:var(--fs-lg); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
+  .topbar-divider { width:120px; height:1px; background:rgba(255,255,255,0.35); margin:0 auto 8px; }
+  .topbar-info { font-size:var(--fs-sm); opacity:0.82; }
+  @media(max-width:600px){ .topbar-info{font-size:var(--fs-xs);} .topbar-brand{letter-spacing:1.5px;} }
+
+  /* HEADER */
+  header { background:linear-gradient(135deg,#fdeef7,#f9e4f1); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width:1300px; margin:0 auto; padding:0 30px; display:flex; flex-direction:row; align-items:center; justify-content:flex-start; gap:20px; height:175px; overflow:visible; }
+  .logo-wrap { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+  .logo-wrap img { height:155px; width:auto; display:block; object-fit:contain; }
+  .nav-links { display:flex!important; flex-direction:row!important; gap:16px; list-style:none!important; padding:0; margin:0 0 0 auto; }
+  .nav-links li { list-style:none!important; display:block; }
+  .nav-links a { text-decoration:none; color:var(--text); font-size:0.88rem; font-weight:500; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover, .nav-links a.active-nav { color:var(--pink); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.12); padding:10px 0 8px; min-width:180px; z-index:999; list-style:none; margin:0; }
+  .nav-dropdown-menu li { list-style:none; }
+  .nav-dropdown-menu a { display:block; padding:9px 18px; font-size:0.85rem; color:var(--text); text-decoration:none; white-space:nowrap; transition:background 0.15s,color 0.15s; }
+  .nav-dropdown-menu a:hover { background:#f3e6f9; color:var(--purple); }
+  .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { display:block; }
+  .nav-icons { display:flex; gap:18px; font-size:var(--fs-md); color:var(--text); margin-left:auto; }
+  .nav-icons i { cursor:pointer; transition:color 0.2s; }
+  .nav-icons i:hover { color:var(--pink); }
+  .hamburger { display:none; background:none; border:none; padding:0; color:inherit; cursor:pointer; line-height:1; }
+  @media(max-width:768px){
+    .nav-inner { height:auto; min-height:0; padding:10px 16px; position:relative; }
+    .logo-wrap { width:56px; overflow:hidden; }
+    .logo-wrap img { height:56px; object-fit:cover; object-position:left center; margin-left:-2px; }
+    .nav-links { display:none!important; flex-direction:column!important; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:200; }
+    .nav-links.open { display:flex!important; }
+    .nav-links li { width:100%; }
+    .nav-links a { display:block; padding:14px 16px; border-top:1px solid var(--border); }
+    .nav-dropdown-menu { position:static; transform:none; box-shadow:none; border-radius:0; padding:0 0 0 16px; background:transparent; }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu, .nav-dropdown.open .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu a { padding:7px 0; font-size:0.85rem; color:var(--text-light); }
+    .nav-icons { gap:16px; }
+    .hamburger { display:block; font-size:1.4rem; }
+  }
+
+  /* CONTENT */
+  .wrap { max-width:1100px; margin:0 auto; padding:32px 20px 70px; }
+  h1 { color:var(--purple); font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:8px; }
+  h2 { color:var(--purple); font-size:1.2rem; margin-top:50px; }
+  p { line-height:1.8; font-size:1rem; }
+  .intro { max-width:680px; margin-bottom:24px; }
+  .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; margin-bottom:36px; font-size:.95rem; }
+
+  /* PRODUCT GRID */
   .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
   @media(min-width:600px){ .prod-grid { grid-template-columns:repeat(3,1fr); } }
   @media(min-width:900px){ .prod-grid { grid-template-columns:repeat(4,1fr); } }
-
   .prod-card { text-decoration:none; color:inherit; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(142,68,173,.08); transition:transform .18s,box-shadow .18s; display:flex; flex-direction:column; }
   .prod-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(142,68,173,.16); }
-  .prod-card img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; background:#f3e6f9; }
+  .prod-card img { width:100%; aspect-ratio:3/4; object-fit:contain; display:block; background:#f3e6f9; }
   .prod-card-body { padding:10px 12px 14px; flex:1; display:flex; flex-direction:column; gap:4px; }
   .prod-card-name { font-size:.88rem; font-weight:600; line-height:1.4; }
-  .prod-card-price { font-size:.85rem; color:#d63384; font-weight:700; margin-top:auto; padding-top:4px; }
+  .prod-card-price { font-size:.85rem; color:var(--pink); font-weight:700; margin-top:auto; padding-top:4px; }
 
-  /* SEO text */
+  /* SEO TEXT */
   .seo-text { max-width:760px; }
-  .seo-text ul { line-height:1.9; }
+  .seo-text ul { line-height:1.9; padding-left:20px; }
   .more-links { font-size:.95rem; margin-top:30px; }
-  .more-links a { color:#8e44ad; }
+  .more-links a { color:var(--purple); }
+
+  /* FOOTER */
+  footer { background:linear-gradient(135deg,#2d1b3d,#1a0f24); color:rgba(255,255,255,0.85); padding:50px 30px 0; }
+  .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; padding-bottom:40px; }
+  @media(max-width:768px){ .footer-inner { grid-template-columns:1fr; gap:24px; } }
+  .footer-brand p { font-size:var(--fs-sm); line-height:1.8; opacity:0.75; margin-top:8px; }
+  .footer-col h4 { color:#fff; font-size:var(--fs-sm); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px; }
+  .footer-col a { display:block; color:rgba(255,255,255,0.7); text-decoration:none; font-size:var(--fs-sm); margin-bottom:8px; transition:color 0.2s; }
+  .footer-col a:hover { color:#fff; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; max-width:1100px; margin:0 auto; font-size:var(--fs-xs); color:rgba(255,255,255,0.5); }
+  .social-links { display:flex; gap:16px; }
+  .social-links a { color:rgba(255,255,255,0.6); font-size:var(--fs-md); text-decoration:none; transition:color 0.2s; }
+  .social-links a:hover { color:#fff; }
+
+  /* WhatsApp FAB */
+  .wa-fab { position:fixed; bottom:20px; right:20px; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,0.45); z-index:500; color:#fff; font-size:1.6rem; text-decoration:none; }
 </style>
 </head>
 <body>
+
+<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe · Versand ab 60 € kostenlos · Persönliche Lieferung in der Region</div>
+
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons & Geschenke für jeden Anlass</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
+</div>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <a href="index.html"><img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11"></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="index.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#ueberuns">Über uns</a></li>
+      <li><a href="journal.html">Dandelion Journal</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-search"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-shopping-bag"></i></a>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
   <div class="wrap">
-    <a class="back" href="index.html">← Zurück zum Shop</a>
     <h1>Geburtstagsballons & Geschenke</h1>
     <p class="intro">Handgemacht in Bad Wörishofen, Bayern — personalisiert mit Namen, Wunschtext und Lieblingsfarben. Lieferung persönlich in der Region oder Versand deutschlandweit ab 60 € kostenlos.</p>
     <a class="cta" href="index.html?kat=geburtstag">Alle Geburtstags-Produkte ansehen →</a>
@@ -171,5 +275,51 @@
       <p class="more-links">Weitere Anlässe: <a href="hochzeit.html">Hochzeitsballon</a> · <a href="babyparty.html">Babyparty-Ballon</a> · <a href="fussball.html">Fußball-Ballon</a> · <a href="kollektionen.html">alle Kollektionen ansehen</a> · <a href="journal.html">Dandelion Journal</a></p>
     </div>
   </div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="index.html">Alle Ballons</a>
+      <a href="geburtstag.html">Geburtstag</a>
+      <a href="hochzeit.html">Hochzeit</a>
+      <a href="babyparty.html">Babyparty</a>
+      <a href="fussball.html">Fußball</a>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <a href="index.html">Über uns</a>
+      <a href="journal.html">Dandelion Journal</a>
+      <a href="index.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerrufsrecht</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp" class="wa-fab"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  document.addEventListener('click', function(e){
+    const nav = document.getElementById('nav-links');
+    if(nav && nav.classList.contains('open') && !nav.contains(e.target) && !e.target.closest('.hamburger')) {
+      nav.classList.remove('open');
+    }
+  });
+</script>
 </body>
 </html>
