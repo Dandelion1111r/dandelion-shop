@@ -2797,7 +2797,7 @@
     if (imgs.length > 1) {
       imgDiv.innerHTML = `
         <div style="position:relative;background:#f3e6f9;">
-          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;display:block;">
+          <img id="prodModalCarouselImg" src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" sizes="(max-width:600px) 100vw, 560px" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;display:block;">
           <button onclick="prodModalCarouselNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">‹</button>
           <button onclick="prodModalCarouselNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;">›</button>
           <div style="position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
@@ -2808,7 +2808,7 @@
       window._prodModalIdx = 0;
     } else {
       imgDiv.innerHTML = imgs[0]
-        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;background:#f3e6f9;display:block;">`
+        ? `<img src="${imgs[0]}" alt="${lp(p,'name')}" decoding="async" sizes="(max-width:600px) 100vw, 560px" style="width:100%;aspect-ratio:3/4;height:auto;object-fit:contain;background:#f3e6f9;display:block;">`
         : `<div style="height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;">${p.emoji}</div>`;
     }
     document.getElementById('prodModalBadge').innerHTML = p.badge
@@ -3686,7 +3686,7 @@
     document.getElementById('koll-grid').innerHTML = list.map(p => `
       <div class="koll-card">
         <div class="koll-img" onclick="openProdModal(${p.id})" style="cursor:pointer;">
-          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${lp(p,'name')}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
+          ${(p.img || (p.imgs && p.imgs[0])) ? `<img src="${p.img || p.imgs[0]}" alt="${lp(p,'name')}" loading="lazy" decoding="async" sizes="(max-width:768px) calc(50vw - 16px), (max-width:1200px) calc(33vw - 20px), 300px" style="width:100%;height:100%;object-fit:${p.fit || 'cover'};object-position:center top;display:block;pointer-events:none;${p.fit==='contain' ? 'background:#fff;' : ''}">` : `<span style="font-size:4rem;pointer-events:none;">${p.emoji}</span>`}
           ${p.badge ? `<span class="koll-badge" style="pointer-events:none;">${lp(p,'badge')}</span>` : ''}
           <div id="fav-${p.id}" class="fav-heart ${favs.includes(p.id) ? 'active' : ''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" style="position:absolute;bottom:8px;right:8px;background:rgba(142,68,173,0.75);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;z-index:3;"><i class="${favs.includes(p.id) ? 'fas' : 'far'} fa-heart"></i></div>
         </div>
