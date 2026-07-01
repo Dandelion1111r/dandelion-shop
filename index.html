@@ -196,6 +196,9 @@
       line-height: 1.6;
     }
 
+    /* hide reCAPTCHA badge — notice shown inline in contact form per Google policy */
+    .grecaptcha-badge { visibility: hidden !important; }
+
     /* ─── TOPBAR ─── */
     .topbar {
       background: linear-gradient(90deg, var(--purple), var(--pink));
@@ -1538,9 +1541,10 @@
       <div style="position:absolute;left:-9999px;" aria-hidden="true">
         <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
       </div>
-      <div style="margin-bottom:20px;">
-        <label for="k-captcha" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;"><span data-i18n="kontakt_sicherheitsfrage">Sicherheitsfrage:</span> <span id="k-captcha-q"></span></label>
-        <input id="k-captcha" type="text" inputmode="numeric" placeholder="Antwort eingeben" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
+      <div id="recaptcha-notice" style="margin-bottom:16px;font-size:0.72rem;color:var(--text-light);text-align:center;">
+        Geschützt durch reCAPTCHA –
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--purple);">Datenschutz</a> &amp;
+        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" style="color:var(--purple);">Nutzungsbedingungen</a>
       </div>
       <button onclick="sendKontaktWA()" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
         <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_send_btn">Via WhatsApp senden</span>
@@ -3402,41 +3406,31 @@
     }
   });
 
-  // Anti-Spam: einfache Rechenaufgabe
-  let captchaAnswer = 0;
-  function newCaptcha() {
-    const a = 1 + Math.floor(Math.random() * 9);
-    const b = 1 + Math.floor(Math.random() * 9);
-    captchaAnswer = a + b;
-    const q = document.getElementById('k-captcha-q');
-    if (q) q.textContent = localStorage.getItem('lang')==='ro' ? `Cât este ${a} + ${b}?` : `Wie viel ist ${a} + ${b}?`;
-    const inp = document.getElementById('k-captcha');
-    if (inp) inp.value = '';
-  }
-  newCaptcha();
+  const RECAPTCHA_SITE_KEY = '6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg';
 
   window.sendKontaktWA = function() {
-    const name    = document.getElementById('k-name').value.trim();
-    const email   = document.getElementById('k-email').value.trim();
-    const subject = document.getElementById('k-subject').value.trim();
-    const msg     = document.getElementById('k-msg').value.trim();
+    const name     = document.getElementById('k-name').value.trim();
+    const email    = document.getElementById('k-email').value.trim();
+    const subject  = document.getElementById('k-subject').value.trim();
+    const msg      = document.getElementById('k-msg').value.trim();
     const honeypot = document.getElementById('k-website').value.trim();
-    const captcha  = document.getElementById('k-captcha').value.trim();
-    if (honeypot) { return; } // Bot detected – silently ignore
-    const _ro = localStorage.getItem('lang')==='ro';
+    if (honeypot) { return; }
+    const _ro = localStorage.getItem('lang') === 'ro';
     if (!msg) { alert(_ro ? 'Te rugăm să scrii un mesaj.' : 'Bitte schreib eine Nachricht.'); return; }
-    if (parseInt(captcha, 10) !== captchaAnswer) {
-      alert(_ro ? 'Răspunsul la întrebarea de securitate este greșit. Te rugăm să încerci din nou.' : 'Die Antwort auf die Sicherheitsfrage ist leider falsch. Bitte versuche es erneut.');
-      newCaptcha();
-      return;
-    }
-    let wa = '📩 *DANDELION 11:11 – KONTAKTANFRAGE*\n\n';
-    if (name)    wa += `👤 Name: ${name}\n`;
-    if (email)   wa += `📧 E-Mail: ${email}\n`;
-    if (subject) wa += `📌 Betreff: ${subject}\n`;
-    wa += `\n💬 Nachricht:\n${msg}`;
-    window.open('https://wa.me/491757668955?text=' + encodeURIComponent(wa), '_blank');
-    newCaptcha();
+    const btn = document.querySelector('[onclick="sendKontaktWA()"]');
+    if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
+    grecaptcha.ready(() => {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'kontakt' }).then(token => {
+        if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+        if (!token) { alert(_ro ? 'Verificare anti-spam eșuată. Încearcă din nou.' : 'Anti-Spam-Prüfung fehlgeschlagen. Bitte erneut versuchen.'); return; }
+        let wa = '📩 *DANDELION 11:11 – KONTAKTANFRAGE*\n\n';
+        if (name)    wa += `👤 Name: ${name}\n`;
+        if (email)   wa += `📧 E-Mail: ${email}\n`;
+        if (subject) wa += `📌 Betreff: ${subject}\n`;
+        wa += `\n💬 Nachricht:\n${msg}`;
+        window.open('https://wa.me/491757668955?text=' + encodeURIComponent(wa), '_blank');
+      });
+    });
   };
 
   // Kollektionen
@@ -3725,6 +3719,9 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<!-- reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
+
 <!-- PayPal Smart Buttons (Live) -->
 <script src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR"></script>
 
