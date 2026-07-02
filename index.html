@@ -2694,21 +2694,14 @@
     showToast(localStorage.getItem('lang')==='ro' ? `🛒 ${state.qty}x balon adăugat în coș!` : `🛒 ${state.qty}x Ballon in den Warenkorb gelegt!`);
   });
 
-  // Load pending cart items from category pages
-  (function loadPendingCartItems() {
-    try {
-      const pending = JSON.parse(localStorage.getItem('pendingCartItems') || '[]');
-      if (pending.length) {
-        pending.forEach(item => cart.push(item));
-        localStorage.removeItem('pendingCartItems');
-        updateCartUI();
-        setTimeout(() => {
-          document.getElementById('cartCard')?.scrollIntoView({ behavior: 'smooth' });
-          showToast(`🛒 ${pending.length === 1 ? pending[0].name : pending.length + ' Artikel'} in den Warenkorb gelegt!`);
-        }, 500);
-      }
-    } catch(e) {}
-  })();
+  // Show cart on load if items exist (added from category pages or previous session)
+  if (cart.length) {
+    updateCartUI();
+    setTimeout(() => {
+      document.getElementById('cartCard')?.scrollIntoView({ behavior: 'smooth' });
+      showToast(`🛒 ${cart.length === 1 ? cart[0].productName || cart[0].message || 'Artikel' : cart.length + ' Artikel'} im Warenkorb`);
+    }, 400);
+  }
 
   clearCartBtn.addEventListener('click', () => {
     cart = [];

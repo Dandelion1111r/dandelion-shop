@@ -479,9 +479,9 @@
 
   function addKollToCart(name, price, img) {
     try {
-      const existing = JSON.parse(localStorage.getItem('pendingCartItems') || '[]');
-      existing.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
-      localStorage.setItem('pendingCartItems', JSON.stringify(existing));
+      const cart = JSON.parse(localStorage.getItem('dandelionCart') || '[]');
+      cart.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('dandelionCart', JSON.stringify(cart));
     } catch(e) {}
     window.location.href = 'index.html';
   }
