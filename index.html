@@ -2725,6 +2725,7 @@
   });
 
   function updateCartUI() {
+    try { localStorage.setItem('dandelionCart', JSON.stringify(cart)); } catch(e) {}
     if (!cart.length) {
       cartCard.style.display = 'none';
       return;
@@ -2790,7 +2791,6 @@
   updateCartUI = function() {
     _origUpdateCartUI();
     updateNavBadge();
-    try { localStorage.setItem('dandelionCart', JSON.stringify(cart)); } catch(e) {}
   };
 
   window.addKollProduct = function(id) {
