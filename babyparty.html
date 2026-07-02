@@ -350,7 +350,7 @@
           <div class="prod-desc">Märchenhafte Blumenbox mit einer Feenpuppe mit lila Flügeln, umgeben von holografischen Rosen in Blau-Türkis und Pfingstrosen.</div>
           <div class="prod-footer">
             <div class="prod-price">69,00 €</div>
-            <a href="produktfeenblumenbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Feen-Blumenbox',69.00,'feen-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -365,7 +365,7 @@
           <div class="prod-desc">Traumhaftes Arrangement mit einer niedlichen Drachen-Figur in Lila, umgeben von bunten Blüten in Orange, Creme und Violett.</div>
           <div class="prod-footer">
             <div class="prod-price">55,00 €</div>
-            <a href="produktdrachenblumenbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Drachen Blumenbox',55.00,'drachen-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -380,7 +380,7 @@
           <div class="prod-desc">Transparenter Ballon zum Aufstechen, gefüllt mit rosa oder blauem Puder und kleinen Luftballons — der perfekte Überraschungsmoment!</div>
           <div class="prod-footer">
             <div class="prod-price">39,00 €</div>
-            <a href="produktpopmegenderrevealballonboyorgirl.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Pop-Me Gender-Reveal-Ballon',39.00,'gender-reveal-ballon-boy-or-girl.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -395,7 +395,7 @@
           <div class="prod-desc">Süßer Strauß mit drei Kinder-Joy-Überraschungseiern, eingebettet in zartrosa Schleierkraut mit Satinschleife.</div>
           <div class="prod-footer">
             <div class="prod-price">29,00 €</div>
-            <a href="produktkinderjoyblumenstrauss.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Kinder Joy Blumenstrauß',29.00,'kinder-joy-blumenstrauss.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -476,6 +476,15 @@
       nav.classList.remove('open');
     }
   });
+
+  function addKollToCart(name, price, img) {
+    try {
+      const existing = JSON.parse(localStorage.getItem('pendingCartItems') || '[]');
+      existing.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('pendingCartItems', JSON.stringify(existing));
+    } catch(e) {}
+    window.location.href = 'index.html';
+  }
 </script>
 </body>
 </html>

@@ -378,7 +378,7 @@
           <div class="prod-desc">Großer rosafarbener Marmorballon mit individueller Pärchen-Silhouette, umgeben von frischen Rosen, Gerbera und zarten Herzballons.</div>
           <div class="prod-footer">
             <div class="prod-price">79,00 €</div>
-            <a href="produktromantischerrosaballon.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Romantischer Rosa Ballon',79.00,'hochzeitsballon-rosa.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -393,7 +393,7 @@
           <div class="prod-desc">Violetter Marmorballon mit goldener Pärchen-Silhouette und Namen, dekoriert mit Schmetterlingen und opulenter Blumenbox.</div>
           <div class="prod-footer">
             <div class="prod-price">89,00 €</div>
-            <a href="produktlilahochzeitsballonbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Lila Hochzeits-Ballon-Box',89.00,'hochzeitsballon-box-lila.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -408,7 +408,7 @@
           <div class="prod-desc">Eleganter Brautstrauß aus cremeweißen Ranunkeln, umhüllt von zartem Tüll mit aufgenähten Perlen und langen Perlenbändern.</div>
           <div class="prod-footer">
             <div class="prod-price">65,00 €</div>
-            <a href="produktperlenbrautstraussivory.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Perlen-Brautstrauß Ivory',65.00,'brautstrauss-perlen-ivory.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -423,7 +423,7 @@
           <div class="prod-desc">Romantischer Haarreif für die Braut mit mehrreihigen Perlenketten und einer Seite aus weißen Orchideenblüten.</div>
           <div class="prod-footer">
             <div class="prod-price">45,00 €</div>
-            <a href="produktbrauthaarschmuckperlenorchideen.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Brauthaarschmuck Perlen & Orchideen',45.00,'brauthaarschmuck-perlen-orchideen.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -438,7 +438,7 @@
           <div class="prod-desc">Individuell mit den Namen des Brautpaars und dem Hochzeitsdatum versehen. Ein wunderschönes Erinnerungsstück für die Trauung.</div>
           <div class="prod-footer">
             <div class="prod-price">35,00 €</div>
-            <a href="produktpersonalisiertesringkissentablettmitnamendatum.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Personalisiertes Ringkissen-Tablett',35.00,'ringkissen-tablett-rote-rosen.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -521,6 +521,15 @@
       nav.classList.remove('open');
     }
   });
+
+  function addKollToCart(name, price, img) {
+    try {
+      const existing = JSON.parse(localStorage.getItem('pendingCartItems') || '[]');
+      existing.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('pendingCartItems', JSON.stringify(existing));
+    } catch(e) {}
+    window.location.href = 'index.html';
+  }
 </script>
 </body>
 </html>

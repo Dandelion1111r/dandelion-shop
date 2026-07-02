@@ -438,7 +438,7 @@
           <div class="prod-desc">Personalisierter Fußballballon mit Fußballschuhen als Dekorelement, umgeben von bunten Rosen in Rot, Blau und Gold.</div>
           <div class="prod-footer">
             <div class="prod-price">69,00 €</div>
-            <a href="produktfussballblumenbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Fußball Blumenbox',69.00,'fussball-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -453,7 +453,7 @@
           <div class="prod-desc">Ein Paar pinke Fußballschuhe eingebettet in Rosen, Gerbera in Pink und Bordeaux sowie weißem Schleierkraut.</div>
           <div class="prod-footer">
             <div class="prod-price">55,00 €</div>
-            <a href="produktfussballschuhblumenstrauss.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Fußballschuh-Blumenstrauß',55.00,'fussballschuh-blumenstrauss.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -468,7 +468,7 @@
           <div class="prod-desc">Silberne Fußballschuhe als Vase, gefüllt mit weißen Rosen auf einem eleganten Metalltablett mit Fußball als Deko.</div>
           <div class="prod-footer">
             <div class="prod-price">55,00 €</div>
-            <a href="produktfussballschuhvasemitweissenrosen.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Fußballschuh-Vase mit weißen Rosen',55.00,'fussballschuh-vase-weisse-rosen.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -483,7 +483,7 @@
           <div class="prod-desc">Sportlicher Strauß mit cremefarbenen Nike-Schuhen, eingebettet in zartem Schleierkraut und stilvoll in Kraftpapier verpackt.</div>
           <div class="prod-footer">
             <div class="prod-price">49,00 €</div>
-            <a href="produktfussballschuhstraussnike.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Fußballschuh-Strauß Nike',49.00,'fussballschuh-strauss-nike.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -498,7 +498,7 @@
           <div class="prod-desc">Strauß für Fußballfans mit Ronaldo-Motiven, Vereinswappen und Trikot mit Wunschnummer auf marineblauem Papier.</div>
           <div class="prod-footer">
             <div class="prod-price">45,00 €</div>
-            <a href="produktfussballfanstraussronaldo.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('Fußball-Fan Strauß Ronaldo',45.00,'fussball-fan-strauss-ronaldo.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -513,7 +513,7 @@
           <div class="prod-desc">Edle schwarze Geschenkbox mit goldener Ronaldo-Silhouette und gerahmtem Bild seiner WM-Karriere von 2006 bis 2026.</div>
           <div class="prod-footer">
             <div class="prod-price">39,00 €</div>
-            <a href="produktcr7fangeschenkbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('CR7 Fan-Geschenkbox Road to 2026',39.00,'fussball-geschenkbox-cr7-ronaldo-inhalt.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -528,7 +528,7 @@
           <div class="prod-desc">Schwarze Geschenkbox mit dem ikonischen Handshake-Motiv "One last dance – A timeless journey of legend" von Cristiano Ronaldo.</div>
           <div class="prod-footer">
             <div class="prod-price">39,00 €</div>
-            <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('CR7 Fan-Geschenkbox One Last Dance',39.00,'fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -543,7 +543,7 @@
           <div class="prod-desc">Schwarze Geschenkbox mit Panini-Karten-Collage von Cristiano Ronaldo mit Trophäen-Set, liebevoll in schwarzem Papierstroh präsentiert.</div>
           <div class="prod-footer">
             <div class="prod-price">39,00 €</div>
-            <a href="produktcr7fangeschenkboxelbicho.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+            <button onclick="addKollToCart('CR7 Fan-Geschenkbox El Bicho',39.00,'fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
           </div>
         </div>
       </div>
@@ -629,6 +629,15 @@
       nav.classList.remove('open');
     }
   });
+
+  function addKollToCart(name, price, img) {
+    try {
+      const existing = JSON.parse(localStorage.getItem('pendingCartItems') || '[]');
+      existing.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('pendingCartItems', JSON.stringify(existing));
+    } catch(e) {}
+    window.location.href = 'index.html';
+  }
 </script>
 </body>
 </html>
