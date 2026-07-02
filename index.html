@@ -170,7 +170,8 @@
     ]
   }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <style>
@@ -2043,7 +2044,7 @@
 
     <div class="config-card">
       <h3><i class="fas fa-pen"></i> <span data-i18n="dein_text_title">Dein Text</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 1 von 4</span></h3>
-      <label class="form-label"><span data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
+      <label class="form-label"><span for="messageInput" data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
       <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" data-i18n-placeholder="message_placeholder" maxlength="50">
       <label class="form-label" data-i18n="font_color_label">Schriftfarbe</label>
       <div class="swatches" id="textColorSwatches">
@@ -2055,12 +2056,12 @@
         <div class="text-swatch" style="background:#27ae60;" data-color="#27ae60" data-name="Grün" title="Grün"></div>
         <div class="text-swatch" style="background:#f39c12;" data-color="#f39c12" data-name="Gold" title="Gold"></div>
       </div>
-      <label class="form-label" data-i18n="font_size_label">Schriftgröße</label>
+      <label class="form-label" for="fontSizeSlider" data-i18n="font_size_label">Schriftgröße</label>
       <div class="slider-row">
         <input type="range" id="fontSizeSlider" min="14" max="32" value="20">
         <span class="slider-val" id="fontSizeVal">20px</span>
       </div>
-      <label class="form-label"><span data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
+      <label class="form-label"><span for="customImageInput" data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
       <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
       <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
         <img id="customImageThumb" alt="Vorschau des hochgeladenen Bildes" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
@@ -2090,7 +2091,7 @@
         <div class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume"></div>
         <div class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki"></div>
       </div>
-      <label class="form-label" data-i18n="balloon_type_label">Ballontyp</label>
+      <label class="form-label" for="balloonTypeSelect" data-i18n="balloon_type_label">Ballontyp</label>
       <select id="balloonTypeSelect" class="form-select">
         <option value="latex" data-price="0" data-i18n="opt_latex">🎈 Latex-Ballon (rund)</option>
         <option value="herz" data-price="3" data-i18n="opt_herz">💗 Herz-Ballon (+3,00 €)</option>
@@ -2098,7 +2099,7 @@
         <option value="folie" data-price="6" data-i18n="opt_folie">🌟 Folienballon Premium (+6,00 €)</option>
         <option value="bubble" data-price="9" data-i18n="opt_bubble">🔮 Bubble-Ballon (transparent) (+9,00 €)</option>
       </select>
-      <label class="form-label" data-i18n="text_effect_label">Text-Effekt</label>
+      <label class="form-label" for="textEffectSelect" data-i18n="text_effect_label">Text-Effekt</label>
       <select id="textEffectSelect" class="form-select">
         <option value="normal" data-i18n="opt_normal">Normal</option>
         <option value="bold" data-i18n="opt_fett">Fett</option>
@@ -2107,7 +2108,7 @@
         <option value="outline" data-i18n="opt_umriss">Umriss</option>
         <option value="glitter" data-i18n="opt_glitzer">✨ Glitzer-Effekt</option>
       </select>
-      <label class="form-label" data-i18n="filling_type_label">Art der Füllung</label>
+      <label class="form-label" for="fillingSelect" data-i18n="filling_type_label">Art der Füllung</label>
       <select id="fillingSelect" class="form-select">
         <option value="none" data-i18n="opt_keine_fuellung">Keine Füllung</option>
         <option value="mini-balloons" selected data-i18n="opt_mini_balloons">Mini-Ballons 🎈</option>
@@ -2117,7 +2118,7 @@
         <option value="flowers" data-i18n="opt_flowers">Blumen 🌸</option>
         <option value="butterflies" data-i18n="opt_butterflies">Schmetterlinge 🦋</option>
       </select>
-      <label class="form-label" data-i18n="design_template_label">Design-Vorlage</label>
+      <label class="form-label" for="designSelect" data-i18n="design_template_label">Design-Vorlage</label>
       <select id="designSelect" class="form-select">
         <option value="default" data-i18n="opt_default">Standard</option>
         <option value="birthday" data-i18n="opt_birthday">🎂 Geburtstag</option>
@@ -2128,7 +2129,7 @@
         <option value="congrats" data-i18n="opt_congrats">🎊 Glückwünsche</option>
         <option value="christmas" data-i18n="opt_christmas">🎄 Weihnachten</option>
       </select>
-      <label class="form-label" data-i18n="symbol_add_label">Symbol hinzufügen</label>
+      <label class="form-label" for="symbolSelect" data-i18n="symbol_add_label">Symbol hinzufügen</label>
       <select id="symbolSelect" class="form-select">
         <option value="" data-i18n="opt_sym_none">Kein Symbol</option>
         <option value="❤️" data-i18n="opt_sym_herz">❤️ Herz</option>
@@ -2148,12 +2149,12 @@
 
     <div class="config-card">
       <h3><i class="fas fa-envelope-open-heart"></i> <span data-i18n="card_extras_title">Grußkarte & Extras</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 3 von 4</span></h3>
-      <label class="form-label"><span data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
+      <label class="form-label"><span for="cardTextarea" data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
       <div class="textarea-wrap">
         <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." data-i18n-placeholder="card_placeholder" maxlength="150"></textarea>
         <span class="char-counter"><span id="charCount">0</span>/150</span>
       </div>
-      <label class="form-label"><span data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
+      <label class="form-label"><span for="personaInput" data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
       <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" data-i18n-placeholder="persona_placeholder" style="min-height:70px;margin-bottom:0;"></textarea>
     </div>
 
@@ -3783,7 +3784,7 @@
 <script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
 
 <!-- PayPal Smart Buttons (Live) -->
-<script src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR"></script>
+<script defer src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR"></script>
 
 <script>
   const firebaseConfig = {
