@@ -152,7 +152,18 @@
     .hamburger { display:block; font-size:1.4rem; }
   }
 
-  /* footer styles from .pf class */
+  footer { background:linear-gradient(135deg,#2d1b69,#5b1c5a); color:rgba(255,255,255,.8); padding:50px 30px 24px; margin-top:60px; }
+  .footer-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+  .footer-brand div.brand-name { font-size:1.3rem; font-weight:700; letter-spacing:2px; color:#fff; margin-bottom:12px; }
+  .footer-brand p { font-size:.9rem; line-height:1.65; }
+  .footer-col h4 { color:#fff; font-size:.95rem; font-weight:600; margin-bottom:14px; }
+  .footer-col a { display:block; font-size:.88rem; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:8px; }
+  .footer-col a:hover { color:#f3a6c6; }
+  .footer-bottom { max-width:1300px; margin:0 auto; border-top:1px solid rgba(255,255,255,.1); padding-top:20px; display:flex; justify-content:space-between; align-items:center; font-size:.88rem; flex-wrap:wrap; gap:10px; }
+  .social-links { display:flex; gap:14px; }
+  .social-links a { color:rgba(255,255,255,.6); font-size:1.1rem; text-decoration:none; }
+  @media (max-width:768px) { .footer-inner { grid-template-columns:1fr 1fr; } }
+  @media (max-width:480px) { .footer-inner { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -272,6 +283,10 @@
         <a href="index.html" data-i18n="footer_link_ueber">Über uns</a>
         <a href="journal.html" data-i18n="nav_journal">Dandelion Journal</a>
         <a href="index.html" data-i18n="footer_link_kontakt">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="widerruf.html">Widerrufsrecht</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -329,8 +344,6 @@
     };
     window.setJournalLang = function(lang) {
       localStorage.setItem('lang', lang);
-      document.getElementById('lang-de').style.opacity = lang === 'de' ? '1' : '0.4';
-      document.getElementById('lang-ro').style.opacity = lang === 'ro' ? '1' : '0.4';
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (journalI18n[lang][key]) el.textContent = journalI18n[lang][key];
