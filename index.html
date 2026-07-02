@@ -2697,6 +2697,7 @@
   // Show cart on load if items exist (added from category pages or previous session)
   if (cart.length) {
     updateCartUI();
+    updateNavBadge();
     setTimeout(() => {
       document.getElementById('cartCard')?.scrollIntoView({ behavior: 'smooth' });
       showToast(`🛒 ${cart.length === 1 ? cart[0].productName || cart[0].message || 'Artikel' : cart.length + ' Artikel'} im Warenkorb`);
