@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dandelion1111r.github.io/dandelion-shop/sitemap.xml
+Sitemap: https://www.dandelion1111.de/sitemap.xml
