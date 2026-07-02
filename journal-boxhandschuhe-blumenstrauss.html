@@ -141,7 +141,7 @@
         <span onclick="setJournalLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.2rem;opacity:0.4;" title="Română">🇷🇴</span>
         <a href="index.html" title="Suche"><i class="fas fa-search"></i></a>
         <a href="index.html" title="Favoriten"><i class="fas fa-heart"></i></a>
-        <a href="index.html" title="Warenkorb"><i class="fas fa-shopping-bag"></i></a>
+        <a href="index.html" title="Warenkorb" style="position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
         <a href="index.html" title="Konto"><i class="fas fa-user"></i></a>
         <button class="hamburger" role="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="siteNavLinks" onclick="var nl=document.getElementById('siteNavLinks');var open=nl.classList.toggle('open');this.setAttribute('aria-expanded',open);"><i class="fas fa-bars"></i></button>
       </div>
@@ -311,6 +311,21 @@
       });
     };
     setJournalLang(localStorage.getItem('lang') || 'de');
+  </script>
+  <script>
+    (function(){
+      function updateNavCartBadge(){
+        try{
+          var n=JSON.parse(localStorage.getItem('dandelionCart')||'[]').length;
+          var b=document.getElementById('navCartBadge');
+          if(!b)return;
+          if(n>0){b.textContent=n;b.style.display='inline-flex';}
+          else{b.style.display='none';}
+        }catch(e){}
+      }
+      updateNavCartBadge();
+      window.addEventListener('pageshow',updateNavCartBadge);
+    })();
   </script>
 </body>
 </html>
