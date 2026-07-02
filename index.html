@@ -496,13 +496,18 @@
     /* Text & emoji overlay inside balloon */
     .balloon-overlay {
       position: absolute;
-      top: 38%;
+      top: 42%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 68%;
       text-align: center;
       z-index: 10;
       pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
     .balloon-text-display {
@@ -1945,7 +1950,7 @@
             <path d="M170 365 Q155 390 165 410" stroke="#c080a0" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="4 3"/>
           </svg>
           <div class="balloon-overlay" id="balloonOverlay">
-            <img id="customImageDisplay" alt="Hochgeladenes Bild auf dem Ballon" style="display:none;max-width:55%;max-height:55%;object-fit:contain;border-radius:8px;">
+            <img id="customImageDisplay" alt="Hochgeladenes Bild auf dem Ballon" style="display:none;width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,0.8);box-shadow:0 2px 12px rgba(0,0,0,0.15);">
             <span class="balloon-emoji-display" id="emojiDisplay" style="display:none;"></span>
             <div class="balloon-text-display" id="textDisplay" style="color:#8e44ad;"></div>
           </div>
