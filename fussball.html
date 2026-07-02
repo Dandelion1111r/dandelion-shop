@@ -106,15 +106,22 @@
   .cta { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; padding:11px 26px; border-radius:50px; font-weight:600; text-decoration:none; font-size:.95rem; }
 
   /* PRODUCT GRID */
-  .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:50px; }
+  .prod-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:50px; }
   @media(min-width:600px){ .prod-grid { grid-template-columns:repeat(3,1fr); } }
-  @media(min-width:900px){ .prod-grid { grid-template-columns:repeat(3,1fr); } }
-  .prod-card { text-decoration:none; color:inherit; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(142,68,173,.08); transition:transform .18s,box-shadow .18s; display:flex; flex-direction:column; }
-  .prod-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(142,68,173,.16); }
-  .prod-card img { width:100%; width:100%; height:220px; object-fit:contain; background:#fff; display:block; }
-  .prod-card-body { padding:10px 12px 14px; flex:1; display:flex; flex-direction:column; gap:4px; }
-  .prod-card-name { font-size:.88rem; font-weight:600; line-height:1.4; }
-  .prod-card-price { font-size:.85rem; color:var(--pink); font-weight:700; margin-top:auto; padding-top:4px; }
+  .prod-card { text-decoration:none; color:inherit; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 8px 32px rgba(142,68,173,0.10); display:flex; flex-direction:column; transition:transform .25s,box-shadow .25s; }
+  .prod-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(142,68,173,.18); }
+  .prod-img-wrap { position:relative; aspect-ratio:3/4; overflow:hidden; background:#fff; display:block; }
+  .prod-img-wrap img { width:100%; height:100%; object-fit:contain; object-position:center top; display:block; }
+  .prod-badge { position:absolute; top:12px; left:12px; background:linear-gradient(135deg,#8e44ad,#d63384); color:#fff; font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:50px; letter-spacing:.5px; pointer-events:none; }
+  .prod-heart { position:absolute; bottom:8px; right:8px; background:rgba(142,68,173,0.75); color:#fff; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:13px; pointer-events:none; }
+  .prod-body { padding:16px 16px 12px; flex:1; display:flex; flex-direction:column; }
+  .prod-name { font-size:.95rem; font-weight:600; margin-bottom:6px; color:var(--text); text-decoration:none; display:block; }
+  .prod-name:hover { color:var(--pink); }
+  .prod-desc { font-size:.85rem; color:var(--text-light); line-height:1.5; flex:1; margin-bottom:12px; }
+  .prod-footer { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+  .prod-price { font-size:1.1rem; font-weight:700; color:var(--purple); }
+  .prod-btn { width:100%; background:linear-gradient(135deg,#8e44ad,#d63384); color:#fff; border:none; padding:11px 18px; border-radius:50px; font-size:.88rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; font-family:inherit; text-decoration:none; }
+  .prod-btn:hover { opacity:.9; }
 
   /* SEO TEXT */
   .seo-text { max-width:760px; margin:0 auto; }
@@ -188,64 +195,129 @@
     </div>
 
     <div class="prod-grid">
-      <a class="prod-card" href="produktfussballblumenbox.html">
-        <img src="fussball-blumenbox.webp" alt="Fußball Blumenbox" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Fußball Blumenbox</div>
-          <div class="prod-card-price">69,00 €</div>
+      <div class="prod-card">
+        <a href="produktfussballblumenbox.html" class="prod-img-wrap">
+          <img src="fussball-blumenbox.webp" alt="Fußball Blumenbox" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Einzigartig</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktfussballblumenbox.html" class="prod-name">Fußball Blumenbox</a>
+          <div class="prod-desc">Personalisierter Fußballballon mit Fußballschuhen als Dekorelement, umgeben von bunten Rosen in Rot, Blau und Gold.</div>
+          <div class="prod-footer">
+            <div class="prod-price">69,00 €</div>
+            <a href="produktfussballblumenbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktfussballschuhblumenstrauss.html">
-        <img src="fussballschuh-blumenstrauss.webp" alt="Fußballschuh-Blumenstrauß" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Fußballschuh-Blumenstrauß</div>
-          <div class="prod-card-price">55,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktfussballschuhblumenstrauss.html" class="prod-img-wrap">
+          <img src="fussballschuh-blumenstrauss.webp" alt="Fußballschuh-Blumenstrauß" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Einzigartig</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktfussballschuhblumenstrauss.html" class="prod-name">Fußballschuh-Blumenstrauß</a>
+          <div class="prod-desc">Ein Paar pinke Fußballschuhe eingebettet in Rosen, Gerbera in Pink und Bordeaux sowie weißem Schleierkraut.</div>
+          <div class="prod-footer">
+            <div class="prod-price">55,00 €</div>
+            <a href="produktfussballschuhblumenstrauss.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktfussballschuhvasemitweissenrosen.html">
-        <img src="fussballschuh-vase-weisse-rosen.webp" alt="Fußballschuh-Vase mit weißen Rosen" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Fußballschuh-Vase mit weißen Rosen</div>
-          <div class="prod-card-price">55,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktfussballschuhvasemitweissenrosen.html" class="prod-img-wrap">
+          <img src="fussballschuh-vase-weisse-rosen.webp" alt="Fußballschuh-Vase mit weißen Rosen" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Einzigartig</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktfussballschuhvasemitweissenrosen.html" class="prod-name">Fußballschuh-Vase mit weißen Rosen</a>
+          <div class="prod-desc">Silberne Fußballschuhe als Vase, gefüllt mit weißen Rosen auf einem eleganten Metalltablett mit Fußball als Deko.</div>
+          <div class="prod-footer">
+            <div class="prod-price">55,00 €</div>
+            <a href="produktfussballschuhvasemitweissenrosen.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktfussballschuhstraussnike.html">
-        <img src="fussballschuh-strauss-nike.webp" alt="Fußballschuh-Strauß Nike" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Fußballschuh-Strauß "Nike"</div>
-          <div class="prod-card-price">49,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktfussballschuhstraussnike.html" class="prod-img-wrap">
+          <img src="fussballschuh-strauss-nike.webp" alt="Fußballschuh-Strauß Nike" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Sportlich</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktfussballschuhstraussnike.html" class="prod-name">Fußballschuh-Strauß "Nike"</a>
+          <div class="prod-desc">Sportlicher Strauß mit cremefarbenen Nike-Schuhen, eingebettet in zartem Schleierkraut und stilvoll in Kraftpapier verpackt.</div>
+          <div class="prod-footer">
+            <div class="prod-price">49,00 €</div>
+            <a href="produktfussballschuhstraussnike.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktfussballfanstraussronaldo.html">
-        <img src="fussball-fan-strauss-ronaldo.webp" alt="Fußball-Fan Strauß Ronaldo" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">Fußball-Fan Strauß "Ronaldo"</div>
-          <div class="prod-card-price">45,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktfussballfanstraussronaldo.html" class="prod-img-wrap">
+          <img src="fussball-fan-strauss-ronaldo.webp" alt="Fußball-Fan Strauß Ronaldo" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Fan-Edition</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktfussballfanstraussronaldo.html" class="prod-name">Fußball-Fan Strauß "Ronaldo"</a>
+          <div class="prod-desc">Strauß für Fußballfans mit Ronaldo-Motiven, Vereinswappen und Trikot mit Wunschnummer auf marineblauem Papier.</div>
+          <div class="prod-footer">
+            <div class="prod-price">45,00 €</div>
+            <a href="produktfussballfanstraussronaldo.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktcr7fangeschenkbox.html">
-        <img src="fussball-geschenkbox-cr7-ronaldo-inhalt.webp" alt="CR7 Fan-Geschenkbox Road to 2026" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">CR7 Fan-Geschenkbox "Road to 2026"</div>
-          <div class="prod-card-price">39,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktcr7fangeschenkbox.html" class="prod-img-wrap">
+          <img src="fussball-geschenkbox-cr7-ronaldo-inhalt.webp" alt="CR7 Fan-Geschenkbox Road to 2026" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Fan-Edition</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktcr7fangeschenkbox.html" class="prod-name">CR7 Fan-Geschenkbox "Road to 2026"</a>
+          <div class="prod-desc">Edle schwarze Geschenkbox mit goldener Ronaldo-Silhouette und gerahmtem Bild seiner WM-Karriere von 2006 bis 2026.</div>
+          <div class="prod-footer">
+            <div class="prod-price">39,00 €</div>
+            <a href="produktcr7fangeschenkbox.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktcr7fangeschenkboxonelastdance.html">
-        <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp" alt="CR7 Fan-Geschenkbox One Last Dance" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">CR7 Fan-Geschenkbox "One Last Dance"</div>
-          <div class="prod-card-price">39,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-img-wrap">
+          <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp" alt="CR7 Fan-Geschenkbox One Last Dance" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Fan-Edition</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-name">CR7 Fan-Geschenkbox "One Last Dance"</a>
+          <div class="prod-desc">Schwarze Geschenkbox mit dem ikonischen Handshake-Motiv "One last dance – A timeless journey of legend" von Cristiano Ronaldo.</div>
+          <div class="prod-footer">
+            <div class="prod-price">39,00 €</div>
+            <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
-      <a class="prod-card" href="produktcr7fangeschenkboxelbicho.html">
-        <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp" alt="CR7 Fan-Geschenkbox El Bicho" width="600" height="800">
-        <div class="prod-card-body">
-          <div class="prod-card-name">CR7 Fan-Geschenkbox "El Bicho"</div>
-          <div class="prod-card-price">39,00 €</div>
+      </div>
+      <div class="prod-card">
+        <a href="produktcr7fangeschenkboxelbicho.html" class="prod-img-wrap">
+          <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp" alt="CR7 Fan-Geschenkbox El Bicho" width="600" height="800" loading="lazy">
+    <span class="prod-badge">Fan-Edition</span>
+          <div class="prod-heart"><i class="far fa-heart"></i></div>
+        </a>
+        <div class="prod-body">
+          <a href="produktcr7fangeschenkboxelbicho.html" class="prod-name">CR7 Fan-Geschenkbox "El Bicho"</a>
+          <div class="prod-desc">Schwarze Geschenkbox mit Panini-Karten-Collage von Cristiano Ronaldo mit Trophäen-Set, liebevoll in schwarzem Papierstroh präsentiert.</div>
+          <div class="prod-footer">
+            <div class="prod-price">39,00 €</div>
+            <a href="produktcr7fangeschenkboxelbicho.html" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
 
+    
     <div class="seo-text">
       <h1 style="font-size:1.4rem;margin-top:0;">Personalisierter Fußball- & Auto-Motiv-Ballon aus Bayern</h1>
       <p>Für kleine und große Fans von Fußball und Autos: Bei <strong>Dandelion 11:11</strong> fertigen wir <strong>personalisierte Ballons im Fußball- und Auto-Motiv</strong> von Hand in Bad Wörishofen, Bayern, mit Namen, Wunschtext und Lieblingsfarben ganz nach deinen Vorstellungen.</p>
