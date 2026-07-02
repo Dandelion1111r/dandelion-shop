@@ -2414,7 +2414,7 @@
     textEffect: 'normal'
   };
 
-  let cart = [];
+  let cart = (function() { try { return JSON.parse(localStorage.getItem('dandelionCart') || '[]'); } catch(e) { return []; } })();
   const PRICE = 42.90;
   const WA_NUMBER = '491757668955';
 
@@ -2712,6 +2712,7 @@
 
   clearCartBtn.addEventListener('click', () => {
     cart = [];
+    localStorage.removeItem('dandelionCart');
     updateCartUI();
   });
 
@@ -2789,6 +2790,7 @@
   updateCartUI = function() {
     _origUpdateCartUI();
     updateNavBadge();
+    try { localStorage.setItem('dandelionCart', JSON.stringify(cart)); } catch(e) {}
   };
 
   window.addKollProduct = function(id) {
