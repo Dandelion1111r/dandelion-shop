@@ -92,16 +92,44 @@
     .more-card { padding:16px; gap:14px; }
   }
 
-  .site-header { background:#fff; border-bottom:1px solid #f1e1f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
-  .site-header .nav-inner { max-width:1300px; margin:0 auto; padding:14px 30px; display:flex; align-items:center; gap:20px; }
-  .site-header .logo-link { display:flex; align-items:center; gap:8px; text-decoration:none; color:#8e44ad; font-weight:700; letter-spacing:.5px; flex-shrink:0; }
-  .site-header .logo-link img { height:48px; width:auto; }
-  .site-header .nav-links { display:flex; align-items:center; gap:16px; list-style:none; padding:0; margin:0; }
-  .site-header .nav-links a { text-decoration:none; color:#3a2e3f; font-size:.88rem; font-weight:500; white-space:nowrap; }
-  .site-header .nav-links a:hover, .site-header .nav-links a.active-nav { color:#d63384; }
-  .site-header .nav-icons { display:flex; align-items:center; gap:18px; font-size:1.1rem; color:#3a2e3f; margin-left:auto; }
-  .site-header .nav-icons a { color:inherit; text-decoration:none; }
-  .site-header .hamburger { display:none; cursor:pointer; }
+  :root { --purple:#8e44ad; --pink:#d63384; --text:#3a2e3f; --text-light:#a98aab; --border:#f1e1f0; --fs-xs:.72rem; --fs-sm:.85rem; --fs-md:1rem; --fs-lg:1.1rem; }
+  .topbar { background:linear-gradient(90deg,var(--purple),var(--pink)); color:#fff; text-align:center; padding:10px 20px 12px; }
+  .topbar-brand { font-size:var(--fs-lg); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
+  .topbar-divider { width:120px; height:1px; background:rgba(255,255,255,0.35); margin:0 auto 8px; }
+  .topbar-info { font-size:var(--fs-sm); opacity:0.95; }
+  @media(max-width:600px){ .topbar-info{font-size:var(--fs-xs);} .topbar-brand{letter-spacing:1.5px;} }
+  header { background:linear-gradient(135deg,#fdeef7,#f9e4f1); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width:1300px; margin:0 auto; padding:0 30px; display:flex; flex-direction:row; align-items:center; justify-content:flex-start; gap:20px; height:175px; overflow:visible; }
+  .logo-wrap { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+  .logo-wrap img { height:155px; width:auto; display:block; object-fit:contain; }
+  .nav-links { display:flex!important; flex-direction:row!important; gap:16px; list-style:none!important; padding:0; margin:0 0 0 auto; }
+  .nav-links li { list-style:none!important; display:block; }
+  .nav-links a { text-decoration:none; color:var(--text); font-size:0.88rem; font-weight:500; transition:color 0.2s; white-space:nowrap; }
+  .nav-links a:hover, .nav-links a.active-nav { color:var(--pink); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.12); padding:10px 0 8px; min-width:180px; z-index:999; list-style:none; margin:0; }
+  .nav-dropdown-menu li { list-style:none; }
+  .nav-dropdown-menu a { display:block; padding:9px 18px; font-size:0.85rem; color:var(--text); text-decoration:none; white-space:nowrap; transition:background 0.15s,color 0.15s; }
+  .nav-dropdown-menu a:hover { background:#f3e6f9; color:var(--purple); }
+  .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { display:block; }
+  .nav-icons { display:flex; gap:18px; font-size:var(--fs-md); color:var(--text); margin-left:auto; }
+  .nav-icons i { cursor:pointer; transition:color 0.2s; }
+  .nav-icons i:hover { color:var(--pink); }
+  .hamburger { display:none; background:none; border:none; padding:0; color:inherit; cursor:pointer; line-height:1; }
+  @media(max-width:768px){
+    .nav-inner { height:auto; min-height:0; padding:10px 16px; position:relative; }
+    .logo-wrap { width:56px; overflow:hidden; }
+    .logo-wrap img { height:56px; object-fit:cover; object-position:left center; margin-left:-2px; }
+    .nav-links { display:none!important; flex-direction:column!important; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:200; }
+    .nav-links.open { display:flex!important; }
+    .nav-links li { width:100%; }
+    .nav-links a { display:block; padding:14px 16px; border-top:1px solid var(--border); }
+    .nav-dropdown-menu { position:static; transform:none; box-shadow:none; border-radius:0; padding:0 0 0 16px; background:transparent; }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu, .nav-dropdown.open .nav-dropdown-menu { display:block; }
+    .nav-dropdown-menu a { padding:7px 0; font-size:0.85rem; color:var(--text-light); }
+    .nav-icons { gap:16px; }
+    .hamburger { display:block; font-size:1.4rem; }
+  }
   @media (max-width:768px) {
     .site-header .nav-inner { padding:10px 16px; position:relative; }
     .site-header .nav-links { display:none; flex-direction:column; align-items:flex-start; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.08); padding:8px 0; }
@@ -126,27 +154,45 @@
 </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="nav-inner">
-      <a class="logo-link" href="index.html"><img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11">Dandelion 11:11</a>
-      <ul class="nav-links" id="siteNavLinks">
-        <li><a href="index.html" data-i18n="nav_shop">Shop</a></li>
-        <li><a href="index.html?page=kollektionen" data-i18n="nav_kollektionen">Kollektionen</a></li>
-        <li><a href="index.html?page=ueberuns" data-i18n="nav_ueber">Über uns</a></li>
-        <li><a href="journal.html" class="active-nav" data-i18n="nav_journal">Dandelion Journal</a></li>
-        <li><a href="index.html?page=kontakt" data-i18n="nav_kontakt">Kontakt</a></li>
-      </ul>
-      <div class="nav-icons">
-        <span onclick="setJournalLang('de')" id="lang-de" style="cursor:pointer;font-size:1.2rem;" title="Deutsch">🇩🇪</span>
-        <span onclick="setJournalLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.2rem;opacity:0.4;" title="Română">🇷🇴</span>
-        <a href="index.html" title="Suche"><i class="fas fa-search"></i></a>
-        <a href="index.html" title="Favoriten"><i class="fas fa-heart"></i></a>
-        <a href="index.html" title="Warenkorb" style="position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
-        <a href="index.html" title="Konto"><i class="fas fa-user"></i></a>
-        <button class="hamburger" role="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="siteNavLinks" onclick="var nl=document.getElementById('siteNavLinks');var open=nl.classList.toggle('open');this.setAttribute('aria-expanded',open);"><i class="fas fa-bars"></i></button>
-      </div>
+
+<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 60 € kostenlos | Persönliche Lieferung in der Region</div>
+
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons & Geschenke für jeden Anlass</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
+</div>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <a href="index.html"><img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11"></a>
     </div>
-  </header>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="index.html?page=kollektionen" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html?page=ueberuns">Über uns</a></li>
+      <li><a href="journal.html" class="active-nav">Dandelion Journal</a></li>
+      <li><a href="index.html?page=kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-search"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
   <div class="wrap">
     <a class="back" href="journal.html" data-i18n="back_link">← Zurück zum Journal</a>
     <div class="eyebrow">Dandelion Journal · Where Opposites Bloom</div>
