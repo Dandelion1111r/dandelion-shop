@@ -638,13 +638,17 @@
     } catch(e) {}
     window.location.href = 'index.html';
   }
-  (function() {
+  function updateNavCartBadge() {
     try {
       const n = JSON.parse(localStorage.getItem('dandelionCart') || '[]').length;
       const b = document.getElementById('navCartBadge');
-      if (b && n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
+      if (!b) return;
+      if (n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
+      else { b.style.display = 'none'; }
     } catch(e) {}
-  })();
+  }
+  updateNavCartBadge();
+  window.addEventListener('pageshow', updateNavCartBadge);
 </script>
 </body>
 </html>
