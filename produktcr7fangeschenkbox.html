@@ -105,6 +105,11 @@
   .back { display:inline-block; margin-bottom:20px; color:#d63384; text-decoration:none; font-weight:600; }
   .gallery { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
   .gallery img { width:100%; height:auto; aspect-ratio:3/4; object-fit:contain; border-radius:14px; background:#f3e6f9; }
+  /* ── Breadcrumb ── */
+  .breadcrumb { max-width:760px; margin:12px auto 0; padding:0 20px; font-size:.82rem; color:#888; }
+  .breadcrumb a { color:#8e44ad; text-decoration:none; }
+  .breadcrumb a:hover { text-decoration:underline; }
+  .breadcrumb span { margin:0 6px; }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -128,7 +133,8 @@
   </div>
 </nav>
 
-  <div class="wrap">
+  <nav class="breadcrumb" aria-label="Brotkrumennavigation"><a href="index.html">Startseite</a><span aria-hidden="true">›</span><a href="kollektionen.html">Kollektionen</a><span aria-hidden="true">›</span><span aria-current="page">Fußball</span></nav>
+<div class="wrap">
     <a class="back" href="fussball.html">← Zurück zu Fußball</a>
     <div class="gallery">
       <img width="1500" height="2000" src="fussball-geschenkbox-cr7-ronaldo-inhalt.webp" alt="CR7 Fan-Geschenkbox geöffnet mit Bilderrahmen, Pokalfigur und Ball-Trophäe" loading="lazy" decoding="async">
@@ -141,6 +147,9 @@
     <p>Edle schwarze Geschenkbox für Fußballfans mit goldener Ronaldo-Silhouette: ein gerahmtes Bild zeigt Cristiano Ronaldos Weltmeisterschaften von 2006 bis 2026 als Sammelkarten, dazu eine goldene Fußballer-Pokalfigur und eine kleine goldene Ball-Trophäe, liebevoll in schwarzem Papierstroh präsentiert. Das perfekte Geschenk für jeden CR7- und Fußballfan.</p>
     <div class="specs">📏 Produktdetails (ca.)<br>Box: ca. 35×25×10 cm<br>Bilderrahmen: ca. 30×20 cm</div>
     <div class="specs">🎨 Materialien & Personalisierung<br><strong>Materialien:</strong> Geschenkbox, Bilderrahmen mit Sammelkarten-Motiv, Pokalfigur und Ball-Trophäe (Kunststoff/Metall, goldfarben), schwarzes Papierstroh<br><strong>Personalisierung:</strong> Aktuell als Fan-Edition ohne individuelle Anpassung erhältlich<br><strong>Hinweis:</strong> Fan-Artikel, nicht offiziell lizenziert<br><strong>Lieferung:</strong> Persönlich in der Region Bad Wörishofen oder Versand deutschlandweit (ab 60 € versandkostenfrei)</div>
+    
+    <h2 style="color:#3a2e3f;font-size:1.1rem;margin:24px 0 8px;">CR7 Fan-Geschenkbox &quot;Road to 2026&quot; – handgemacht &amp; personalisierbar</h2>
+    <p style="font-size:.93rem;color:#5a4a63;">Ein außergewöhnliches Geschenk für Fußballfans – individuell personalisierbar und handgefertigt mit Leidenschaft in Bad Wörishofen, Bayern.</p>
     <a class="cta" href="index.html?kat=fussball">Jetzt im Shop ansehen →</a>
     <p style="margin-top:30px;font-size:.95rem;">Mehr aus dieser Kategorie: <a href="kollektionen.html" style="color:#8e44ad;">Fußball</a> · <a href="kollektionen.html" style="color:#8e44ad;">alle Kollektionen ansehen</a> · <a href="journal.html" style="color:#8e44ad;">Dandelion Journal</a></p>
   </div>
