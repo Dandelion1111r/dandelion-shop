@@ -15,17 +15,16 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="canonical" href="https://www.dandelion1111.de/produktfussballschuhstraussnike.html">
   <link rel="alternate" hreflang="de" href="https://www.dandelion1111.de/produktfussballschuhstraussnike.html">
-  <link rel="alternate" hreflang="ro" href="https://www.dandelion1111.de/produktfussballschuhstraussnike.html">
   <link rel="alternate" hreflang="x-default" href="https://www.dandelion1111.de/produktfussballschuhstraussnike.html">
 <meta property="og:type" content="product">
 <meta property="og:title" content="Fußballschuh-Strauß &quot;Nike&quot; kaufen | Dandelion 11:11">
 <meta property="og:description" content="Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem…">
-<meta property="og:image" content="https://www.dandelion1111.de/fussballschuh-strauss-nike.png">
+<meta property="og:image" content="https://www.dandelion1111.de/fussballschuh-strauss-nike.webp">
 <meta property="og:url" content="https://www.dandelion1111.de/produktfussballschuhstraussnike.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fußballschuh-Strauß &quot;Nike&quot; kaufen | Dandelion 11:11">
 <meta name="twitter:description" content="Sportlicher Strauß mit cremefarbenen Nike-Fußballschuhen, eingebettet in zartem gelb-weißem Schleierkraut und stilvoll verpackt in braunem…">
-<meta name="twitter:image" content="https://www.dandelion1111.de/fussballschuh-strauss-nike.png">
+<meta name="twitter:image" content="https://www.dandelion1111.de/fussballschuh-strauss-nike.webp">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
 {
@@ -41,13 +40,6 @@
     "priceCurrency": "EUR",
     "availability": "https://schema.org/InStock",
     "url": "https://www.dandelion1111.de/produktfussballschuhstraussnike.html"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "3",
-    "bestRating": "5",
-    "worstRating": "1"
   }
 }
 </script>
@@ -74,7 +66,14 @@
   .p-nav .nl a:hover { color:#d63384; }
   .p-nav .cart-a { margin-left:auto; color:#3a2e3f; text-decoration:none; font-size:1.1rem; }
   .p-nav .cart-a:hover { color:#d63384; }
-  @media(max-width:600px){ .p-nav .nl { display:none; } }
+  @media(max-width:600px){
+    .p-nav .nl { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.08); padding:8px 0; z-index:200; }
+    .p-nav .nl.open { display:flex; }
+    .p-nav .nl li { width:100%; }
+    .p-nav .nl a { display:block; padding:11px 20px; border-top:1px solid #f1e1f0; }
+    .p-nav .hamburger { display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; font-size:1.3rem; color:#3a2e3f; padding:4px; }
+  }
+  @media(min-width:601px){ .p-nav .hamburger { display:none; } }
   /* ── Footer ── */
   .pf { background:linear-gradient(135deg,#2d1b3d,#1a0f24); color:rgba(255,255,255,.85); padding:50px 30px 0; margin-top:60px; font-family:'Poppins',sans-serif; }
   .pf-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; padding-bottom:40px; }
@@ -101,13 +100,14 @@
   .back { display:inline-block; margin-bottom:20px; color:#d63384; text-decoration:none; font-weight:600; }
   .prod-photo { width:100%; max-height:420px; object-fit:contain; border-radius:18px; background:#f3e6f9; margin-bottom:16px; }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
 <nav class="p-nav" aria-label="Hauptnavigation">
   <div class="ni">
     <a class="logo-a" href="index.html"><img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" height="44" width="44"></a>
-    <ul class="nl">
+    <ul class="nl" id="p-nav-links">
       <li><a href="kollektionen.html">Kollektionen</a></li>
       <li><a href="geburtstag.html">Geburtstag</a></li>
       <li><a href="hochzeit.html">Hochzeit</a></li>
@@ -115,12 +115,15 @@
       <li><a href="fussball.html">Fußball</a></li>
       <li><a href="journal.html">Journal</a></li>
     </ul>
-    <a class="cart-a" href="index.html" title="Warenkorb"><i class="fas fa-shopping-bag"></i></a>
+    <a class="cart-a" href="index.html" title="Warenkorb" aria-label="Warenkorb"><i class="fas fa-shopping-bag"></i></a>
+    <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="p-nav-links" onclick="var nl=document.getElementById('p-nav-links');var open=nl.classList.toggle('open');this.setAttribute('aria-expanded',open);">
+      <i class="fas fa-bars"></i>
+    </button>
   </div>
 </nav>
 
   <div class="wrap">
-    <a class="back" href="index.html">← Zurück zum Shop</a>
+    <a class="back" href="fussball.html">← Zurück zu Fußball</a>
     <img width="1333" height="2000" class="prod-photo" src="https://www.dandelion1111.de/fussballschuh-strauss-nike.webp" alt="Fußballschuh-Strauß &quot;Nike&quot;" fetchpriority="high" decoding="async">
     <h1>Fußballschuh-Strauß &quot;Nike&quot;</h1>
     <p class="price">49.00 €</p>
