@@ -51,6 +51,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <style>
+  /* ── Focus visible ── */
+  :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  /* ── Skip link ── */
+  .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
+  .skip-link:focus { left:8px; }
   :root {
     --pink: #d63384; --purple: #8e44ad; --bg: #fdf0f6;
     --white: #ffffff; --text: #2d2d2d; --text-light: #777;
@@ -383,6 +389,8 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
 
 <div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 60 € kostenlos | Persönliche Lieferung in der Region</div>
 
@@ -423,7 +431,7 @@
   </div>
 </header>
 
-  <div class="wrap">
+  <div id="main-content" class="wrap">
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
       <a href="/">Startseite</a><span>›</span><a href="kollektionen.html">Kollektionen</a><span>›</span>Fußball
     </nav>
@@ -656,5 +664,33 @@
   updateNavCartBadge();
   window.addEventListener('pageshow', updateNavCartBadge);
 </script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:'Poppins',system-ui,sans-serif;font-size:.85rem;line-height:1.55;">
+  <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
+    <div style="flex:1;min-width:220px;">
+      🍪 <strong>Cookies &amp; Datenschutz</strong><br>
+      <span style="opacity:.85;">Wir nutzen notwendige Cookies für den Betrieb und optionale Dienste (PayPal, Google Fonts) für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
+      <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Nur notwendige</button>
+      <button onclick="setCookieConsent('all')" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function setCookieConsent(level){
+    localStorage.setItem('cookieConsent',level);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    document.getElementById('cookieBanner').style.display='none';
+  }
+  window.setCookieConsent = setCookieConsent;
+  if(!localStorage.getItem('cookieConsent')){
+    setTimeout(function(){ document.getElementById('cookieBanner').style.display='block'; }, 800);
+  }
+})();
+</script>
+<!-- End Cookie Consent -->
 </body>
 </html>

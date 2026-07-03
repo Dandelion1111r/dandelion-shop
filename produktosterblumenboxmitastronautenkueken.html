@@ -91,6 +91,12 @@
 }
 </script>
 <style>
+  /* ── Focus visible ── */
+  :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  /* ── Skip link ── */
+  .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
+  .skip-link:focus { left:8px; }
   /* ── Product page nav ── */
   .p-nav { background:#fff; border-bottom:1px solid #f1e1f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
   .p-nav .ni { max-width:1200px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; gap:16px; }
@@ -144,6 +150,8 @@
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
 <nav class="p-nav" aria-label="Hauptnavigation">
   <div class="ni">
     <a class="logo-a" href="index.html"><img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" height="44" width="44"></a>
@@ -163,7 +171,7 @@
 </nav>
 
   <nav class="breadcrumb" aria-label="Brotkrumennavigation"><a href="index.html">Startseite</a><span aria-hidden="true">›</span><a href="kollektionen.html">Kollektionen</a><span aria-hidden="true">›</span><a href="kollektionen.html">Sonstiges</a><span aria-hidden="true">›</span><span aria-current="page">Oster-Blumenbox mit Astronauten-Küken</span></nav>
-<div class="wrap">
+<div id="main-content" class="wrap">
     <a class="back" href="kollektionen.html">← Zurück zu Sonstiges</a>
     <img width="1333" height="2000" class="prod-photo" src="https://www.dandelion1111.de/oster-blumenbox-astronauten-kueken.webp" alt="Oster-Blumenbox mit Astronauten-Küken" fetchpriority="high" decoding="async">
     <h1>Oster-Blumenbox mit Astronauten-Küken</h1>
@@ -224,5 +232,33 @@
     window.addEventListener('pageshow',updateNavCartBadge);
   })();
 </script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:'Poppins',system-ui,sans-serif;font-size:.85rem;line-height:1.55;">
+  <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
+    <div style="flex:1;min-width:220px;">
+      🍪 <strong>Cookies &amp; Datenschutz</strong><br>
+      <span style="opacity:.85;">Wir nutzen notwendige Cookies für den Betrieb und optionale Dienste (PayPal, Google Fonts) für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
+      <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Nur notwendige</button>
+      <button onclick="setCookieConsent('all')" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function setCookieConsent(level){
+    localStorage.setItem('cookieConsent',level);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    document.getElementById('cookieBanner').style.display='none';
+  }
+  window.setCookieConsent = setCookieConsent;
+  if(!localStorage.getItem('cookieConsent')){
+    setTimeout(function(){ document.getElementById('cookieBanner').style.display='block'; }, 800);
+  }
+})();
+</script>
+<!-- End Cookie Consent -->
 </body>
 </html>
