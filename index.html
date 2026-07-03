@@ -2044,7 +2044,7 @@
 
     <div class="config-card">
       <h3><i class="fas fa-pen"></i> <span data-i18n="dein_text_title">Dein Text</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 1 von 4</span></h3>
-      <label class="form-label"><span for="messageInput" data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
+      <label class="form-label" for="messageInput"><span data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
       <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" data-i18n-placeholder="message_placeholder" maxlength="50">
       <label class="form-label" data-i18n="font_color_label">Schriftfarbe</label>
       <div class="swatches" id="textColorSwatches">
@@ -2061,7 +2061,7 @@
         <input type="range" id="fontSizeSlider" min="14" max="32" value="20">
         <span class="slider-val" id="fontSizeVal">20px</span>
       </div>
-      <label class="form-label"><span for="customImageInput" data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
+      <label class="form-label" for="customImageInput"><span data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
       <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
       <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
         <img id="customImageThumb" alt="Vorschau des hochgeladenen Bildes" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
@@ -2149,12 +2149,12 @@
 
     <div class="config-card">
       <h3><i class="fas fa-envelope-open-heart"></i> <span data-i18n="card_extras_title">Grußkarte & Extras</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 3 von 4</span></h3>
-      <label class="form-label"><span for="cardTextarea" data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
+      <label class="form-label" for="cardTextarea"><span data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
       <div class="textarea-wrap">
         <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." data-i18n-placeholder="card_placeholder" maxlength="150"></textarea>
         <span class="char-counter"><span id="charCount">0</span>/150</span>
       </div>
-      <label class="form-label"><span for="personaInput" data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
+      <label class="form-label" for="personaInput"><span data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
       <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" data-i18n-placeholder="persona_placeholder" style="min-height:70px;margin-bottom:0;"></textarea>
     </div>
 

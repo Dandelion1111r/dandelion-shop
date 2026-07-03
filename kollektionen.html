@@ -357,12 +357,16 @@
         <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11">
       </a>
     </div>
-    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;margin-left:auto;">
+    <ul class="nav-links" id="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;margin-left:auto;">
       <li style="list-style:none;"><a href="index.html">Shop</a></li>
       <li style="list-style:none;"><a href="kollektionen.html" class="active">Kollektionen</a></li>
       <li style="list-style:none;"><a href="#">Über uns</a></li>
       <li style="list-style:none;"><a href="#">Kontakt</a></li>
     </ul>
+    <div class="nav-icons">
+      <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+    </div>
   </div>
 </header>
 
@@ -654,6 +658,18 @@
   }
 
   renderProducts('all');
+
+  function updateNavCartBadge() {
+    try {
+      const n = JSON.parse(localStorage.getItem('dandelionCart') || '[]').length;
+      const b = document.getElementById('navCartBadge');
+      if (!b) return;
+      if (n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
+      else { b.style.display = 'none'; }
+    } catch(e) {}
+  }
+  updateNavCartBadge();
+  window.addEventListener('pageshow', updateNavCartBadge);
 </script>
 </body>
 </html>
