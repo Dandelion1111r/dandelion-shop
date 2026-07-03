@@ -36,12 +36,45 @@
   "description": "Außergewöhnlicher Strauß für besondere Männer: drei Mini-Flaschen Jack Daniel's Whiskey kombiniert mit goldenen Ferrero-Rocher-Pralinen, elegant verpackt in schwarzem und goldenem Papier mit passender Schleife.",
   "image": "https://www.dandelion1111.de/whiskey-ferrero-strauss.webp",
   "brand": { "@type": "Brand", "name": "Dandelion 11:11" },
+  "mpn": "D11-whiskeyferrerostrauss",
   "offers": {
     "@type": "Offer",
     "price": "59.00",
     "priceCurrency": "EUR",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.dandelion1111.de/produktwhiskeyferrerostrauss.html"
+    "url": "https://www.dandelion1111.de/produktwhiskeyferrerostrauss.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "5.90",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "DE",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    }
   }
 }
 </script>
