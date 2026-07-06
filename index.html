@@ -1153,17 +1153,6 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- ═══ COOKIE CONSENT BANNER ═══ -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.15);z-index:3000;padding:16px 20px;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;">
-    <p data-i18n="cookie_text" style="margin:0;font-size:var(--fs-sm);color:var(--text);flex:1 1 280px;">🍪 Wir verwenden Cookies, um deine Erfahrung zu verbessern und unsere Website zu analysieren. Mehr dazu in unserer Datenschutzerklärung.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button data-i18n="cookie_necessary" onclick="setCookieConsent(false)" style="padding:10px 18px;border-radius:10px;border:1px solid var(--purple);background:#fff;color:var(--purple);font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Nur notwendige</button>
-      <button data-i18n="cookie_accept" onclick="setCookieConsent(true)" style="padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;font-weight:600;cursor:pointer;font-size:var(--fs-sm);">Alle akzeptieren</button>
-    </div>
-  </div>
-</div>
-
 <!-- ═══ DISCOUNT POPUP ═══ -->
 <div id="discountPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:32px 26px;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
@@ -1180,9 +1169,9 @@
 <script src="main.js" defer></script>
 
 <!-- Firebase (account login + order tracking) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" async></script>
 <!-- reCAPTCHA v3 -->
 <script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
 
