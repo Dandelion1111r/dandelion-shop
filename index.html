@@ -1455,21 +1455,35 @@ window.addEventListener('load', function() {
 (function(){
   var wrap = document.querySelector('.logo-wrap');
   if(!wrap) return;
-  var glyphs = ['✨','⭐','💛','✦','★'];
+  // SVG 4-pointed fairy star sparkle
+  function makeSVG(size, color){
+    var s = size, h = s/2, q = s*0.12;
+    var path = 'M'+h+',0 C'+h+','+q+' '+(h+q)+','+h+' '+s+','+h+
+               ' C'+(h+q)+','+h+' '+h+','+(h+q)+' '+h+','+s+
+               ' C'+h+','+(h+q)+' '+(h-q)+','+h+' 0,'+h+
+               ' C'+(h-q)+','+h+' '+h+','+q+' '+h+',0 Z';
+    return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="'+s+'" height="'+s+'">'
+      +'<path d="'+path+'" fill="'+encodeURIComponent(color)+'"/></svg>';
+  }
+  var colors = ['#f5c518','#ffd700','#fffacd','#f0c040','#ffffff'];
   function spawnSparkle(){
-    var s = document.createElement('span');
-    s.className = 'logo-sparkle';
-    s.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+    var el = document.createElement('img');
+    el.className = 'logo-sparkle';
+    var sz = 10 + Math.random()*14;
+    var color = colors[Math.floor(Math.random()*colors.length)];
+    el.src = makeSVG(Math.round(sz), color);
+    el.style.width = sz+'px';
+    el.style.height = sz+'px';
     var w = wrap.offsetWidth || 220;
     var h = wrap.offsetHeight || 185;
-    s.style.left = (10 + Math.random() * (w - 20)) + 'px';
-    s.style.top  = (10 + Math.random() * (h - 30)) + 'px';
-    s.style.fontSize = (9 + Math.random()*8) + 'px';
-    s.style.animationDuration = (1.4 + Math.random()*1.2) + 's';
-    wrap.appendChild(s);
-    s.addEventListener('animationend', function(){ s.remove(); });
+    el.style.left = (6 + Math.random()*(w-20))+'px';
+    el.style.top  = (6 + Math.random()*(h-20))+'px';
+    el.style.filter = 'drop-shadow(0 0 3px #ffd700aa)';
+    el.style.animationDuration = (1.2+Math.random()*1)+'s';
+    wrap.appendChild(el);
+    el.addEventListener('animationend',function(){ el.remove(); });
   }
-  setInterval(spawnSparkle, 520);
+  setInterval(spawnSparkle, 400);
 })();
 </script>
 </body>
