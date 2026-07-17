@@ -1350,9 +1350,16 @@ window.addEventListener('load', function() {
       .catch(err => { list.innerHTML = '<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>'; console.error(err); });
   }
 
-  // PayPal Smart Buttons – pays the current cart total and saves the order to Firestore
-  window.addEventListener('load', function() {
-  if (window.paypal) {
+  // PayPal Smart Buttons – rendered on demand when cart becomes visible
+  window._paypalRendered = false;
+  window.renderPayPalBtn = function() {
+    if (window._paypalRendered) return;
+    if (!window.paypal) {
+      // SDK not yet loaded – retry after a short delay
+      setTimeout(window.renderPayPalBtn, 300);
+      return;
+    }
+    window._paypalRendered = true;
     paypal.Buttons({
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
       createOrder: function(data, actions) {
@@ -1373,9 +1380,6 @@ window.addEventListener('load', function() {
           const customerEmail = details.payer && details.payer.email_address
             ? details.payer.email_address
             : (currentUser ? currentUser.email : null);
-          const customerName = details.payer && details.payer.name
-            ? details.payer.name.given_name
-            : (currentUser ? currentUser.displayName || 'Kunde' : 'Kunde');
 
           db.collection('orders').add({
             userId: currentUser ? currentUser.uid : 'guest',
@@ -1404,13 +1408,13 @@ window.addEventListener('load', function() {
             alert('Vielen Dank für deine Bestellung! Eine Bestätigungsmail wurde an dich gesendet.');
             cart = [];
             appliedDiscount = false;
+            window._paypalRendered = false;
             updateCartUI();
           });
         });
       }
     }).render('#paypal-button-container');
-  }
-  }); // end window load
+  };
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 
