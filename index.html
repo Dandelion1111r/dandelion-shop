@@ -1175,6 +1175,16 @@
 <!-- reCAPTCHA v3 -->
 <script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" async></script>
+<script>
+window.addEventListener('load', function() {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: 'yZhEVZfxCfnqlmFkq' });
+  }
+});
+</script>
+
 <!-- PayPal Smart Buttons (Live) -->
 <script defer src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR"></script>
 
@@ -1320,17 +1330,39 @@
           const subtotal = cart.reduce((s, i) => s + i.price, 0);
           const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
           const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+          const orderTotal = subtotal - discountAmount + shipping;
+          const customerEmail = details.payer && details.payer.email_address
+            ? details.payer.email_address
+            : (currentUser ? currentUser.email : null);
+          const customerName = details.payer && details.payer.name
+            ? details.payer.name.given_name
+            : (currentUser ? currentUser.displayName || 'Kunde' : 'Kunde');
+
           db.collection('orders').add({
             userId: currentUser ? currentUser.uid : 'guest',
-            email: currentUser ? currentUser.email : null,
+            email: customerEmail,
             items: cart,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
-            total: subtotal - discountAmount + shipping,
+            total: orderTotal,
             paypalOrderId: details.id,
             status: 'paid',
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           }).then(() => {
-            alert('Vielen Dank für deine Bestellung! Sie wurde erfolgreich bezahlt.');
+            if (customerEmail && typeof emailjs !== 'undefined') {
+              emailjs.send('service_njmc1nf', 'template_l8cb34c', {
+                email: customerEmail,
+                order_id: details.id,
+                orders: cart.map(function(item) {
+                  return { name: item.name, price: item.price.toFixed(2), units: 1 };
+                }),
+                cost: {
+                  shipping: shipping.toFixed(2),
+                  tax: '0.00',
+                  total: orderTotal.toFixed(2)
+                }
+              });
+            }
+            alert('Vielen Dank für deine Bestellung! Eine Bestätigungsmail wurde an dich gesendet.');
             cart = [];
             appliedDiscount = false;
             updateCartUI();
