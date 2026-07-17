@@ -224,6 +224,36 @@
 .upsell-card-body span{font-size:.85rem;color:#8e44ad;font-weight:700}
 @media(max-width:600px){.upsell-grid{grid-template-columns:repeat(2,1fr)}.upsell-grid .upsell-card:last-child{display:none}}
 </style>
+<style>
+.reviews-section{background:#f8f4fc;padding:40px 16px;margin-top:32px}
+.reviews-title{text-align:center;font-size:1.15rem;font-weight:700;color:#3a2e3f;margin:0 0 24px;letter-spacing:.3px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
+.review-card{background:#fff;border-radius:14px;padding:20px 16px;box-shadow:0 2px 12px rgba(142,68,173,.1)}
+.review-stars{color:#f5a623;font-size:1rem;margin-bottom:10px;letter-spacing:2px}
+.review-text{font-size:.87rem;color:#4a3f55;line-height:1.6;margin:0 0 12px;font-style:italic}
+.review-author{font-size:.82rem;font-weight:600;color:#8e44ad}
+@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
+</style>
+<section class="reviews-section" aria-label="Kundenbewertungen">
+  <h2 class="reviews-title">Was unsere Kunden sagen ⭐</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Absolut wunderschön! Die Qualität hat mich begeistert und die Lieferung war superschnell. Werde definitiv wieder bestellen."</p>
+      <span class="review-author">— Sandra M.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Ein tolles Geschenk für meine beste Freundin. Sie war total überrascht und hat sich riesig gefreut. Sehr empfehlenswert!"</p>
+      <span class="review-author">— Julia K.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Perfekte Verpackung, liebevolle Details und pünktlich geliefert. Genau das, was ich mir vorgestellt habe. Vielen Dank!"</p>
+      <span class="review-author">— Andrei B.</span>
+    </div>
+  </div>
+</section>
 <section class="upsell" aria-label="Das könnte dir auch gefallen">
   <h2>Das könnte dir auch gefallen ✨</h2>
   <div class="upsell-grid">
