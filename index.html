@@ -210,7 +210,7 @@
         <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
-          <span class="wm-tagline">⭐ Momente, die bleiben. ⭐</span>
+          <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
         </div>
       </a>
       <div class="scan-me">
@@ -1451,5 +1451,26 @@ window.addEventListener('load', function() {
 })();
 </script>
 <!-- End Cookie Consent -->
+<script>
+(function(){
+  var wrap = document.querySelector('.logo-wrap');
+  if(!wrap) return;
+  var glyphs = ['✨','⭐','💛','✦','★'];
+  function spawnSparkle(){
+    var s = document.createElement('span');
+    s.className = 'logo-sparkle';
+    s.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+    var w = wrap.offsetWidth || 220;
+    var h = wrap.offsetHeight || 185;
+    s.style.left = (10 + Math.random() * (w - 20)) + 'px';
+    s.style.top  = (10 + Math.random() * (h - 30)) + 'px';
+    s.style.fontSize = (9 + Math.random()*8) + 'px';
+    s.style.animationDuration = (1.4 + Math.random()*1.2) + 's';
+    wrap.appendChild(s);
+    s.addEventListener('animationend', function(){ s.remove(); });
+  }
+  setInterval(spawnSparkle, 520);
+})();
+</script>
 </body>
 </html>
