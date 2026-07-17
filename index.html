@@ -772,31 +772,32 @@
       </div>
     </div>
 
-    <!-- Progress steps -->
-    <div style="display:flex;align-items:center;gap:0;margin-bottom:20px;" aria-label="Konfigurationsschritte">
+    <!-- Progress steps (clickable) -->
+    <div id="stepperRow" style="display:flex;align-items:center;gap:0;margin-bottom:20px;" aria-label="Konfigurationsschritte">
       <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">1</div>
-        <span style="font-size:.7rem;font-weight:600;color:var(--purple);margin-top:4px;text-align:center;" data-i18n="step1_label">Text</span>
+        <div class="step-dot" data-step="1" style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 2px 8px rgba(142,68,173,.35);">1</div>
+        <span class="step-dot-label" data-step="1" style="font-size:.7rem;font-weight:700;color:var(--purple);margin-top:4px;text-align:center;">✏️ Text</span>
       </div>
-      <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--pink),var(--purple-light));margin-bottom:16px;"></div>
+      <div class="step-line" data-after="1" style="flex:1;height:2px;background:#e0e0e0;margin-bottom:16px;transition:background .3s;"></div>
       <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">2</div>
-        <span style="font-size:.7rem;font-weight:600;color:var(--purple);margin-top:4px;text-align:center;" data-i18n="step2_label">Design</span>
+        <div class="step-dot" data-step="2" style="width:32px;height:32px;border-radius:50%;background:#e5e5e5;color:#aaa;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;">2</div>
+        <span class="step-dot-label" data-step="2" style="font-size:.7rem;font-weight:600;color:var(--text-light);margin-top:4px;text-align:center;">🎨 Design</span>
       </div>
-      <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--purple-light),var(--pink-light));margin-bottom:16px;"></div>
+      <div class="step-line" data-after="2" style="flex:1;height:2px;background:#e0e0e0;margin-bottom:16px;transition:background .3s;"></div>
       <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">3</div>
-        <span style="font-size:.7rem;font-weight:600;color:var(--purple);margin-top:4px;text-align:center;" data-i18n="step3_label">Extras</span>
+        <div class="step-dot" data-step="3" style="width:32px;height:32px;border-radius:50%;background:#e5e5e5;color:#aaa;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;">3</div>
+        <span class="step-dot-label" data-step="3" style="font-size:.7rem;font-weight:600;color:var(--text-light);margin-top:4px;text-align:center;">🌸 Füllung</span>
       </div>
-      <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--pink-light),#e8d5e8);margin-bottom:16px;"></div>
+      <div class="step-line" data-after="3" style="flex:1;height:2px;background:#e0e0e0;margin-bottom:16px;transition:background .3s;"></div>
       <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;">4</div>
-        <span style="font-size:.7rem;font-weight:600;color:var(--purple);margin-top:4px;text-align:center;" data-i18n="step4_label">Menge</span>
+        <div class="step-dot" data-step="4" style="width:32px;height:32px;border-radius:50%;background:#e5e5e5;color:#aaa;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;">4</div>
+        <span class="step-dot-label" data-step="4" style="font-size:.7rem;font-weight:600;color:var(--text-light);margin-top:4px;text-align:center;">💌 Bestellen</span>
       </div>
     </div>
 
-    <div class="config-card">
-      <h3><i class="fas fa-pen"></i> <span data-i18n="dein_text_title">Dein Text</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 1 von 4</span></h3>
+    <!-- STEP 1: Text -->
+    <div class="config-card config-step" data-step="1">
+      <h3><i class="fas fa-pen"></i> <span>Dein Text</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 1 von 4</span></h3>
       <label class="form-label" for="messageInput"><span data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
       <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" data-i18n-placeholder="message_placeholder" maxlength="50">
       <label class="form-label" data-i18n="font_color_label">Schriftfarbe</label>
@@ -821,11 +822,15 @@
         <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;" data-i18n="shown_on_balloon_label">Wird auf dem Ballon angezeigt</span>
         <i class="fas fa-times" id="removeCustomImage" style="cursor:pointer;color:var(--text-light);"></i>
       </div>
+      <div style="display:flex;justify-content:flex-end;margin-top:20px;">
+        <button class="step-next-btn" data-next="2">Weiter <i class="fas fa-arrow-right"></i></button>
+      </div>
     </div>
 
-    <div class="config-card">
-      <h3><i class="fas fa-palette"></i> <span data-i18n="filling_design_title">Füllung & Design</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 2 von 4</span></h3>
-      <label class="form-label" data-i18n="balloon_color_filling_label">Ballonfarbe / Füllung</label>
+    <!-- STEP 2: Design & Symbol & Farben -->
+    <div class="config-card config-step" data-step="2" style="display:none;">
+      <h3><i class="fas fa-palette"></i> <span>Design & Farben</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 2 von 4</span></h3>
+      <label class="form-label" data-i18n="balloon_color_filling_label">Ballonfarbe</label>
       <div class="swatch-label">
         <span style="font-size:var(--fs-sm);color:var(--text-light);" data-i18n="choose_color_label">Wähle eine Farbe</span>
         <span class="selected-name" id="selectedColorName">Pink</span>
@@ -851,25 +856,6 @@
         <option value="stern" data-price="3" data-i18n="opt_stern_typ">⭐ Stern-Ballon (+3,00 €)</option>
         <option value="folie" data-price="6" data-i18n="opt_folie">🌟 Folienballon Premium (+6,00 €)</option>
         <option value="bubble" data-price="9" data-i18n="opt_bubble">🔮 Bubble-Ballon (transparent) (+9,00 €)</option>
-      </select>
-      <label class="form-label" for="textEffectSelect" data-i18n="text_effect_label">Text-Effekt</label>
-      <select id="textEffectSelect" class="form-select">
-        <option value="normal" data-i18n="opt_normal">Normal</option>
-        <option value="bold" data-i18n="opt_fett">Fett</option>
-        <option value="italic" data-i18n="opt_kursiv">Kursiv</option>
-        <option value="shadow" data-i18n="opt_schatten">Mit Schatten</option>
-        <option value="outline" data-i18n="opt_umriss">Umriss</option>
-        <option value="glitter" data-i18n="opt_glitzer">✨ Glitzer-Effekt</option>
-      </select>
-      <label class="form-label" for="fillingSelect" data-i18n="filling_type_label">Art der Füllung</label>
-      <select id="fillingSelect" class="form-select">
-        <option value="none" data-i18n="opt_keine_fuellung">Keine Füllung</option>
-        <option value="mini-balloons" selected data-i18n="opt_mini_balloons">Mini-Ballons 🎈</option>
-        <option value="confetti" data-i18n="opt_confetti">Konfetti 🎉</option>
-        <option value="hearts" data-i18n="opt_hearts">Herzen ❤️</option>
-        <option value="stars" data-i18n="opt_stars">Sterne ⭐</option>
-        <option value="flowers" data-i18n="opt_flowers">Blumen 🌸</option>
-        <option value="butterflies" data-i18n="opt_butterflies">Schmetterlinge 🦋</option>
       </select>
       <label class="form-label" for="designSelect" data-i18n="design_template_label">Design-Vorlage</label>
       <select id="designSelect" class="form-select">
@@ -898,30 +884,58 @@
         <option value="🌙" data-i18n="opt_sym_mond">🌙 Mond</option>
         <option value="✨" data-i18n="opt_sym_glitzer">✨ Glitzer</option>
       </select>
+      <label class="form-label" for="textEffectSelect" data-i18n="text_effect_label">Text-Effekt</label>
+      <select id="textEffectSelect" class="form-select">
+        <option value="normal" data-i18n="opt_normal">Normal</option>
+        <option value="bold" data-i18n="opt_fett">Fett</option>
+        <option value="italic" data-i18n="opt_kursiv">Kursiv</option>
+        <option value="shadow" data-i18n="opt_schatten">Mit Schatten</option>
+        <option value="outline" data-i18n="opt_umriss">Umriss</option>
+        <option value="glitter" data-i18n="opt_glitzer">✨ Glitzer-Effekt</option>
+      </select>
+      <div style="display:flex;justify-content:space-between;margin-top:20px;gap:10px;">
+        <button class="step-back-btn" data-back="1"><i class="fas fa-arrow-left"></i> Zurück</button>
+        <button class="step-next-btn" data-next="3">Weiter <i class="fas fa-arrow-right"></i></button>
+      </div>
     </div>
 
-    <div class="config-card">
-      <h3><i class="fas fa-envelope-open-heart"></i> <span data-i18n="card_extras_title">Grußkarte & Extras</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 3 von 4</span></h3>
+    <!-- STEP 3: Füllung -->
+    <div class="config-card config-step" data-step="3" style="display:none;">
+      <h3><i class="fas fa-wind"></i> <span>Füllung & Extras</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 3 von 4</span></h3>
+      <label class="form-label" for="fillingSelect" data-i18n="filling_type_label">Art der Füllung</label>
+      <select id="fillingSelect" class="form-select">
+        <option value="none" data-i18n="opt_keine_fuellung">Keine Füllung</option>
+        <option value="mini-balloons" selected data-i18n="opt_mini_balloons">Mini-Ballons 🎈</option>
+        <option value="confetti" data-i18n="opt_confetti">Konfetti 🎉</option>
+        <option value="hearts" data-i18n="opt_hearts">Herzen ❤️</option>
+        <option value="stars" data-i18n="opt_stars">Sterne ⭐</option>
+        <option value="flowers" data-i18n="opt_flowers">Blumen 🌸</option>
+        <option value="butterflies" data-i18n="opt_butterflies">Schmetterlinge 🦋</option>
+      </select>
+      <div style="display:flex;justify-content:space-between;margin-top:20px;gap:10px;">
+        <button class="step-back-btn" data-back="2"><i class="fas fa-arrow-left"></i> Zurück</button>
+        <button class="step-next-btn" data-next="4">Weiter <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Grußkarte, Menge & Bestellen -->
+    <div class="config-card config-step" data-step="4" style="display:none;">
+      <h3><i class="fas fa-envelope-open-heart"></i> <span>Grußkarte & Bestellen</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 4 von 4</span></h3>
       <label class="form-label" for="cardTextarea"><span data-i18n="card_label">Grußkarte</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_150_label">(optional, max. 150 Zeichen)</span></label>
       <div class="textarea-wrap">
         <textarea id="cardTextarea" class="form-textarea" placeholder="Dein persönlicher Gruß für die Karte..." data-i18n-placeholder="card_placeholder" maxlength="150"></textarea>
         <span class="char-counter"><span id="charCount">0</span>/150</span>
       </div>
       <label class="form-label" for="personaInput"><span data-i18n="describe_person_label">Beschreibe die Person</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_recommendation_label">(optional für individuelle Empfehlung)</span></label>
-      <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" data-i18n-placeholder="persona_placeholder" style="min-height:70px;margin-bottom:0;"></textarea>
-    </div>
-
-    <div class="config-card">
-      <h3><i class="fas fa-layer-group"></i> <span data-i18n="quantity_title">Menge</span> <span style="font-size:.7rem;font-weight:400;color:var(--text-light);margin-left:auto;">Schritt 4 von 4</span></h3>
+      <textarea id="personaInput" class="form-textarea" placeholder="💡 Keine Idee welche Farbe oder Füllung passt? Kein Problem! 😊 Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir mit kreativen Ideen!" data-i18n-placeholder="persona_placeholder" style="min-height:70px;"></textarea>
+      <label class="form-label" style="margin-top:8px;" data-i18n="quantity_title">Menge</label>
       <div class="qty-row">
         <button class="qty-btn" id="qtyMinus">−</button>
         <input class="qty-val" type="text" id="qtyVal" value="1" readonly>
         <button class="qty-btn" id="qtyPlus">+</button>
       </div>
-    </div>
-
-    <div class="cta-area">
-      <div style="display:flex;gap:10px;margin-bottom:12px;">
+      <div style="display:flex;gap:10px;margin-top:20px;margin-bottom:12px;">
+        <button class="step-back-btn" data-back="3" style="flex:0 0 auto;"><i class="fas fa-arrow-left"></i> Zurück</button>
         <button class="qty-btn" id="saveDesignBtn" style="flex:1;width:auto;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);background:#f7eefb;border:1px solid var(--purple);padding:12px;">
           <i class="fas fa-bookmark"></i> <span data-i18n="save_label">Speichern</span>
         </button>
@@ -933,7 +947,7 @@
       <button class="btn-main" id="addToCartBtn">
         <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
       </button>
-      <div class="secure-row">
+      <div class="secure-row" style="margin-top:16px;">
         <div class="secure-item"><i class="fas fa-lock"></i> <span data-i18n="secure_encrypted">Sicher & verschlüsselt</span></div>
         <div class="secure-item"><i class="fas fa-undo"></i> <span data-i18n="satisfaction_guarantee">Zufriedenheitsgarantie</span></div>
         <div class="secure-item"><i class="fas fa-truck"></i> <span data-i18n="ship_home_text2">3–7 Werktage</span></div>
@@ -1451,6 +1465,67 @@ window.addEventListener('load', function() {
 })();
 </script>
 <!-- End Cookie Consent -->
+<script>
+// Step-by-step configurator
+(function(){
+  var current = 1;
+  var total = 4;
+
+  function showStep(n) {
+    current = n;
+    // Show/hide cards
+    document.querySelectorAll('.config-step').forEach(function(el) {
+      el.style.display = (parseInt(el.dataset.step) === n) ? '' : 'none';
+    });
+    // Update dots
+    document.querySelectorAll('.step-dot').forEach(function(dot) {
+      var s = parseInt(dot.dataset.step);
+      if (s === n) {
+        dot.style.background = 'linear-gradient(135deg,var(--purple),var(--pink))';
+        dot.style.color = '#fff';
+        dot.style.boxShadow = '0 2px 8px rgba(142,68,173,.35)';
+        dot.style.transform = 'scale(1.1)';
+      } else if (s < n) {
+        dot.style.background = 'var(--purple)';
+        dot.style.color = '#fff';
+        dot.style.boxShadow = 'none';
+        dot.style.transform = 'scale(1)';
+      } else {
+        dot.style.background = '#e5e5e5';
+        dot.style.color = '#aaa';
+        dot.style.boxShadow = 'none';
+        dot.style.transform = 'scale(1)';
+      }
+    });
+    // Update labels
+    document.querySelectorAll('.step-dot-label').forEach(function(lbl) {
+      var s = parseInt(lbl.dataset.step);
+      lbl.style.fontWeight = s === n ? '700' : '600';
+      lbl.style.color = s <= n ? 'var(--purple)' : 'var(--text-light)';
+    });
+    // Update lines
+    document.querySelectorAll('.step-line').forEach(function(line) {
+      var after = parseInt(line.dataset.after);
+      line.style.background = after < n
+        ? 'linear-gradient(90deg,var(--purple),var(--pink))'
+        : '#e0e0e0';
+    });
+  }
+
+  // Event delegation for dot clicks, next/back buttons
+  document.addEventListener('click', function(e) {
+    var dot = e.target.closest('.step-dot');
+    if (dot) { showStep(parseInt(dot.dataset.step)); return; }
+    var nb = e.target.closest('.step-next-btn');
+    if (nb) { showStep(parseInt(nb.dataset.next)); return; }
+    var bb = e.target.closest('.step-back-btn');
+    if (bb) { showStep(parseInt(bb.dataset.back)); return; }
+  });
+
+  // Init: only show step 1
+  showStep(1);
+})();
+</script>
 <script>
 // Click sparkle effect
 (function(){
