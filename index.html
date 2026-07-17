@@ -636,6 +636,7 @@
   </div>
 </div>
 
+<div id="main-content"></div>
 <div id="page-shop">
 
 <!-- ═══ HOW IT WORKS ═══ -->
@@ -1318,6 +1319,7 @@ window.addEventListener('load', function() {
   }
 
   // PayPal Smart Buttons – pays the current cart total and saves the order to Firestore
+  window.addEventListener('load', function() {
   if (window.paypal) {
     paypal.Buttons({
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
@@ -1376,6 +1378,7 @@ window.addEventListener('load', function() {
       }
     }).render('#paypal-button-container');
   }
+  }); // end window load
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 
