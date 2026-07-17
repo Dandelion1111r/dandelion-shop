@@ -1452,6 +1452,50 @@ window.addEventListener('load', function() {
 </script>
 <!-- End Cookie Consent -->
 <script>
+// Click sparkle effect
+(function(){
+  function makeStar(size,color){
+    var s=size,h=s/2,q=s*0.12;
+    var path='M'+h+',0 C'+h+','+q+' '+(h+q)+','+h+' '+s+','+h+' C'+(h+q)+','+h+' '+h+','+(h+q)+' '+h+','+s+' C'+h+','+(h+q)+' '+(h-q)+','+h+' 0,'+h+' C'+(h-q)+','+h+' '+h+','+q+' '+h+',0 Z';
+    return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="'+s+'" height="'+s+'"><path d="'+path+'" fill="'+encodeURIComponent(color)+'"/></svg>';
+  }
+  var colors=['#ffd700','#f5c518','#fff8dc','#ffffff','#ffe066'];
+  document.addEventListener('click',function(e){
+    var count=7+Math.floor(Math.random()*5);
+    for(var i=0;i<count;i++){
+      (function(i){
+        setTimeout(function(){
+          var el=document.createElement('img');
+          el.src=makeStar(8+Math.random()*12, colors[Math.floor(Math.random()*colors.length)]);
+          var sz=8+Math.random()*12;
+          el.style.cssText='position:fixed;pointer-events:none;z-index:99999;width:'+sz+'px;height:'+sz+'px;'
+            +'left:'+(e.clientX-sz/2)+'px;top:'+(e.clientY-sz/2)+'px;'
+            +'filter:drop-shadow(0 0 3px #ffd700);opacity:1;transition:none;';
+          document.body.appendChild(el);
+          var angle=Math.random()*Math.PI*2;
+          var dist=30+Math.random()*50;
+          var dx=Math.cos(angle)*dist, dy=Math.sin(angle)*dist;
+          var dur=600+Math.random()*400;
+          var start=null;
+          function anim(ts){
+            if(!start)start=ts;
+            var p=Math.min((ts-start)/dur,1);
+            var ease=1-Math.pow(1-p,3);
+            el.style.left=(e.clientX-sz/2+dx*ease)+'px';
+            el.style.top=(e.clientY-sz/2+dy*ease)+'px';
+            el.style.opacity=''+(1-p);
+            el.style.transform='rotate('+(p*180)+'deg) scale('+(1-p*0.5)+')';
+            if(p<1)requestAnimationFrame(anim);
+            else el.remove();
+          }
+          requestAnimationFrame(anim);
+        },i*40);
+      })(i);
+    }
+  });
+})();
+
+// Header fairy sparkles
 (function(){
   var wrap = document.querySelector('.logo-wrap');
   if(!wrap) return;
