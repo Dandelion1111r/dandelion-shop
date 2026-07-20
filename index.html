@@ -1042,7 +1042,7 @@
       </div>
     </div>
 
-    <div class="cart-card" id="cartCard">
+    <div class="cart-card" id="cartCard" style="display:none">
       <h3><i class="fas fa-shopping-bag"></i> <span data-i18n="cart_title">Warenkorb</span> <span id="cartCount" style="font-size:var(--fs-sm);background:var(--pink);color:white;border-radius:20px;padding:2px 10px;"></span></h3>
       <div id="cartItemsList"></div>
       <div style="display:flex;gap:8px;margin:12px 0;">
@@ -1556,8 +1556,7 @@ window.addEventListener('load', function() {
   };
   // After all deferred scripts load, trigger PayPal if cart is visible
   window.addEventListener('load', function() {
-    var cartCard = document.getElementById('cartCard');
-    if (cartCard && cartCard.style.display !== 'none' && !window._paypalRendered) {
+    if (!window._paypalRendered) {
       window.renderPayPalBtn();
     }
   });
