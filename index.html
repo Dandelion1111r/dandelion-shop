@@ -1329,6 +1329,78 @@ window.addEventListener('load', function() {
 <script src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR" onload="if(typeof window.renderPayPalBtn==='function')window.renderPayPalBtn();" async></script>
 
 <script>
+  window._paypalRendered = false;
+  window.db = null;
+  window.currentUser = null;
+  window.renderPayPalBtn = function() {
+    if (window._paypalRendered) return;
+    if (!window.paypal) return;
+    var container = document.getElementById('paypal-button-container');
+    if (!container) return;
+    paypal.Buttons({
+      style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
+      createOrder: function(data, actions) {
+        const subtotal = cart.reduce((s, i) => s + i.price, 0);
+        const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+        const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+        const total = (subtotal - discountAmount + shipping).toFixed(2);
+        return actions.order.create({
+          purchase_units: [{ amount: { value: total, currency_code: 'EUR' } }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          const subtotal = cart.reduce((s, i) => s + i.price, 0);
+          const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+          const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
+          const orderTotal = subtotal - discountAmount + shipping;
+          const customerEmail = details.payer && details.payer.email_address
+            ? details.payer.email_address
+            : (window.currentUser ? window.currentUser.email : null);
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', { send_to: 'AW-18318644224/yCf6CJ2xoNMcEICogZ9E', transaction_id: details.id });
+            gtag('event', 'purchase', {
+              transaction_id: details.id, value: orderTotal, currency: 'EUR', shipping: shipping,
+              coupon: appliedDiscount ? 'WILLKOMMEN10' : undefined,
+              items: cart.map(function(item, i) {
+                return { item_id: 'balloon_' + (item.balloonType || 'latex'), item_name: item.productName || item.message || 'Personalisierter Ballon', price: item.price, quantity: 1, index: i };
+              })
+            });
+          }
+
+          var saveOrder = window.db ? window.db.collection('orders').add({
+            userId: window.currentUser ? window.currentUser.uid : 'guest',
+            email: customerEmail, items: cart,
+            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
+            total: orderTotal, paypalOrderId: details.id, status: 'paid',
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          }) : Promise.resolve();
+
+          saveOrder.then(function() {
+            if (customerEmail && typeof emailjs !== 'undefined') {
+              emailjs.send('service_njmc1nf', 'template_l8cb34c', {
+                email: customerEmail, order_id: details.id,
+                orders: cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
+                cost: { shipping: shipping.toFixed(2), tax: '0.00', total: orderTotal.toFixed(2) }
+              }).catch(function(err) { console.warn('EmailJS send failed:', err); });
+            }
+            showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
+            cart = []; appliedDiscount = false; window._paypalRendered = false; updateCartUI();
+          });
+        });
+      }
+    }).render(container).then(function() {
+      window._paypalRendered = true;
+    }).catch(function(err) {
+      console.error('PayPal render failed:', err);
+      window._paypalRendered = false;
+    });
+  };
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
   const firebaseConfig = {
     apiKey: "AIzaSyAgTZyCOj8iGztcVlvrfH1bMCT4bMeeLeg",
     authDomain: "dandelion1111-5cff0.firebaseapp.com",
@@ -1341,6 +1413,7 @@ window.addEventListener('load', function() {
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
+  window.db = db;
 
   let authMode = 'login'; // 'login' or 'register'
   let currentUser = null;
@@ -1413,6 +1486,7 @@ window.addEventListener('load', function() {
 
   auth.onAuthStateChanged(user => {
     currentUser = user;
+    window.currentUser = user;
     const icon = document.querySelector('#navAccountIcon i');
     if (icon) icon.style.color = user ? 'var(--pink)' : '';
     updateGreeting(user);
@@ -1452,103 +1526,8 @@ window.addEventListener('load', function() {
       .catch(err => { list.innerHTML = '<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>'; console.error(err); });
   }
 
-  // PayPal Smart Buttons – rendered on demand when cart becomes visible
-  window._paypalRendered = false;
-  window.renderPayPalBtn = function() {
-    if (window._paypalRendered) return;
-    if (!window.paypal) return;
-    var container = document.getElementById('paypal-button-container');
-    if (!container) return;
-    paypal.Buttons({
-      style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
-      createOrder: function(data, actions) {
-        const subtotal = cart.reduce((s, i) => s + i.price, 0);
-        const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
-        const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
-        const total = (subtotal - discountAmount + shipping).toFixed(2);
-        return actions.order.create({
-          purchase_units: [{ amount: { value: total, currency_code: 'EUR' } }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          const subtotal = cart.reduce((s, i) => s + i.price, 0);
-          const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
-          const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
-          const orderTotal = subtotal - discountAmount + shipping;
-          const customerEmail = details.payer && details.payer.email_address
-            ? details.payer.email_address
-            : (currentUser ? currentUser.email : null);
-
-          // Google Ads: conversion event
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', {
-              send_to: 'AW-18318644224/yCf6CJ2xoNMcEICogZ9E',
-              transaction_id: details.id
-            });
-          }
-          // GA4: purchase event
-          if (typeof gtag === 'function') {
-            gtag('event', 'purchase', {
-              transaction_id: details.id,
-              value: orderTotal,
-              currency: 'EUR',
-              shipping: shipping,
-              coupon: appliedDiscount ? 'WILLKOMMEN10' : undefined,
-              items: cart.map(function(item, i) {
-                return {
-                  item_id: 'balloon_' + (item.balloonType || 'latex'),
-                  item_name: item.productName || item.message || 'Personalisierter Ballon',
-                  price: item.price,
-                  quantity: 1,
-                  index: i
-                };
-              })
-            });
-          }
-
-          db.collection('orders').add({
-            userId: currentUser ? currentUser.uid : 'guest',
-            email: customerEmail,
-            items: cart,
-            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
-            total: orderTotal,
-            paypalOrderId: details.id,
-            status: 'paid',
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          }).then(() => {
-            if (customerEmail && typeof emailjs !== 'undefined') {
-              emailjs.send('service_njmc1nf', 'template_l8cb34c', {
-                email: customerEmail,
-                order_id: details.id,
-                orders: cart.map(function(item) {
-                  return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 };
-                }),
-                cost: {
-                  shipping: shipping.toFixed(2),
-                  tax: '0.00',
-                  total: orderTotal.toFixed(2)
-                }
-              }).catch(function(err) {
-                console.warn('EmailJS send failed:', err);
-              });
-            }
-            showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
-            cart = [];
-            appliedDiscount = false;
-            window._paypalRendered = false;
-            updateCartUI();
-          });
-        });
-      }
-    }).render(document.getElementById('paypal-button-container')).then(function() {
-      window._paypalRendered = true;
-    }).catch(function(err) {
-      console.error('PayPal render failed:', err);
-      window._paypalRendered = false;
-    });
-  };
   document.getElementById('footerYear').textContent = new Date().getFullYear();
+  }); // end DOMContentLoaded
 </script>
 
 <!-- Cookie Consent Banner -->
