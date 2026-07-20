@@ -459,10 +459,10 @@
     <h2 data-i18n="ueber_award_title">🏆 Ausgezeichnet: Adventskranz-Wettbewerb 2023</h2>
     <p class="gallery-sub" data-i18n="ueber_award_text">Im Dezember 2023 habe ich mit meinem selbstgestalteten Adventskranz beim Wettbewerb unserer lokalen Zeitung in Mindelheim gewonnen, mit liebevoll gestalteten Nussknacker-Figuren in Pink, Schwarz und Lila. Es war eine riesige Ehre, dass meine Arbeit in der Zeitung vorgestellt wurde! 🌟</p>
     <div class="gallery-grid" style="grid-template-columns: repeat(2, minmax(220px, 320px)); max-width: 700px; margin: 0 auto; justify-content: center;">
-      <div class="gallery-item" onclick="openLightbox('zeitungsartikel-adventskranz-wettbewerb.webp')">
+      <div class="gallery-item" onclick="openLightbox('zeitungsartikel-adventskranz-wettbewerb.webp','Zeitungsartikel über den Adventskranz-Wettbewerb')">
         <img width="1206" height="1268" src="zeitungsartikel-adventskranz-wettbewerb.webp" alt="Zeitungsartikel über den Adventskranz-Wettbewerb" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
       </div>
-      <div class="gallery-item" onclick="openLightbox('gewinner-adventskranz-nussknacker.webp')">
+      <div class="gallery-item" onclick="openLightbox('gewinner-adventskranz-nussknacker.webp','Gewinner-Adventskranz mit Nussknacker-Figuren')">
         <img width="1206" height="1268" src="gewinner-adventskranz-nussknacker.webp" alt="Gewinner-Adventskranz mit Nussknacker-Figuren" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
       </div>
     </div>
@@ -499,8 +499,8 @@
     </div>
   </div>
 
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Bildvorschau">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Schließen">×</button>
     <img id="lightbox-img" src="" alt="Vergrößerte Ansicht des Ballon-Designs">
   </div>
 </div>
@@ -1629,11 +1629,18 @@ window.addEventListener('load', function() {
     var bb = e.target.closest('.step-back-btn');
     if (bb) { showStep(parseInt(bb.dataset.back)); return; }
   });
-  // Keyboard support for step dots
+  // Keyboard support for step dots + Esc closes lightbox/modals
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
       var dot = e.target.closest('.step-dot');
       if (dot) { e.preventDefault(); showStep(parseInt(dot.dataset.step)); }
+    }
+    if (e.key === 'Escape') {
+      if (document.getElementById('lightbox').classList.contains('open')) { closeLightbox(); return; }
+      var pm = document.getElementById('prodModal');
+      if (pm && pm.style.display !== 'none') { closeProdModal && closeProdModal(); return; }
+      var am = document.getElementById('authModal');
+      if (am && am.style.display !== 'none') { closeAuthModal && closeAuthModal(); return; }
     }
   });
 
