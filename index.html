@@ -1465,7 +1465,6 @@ window.addEventListener('load', function() {
       return;
     }
     window._paypalRetries = 0;
-    window._paypalRendered = true;
     paypal.Buttons({
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
       createOrder: function(data, actions) {
@@ -1548,7 +1547,12 @@ window.addEventListener('load', function() {
           });
         });
       }
-    }).render('#paypal-button-container');
+    }).render('#paypal-button-container').then(function() {
+      window._paypalRendered = true;
+    }).catch(function(err) {
+      console.error('PayPal render failed:', err);
+      window._paypalRendered = false;
+    });
   };
   // After all deferred scripts load, trigger PayPal if cart is visible
   window.addEventListener('load', function() {
