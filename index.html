@@ -185,6 +185,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-88K056PN19');
+  // GA4: view_item on page load
+  gtag('event', 'view_item', {
+    currency: 'EUR',
+    value: 32.9,
+    items: [{
+      item_id: 'balloon_personalized',
+      item_name: 'Personalisierter Geschenkballon',
+      price: 32.9,
+      quantity: 1
+    }]
+  });
 </script>
 </head>
 <body>
@@ -1401,6 +1412,26 @@ window.addEventListener('load', function() {
             ? details.payer.email_address
             : (currentUser ? currentUser.email : null);
 
+          // GA4: purchase event
+          if (typeof gtag === 'function') {
+            gtag('event', 'purchase', {
+              transaction_id: details.id,
+              value: orderTotal,
+              currency: 'EUR',
+              shipping: shipping,
+              coupon: appliedDiscount ? 'WILLKOMMEN10' : undefined,
+              items: cart.map(function(item, i) {
+                return {
+                  item_id: 'balloon_' + (item.balloonType || 'latex'),
+                  item_name: item.productName || item.message || 'Personalisierter Ballon',
+                  price: item.price,
+                  quantity: 1,
+                  index: i
+                };
+              })
+            });
+          }
+
           db.collection('orders').add({
             userId: currentUser ? currentUser.uid : 'guest',
             email: customerEmail,
@@ -1425,7 +1456,7 @@ window.addEventListener('load', function() {
                 }
               });
             }
-            alert('Vielen Dank für deine Bestellung! Eine Bestätigungsmail wurde an dich gesendet.');
+            showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
             cart = [];
             appliedDiscount = false;
             window._paypalRendered = false;
