@@ -1454,13 +1454,17 @@ window.addEventListener('load', function() {
 
   // PayPal Smart Buttons – rendered on demand when cart becomes visible
   window._paypalRendered = false;
+  window._paypalRetries = 0;
   window.renderPayPalBtn = function() {
     if (window._paypalRendered) return;
     if (!window.paypal) {
-      // SDK not yet loaded – retry after a short delay
-      setTimeout(window.renderPayPalBtn, 300);
+      if (window._paypalRetries < 30) {
+        window._paypalRetries++;
+        setTimeout(window.renderPayPalBtn, 500);
+      }
       return;
     }
+    window._paypalRetries = 0;
     window._paypalRendered = true;
     paypal.Buttons({
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
@@ -1546,6 +1550,13 @@ window.addEventListener('load', function() {
       }
     }).render('#paypal-button-container');
   };
+  // After all deferred scripts load, trigger PayPal if cart is visible
+  window.addEventListener('load', function() {
+    var cartCard = document.getElementById('cartCard');
+    if (cartCard && cartCard.style.display !== 'none' && !window._paypalRendered) {
+      window.renderPayPalBtn();
+    }
+  });
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 
