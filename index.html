@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="product">
   <meta property="og:title" content="Personalisierter Geschenkballon mit Namen | Dandelion 11:11">
   <meta property="og:description" content="Bubble Ballon personalisiert & Geschenkballon Geburtstag – handgemacht in Deutschland. Ballon mit Namen, Geschenk zur Geburt, Hochzeit. Versand ab 60 € kostenlos.">
   <meta property="og:image" content="https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp">
@@ -1517,13 +1517,15 @@ window.addEventListener('load', function() {
                 email: customerEmail,
                 order_id: details.id,
                 orders: cart.map(function(item) {
-                  return { name: item.name, price: item.price.toFixed(2), units: 1 };
+                  return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 };
                 }),
                 cost: {
                   shipping: shipping.toFixed(2),
                   tax: '0.00',
                   total: orderTotal.toFixed(2)
                 }
+              }).catch(function(err) {
+                console.warn('EmailJS send failed:', err);
               });
             }
             showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
