@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#8e44ad">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="canonical" href="https://www.dandelion1111.de/produktsapca.html">
 <link rel="alternate" hreflang="de" href="https://www.dandelion1111.de/produktsapca.html">
@@ -256,6 +257,10 @@
   <span aria-current="page">Statement Cap</span>
 </nav>
 
+<div style="max-width:1000px;margin:12px auto 0;padding:0 20px;">
+  <a href="kollektionen.html" style="display:inline-block;color:#d63384;text-decoration:none;font-weight:600;font-size:.9rem;">← Zurück zu Kollektionen</a>
+</div>
+
 <div id="main-content" class="product-wrap">
 
   <!-- Gallery -->
@@ -395,6 +400,45 @@
   </div>
 </section>
 
+<style>
+.upsell{background:#fdf0f6;padding:36px 16px 40px;margin-top:0}
+.upsell h2{text-align:center;font-size:1.15rem;font-weight:700;color:#3a2e3f;margin:0 0 24px;letter-spacing:.3px}
+.upsell-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
+.upsell-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(142,68,173,.1);text-align:center;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;display:block}
+.upsell-card:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(142,68,173,.18)}
+.upsell-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.upsell-card-body{padding:12px 10px 14px}
+.upsell-card-body strong{display:block;font-size:.88rem;font-weight:600;color:#3a2e3f;margin-bottom:4px;line-height:1.35}
+.upsell-card-body span{font-size:.85rem;color:#8e44ad;font-weight:700}
+@media(max-width:600px){.upsell-grid{grid-template-columns:repeat(2,1fr)}.upsell-grid .upsell-card:last-child{display:none}}
+</style>
+<section class="upsell" aria-label="Das könnte dir auch gefallen">
+  <h2>Das könnte dir auch gefallen ✨</h2>
+  <div class="upsell-grid">
+    <a class="upsell-card" href="produktballonboxboholuxe.html">
+      <img src="ballon-box-boho-blau-gold.webp" alt="Ballon-Box Boho Luxe" loading="lazy" width="300" height="300">
+      <div class="upsell-card-body">
+        <strong>Ballon-Box Boho Luxe</strong>
+        <span>79,00 €</span>
+      </div>
+    </a>
+    <a class="upsell-card" href="produktferrerogeburtstagsbox.html">
+      <img src="ferrero-geburtstagsbox.webp" alt="Ferrero Geburtstags-Box" loading="lazy" width="300" height="300">
+      <div class="upsell-card-body">
+        <strong>Ferrero Geburtstags-Box</strong>
+        <span>55,00 €</span>
+      </div>
+    </a>
+    <a class="upsell-card" href="produktpilzgnomblumenbox.html">
+      <img src="pilz-gnom-blumenbox.webp" alt="Pilz-Gnom Blumenbox" loading="lazy" width="300" height="300">
+      <div class="upsell-card-body">
+        <strong>Pilz-Gnom Blumenbox</strong>
+        <span>55,00 €</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <footer class="pf">
   <div class="pf-inner">
     <div class="pf-brand">
@@ -472,38 +516,13 @@ document.getElementById('customText').addEventListener('input', updateWaLink);
 })();
 </script>
 
-<!-- Cookie Consent + GA -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:'Poppins',system-ui,sans-serif;font-size:.85rem;line-height:1.55;">
-  <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
-    <div style="flex:1;min-width:220px;">🍪 <strong>Cookies & Datenschutz</strong><br><span style="opacity:.85;">Wir nutzen optionale Dienste für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
-      <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Nur notwendige</button>
-      <button onclick="setCookieConsent('all')" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Alle akzeptieren</button>
-    </div>
-  </div>
-</div>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
 <script>
-(function(){
-  function loadGA(){
-    if(window._gaLoaded)return;window._gaLoaded=true;
-    var s=document.createElement('script');s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
-    document.head.appendChild(s);
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
-    gtag('js',new Date());gtag('config','G-88K056PN19');
-  }
-  function setCookieConsent(level){
-    localStorage.setItem('cookieConsent',level);
-    localStorage.setItem('cookieConsentDate',new Date().toISOString());
-    document.getElementById('cookieBanner').style.display='none';
-    if(level==='all')loadGA();
-  }
-  window.setCookieConsent=setCookieConsent;
-  var consent=localStorage.getItem('cookieConsent');
-  if(consent==='all'){loadGA();}
-  else if(!consent){setTimeout(function(){document.getElementById('cookieBanner').style.display='block';},800);}
-})();
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-88K056PN19');
 </script>
 </body>
 </html>
