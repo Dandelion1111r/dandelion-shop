@@ -149,8 +149,8 @@
 
   /* Gallery carousel */
   .gallery { display:flex; flex-direction:column; gap:10px; }
-  .gallery-carousel { position:relative; border-radius:18px; overflow:hidden; background:linear-gradient(135deg,#fce4f3 0%,#ede7f6 100%); }
-  .gallery-main { width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center center; display:block; }
+  .gallery-carousel { position:relative; border-radius:18px; overflow:hidden; background:#f8f2fb; }
+  .gallery-main { width:100%; aspect-ratio:16/9; object-fit:contain; display:block; }
   .gallery-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.35); color:#fff; border:none; border-radius:50%; width:38px; height:38px; font-size:1.3rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; transition:background .2s; }
   .gallery-nav:hover { background:rgba(0,0,0,0.6); }
   .gallery-nav.prev { left:10px; }
