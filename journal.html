@@ -110,8 +110,8 @@
   .posts { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,340px)); gap:30px; justify-content:start; }
   .post-card { display:block; background:#fff; border-radius:18px; overflow:hidden; text-decoration:none; color:inherit; box-shadow:0 4px 18px rgba(142,68,173,.08); transition:transform .15s ease; }
   .post-card:hover { transform:translateY(-3px); }
-  .post-image { width:100%; aspect-ratio:4/3; background:linear-gradient(135deg,#8e44ad,#d63384); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-  .post-image img { width:100%; height:100%; object-fit:cover; }
+  .post-image { width:100%; aspect-ratio:4/3; background:#f9eef6; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .post-image img { width:100%; height:100%; object-fit:contain; }
   .post-body { padding:24px 26px 28px; }
   .post-tag { font-size:.72rem; text-transform:uppercase; letter-spacing:2px; color:#d63384; font-weight:600; }
   .post-title { font-size:1.3rem; color:#8e44ad; margin:8px 0 10px; font-weight:600; line-height:1.3; }
@@ -278,7 +278,7 @@
             <div class="post-tag" data-i18n="ep3_tag">Ep. 3 · Tennis & Blumen</div>
             <div class="post-title" data-i18n="ep3_title">Wenn Eleganz auf Leidenschaft trifft</div>
             <p class="post-excerpt" data-i18n="ep3_excerpt">Tennis ist nicht nur ein Spiel. Es ist Geduld, Strategie und Vertrauen. Die Geschichte hinter dem Tennisschläger-Blumenstrauß.</p>
-            <span class="post-date">3. August 2026</span>
+            <span class="post-date" data-i18n="ep3_date">13. Juli 2026</span>
             <span class="post-more" data-i18n="read_more">Weiterlesen →</span>
           </div>
         </a>
@@ -288,7 +288,7 @@
             <div class="post-tag" data-i18n="ep4_tag">Ep. 4 · Volleyball & Blumen</div>
             <div class="post-title" data-i18n="ep4_title">Wenn Teamgeist sichtbar wird</div>
             <p class="post-excerpt" data-i18n="ep4_excerpt">Volleyball ist Verbindung. Jeder Aufschlag, jede Annahme, jeder Punkt entsteht miteinander. Die Geschichte hinter dem rosa Blumenball.</p>
-            <span class="post-date">3. August 2026</span>
+            <span class="post-date" data-i18n="ep4_date">20. Juli 2026</span>
             <span class="post-more" data-i18n="read_more">Weiterlesen →</span>
           </div>
         </a>
@@ -298,7 +298,7 @@
             <div class="post-tag" data-i18n="ep5_tag">Ep. 5 · Dog Mom & Liebe</div>
             <div class="post-title" data-i18n="ep5_title">Manche Liebe hat vier Pfoten</div>
             <p class="post-excerpt" data-i18n="ep5_excerpt">Dog Mom zu sein ist keine Beschreibung. Es ist eine Haltung. Eine Geschenkbox für alle, die mit dem Herzen lieben.</p>
-            <span class="post-date">3. August 2026</span>
+            <span class="post-date" data-i18n="ep5_date">27. Juli 2026</span>
             <span class="post-more" data-i18n="read_more">Weiterlesen →</span>
           </div>
         </a>
@@ -372,6 +372,7 @@
         ep3_excerpt: 'Tennis ist nicht nur ein Spiel. Es ist Geduld, Strategie und Vertrauen. Die Geschichte hinter dem Tennisschläger-Blumenstrauß.',
         ep4_tag: 'Ep. 4 · Volleyball & Blumen', ep4_title: 'Wenn Teamgeist sichtbar wird',
         ep4_excerpt: 'Volleyball ist Verbindung. Jeder Aufschlag, jede Annahme, jeder Punkt entsteht miteinander. Die Geschichte hinter dem rosa Blumenball.',
+        ep3_date: '13. Juli 2026', ep4_date: '20. Juli 2026', ep5_date: '27. Juli 2026',
         ep5_tag: 'Ep. 5 · Dog Mom & Liebe', ep5_title: 'Manche Liebe hat vier Pfoten',
         ep5_excerpt: 'Dog Mom zu sein ist keine Beschreibung. Es ist eine Haltung. Eine Geschenkbox für alle, die mit dem Herzen lieben.',
         s2_staffel: 'Staffel 2', s2_title: 'Die Sprache der Blumen',
@@ -397,6 +398,7 @@
         ep3_excerpt: 'Tenisul nu este doar un joc. Este răbdare, strategie și încredere. Povestea din spatele buchetului cu rachetă de tenis.',
         ep4_tag: 'Ep. 4 · Volei & Flori', ep4_title: 'Când spiritul de echipă devine vizibil',
         ep4_excerpt: 'Voleiul este conexiune. Fiecare serviciu, fiecare preluare, fiecare punct apare împreună. Povestea din spatele mingii de flori roz.',
+        ep3_date: '13 iulie 2026', ep4_date: '20 iulie 2026', ep5_date: '27 iulie 2026',
         ep5_tag: 'Ep. 5 · Dog Mom & Iubire', ep5_title: 'Unele iubiri au patru labe',
         ep5_excerpt: 'A fi Dog Mom nu este o descriere. Este o atitudine. O cutie cadou pentru toți cei care iubesc din inimă.',
         s2_staffel: 'Sezonul 2', s2_title: 'Limbajul florilor',
