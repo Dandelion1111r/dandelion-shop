@@ -1215,25 +1215,9 @@
     <p style="font-size:var(--fs-sm);letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:8px;">@dandelion_11.11</p>
     <h2 style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Folge uns auf Instagram 📸</h2>
     <p style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:32px;">Neueste Kreationen, Behind-the-Scenes & besondere Momente</p>
-    <!-- BEHOLD WIDGET — nach Einrichtung: Widget-ID unten eintragen -->
-    <div id="behold-widget" style="min-height:280px;display:flex;align-items:center;justify-content:center;">
-      <!-- Behold.so widget wird hier geladen, sobald Widget-ID eingetragen ist -->
-      <div style="color:var(--text-light);font-size:var(--fs-sm);">
-        <i class="fab fa-instagram" style="font-size:2rem;color:#C13584;display:block;margin-bottom:12px;"></i>
-        <a href="https://www.instagram.com/dandelion_11.11/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border-radius:50px;padding:12px 28px;font-weight:600;font-size:var(--fs-base);text-decoration:none;">
-          <i class="fab fa-instagram"></i> @dandelion_11.11 auf Instagram folgen
-        </a>
-      </div>
-    </div>
+    <behold-widget feed-id="iOFEEFArCI3zLXmbj53S"></behold-widget>
     <script>
-      // Behold.so Instagram Widget
-      // SETUP: 1. Erstelle kostenloses Konto auf behold.so
-      //         2. Verbinde @dandelion_11.11
-      //         3. Erstelle Widget und kopiere die Widget-ID
-      //         4. Ersetze DEINE_WIDGET_ID unten mit deiner echten ID
-      var beholdContainer = document.getElementById('behold-widget');
-      beholdContainer.innerHTML = '<behold-widget feed-id="iOFEEFArCI3zLXmbj53S"></behold-widget>';
-      if(!window.__bhldScript){window.__bhldScript=true;var s=document.createElement('script');s.type='module';s.src='https://w.behold.so/widget.js';document.head.appendChild(s);}
+      (()=>{if(window.__bhldScript)return;window.__bhldScript=true;const d=document,s=d.createElement('script');s.type='module';s.src='https://w.behold.so/widget.js';setTimeout(()=>{d.head.append(s);},0);})();
     </script>
   </div>
 </div>
