@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="Personalisierter Ballon Bayern | Ballongeschenk Bad Wörishofen | Dandelion 11:11">
   <meta name="twitter:description" content="Personalisierter Ballon & Ballongeschenk in Bad Wörishofen, Bayern, handgemacht für Geburtstag, Hochzeit, Babyparty.">
   <meta name="twitter:image" content="https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com https://www.google.com https://*.paypal.com https://www.paypalobjects.com https://www.clarity.ms https://www.tiktok.com https://cdn.jsdelivr.net https://*.behold.so https://*.list-manage.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://www.google-analytics.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://identitytoolkit.googleapis.com https://*.clarity.ms https://c.bing.com https://*.paypal.com https://www.paypalobjects.com https://*.list-manage.com https://*.behold.so; frame-src https://*.paypal.com https://www.paypalobjects.com https://www.google.com https://www.tiktok.com; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com https://www.google.com https://*.paypal.com https://www.paypalobjects.com https://www.clarity.ms https://www.tiktok.com https://cdn.jsdelivr.net https://*.behold.so https://*.list-manage.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://www.google-analytics.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://identitytoolkit.googleapis.com https://*.clarity.ms https://c.bing.com https://*.paypal.com https://www.paypalobjects.com https://*.list-manage.com https://*.behold.so https://*.sibforms.com; frame-src https://*.paypal.com https://www.paypalobjects.com https://www.google.com https://www.tiktok.com https://*.sibforms.com; object-src 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="jJfggVSdV3UxANKcTcxJZ-EydHirRuQyBkdAx904UMY" />
@@ -1386,13 +1386,8 @@ window.addEventListener('load', function() {
   }
 });
 
-// ─── Mailchimp Newsletter Subscribe ───────────────────────────────────────────
-// SETUP: 1. Creează cont gratuit pe mailchimp.com
-//         2. Audience → Signup forms → Embedded forms
-//         3. Copiază acțiunea formularului (action URL), arată ca:
-//            https://dandelion1111.us1.list-manage.com/subscribe/post?u=xxx&id=xxx
-//         4. Înlocuiește valoarea de mai jos cu URL-ul tău real
-var MAILCHIMP_ACTION_URL = ''; // ex: 'https://dandelion1111.us1.list-manage.com/subscribe/post?u=xxx&id=xxx'
+// ─── Brevo Newsletter Subscribe ───────────────────────────────────────────────
+var BREVO_FORM_URL = 'https://315e7f8f.sibforms.com/serve/MUIFABr_i_N4Tw_xh2o6bpfM5a_SIS-gD5kwRBom_VHdo1lsUTIsvnHPHsUzZLdyG7_d1aLjvpUxLqUfsqZzV0Sdm3Rdr9akrL3q39SS6zcAYXs1Oquh7WdgkZQhDwquvQTxlVq4GJCTtZZn-_E0OHcID8xI5MHlhuLpM7BEKh2iXeUv4iMvRhIBdOj5DrFqOcH67wUJemEt12ErCw==';
 
 window.subscribeNewsletter = function() {
   var email = document.getElementById('newsletterEmail').value.trim();
@@ -1402,16 +1397,45 @@ window.subscribeNewsletter = function() {
   }
   document.getElementById('newsletterEmail').style.borderColor = '#27ae60';
 
-  if (MAILCHIMP_ACTION_URL) {
-    // Mailchimp JSONP subscribe (fără server necesar)
-    var jsonpUrl = MAILCHIMP_ACTION_URL.replace('/post?', '/post-json?') + '&EMAIL=' + encodeURIComponent(email) + '&c=mailchimpCallback_dandelion';
-    window.mailchimpCallback_dandelion = function(data) {
-      // succes sau deja abonat — ambele sunt ok
-    };
-    var s = document.createElement('script');
-    s.src = jsonpUrl;
-    document.head.appendChild(s);
-  }
+  // Submit to Brevo via hidden iframe (no CORS, no server needed)
+  var iframe = document.createElement('iframe');
+  iframe.name = 'brevo_submit_frame';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = BREVO_FORM_URL;
+  form.target = 'brevo_submit_frame';
+
+  var emailInput = document.createElement('input');
+  emailInput.type = 'hidden';
+  emailInput.name = 'EMAIL';
+  emailInput.value = email;
+  form.appendChild(emailInput);
+
+  // honeypot anti-spam (must be empty)
+  var honeypot = document.createElement('input');
+  honeypot.type = 'hidden';
+  honeypot.name = 'email_address_check';
+  honeypot.value = '';
+  form.appendChild(honeypot);
+
+  var localeInput = document.createElement('input');
+  localeInput.type = 'hidden';
+  localeInput.name = 'locale';
+  localeInput.value = 'de';
+  form.appendChild(localeInput);
+
+  var htmlType = document.createElement('input');
+  htmlType.type = 'hidden';
+  htmlType.name = 'html_type';
+  htmlType.value = 'simple';
+  form.appendChild(htmlType);
+
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(function(){ document.body.removeChild(form); document.body.removeChild(iframe); }, 3000);
 
   localStorage.setItem('newsletterSubscribed', '1');
   document.getElementById('newsletterMsg').style.display = 'block';
