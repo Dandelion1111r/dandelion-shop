@@ -1231,19 +1231,9 @@
       //         2. Verbinde @dandelion_11.11
       //         3. Erstelle Widget und kopiere die Widget-ID
       //         4. Ersetze DEINE_WIDGET_ID unten mit deiner echten ID
-      var BEHOLD_WIDGET_ID = ''; // z.B. 'abc12345'
-      if (BEHOLD_WIDGET_ID) {
-        var beholdContainer = document.getElementById('behold-widget');
-        beholdContainer.innerHTML = '';
-        var beholdScript = document.createElement('script');
-        beholdScript.src = 'https://w.behold.so/widget.js';
-        beholdScript.defer = true;
-        beholdScript.setAttribute('type', 'module');
-        document.head.appendChild(beholdScript);
-        var beholdEl = document.createElement('behold-widget');
-        beholdEl.setAttribute('feed-id', BEHOLD_WIDGET_ID);
-        beholdContainer.appendChild(beholdEl);
-      }
+      var beholdContainer = document.getElementById('behold-widget');
+      beholdContainer.innerHTML = '<behold-widget feed-id="iOFEEFArCI3zLXmbj53S"></behold-widget>';
+      if(!window.__bhldScript){window.__bhldScript=true;var s=document.createElement('script');s.type='module';s.src='https://w.behold.so/widget.js';document.head.appendChild(s);}
     </script>
   </div>
 </div>
