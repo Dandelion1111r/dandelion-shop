@@ -1335,7 +1335,12 @@
     <input type="email" id="newsletterEmail" placeholder="Deine E-Mail-Adresse" style="width:100%;padding:12px 14px;border:1.5px solid #e0d0f0;border-radius:10px;font-size:var(--fs-base);margin-bottom:10px;box-sizing:border-box;font-family:inherit;outline:none;" />
     <button onclick="subscribeNewsletter()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Jetzt 10% sichern 🎁</button>
     <button data-i18n="discount_btn" onclick="closeDiscountPopup()" style="width:100%;padding:10px;background:transparent;color:var(--text-light);border:none;font-size:.85rem;cursor:pointer;text-decoration:underline;">Nein danke, ich zahle lieber voll</button>
-    <div id="newsletterMsg" style="display:none;margin-top:8px;font-size:.85rem;color:#27ae60;font-weight:600;">✅ Danke! Dein Code: <strong>WILLKOMMEN10</strong></div>
+    <div id="newsletterMsg" style="display:none;margin-top:12px;background:#f0fff4;border:2px solid #27ae60;border-radius:12px;padding:14px;text-align:center;">
+      <div style="font-size:1rem;color:#27ae60;font-weight:700;margin-bottom:6px;">✅ Danke für deine Anmeldung!</div>
+      <div style="font-size:.9rem;color:var(--text-light);margin-bottom:8px;">Dein persönlicher Rabattcode:</div>
+      <div style="font-size:1.4rem;font-weight:800;color:var(--purple);letter-spacing:3px;background:#fff;border:2px dashed var(--purple);border-radius:8px;padding:8px 16px;display:inline-block;">DANDELION10</div>
+      <div style="font-size:.8rem;color:var(--text-light);margin-top:6px;">Einfach beim Checkout eingeben 🎁</div>
+    </div>
   </div>
 </div>
 
@@ -1457,7 +1462,7 @@ window.subscribeNewsletter = function() {
             gtag('event', 'conversion', { send_to: 'AW-18318644224/yCf6CJ2xoNMcEICogZ9E', transaction_id: details.id });
             gtag('event', 'purchase', {
               transaction_id: details.id, value: orderTotal, currency: 'EUR', shipping: shipping,
-              coupon: appliedDiscount ? 'WILLKOMMEN10' : undefined,
+              coupon: appliedDiscount ? 'DANDELION10' : undefined,
               items: cart.map(function(item, i) {
                 return { item_id: 'balloon_' + (item.balloonType || 'latex'), item_name: item.productName || item.message || 'Personalisierter Ballon', price: item.price, quantity: 1, index: i };
               })
