@@ -314,9 +314,9 @@
           <li><a href="#" onclick="showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="ueber-uns.html" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
       <li style="list-style:none;"><a href="journal.html" id="nav-journal" class="nav-page-link">Dandelion Journal</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li style="list-style:none;"><a href="kontakt.html" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:24px;">
       <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;" role="button" aria-label="Suche öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()"></i>
@@ -1225,11 +1225,53 @@
   </div>
 </div>
 
+<!-- JOURNAL PREVIEW -->
+<div style="background:#fdf6fb;padding:56px 20px 60px;border-top:1px solid #f0e6f8;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.75rem;color:#d63384;font-weight:600;margin-bottom:8px;">✨ Dandelion Journal</p>
+      <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;color:#3a2e3f;margin:0 0 10px;">Geschichten, die bewegen 🌼</h2>
+      <p style="color:#7a6880;font-size:.95rem;max-width:520px;margin:0 auto;">Hinter jedem Geschenk steckt ein Moment. Hier erzählen wir davon.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:36px;">
+      <a href="journal-mama-ballon-box-boho.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="ballon-box-boho-blau-gold.webp" alt="Mama Ballon Box Boho Blau Gold" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">3. August 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Für die Mama, die immer da war</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Eine Ballon Box im Boho Luxe-Stil — Geschenkidee für einen besonderen Muttertag.</p>
+        </div>
+      </a>
+      <a href="journal-lamborghini-vater-geschenk.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="lamborghini-modellauto-bilderrahmen.webp" alt="Lamborghini Geschenk Vater" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">2. August 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Für den Vater, der mehr zeigt als er sagt</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Ein Lamborghini-Geschenk, das die Leidenschaft eines Autoliebhabers feiert.</p>
+        </div>
+      </a>
+      <a href="journal-dog-mom-geschenkbox.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="hunde-geschenkbox-dogmom-1.webp" alt="Dog Mom Geschenkbox" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">27. Juli 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Manche Liebe hat vier Pfoten</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Die perfekte Geschenkbox für Dog Moms — liebevoll zusammengestellt.</p>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;">
+      <a href="journal.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;">
+        Alle Geschichten lesen →
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- REVIEWS -->
 <div class="reviews-section">
   <h2 class="section-title" data-i18n-html="reviews_title">Was unsere Kunden <span>sagen</span> 💬</h2>
   <div style="text-align:center;margin-bottom:20px;">
-    <a href="https://www.google.com/search?q=Dandelion+11:11+Bad+Wörishofen+Bewertungen" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e0d0f0;border-radius:50px;padding:9px 20px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+    <a href="https://www.google.com/maps/search/Dandelion+11:11+Bad+W%C3%B6rishofen" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e0d0f0;border-radius:50px;padding:9px 20px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
       <span style="color:#f4b400;font-size:1rem;">★★★★★</span> 4.9/5 · Alle Google-Bewertungen lesen →
     </a>
   </div>
@@ -1293,9 +1335,9 @@
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
-      <a href="#" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
+      <a href="ueber-uns.html" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
       <a href="journal.html">Dandelion Journal</a>
-      <a href="#" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
+      <a href="kontakt.html" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
       <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
