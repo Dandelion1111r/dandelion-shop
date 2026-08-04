@@ -314,9 +314,9 @@
           <li><a href="#" onclick="showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="ueber-uns.html" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
       <li style="list-style:none;"><a href="journal.html" id="nav-journal" class="nav-page-link">Dandelion Journal</a></li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li style="list-style:none;"><a href="kontakt.html" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:24px;">
       <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;" role="button" aria-label="Suche öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()"></i>
@@ -765,6 +765,47 @@
   </div>
 </div>
 
+<!-- ═══ COLLECTIONS SHOWCASE ═══ -->
+<div style="background:#fff;padding:52px 20px 56px;border-top:1px solid #f0e6f8;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:#d63384;font-weight:600;margin-bottom:8px;">🎈 Kollektionen</p>
+      <h2 style="font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700;color:#3a2e3f;margin:0 0 10px;" data-i18n-html="koll_section_title">Für jeden Anlass <span style="color:var(--purple);">das perfekte Geschenk</span></h2>
+      <p style="color:#a98aab;font-size:.92rem;max-width:480px;margin:0 auto;" data-i18n="koll_section_sub">Handgefertigte Ballons für Geburtstage, Hochzeiten, Babypartys und mehr.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px;">
+      <a href="geburtstag.html" style="background:linear-gradient(135deg,#fff5fb,#fde8f5);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:2.4rem;margin-bottom:10px;">🎂</div>
+        <div style="font-weight:700;color:var(--purple);font-size:.95rem;margin-bottom:4px;" data-i18n="filter_geburtstag">Geburtstag</div>
+        <div style="font-size:.78rem;color:#a98aab;">Personalisierte Ballons & Sets</div>
+      </a>
+      <a href="hochzeit.html" style="background:linear-gradient(135deg,#fdf8ff,#f5eaff);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;display:block;border:1px solid #e8d4f8;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(142,68,173,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:2.4rem;margin-bottom:10px;">💍</div>
+        <div style="font-weight:700;color:var(--purple);font-size:.95rem;margin-bottom:4px;" data-i18n="filter_hochzeit">Hochzeit</div>
+        <div style="font-size:.78rem;color:#a98aab;">Romantische Geschenkideen</div>
+      </a>
+      <a href="babyparty.html" style="background:linear-gradient(135deg,#f0f8ff,#e4f4ff);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;display:block;border:1px solid #c9e8fa;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(41,128,185,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:2.4rem;margin-bottom:10px;">👶</div>
+        <div style="font-weight:700;color:#2980b9;font-size:.95rem;margin-bottom:4px;" data-i18n="filter_babyparty">Babyparty</div>
+        <div style="font-size:.78rem;color:#a98aab;">Gender Reveal & Geburt</div>
+      </a>
+      <a href="fussball.html" style="background:linear-gradient(135deg,#f0fff4,#e4fced);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;display:block;border:1px solid #c3f0d0;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(39,174,96,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:2.4rem;margin-bottom:10px;">⚽</div>
+        <div style="font-weight:700;color:#27ae60;font-size:.95rem;margin-bottom:4px;" data-i18n="filter_fussball">Fußball</div>
+        <div style="font-size:.78rem;color:#a98aab;">Sport & Leidenschaft</div>
+      </a>
+      <a href="produktsapca.html" style="background:linear-gradient(135deg,#fffbf0,#fef4d0);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;color:inherit;display:block;border:1px solid #f5e4a0;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(230,176,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-size:2.4rem;margin-bottom:10px;">🧢</div>
+        <div style="font-weight:700;color:#d4a017;font-size:.95rem;margin-bottom:4px;">Statement Caps</div>
+        <div style="font-size:.78rem;color:#a98aab;">Trendy & personalisiert</div>
+      </a>
+    </div>
+    <div style="text-align:center;">
+      <a href="#" onclick="showPage('kollektionen');return false;" style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--purple);color:var(--purple);padding:10px 26px;border-radius:50px;font-weight:600;font-size:.88rem;text-decoration:none;" data-i18n="nav_all_koll">Alle ansehen →</a>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ PRODUCT AREA ═══ -->
 <div class="product-area">
 
@@ -1037,6 +1078,27 @@
         <div class="secure-item"><i class="fas fa-university"></i> <span data-i18n="bank_transfer">Banküberweisung</span></div>
         <div class="secure-item"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp_support_label">WhatsApp-Support</span></div>
       </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-top:12px;font-size:.78rem;color:#166534;line-height:1.6;">
+        ℹ️ <strong data-i18n="payment_how_title">So funktioniert die Zahlung:</strong> <span data-i18n="payment_how_text">Du sendest deine Bestellung über WhatsApp — wir bestätigen und schicken dir die Zahlungsdetails. Du kannst bequem per <strong>PayPal</strong> oder <strong>Banküberweisung</strong> bezahlen.</span>
+      </div>
+      <!-- Upsell: Weitere Produkte entdecken -->
+      <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);">
+        <p style="font-size:.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">✨ <span data-i18n="upsell_title">Das könnte dir auch gefallen</span></p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <a href="geburtstag.html" style="background:#f9eef6;border-radius:12px;padding:12px 10px;text-align:center;text-decoration:none;color:var(--text);display:block;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(142,68,173,.15)'" onmouseout="this.style.boxShadow='none'">
+            <div style="font-size:1.6rem;">🎂</div>
+            <div style="font-size:.72rem;font-weight:600;color:var(--purple);margin-top:4px;" data-i18n="filter_geburtstag">Geburtstag</div>
+          </a>
+          <a href="hochzeit.html" style="background:#f9eef6;border-radius:12px;padding:12px 10px;text-align:center;text-decoration:none;color:var(--text);display:block;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(142,68,173,.15)'" onmouseout="this.style.boxShadow='none'">
+            <div style="font-size:1.6rem;">💍</div>
+            <div style="font-size:.72rem;font-weight:600;color:var(--purple);margin-top:4px;" data-i18n="filter_hochzeit">Hochzeit</div>
+          </a>
+          <a href="babyparty.html" style="background:#f9eef6;border-radius:12px;padding:12px 10px;text-align:center;text-decoration:none;color:var(--text);display:block;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(142,68,173,.15)'" onmouseout="this.style.boxShadow='none'">
+            <div style="font-size:1.6rem;">👶</div>
+            <div style="font-size:.72rem;font-weight:600;color:var(--purple);margin-top:4px;" data-i18n="filter_babyparty">Babyparty</div>
+          </a>
+        </div>
+      </div>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-top:14px;display:flex;flex-direction:column;gap:10px;">
         <p style="font-size:var(--fs-sm);color:var(--text);margin:0;" data-i18n="local_delivery_note">📍 Wohnst du in der Nähe von Bad Wörishofen? Dann liefere ich deinen Ballon gerne persönlich, auf Wunsch sogar mit einer handgeschriebenen Grußkarte vom Schenkenden.</p>
         <p style="font-size:var(--fs-sm);color:var(--text);margin:0;" data-i18n="damage_note">📦 Sollte der Ballon beschädigt ankommen, schick uns einfach ein Foto über WhatsApp, wir finden gemeinsam eine schnelle Lösung.</p>
@@ -1225,11 +1287,53 @@
   </div>
 </div>
 
+<!-- JOURNAL PREVIEW -->
+<div style="background:#fdf6fb;padding:56px 20px 60px;border-top:1px solid #f0e6f8;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.75rem;color:#d63384;font-weight:600;margin-bottom:8px;">✨ Dandelion Journal</p>
+      <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;color:#3a2e3f;margin:0 0 10px;">Geschichten, die bewegen 🌼</h2>
+      <p style="color:#7a6880;font-size:.95rem;max-width:520px;margin:0 auto;">Hinter jedem Geschenk steckt ein Moment. Hier erzählen wir davon.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:36px;">
+      <a href="journal-mama-ballon-box-boho.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="ballon-box-boho-blau-gold.webp" alt="Mama Ballon Box Boho Blau Gold" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">3. August 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Für die Mama, die immer da war</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Eine Ballon Box im Boho Luxe-Stil — Geschenkidee für einen besonderen Muttertag.</p>
+        </div>
+      </a>
+      <a href="journal-lamborghini-vater-geschenk.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="lamborghini-modellauto-bilderrahmen.webp" alt="Lamborghini Geschenk Vater" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">2. August 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Für den Vater, der mehr zeigt als er sagt</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Ein Lamborghini-Geschenk, das die Leidenschaft eines Autoliebhabers feiert.</p>
+        </div>
+      </a>
+      <a href="journal-dog-mom-geschenkbox.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="background:#f3e6f9;aspect-ratio:16/9;overflow:hidden;"><img src="hunde-geschenkbox-dogmom-1.webp" alt="Dog Mom Geschenkbox" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>
+        <div style="padding:20px;">
+          <span style="font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#d63384;font-weight:600;">27. Juli 2026</span>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#8e44ad;margin:6px 0 8px;line-height:1.35;">Manche Liebe hat vier Pfoten</h3>
+          <p style="font-size:.88rem;color:#7a6880;line-height:1.6;margin:0;">Die perfekte Geschenkbox für Dog Moms — liebevoll zusammengestellt.</p>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;">
+      <a href="journal.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;">
+        Alle Geschichten lesen →
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- REVIEWS -->
 <div class="reviews-section">
   <h2 class="section-title" data-i18n-html="reviews_title">Was unsere Kunden <span>sagen</span> 💬</h2>
   <div style="text-align:center;margin-bottom:20px;">
-    <a href="https://www.google.com/search?q=Dandelion+11:11+Bad+Wörishofen+Bewertungen" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e0d0f0;border-radius:50px;padding:9px 20px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+    <a href="https://www.google.com/maps/search/Dandelion+11:11+Bad+W%C3%B6rishofen" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e0d0f0;border-radius:50px;padding:9px 20px;font-size:var(--fs-sm);font-weight:600;color:var(--purple);text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
       <span style="color:#f4b400;font-size:1rem;">★★★★★</span> 4.9/5 · Alle Google-Bewertungen lesen →
     </a>
   </div>
@@ -1293,9 +1397,9 @@
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
-      <a href="#" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
+      <a href="ueber-uns.html" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
       <a href="journal.html">Dandelion Journal</a>
-      <a href="#" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
+      <a href="kontakt.html" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
       <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
