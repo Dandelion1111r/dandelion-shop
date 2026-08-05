@@ -98,8 +98,8 @@
 
     /* ── Header ── */
     header {
-      background: var(--white);
-      border-bottom: 2px solid var(--border);
+      background: linear-gradient(135deg,#fdeef7,#f9e4f1);
+      border-bottom: 1px solid var(--border);
       height: 175px;
       display: flex;
       align-items: center;
@@ -120,10 +120,10 @@
     }
     .logo-wrap { position: relative; flex-shrink: 0; }
     .logo-wrap img { height: 155px; width: auto; display: block; }
-    .nav-links { display: flex; flex-direction: row; list-style: none; gap: 28px; padding: 0; margin: 0; margin-left: auto; }
+    .nav-links { display: flex; flex-direction: row; list-style: none; gap: 16px; padding: 0; margin: 0; margin-left: auto; }
     .nav-links li { list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; padding: 4px 0; }
-    .nav-links a:hover, .nav-links a.active { color: var(--pink); border-bottom: 2px solid var(--pink); }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.88rem; transition: color 0.2s; padding: 4px 0; }
+    .nav-links a:hover, .nav-links a.active-nav { color: var(--pink); }
 
     /* ── Hero ── */
     .hero {
@@ -184,8 +184,8 @@
 
     .product-img-wrap {
       position: relative;
-      background: linear-gradient(135deg, #fce4f3, #ede7f6);
-      aspect-ratio: 1 / 1;
+      background: #f9f0fc;
+      aspect-ratio: 3 / 4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -194,7 +194,7 @@
     .product-img-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
     .product-img-wrap .no-img {
@@ -324,6 +324,17 @@
       border: 2px solid var(--pink);
     }
 
+    .hamburger { display:none; background:none; border:none; padding:0; color:inherit; cursor:pointer; line-height:1; font-size:1.4rem; }
+    @media(max-width:768px){
+      .nav-inner { height:auto; min-height:0; padding:10px 16px; position:relative; }
+      .logo-wrap img { height:56px; object-fit:cover; object-position:left center; margin-left:-2px; }
+      .nav-links { display:none!important; flex-direction:column!important; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:200; }
+      .nav-links.open { display:flex!important; }
+      .nav-links li { width:100%; }
+      .nav-links a { display:block; padding:14px 16px; border-top:1px solid var(--border); }
+      .hamburger { display:block; }
+    }
+
     /* ── Mobile ── */
     @media (max-width: 600px) {
       header { height: auto; padding: 12px 0; }
@@ -367,13 +378,16 @@
         <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11">
       </a>
     </div>
-    <ul class="nav-links" id="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:28px;padding:0;margin:0;margin-left:auto;">
-      <li style="list-style:none;"><a href="index.html">Shop</a></li>
-      <li style="list-style:none;"><a href="kollektionen.html" class="active">Kollektionen</a></li>
-      <li style="list-style:none;"><a href="index.html?page=ueberuns">Über uns</a></li>
-      <li style="list-style:none;"><a href="#">Kontakt</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="kollektionen.html" class="active-nav">Kollektionen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="journal.html">Dandelion Journal</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <div class="nav-icons">
+    <div class="nav-icons" style="display:flex;gap:18px;font-size:1rem;color:var(--text);margin-left:auto;">
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-search"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
