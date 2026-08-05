@@ -248,23 +248,46 @@
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-<nav class="p-nav" aria-label="Hauptnavigation">
-  <div class="ni">
-    <a class="logo-a" href="index.html"><img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" height="44" width="44"></a>
-    <ul class="nl" id="p-nav-links">
-      <li><a href="kollektionen.html">Kollektionen</a></li>
-      <li><a href="geburtstag.html">Geburtstag</a></li>
-      <li><a href="hochzeit.html">Hochzeit</a></li>
-      <li><a href="babyparty.html">Babyparty</a></li>
-      <li><a href="journal.html">Journal</a></li>
+<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 60 € kostenlos | Persönliche Lieferung in der Region</div>
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons & Geschenke für jeden Anlass</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
+</div>
+<header>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <a href="index.html"><img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11"></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li style="display:flex;gap:6px;align-items:center;">
+        <span onclick="navSetLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
+        <span onclick="navSetLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
+      </li>
+      <li><a href="index.html">Shop</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="kollektionen.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+        </ul>
+      </li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="journal.html">Dandelion Journal</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <a class="cart-a" href="index.html" title="Warenkorb" aria-label="Warenkorb">
-      <i class="fas fa-shopping-bag"></i>
-      <span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span>
-    </a>
-    <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="p-nav-links" onclick="var nl=document.getElementById('p-nav-links');var o=nl.classList.toggle('open');this.setAttribute('aria-expanded',o);"><i class="fas fa-bars"></i></button>
+    <div class="nav-icons">
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-search"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
+      <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+    </div>
   </div>
-</nav>
+</header>
 
 <nav class="breadcrumb" aria-label="Brotkrumennavigation">
   <a href="index.html">Startseite</a><span aria-hidden="true">›</span>
