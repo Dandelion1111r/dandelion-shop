@@ -94,7 +94,7 @@
   .more-title { color:#8e44ad; font-weight:600; font-size:1rem; margin-bottom:4px; }
   .more-excerpt { font-size:.85rem; color:#5a4a60; }
   @media (max-width:480px) { .wrap { padding:36px 16px 70px; } .more-card { padding:16px; gap:14px; } }
-  :root { --purple:#8e44ad; --pink:#d63384; --text:#3a2e3f; --text-light:#a98aab; --border:#f1e1f0; --fs-xs:.72rem; --fs-sm:.85rem; --fs-md:1rem; --fs-lg:1.1rem; }
+  :root { --purple:#8e44ad; --pink:#d63384; --text:#2d2d2d; --text-light:#a98aab; --border:#f1e1f0; --fs-xs:.72rem; --fs-sm:.85rem; --fs-md:1rem; --fs-lg:1.1rem; }
   .topbar { background:linear-gradient(90deg,var(--purple),var(--pink)); color:#fff; text-align:center; padding:10px 20px 12px; }
   .topbar-brand { font-size:var(--fs-lg); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
   .topbar-divider { width:120px; height:1px; background:rgba(255,255,255,0.35); margin:0 auto 8px; }
@@ -132,19 +132,17 @@
     .nav-icons { gap:16px; }
     .hamburger { display:block; font-size:1.4rem; }
   }
-  footer { background:linear-gradient(135deg,#2d1b69,#5b1c5a); color:rgba(255,255,255,.8); padding:50px 30px 24px; margin-top:60px; }
-  .footer-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:40px; }
-  .footer-brand div.brand-name { font-size:1.3rem; font-weight:700; letter-spacing:2px; color:#fff; margin-bottom:12px; }
-  .footer-brand p { font-size:.9rem; line-height:1.65; }
-  .footer-col h4 { color:#fff; font-size:.95rem; font-weight:600; margin-bottom:14px; }
-  .footer-col a { display:block; font-size:.88rem; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:8px; }
-  .footer-col a:hover { color:#f3a6c6; }
-  .footer-bottom { max-width:1300px; margin:0 auto; border-top:1px solid rgba(255,255,255,.1); padding-top:20px; display:flex; justify-content:space-between; align-items:center; font-size:.88rem; flex-wrap:wrap; gap:10px; }
-  .social-links { display:flex; gap:14px; }
-  .social-links a { color:rgba(255,255,255,.6); font-size:1.1rem; text-decoration:none; }
-  @media (max-width:768px) { .footer-inner { grid-template-columns:1fr 1fr; } }
-  @media (max-width:480px) { .footer-inner { grid-template-columns:1fr; } }
-  .wa-fab { position:fixed; bottom:20px; right:20px; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,0.45); z-index:500; color:#fff; font-size:1.6rem; text-decoration:none; }
+  footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;font-family:'Poppins',sans-serif;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
+  .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
+  .footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;margin-bottom:8px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.5);}
+  .social-links{display:flex;gap:16px;}
+  .social-links a{color:rgba(255,255,255,.6);font-size:1.1rem;text-decoration:none;}
+  .social-links a:hover{color:#fff;}
+  .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
 </style>
 </head>
 <body>
@@ -278,9 +276,9 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="brand-name">✨ Dandelion 11:11 ✨</div>
-      <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+    <div>
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p style="font-size:.9rem;line-height:1.65;opacity:.75;margin-top:8px;">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
@@ -289,26 +287,30 @@
       <a href="hochzeit.html">Hochzeit</a>
       <a href="babyparty.html">Babyparty</a>
       <a href="fussball.html">Fußball</a>
+      <a href="kollektionen.html">Alle Kollektionen</a>
     </div>
     <div class="footer-col">
       <h4>Info</h4>
-      <a href="journal.html">Journal</a>
       <a href="ueber-uns.html">Über uns</a>
+      <a href="journal.html">Dandelion Journal</a>
       <a href="kontakt.html">Kontakt</a>
-      <a href="datenschutz.html">Datenschutz</a>
       <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Dandelion 11:11 · Bad Wörishofen</span>
+    <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
     <div class="social-links">
-      <a href="https://www.instagram.com/dandelion_11.11/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@raluca.jidvian" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
 </footer>
-
-<a class="wa-fab" href="https://wa.me/4917647799101" aria-label="WhatsApp Chat">💬</a>
+<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" class="wa-fab" rel="noopener">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-88K056PN19');</script>
