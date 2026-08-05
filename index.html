@@ -317,9 +317,9 @@
           <li><a href="#" onclick="showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
-      <li style="list-style:none;"><a href="ueber-uns.html" onclick="showPage('ueberuns');this.closest('.nav-links').classList.remove('open');return false;" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="ueber-uns.html" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
       <li style="list-style:none;"><a href="journal.html" id="nav-journal" class="nav-page-link">Dandelion Journal</a></li>
-      <li style="list-style:none;"><a href="kontakt.html" onclick="showPage('kontakt');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li style="list-style:none;"><a href="kontakt.html" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-icons" style="margin-left:24px;">
       <i class="fas fa-search" onclick="toggleSearchBar()" style="cursor:pointer;" role="button" aria-label="Suche öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()"></i>
@@ -1380,9 +1380,9 @@
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer_info_title">Info</h4>
-      <a href="ueber-uns.html" onclick="showPage('ueberuns');return false;" data-i18n="footer_link_ueber">Über uns</a>
+      <a href="ueber-uns.html" data-i18n="footer_link_ueber">Über uns</a>
       <a href="journal.html">Dandelion Journal</a>
-      <a href="kontakt.html" onclick="showPage('kontakt');return false;" data-i18n="footer_link_kontakt">Kontakt</a>
+      <a href="kontakt.html" data-i18n="footer_link_kontakt">Kontakt</a>
       <a href="#" onclick="showPage('shop');setTimeout(()=>document.getElementById('versand')?.scrollIntoView({behavior:'smooth'}),50);return false;" data-i18n="footer_link_versand">Versand & Rückgabe</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
