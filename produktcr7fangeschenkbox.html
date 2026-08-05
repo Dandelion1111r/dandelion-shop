@@ -191,19 +191,17 @@
     .hamburger{display:block;font-size:1.4rem;}
   } }
   /* ── Footer ── */
-  .pf { background:linear-gradient(135deg,#2d1b3d,#1a0f24); color:rgba(255,255,255,.85); padding:50px 30px 0; margin-top:60px; font-family:'Poppins',sans-serif; }
-  .pf-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; padding-bottom:40px; }
-  @media(max-width:768px){ .pf-inner { grid-template-columns:1fr; gap:24px; } }
-  .pf-brand p { font-size:.85rem; line-height:1.8; opacity:.75; margin-top:8px; }
-  .pf-col h4 { color:#fff; font-size:.85rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 14px; }
-  .pf-col a { display:block; color:rgba(255,255,255,.7); text-decoration:none; font-size:.85rem; margin-bottom:8px; }
-  .pf-col a:hover { color:#fff; }
-  .pf-bottom { border-top:1px solid rgba(255,255,255,.1); padding:20px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; max-width:1100px; margin:0 auto; font-size:.75rem; color:rgba(255,255,255,.5); }
-  .pf-social { display:flex; gap:16px; }
-  .pf-social a { color:rgba(255,255,255,.6); font-size:1.1rem; text-decoration:none; }
-  .pf-social a:hover { color:#fff; }
-  /* ── WhatsApp FAB ── */
-  .wa-fab-p { position:fixed; bottom:24px; right:24px; background:#25d366; color:#fff; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.4); z-index:200; }
+  footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;font-family:'Poppins',sans-serif;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
+  .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
+  .footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;margin-bottom:8px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.5);}
+  .social-links{display:flex;gap:16px;}
+  .social-links a{color:rgba(255,255,255,.6);font-size:1.1rem;text-decoration:none;}
+  .social-links a:hover{color:#fff;}
+  .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
 
   * { box-sizing: border-box; }
   body { margin:0; font-family:'Poppins',sans-serif; color:#3a2e3f; background:#fdf6fb; }
@@ -456,37 +454,43 @@
     </a>
   </div>
 </section>
-<footer class="pf">
-  <div class="pf-inner">
-    <div class="pf-brand">
-      <a href="index.html" aria-label="Dandelion 11:11 – Startseite"><img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" height="48" width="48" loading="lazy"></a>
-      <p>Personalisierte Ballons &amp; Geschenke<br>aus Bad Wörishofen, Bayern.</p>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p style="font-size:.9rem;line-height:1.65;opacity:.75;margin-top:8px;">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
     </div>
-    <div class="pf-col">
+    <div class="footer-col">
       <h4>Shop</h4>
+      <a href="index.html">Alle Ballons</a>
       <a href="geburtstag.html">Geburtstag</a>
       <a href="hochzeit.html">Hochzeit</a>
       <a href="babyparty.html">Babyparty</a>
       <a href="fussball.html">Fußball</a>
       <a href="kollektionen.html">Alle Kollektionen</a>
     </div>
-    <div class="pf-col">
+    <div class="footer-col">
       <h4>Info</h4>
-      <a href="journal.html">Journal</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="journal.html">Dandelion Journal</a>
+      <a href="kontakt.html">Kontakt</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
       <a href="agb.html">AGB</a>
-      <a href="widerruf.html">Widerrufsrecht</a>
     </div>
   </div>
-  <div class="pf-bottom">
-    <span>© 2026 Dandelion 11:11 · Bad Wörishofen</span>
-    <div class="pf-social">
-      <a href="https://www.instagram.com/dandelion_1111_/" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+  <div class="footer-bottom">
+    <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
 </footer>
-<a class="wa-fab-p" href="https://wa.me/491757668955" aria-label="WhatsApp Kontakt" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" class="wa-fab" rel="noopener">
+  <i class="fab fa-whatsapp"></i>
+</a>
 <script>
   (function(){
     function updateNavCartBadge(){
