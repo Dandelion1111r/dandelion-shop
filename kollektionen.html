@@ -358,14 +358,17 @@
     }
 
     /* ── Footer ── */
-    footer {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: rgba(255,255,255,0.9);
-      text-align: center;
-      padding: 24px 16px;
-      font-size: 0.82rem;
-    }
-    footer a { color: #fff; text-decoration: none; margin: 0 8px; }
+    footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;}
+    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+    @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
+    .footer-brand p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.7;margin:0;}
+    .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
+    .footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;margin-bottom:8px;}
+    .footer-col a:hover{color:#fff;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.5);}
+    .social-links{display:flex;gap:14px;}
+    .social-links a{color:rgba(255,255,255,.6);font-size:1rem;text-decoration:none;}
+    .social-links a:hover{color:#fff;}
   </style>
 </head>
 <body>
@@ -533,12 +536,38 @@
 
 <!-- Footer -->
 <footer>
-  <p>© 2026 Dandelion 11:11 &nbsp;·&nbsp;
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-    <a href="widerruf.html">Widerrufsrecht</a>
-  </p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p>Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="index.html">Alle Ballons</a>
+      <a href="geburtstag.html">Geburtstag</a>
+      <a href="hochzeit.html">Hochzeit</a>
+      <a href="babyparty.html">Babyparty</a>
+      <a href="fussball.html">Fußball</a>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="journal.html">Dandelion Journal</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerrufsrecht</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dandelion 11:11 | Alle Rechte vorbehalten</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
 </footer>
 
 <script>
