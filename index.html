@@ -302,11 +302,7 @@
       </div>
     </div>
     <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:16px;padding:0;margin:0 0 0 auto;">
-      <li style="list-style:none;display:flex;gap:6px;align-items:center;">
-        <span onclick="setLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
-        <span onclick="setLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
-      </li>
-      <li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav" data-i18n="nav_shop">Shop</a></li>
+<li style="list-style:none;"><a href="#" onclick="showPage('shop');this.closest('.nav-links').classList.remove('open');return false;" id="nav-shop" class="nav-page-link active-nav" data-i18n="nav_shop">Shop</a></li>
       <li style="list-style:none;" class="nav-dropdown">
         <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}showPage('kollektionen');this.closest('.nav-links').classList.remove('open');return false;" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a>
         <ul class="nav-dropdown-menu">
