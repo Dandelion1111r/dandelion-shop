@@ -432,6 +432,15 @@
   <button class="filter-btn" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
   <button class="filter-btn" onclick="window.location='muttertag-ballon.html'">🌸 Muttertag</button>
 </div>
+<div style="max-width:1100px;margin:0 auto 8px;padding:0 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+  <input id="kollSearch" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" oninput="applyKollSearch(this.value)" style="flex:1;min-width:150px;max-width:280px;padding:9px 16px;border-radius:20px;border:1.5px solid #ddd;font-size:.9rem;font-family:inherit;outline:none;" />
+  <select id="kollSortSel" onchange="applyKollSort(this.value)" style="padding:9px 16px;border-radius:20px;border:1.5px solid #ddd;font-size:.9rem;font-family:inherit;background:#fff;cursor:pointer;outline:none;">
+    <option value="default">⭐ Empfohlen</option>
+    <option value="price-asc">💶 Preis ↑</option>
+    <option value="price-desc">💶 Preis ↓</option>
+    <option value="name-asc">🔤 Name A–Z</option>
+  </select>
+</div>
 
 <!-- Products -->
 <div class="products-section">
@@ -743,11 +752,51 @@
     `).join('');
   }
 
+  let kollSortMode = 'default';
+
+  function getSortedFiltered(cat, q) {
+    let list = cat === 'all' ? products : products.filter(p => p.category === cat);
+    if (q) { const lq = q.toLowerCase(); list = list.filter(p => p.name.toLowerCase().includes(lq) || p.desc.toLowerCase().includes(lq)); }
+    if (kollSortMode === 'price-asc') list = [...list].sort((a,b) => a.price - b.price);
+    else if (kollSortMode === 'price-desc') list = [...list].sort((a,b) => b.price - a.price);
+    else if (kollSortMode === 'name-asc') list = [...list].sort((a,b) => a.name.localeCompare(b.name));
+    return list;
+  }
+
+  function renderFiltered() {
+    const q = (document.getElementById('kollSearch')?.value || '').trim();
+    const grid = document.getElementById('productsGrid');
+    const list = getSortedFiltered(currentFilter, q);
+    if (!list.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Keine Produkte gefunden.</p>'; return; }
+    grid.innerHTML = list.map(p => `
+      <div class="product-card" data-id="${p.id}">
+        <div class="product-img-wrap">
+          ${p.img ? `<img src="${p.img}" alt="${p.name}">` : `<span class="no-img">${p.emoji}</span>`}
+          ${p.tag ? `<span class="badge-tag">${p.tag}</span>` : ''}
+          ${p.sale ? `<span class="badge-sale">SALE</span>` : ''}
+        </div>
+        <div class="product-body">
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price.toFixed(2).replace('.', ',')} € ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toFixed(2).replace('.', ',')} €</span>` : ''}</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <a href="index.html?kat=${p.category}" class="btn-configure" title="Personalisieren"><i class="fas fa-magic"></i> Gestalten</a>
+              <button class="btn-cart" onclick="addToCart(${p.id}, this)"><i class="fas fa-cart-plus"></i> In den Korb</button>
+            </div>
+          </div>
+        </div>
+      </div>`).join('');
+  }
+
+  function applyKollSearch(v) { renderFiltered(); }
+  function applyKollSort(v) { kollSortMode = v; renderFiltered(); }
+
   function filterProducts(cat, btn) {
     currentFilter = cat;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    renderProducts(cat);
+    renderFiltered();
   }
 
   function addToCart(id, btn) {
@@ -770,7 +819,7 @@
     setTimeout(() => t.classList.remove('show'), 2500);
   }
 
-  renderProducts('all');
+  renderFiltered();
 
   function updateNavCartBadge() {
     try {
