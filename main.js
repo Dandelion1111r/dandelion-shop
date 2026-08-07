@@ -47,6 +47,9 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
         cost:{shipping:shipping.toFixed(2),tax:"0.00",total:total}
       }).catch(function(){});
     }
+    // Save order to Firestore (guest or logged-in)
+    const _waOrder={userId:window.currentUser?window.currentUser.uid:"guest",email:emailVal||null,orderType:"whatsapp",items:cart.map(function(i){const o=Object.assign({},i);delete o.customImage;return o;}),total:parseFloat(total),discountCode:appliedDiscount?"DANDELION10":null,shipping:shipping,status:"pending"};
+    if(window.db)window.db.collection("orders").add(Object.assign(_waOrder,{createdAt:firebase.firestore.FieldValue.serverTimestamp()})).catch(function(){});
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
     // Show success toast
     showToast(lang==="ro"?"✅ Comanda trimisă pe WhatsApp!":"✅ Bestellung wird an WhatsApp gesendet!");
