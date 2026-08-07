@@ -1074,6 +1074,10 @@
         </button>
       </div>
       <div id="savedDesignsRow" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
+      <!-- Info vor "In den Warenkorb" -->
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:11px 14px;margin-bottom:10px;font-size:.78rem;color:#166534;line-height:1.6;">
+        ✅ <strong>Alle Personalisierungsdetails (Text, Farbe, Füllung) werden mit der Bestellung gespeichert</strong> – kein WhatsApp-Schritt nötig für die Personalisierung. Nach der Zahlung bestätigen wir nur noch Lieferdatum &amp; Adresse.
+      </div>
       <button class="btn-main" id="addToCartBtn">
         <i class="fas fa-shopping-bag"></i> <span data-i18n="add_to_cart">In den Warenkorb</span>
       </button>
@@ -1084,11 +1088,18 @@
       </div>
       <div class="secure-row" style="margin-top:8px;">
         <div class="secure-item"><i class="fab fa-paypal"></i> <span>PayPal</span></div>
-        <div class="secure-item"><i class="fas fa-university"></i> <span data-i18n="bank_transfer">Banküberweisung</span></div>
+        <div class="secure-item" style="display:flex;align-items:center;gap:5px;">
+          <svg height="14" viewBox="0 0 56 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="56" height="18" rx="3" fill="#1A1F71"/><text x="8" y="13" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white">VISA</text></svg>
+          <svg height="14" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" rx="3" fill="#252525"/><circle cx="15" cy="12" r="8" fill="#EB001B"/><circle cx="23" cy="12" r="8" fill="#F79E1B"/><path d="M19 6.8a8 8 0 0 1 0 10.4A8 8 0 0 1 19 6.8z" fill="#FF5F00"/></svg>
+        </div>
         <div class="secure-item"><i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp_support_label">WhatsApp-Support</span></div>
       </div>
-      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-top:12px;font-size:.78rem;color:#166534;line-height:1.6;">
-        💳 <strong>So einfach geht's:</strong> Produkt konfigurieren → in den Warenkorb → sofort sicher mit <strong>PayPal</strong> bezahlen. Nach der Zahlung kontaktieren wir dich per <strong>WhatsApp</strong> für Personalisierungsdetails (Text, Farbe).
+      <div style="background:#f7eefb;border:1px solid var(--purple);border-radius:10px;padding:9px 14px;margin-top:10px;font-size:.76rem;color:var(--purple);line-height:1.55;text-align:center;">
+        💳 <strong>Mit Kreditkarte zahlen – kein PayPal-Konto nötig!</strong><br>
+        <span style="color:var(--text-light);">Wähle im PayPal-Checkout einfach „Als Gast zahlen" und gib deine Kartendaten ein.</span>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-top:10px;font-size:.78rem;color:#166534;line-height:1.6;">
+        💳 <strong>So einfach geht's:</strong> Produkt konfigurieren → in den Warenkorb → sofort sicher mit <strong>PayPal oder Kreditkarte</strong> bezahlen. Nach der Zahlung kontaktieren wir dich per <strong>WhatsApp</strong> nur für Lieferdetails.
       </div>
       <!-- Upsell: Weitere Produkte entdecken -->
       <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);">
@@ -1124,6 +1135,9 @@
       <div class="cart-total-row">
         <span data-i18n="cart_total">Gesamtbetrag</span>
         <span id="cartTotalPrice">0,00 €</span>
+      </div>
+      <div style="font-size:.74rem;color:#166534;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:8px 12px;margin-bottom:8px;line-height:1.5;">
+        ✅ Personalisierungsdetails gespeichert &nbsp;·&nbsp; 💳 Kreditkarte möglich – kein PayPal-Konto nötig
       </div>
       <div id="paypal-button-container" style="margin-bottom:10px;"></div>
       <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
