@@ -548,6 +548,15 @@
     <button class="koll-filter" onclick="filterKoll('kuscheltiere',this)" data-i18n="filter_kuscheltiere">🧸 Kuscheltiere</button>
     <button class="koll-filter" onclick="filterKoll('sonstiges',this)" data-i18n="filter_sonstiges">✨ Sonstiges</button>
   </div>
+  <div style="max-width:1200px;margin:0 auto;padding:4px 16px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;">
+    <input id="kollSearch" type="search" placeholder="Suchen…" aria-label="Kollektionen durchsuchen" oninput="(function(v){var q=v.trim().toLowerCase();var base=currentKollFilter&&currentKollFilter!=='search'?kollProducts.filter(function(p){return p.cat===currentKollFilter;}):kollProducts;renderKollList(sortKollList(q?base.filter(function(p){return p.name.toLowerCase().includes(q)||(p.desc||'').toLowerCase().includes(q);}):base));})(this.value)" style="flex:1;min-width:140px;max-width:260px;padding:8px 14px;border-radius:20px;border:1.5px solid #ddd;font-size:var(--fs-sm);font-family:inherit;outline:none;" />
+    <select id="kollSortSelect" onchange="(function(v){window._kollSort=v;renderKollList(sortKollList(currentKollFilter&&currentKollFilter!=='search'?kollProducts.filter(function(p){return p.cat===currentKollFilter;}):kollProducts));})(this.value)" style="padding:8px 14px;border-radius:20px;border:1.5px solid #ddd;font-size:var(--fs-sm);font-family:inherit;background:#fff;cursor:pointer;outline:none;">
+      <option value="default">⭐ Empfohlen</option>
+      <option value="price-asc">💶 Preis ↑</option>
+      <option value="price-desc">💶 Preis ↓</option>
+      <option value="name-asc">🔤 Name A–Z</option>
+    </select>
+  </div>
   <div style="max-width:1200px;margin:0 auto;padding:8px 16px 60px;">
     <div id="koll-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;"></div>
   </div>
