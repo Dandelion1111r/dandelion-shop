@@ -1591,6 +1591,40 @@ window.subscribeNewsletter = function() {
                 cost: { shipping: shipping.toFixed(2), tax: '0.00', total: orderTotal.toFixed(2) }
               }).catch(function(err) { console.warn('EmailJS send failed:', err); });
             }
+
+            // Build WhatsApp order notification for owner
+            var isGuest = !window.currentUser;
+            var itemLines = cart.map(function(item) {
+              var name = item.productName || item.name || item.message || 'Ballon';
+              var details_text = [];
+              if (item.text) details_text.push('Text: ' + item.text);
+              if (item.color) details_text.push('Farbe: ' + item.color);
+              if (item.size) details_text.push('Größe: ' + item.size);
+              return '🎈 ' + name + ' – ' + item.price.toFixed(2).replace('.', ',') + ' €' + (details_text.length ? '\n   ' + details_text.join(' | ') : '');
+            }).join('\n');
+            var waMsg = '🛍️ *NEUE BESTELLUNG* – Dandelion 11:11\n\n'
+              + (isGuest ? '👤 Gast-Bestellung\n' : '👤 Registrierter Kunde\n')
+              + (customerEmail ? '📧 ' + customerEmail + '\n' : '')
+              + '📦 PayPal-ID: ' + details.id + '\n\n'
+              + itemLines + '\n\n'
+              + (appliedDiscount ? '🏷️ Rabatt (10%): -' + discountAmount.toFixed(2).replace('.', ',') + ' €\n' : '')
+              + '🚚 Versand: ' + (shipping === 0 ? 'kostenlos' : shipping.toFixed(2).replace('.', ',') + ' €') + '\n'
+              + '💰 *Gesamt: ' + orderTotal.toFixed(2).replace('.', ',') + ' € – BEZAHLT ✅*\n\n'
+              + 'Bitte Personalisierungsdetails bestätigen.';
+            var waUrl = 'https://wa.me/491757668955?text=' + encodeURIComponent(waMsg);
+
+            // Show success modal with WhatsApp CTA
+            var modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+            modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:32px 28px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);">'
+              + '<div style="font-size:3rem;margin-bottom:12px;">🎉</div>'
+              + '<h2 style="font-size:1.3rem;font-weight:700;color:#2d2d2d;margin-bottom:8px;">Zahlung erfolgreich!</h2>'
+              + '<p style="color:#666;font-size:.9rem;margin-bottom:20px;line-height:1.5;">Deine Bestellung wurde bezahlt. Bitte schick uns jetzt kurz eine WhatsApp – wir haben die Bestellung schon für dich vorausgefüllt!</p>'
+              + '<a href="' + waUrl + '" target="_blank" onclick="setTimeout(function(){document.body.removeChild(modal);},500);" style="display:block;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:14px 24px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:12px;">💬 Jetzt WhatsApp senden</a>'
+              + '<button onclick="document.body.removeChild(this.closest(\'div\').parentElement);" style="background:none;border:none;color:#999;font-size:.85rem;cursor:pointer;text-decoration:underline;">Überspringen</button>'
+              + '</div>';
+            document.body.appendChild(modal);
+
             showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
             cart = []; appliedDiscount = false; window._paypalRendered = false; updateCartUI();
           });
