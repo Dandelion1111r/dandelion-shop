@@ -273,6 +273,29 @@
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
+<!-- ══ KAPAZITÄTS-BANNER ══════════════════════════════════════════════════
+     Um dieses Banner zu aktivieren:
+       1. Ändere CAPACITY_NOTICE_ACTIVE = false  →  true
+       2. Passe CAPACITY_NOTICE_TEXT nach Bedarf an
+       3. Speichern & pushen — der Banner erscheint sofort auf der Seite
+     Um es wieder zu deaktivieren: CAPACITY_NOTICE_ACTIVE = false
+═══════════════════════════════════════════════════════════════════════════ -->
+<script>
+var CAPACITY_NOTICE_ACTIVE = false;
+var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Bestellungen werden mit einer Lieferzeit von mindestens 10 Werktagen bearbeitet. Bitte plane entsprechend. Danke für dein Verständnis! 💜';
+</script>
+<div id="capacityBanner" style="display:none;background:#7c3aed;color:#fff;text-align:center;font-size:0.82rem;font-weight:600;padding:10px 20px;line-height:1.5;z-index:9998;position:relative;">
+  <span id="capacityBannerText"></span>
+</div>
+<script>
+(function(){
+  if(typeof CAPACITY_NOTICE_ACTIVE !== 'undefined' && CAPACITY_NOTICE_ACTIVE){
+    var b = document.getElementById('capacityBanner');
+    var t = document.getElementById('capacityBannerText');
+    if(b && t){ t.textContent = CAPACITY_NOTICE_TEXT; b.style.display = 'block'; }
+  }
+})();
+</script>
 
 <!-- URGENCY BAR -->
 <div id="urgencyBar" style="background:var(--purple);color:#fff;text-align:center;font-size:var(--fs-xs);font-weight:600;padding:6px 10px;letter-spacing:0.3px;"></div>
@@ -315,7 +338,7 @@
           <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
           <li><a href="sonstiges.html">✨ Sonstiges</a></li>
           <li><a href="produktsapca.html">🧢 Statement Caps</a></li>
-          <li><a href="#" onclick="showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
+          <li><a href="kollektionen.html" onclick="if(typeof showPage==='function'){showPage('kollektionen');document.querySelector('.nav-links').classList.remove('open');return false;}" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
       <li style="list-style:none;"><a href="ueber-uns.html" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
