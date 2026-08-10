@@ -1533,18 +1533,21 @@ window.subscribeNewsletter = function() {
             });
           }
 
+          var orderNum = 'D-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+
           var saveOrder = window.db ? window.db.collection('orders').add({
             userId: window.currentUser ? window.currentUser.uid : 'guest',
             email: customerEmail, items: cart,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
-            total: orderTotal, paypalOrderId: details.id, status: 'paid',
+            total: orderTotal, paypalOrderId: details.id,
+            orderNumber: orderNum, status: 'paid',
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           }) : Promise.resolve();
 
           saveOrder.then(function() {
             if (customerEmail && typeof emailjs !== 'undefined') {
               emailjs.send('service_njmc1nf', 'template_l8cb34c', {
-                email: customerEmail, order_id: details.id,
+                email: customerEmail, order_id: orderNum,
                 orders: cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
                 cost: { shipping: shipping.toFixed(2), tax: '0.00', total: orderTotal.toFixed(2) }
               }).catch(function(err) { console.warn('EmailJS send failed:', err); });
@@ -1561,6 +1564,7 @@ window.subscribeNewsletter = function() {
               return '🎈 ' + name + ' – ' + item.price.toFixed(2).replace('.', ',') + ' €' + (details_text.length ? '\n   ' + details_text.join(' | ') : '');
             }).join('\n');
             var waMsg = '🛍️ *NEUE BESTELLUNG* – Dandelion 11:11\n\n'
+              + '🔖 *Bestellnummer: ' + orderNum + '*\n'
               + (isGuest ? '👤 Gast-Bestellung\n' : '👤 Registrierter Kunde\n')
               + (customerEmail ? '📧 ' + customerEmail + '\n' : '')
               + '📦 PayPal-ID: ' + details.id + '\n\n'
@@ -1577,7 +1581,12 @@ window.subscribeNewsletter = function() {
             modal.innerHTML = '<div style="background:#fff;border-radius:20px;padding:32px 28px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);">'
               + '<div style="font-size:3rem;margin-bottom:12px;">🎉</div>'
               + '<h2 style="font-size:1.3rem;font-weight:700;color:#2d2d2d;margin-bottom:8px;">Zahlung erfolgreich!</h2>'
-              + '<p style="color:#666;font-size:.9rem;margin-bottom:20px;line-height:1.5;">Deine Bestellung und alle Personalisierungsdetails wurden gespeichert. Du erhältst in Kürze eine Bestätigungs-E-Mail. Wir melden uns per WhatsApp nur zur Abstimmung von Lieferdatum &amp; Adresse.</p>'
+              + '<div style="background:#f3e6f9;border-radius:12px;padding:14px 18px;margin:0 0 16px;text-align:center;">'
+              +   '<div style="font-size:.75rem;color:#8e44ad;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">Deine Bestellnummer</div>'
+              +   '<div style="font-size:1.6rem;font-weight:800;color:#6b2f8c;letter-spacing:.12em;font-family:monospace;">' + orderNum + '</div>'
+              +   '<div style="font-size:.72rem;color:#999;margin-top:4px;">Bitte notieren oder Screenshot machen</div>'
+              + '</div>'
+              + '<p style="color:#666;font-size:.85rem;margin-bottom:20px;line-height:1.5;">Alle Details wurden gespeichert. Du erhältst in Kürze eine Bestätigungs-E-Mail. Wir melden uns per WhatsApp zur Abstimmung von Lieferdatum &amp; Adresse und nennen dabei diese Bestellnummer.</p>'
               + '<button onclick="document.body.removeChild(this.closest(\'div\').parentElement);" style="display:block;width:100%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;padding:14px 24px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;margin-bottom:0;">✨ Super, alles klar!</button>'
               + '</div>';
             document.body.appendChild(modal);
