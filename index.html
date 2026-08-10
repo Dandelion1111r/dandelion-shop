@@ -1722,7 +1722,12 @@ window.subscribeNewsletter = function() {
         list.innerHTML = snap.docs.map(doc => {
           const o = doc.data();
           const date = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleDateString('de-DE') : '';
+          const numBadge = o.orderNumber ? `<div style="background:#f3e6f9;border-radius:8px;padding:6px 12px;margin-bottom:10px;display:flex;align-items:center;gap:8px;">
+              <span style="font-size:.72rem;color:#8e44ad;font-weight:700;letter-spacing:.07em;text-transform:uppercase;">Bestellnummer</span>
+              <span style="font-size:1rem;font-weight:800;color:#6b2f8c;letter-spacing:.1em;font-family:monospace;">${o.orderNumber}</span>
+            </div>` : '';
           return `<div style="border:1px solid var(--border);border-radius:14px;padding:14px 16px;">
+            ${numBadge}
             <div style="display:flex;justify-content:space-between;font-weight:600;color:#6b2f8c;">
               <span>${o.items ? o.items.length : 0} Ballon(s)</span>
               <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span>
