@@ -40,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Personalisierte Schirmmütze mit Wunschtext",
-  "description": "Personalisierte Cap / Schirmmütze mit Statement-Stickerei in Schwarz, Rosa oder Weiß. Wähle Farbe & Text frei – handgemacht in Bad Wörishofen, Bayern. Beliebte Motive: CEO of Overthinking, In my mind I'm always the best, Pink Passion, Victory State of Mind, Cute but Psycho, Pero no me jodas.",
+  "description": "Personalisierte Cap / Schirmmütze mit Statement-Stickerei in Schwarz, Rosa oder Weiß. Wähle Farbe & Text frei – handgemacht in Bad Wörishofen, Bayern.",
   "image": "https://www.dandelion1111.de/sapca-colectie.webp",
   "brand": { "@type": "Brand", "name": "Dandelion 11:11" },
   "mpn": "D11-sapca-personalisiert",
@@ -97,12 +97,12 @@
     {
       "@type": "Question",
       "name": "Welche Farben sind für die Schirmmütze verfügbar?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Die Cap ist in Schwarz, Rosa und Weiß erhältlich. Die Farbe der Stickerei (Schriftfarbe) kann ebenfalls frei gewählt werden – einfach per WhatsApp mitteilen." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Die Cap ist in Schwarz, Rosa und Weiß erhältlich. Die Schriftfarbe der Stickerei kann ebenfalls frei gewählt werden – einfach per WhatsApp mitteilen." }
     },
     {
       "@type": "Question",
       "name": "Kann ich einen eigenen Text auf die Mütze sticken lassen?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ja! Du kannst jeden beliebigen Text, Spruch oder Namen als Stickerei wählen. Beliebt sind: CEO of Overthinking, In my mind I'm always the best, Pink Passion, Victory State of Mind, Cute but Psycho, Pero no me jodas – oder dein eigener Wunschtext." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Ja! Du kannst jeden beliebigen Text, Spruch oder Namen wählen. Beliebt sind: CEO of Overthinking, In my mind I'm always the best, Pink Passion, Victory State of Mind, Cute but Psycho, Pero no me jodas – oder dein eigener Wunschtext." }
     },
     {
       "@type": "Question",
@@ -117,15 +117,13 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <style>
+  /* ── Focus visible ── */
   :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  /* ── Skip link ── */
   .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
   .skip-link:focus { left:8px; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:'Poppins',sans-serif; color:#3a2e3f; background:#fdf6fb; }
-
   /* ── Standard nav ── */
   header{background:linear-gradient(135deg,#fdeef7,#f9e4f1);border-bottom:1px solid #e8d5e8;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
   .topbar{background:linear-gradient(90deg,#8e44ad,#d63384);color:#fff;text-align:center;padding:10px 20px 12px;}
@@ -164,94 +162,8 @@
     .nav-icons{gap:16px;}
     .hamburger{display:block;font-size:1.4rem;}
   }
-
-  /* Breadcrumb */
-  .breadcrumb { max-width:1000px; margin:12px auto 0; padding:0 20px; font-size:.82rem; color:#888; }
-  .breadcrumb a { color:#8e44ad; text-decoration:none; }
-  .breadcrumb span { margin:0 5px; }
-
-  /* Product layout */
-  .product-wrap { max-width:1000px; margin:0 auto; padding:24px 20px 60px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
-  @media(max-width:700px){ .product-wrap { grid-template-columns:1fr; gap:24px; } }
-
-  /* Gallery carousel */
-  .gallery { display:flex; flex-direction:column; gap:10px; }
-  .gallery-carousel { position:relative; border-radius:18px; overflow:hidden; background:#fff; }
-  .gallery-main { width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center center; display:block; }
-  .gallery-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.35); color:#fff; border:none; border-radius:50%; width:38px; height:38px; font-size:1.3rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; transition:background .2s; }
-  .gallery-nav:hover { background:rgba(0,0,0,0.6); }
-  .gallery-nav.prev { left:10px; }
-  .gallery-nav.next { right:10px; }
-  .gallery-dots { position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:6px; }
-  .gallery-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.5); border:none; cursor:pointer; padding:0; transition:background .2s; }
-  .gallery-dot.active { background:#fff; }
-  .gallery-thumbs { display:flex; gap:8px; flex-wrap:wrap; }
-  .gallery-thumbs img { width:80px; height:54px; object-fit:cover; object-position:center center; border-radius:10px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
-  .gallery-thumbs img.active { border-color:#8e44ad; }
-  .gallery-thumbs img:hover { border-color:#d63384; }
-
-  /* Product info */
-  .prod-info { display:flex; flex-direction:column; gap:16px; }
-  .prod-badge-row { display:flex; gap:8px; flex-wrap:wrap; }
-  .prod-badge { display:inline-block; background:#f3e6f9; color:#8e44ad; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:3px 10px; border-radius:50px; }
-  h1 { font-size:clamp(1.4rem,3.5vw,1.9rem); color:#3a2e3f; margin:0; line-height:1.25; }
-  .price-row { display:flex; align-items:baseline; gap:10px; }
-  .price { font-size:1.6rem; font-weight:700; color:#d63384; }
-  .price-note { font-size:.82rem; color:#888; }
-  .rating-row { display:flex; align-items:center; gap:8px; font-size:.85rem; color:#555; }
-  .stars { color:#f5a623; }
-
-  /* Variant selectors */
-  .variant-section { background:#f9f3fe; border-radius:14px; padding:16px 18px; }
-  .variant-label { font-size:.82rem; font-weight:700; color:#5a4a63; text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px; }
-  .color-chips { display:flex; gap:10px; flex-wrap:wrap; }
-  .color-chip { display:flex; align-items:center; gap:6px; padding:6px 14px; border-radius:50px; border:2px solid transparent; font-size:.85rem; font-weight:600; cursor:pointer; transition:border-color .15s, background .15s; background:#fff; }
-  .color-chip.selected { border-color:#8e44ad; }
-  .color-chip:hover { border-color:#d63384; }
-  .color-swatch { width:18px; height:18px; border-radius:50%; border:1px solid rgba(0,0,0,.12); flex-shrink:0; }
-  .text-ideas { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-  .text-chip { background:#fff; border:1px solid #e1d0f0; border-radius:50px; padding:5px 12px; font-size:.78rem; color:#5a4a63; cursor:pointer; transition:background .15s, border-color .15s; }
-  .text-chip:hover, .text-chip.active { background:#8e44ad; color:#fff; border-color:#8e44ad; }
-  .text-input { width:100%; margin-top:12px; border:1px solid #d8c7ed; border-radius:10px; padding:10px 14px; font-family:'Poppins',sans-serif; font-size:.9rem; color:#3a2e3f; outline:none; transition:border-color .2s; }
-  .text-input:focus { border-color:#8e44ad; }
-
-  /* Specs */
-  .specs-box { background:#f3e6f9; border-radius:14px; padding:14px 18px; font-size:.88rem; line-height:1.8; color:#4a3a55; }
-  .specs-box strong { color:#3a2e3f; }
-
-  /* CTA */
-  .cta-wa { display:flex; align-items:center; justify-content:center; gap:10px; background:#25d366; color:#fff; padding:15px 28px; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; transition:background .2s, transform .15s; width:100%; }
-  .cta-wa:hover { background:#1db954; transform:translateY(-2px); }
-  .cta-wa i { font-size:1.2rem; }
-  .order-note { font-size:.78rem; color:#888; text-align:center; }
-
-  /* Description */
-  .description h2 { font-size:1.05rem; color:#3a2e3f; margin:0 0 8px; }
-  .description p { font-size:.9rem; line-height:1.8; color:#5a4a63; margin:0 0 10px; }
-  .description ul { font-size:.9rem; line-height:2; color:#5a4a63; padding-left:18px; margin:0; }
-
-  /* FAQ */
-  .faq-section { max-width:1000px; margin:0 auto 0; padding:0 20px 50px; }
-  .faq-section h2 { font-size:1.15rem; color:#3a2e3f; margin-bottom:16px; }
-  details { border-bottom:1px solid #e9d8fd; padding:14px 0; }
-  summary { font-weight:600; font-size:.93rem; color:#3b0764; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
-  summary::after { content:'+'; font-size:1.2rem; color:#8e44ad; margin-left:12px; }
-  details[open] summary::after { content:'−'; }
-  details p { margin:10px 0 0; font-size:.88rem; color:#555; line-height:1.65; }
-
-  /* Reviews */
-  .reviews-section { background:#f8f4fc; padding:36px 16px; }
-  .reviews-inner { max-width:1000px; margin:0 auto; }
-  .reviews-title { font-size:1.1rem; font-weight:700; color:#3a2e3f; margin:0 0 20px; text-align:center; }
-  .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  @media(max-width:600px){ .reviews-grid { grid-template-columns:1fr; } }
-  .review-card { background:#fff; border-radius:14px; padding:18px 16px; box-shadow:0 2px 12px rgba(142,68,173,.08); }
-  .review-stars { color:#f5a623; margin-bottom:8px; }
-  .review-text { font-size:.85rem; color:#4a3f55; line-height:1.6; margin:0 0 10px; font-style:italic; }
-  .review-author { font-size:.8rem; font-weight:600; color:#8e44ad; }
-
-  /* Footer */
-  footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:0;font-family:'Poppins',sans-serif;}
+  /* ── Footer ── */
+  footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;font-family:'Poppins',sans-serif;}
   .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
   @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
   .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
@@ -262,7 +174,55 @@
   .social-links a{color:rgba(255,255,255,.6);font-size:1.1rem;text-decoration:none;}
   .social-links a:hover{color:#fff;}
   .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
+
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:'Poppins',sans-serif; color:#3a2e3f; background:#fdf6fb; }
+  .wrap { max-width:760px; margin:0 auto; padding:40px 20px 70px; }
+  h1 { color:#8e44ad; font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:6px; }
+  p { line-height:1.8; font-size:1rem; }
+  .price { font-size:1.3rem; font-weight:700; color:#d63384; margin:10px 0; }
+  .specs { background:#f3e6f9; border-radius:14px; padding:14px 18px; font-size:.95rem; margin:18px 0; }
+  .cta { display:inline-flex; align-items:center; gap:8px; background:#8e44ad; color:#fff; padding:13px 28px; border-radius:50px; font-weight:600; text-decoration:none; margin-top:8px; }
+  .cta-wa { display:inline-flex; align-items:center; gap:10px; background:#25d366; color:#fff; padding:13px 28px; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; margin-top:8px; transition:background .2s; }
+  .cta-wa:hover { background:#1db954; }
+  .back { display:inline-block; margin-bottom:20px; color:#d63384; text-decoration:none; font-weight:600; }
+  .prod-photo { width:100%; max-height:480px; object-fit:cover; object-position:center top; border-radius:18px; background:#f3e6f9; margin-bottom:16px; }
+  /* ── Breadcrumb ── */
+  .breadcrumb { max-width:760px; margin:12px auto 0; padding:0 20px; font-size:.82rem; color:#888; }
+  .breadcrumb a { color:#8e44ad; text-decoration:none; }
+  .breadcrumb a:hover { text-decoration:underline; }
+  .breadcrumb span { margin:0 6px; }
+  /* ── Upsell ── */
+  .upsell{background:#fdf0f6;padding:36px 16px 40px;margin-top:40px}
+  .upsell h2{text-align:center;font-size:1.15rem;font-weight:700;color:#3a2e3f;margin:0 0 24px;letter-spacing:.3px}
+  .upsell-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
+  .upsell-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(142,68,173,.1);text-align:center;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;display:block}
+  .upsell-card:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(142,68,173,.18)}
+  .upsell-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+  .upsell-card-body{padding:12px 10px 14px}
+  .upsell-card-body strong{display:block;font-size:.88rem;font-weight:600;color:#3a2e3f;margin-bottom:4px;line-height:1.35}
+  .upsell-card-body span{font-size:.85rem;color:#8e44ad;font-weight:700}
+  @media(max-width:600px){.upsell-grid{grid-template-columns:repeat(2,1fr)}.upsell-grid .upsell-card:last-child{display:none}}
+  /* ── Reviews ── */
+  .reviews-section{background:#f8f4fc;padding:40px 16px;margin-top:0}
+  .reviews-title{text-align:center;font-size:1.15rem;font-weight:700;color:#3a2e3f;margin:0 0 24px;letter-spacing:.3px}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
+  .review-card{background:#fff;border-radius:14px;padding:20px 16px;box-shadow:0 2px 12px rgba(142,68,173,.1)}
+  .review-stars{color:#f5a623;font-size:1rem;margin-bottom:10px;letter-spacing:2px}
+  .review-text{font-size:.87rem;color:#4a3f55;line-height:1.6;margin:0 0 12px;font-style:italic}
+  .review-author{font-size:.82rem;font-weight:600;color:#8e44ad}
+  @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-88K056PN19');
+</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
@@ -287,7 +247,7 @@
       <li><a href="index.html">Shop</a></li>
       <li class="nav-dropdown">
         <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
-                <ul class="nav-dropdown-menu">
+        <ul class="nav-dropdown-menu">
           <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
           <li><a href="hochzeit.html">💍 Hochzeit</a></li>
           <li><a href="babyparty.html">👶 Babyparty</a></li>
@@ -320,166 +280,72 @@
   <span aria-current="page">Statement Cap</span>
 </nav>
 
-<div style="max-width:1000px;margin:12px auto 0;padding:0 20px;">
-  <a href="kollektionen.html" style="display:inline-block;color:#d63384;text-decoration:none;font-weight:600;font-size:.9rem;">← Zurück zu Kollektionen</a>
-</div>
+<div id="main-content" class="wrap">
+  <a class="back" href="kollektionen.html">← Zurück zu Kollektionen</a>
+  <img width="2048" height="1152" class="prod-photo" src="sapca-colectie.webp" alt="Personalisierte Statement Cap Kollektion – Schwarz und Rosa" fetchpriority="high" decoding="async" loading="eager">
 
-<div id="main-content" class="product-wrap">
+  <h1>Statement Cap – dein Wunschtext, deine Farbe</h1>
 
-  <!-- Gallery -->
-  <div class="gallery">
-    <div class="gallery-carousel">
-      <img id="mainImg" class="gallery-main" src="sapca-colectie.webp" alt="Personalisierte Statement Cap Kollektion – Schwarz und Rosa" width="2048" height="1152" fetchpriority="high" decoding="async" loading="eager">
-      <button class="gallery-nav prev" onclick="galleryNav(-1)" aria-label="Vorheriges Bild">&#8249;</button>
-      <button class="gallery-nav next" onclick="galleryNav(1)" aria-label="Nächstes Bild">&#8250;</button>
-      <div class="gallery-dots" id="galleryDots"></div>
-    </div>
-    <div class="gallery-thumbs" role="list" aria-label="Produktfotos">
-      <img src="sapca-colectie.webp" alt="Alle Statement Caps Übersicht" width="68" height="68" loading="lazy" class="active" onclick="setMainIdx(0)">
-      <img src="sapca-negru-ceo.webp" alt="CEO of Overthinking schwarze Cap mit Accessories" width="68" height="68" loading="lazy" onclick="setMainIdx(1)">
-      <img src="sapca-negru-inmymind.webp" alt="In my mind I am always the best schwarze Cap" width="68" height="68" loading="lazy" onclick="setMainIdx(2)">
-      <img src="sapca-roz-pinkpassion.webp" alt="Pink Passion rosa Cap mit Chanel Geschenk-Set" width="68" height="68" loading="lazy" onclick="setMainIdx(3)">
-      <img src="sapca-roz-victory.webp" alt="Victory State of Mind rosa Cap Lifestyle" width="68" height="68" loading="lazy" onclick="setMainIdx(4)">
-    </div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 18px;font-size:.78rem;color:#5a4a63;">
+    <span style="display:flex;align-items:center;gap:5px;"><i class="fas fa-shield-alt" style="color:#27ae60;"></i> Sicher &amp; verschlüsselt</span>
+    <span style="display:flex;align-items:center;gap:5px;"><i class="fas fa-shield-alt" style="color:#8e44ad;"></i> Zufriedenheitsgarantie</span>
+    <span style="display:flex;align-items:center;gap:5px;"><i class="fab fa-whatsapp" style="color:#25d366;"></i> Bestellen via WhatsApp</span>
+    <span style="display:flex;align-items:center;gap:5px;"><i class="fas fa-hand-holding-heart" style="color:#d63384;"></i> Handgemacht in Bayern</span>
   </div>
 
-  <!-- Product info -->
-  <div class="prod-info">
-    <div class="prod-badge-row">
-      <span class="prod-badge">✨ Handgemacht</span>
-      <span class="prod-badge">🎨 Personalisierbar</span>
-      <span class="prod-badge">Neu</span>
-    </div>
+  <p class="price">29,90 €</p>
+  <p>Unsere Statement Caps sind mehr als eine Mütze – sie sind ein Ausdruck von Persönlichkeit. Du wählst die Kappenfarbe, den Stickerei-Text und die Schriftfarbe. Wir fertigen jede Cap einzeln von Hand in Bad Wörishofen, Bayern.</p>
 
-    <h1>Statement Cap – dein Wunschtext, deine Farbe</h1>
+  <div class="specs">🧢 <strong>Farben:</strong> Schwarz · Rosa · Weiß<br>
+    🎨 <strong>Schriftfarbe:</strong> Frei wählbar – Weiß, Schwarz, Rosa, Hellblau, Gold und mehr<br>
+    ✍️ <strong>Beliebte Texte:</strong> CEO of Overthinking · In my mind I'm always the best · Pink Passion · Victory State of Mind · Cute but Psycho · Pero no me jodas. · oder dein eigener Text</div>
 
-    <div class="rating-row">
-      <span class="stars">★★★★★</span>
-      <span>5,0 · Handgemacht in Bayern</span>
-    </div>
+  <div class="specs">📏 <strong>Größe:</strong> One Size, verstellbares Snapback-Verschluss<br>
+    🧵 <strong>Material:</strong> 100 % Baumwolle, weicher Stoff<br>
+    ⏱ <strong>Lieferzeit:</strong> 5–7 Werktage · Express auf Anfrage<br>
+    📦 <strong>Versand:</strong> Ab 5,90 € · kostenlos ab 60 € Bestellwert</div>
 
-    <div class="price-row">
-      <span class="price">29,90 €</span>
-      <span class="price-note">inkl. MwSt. · Versand ab 5,90 €</span>
-    </div>
+  <h2 style="color:#3a2e3f;font-size:1.1rem;margin:24px 0 8px;">So einfach funktioniert's</h2>
+  <p style="font-size:.93rem;color:#5a4a63;">Schreib uns per WhatsApp: gewünschte Kappenfarbe, dein Wunschtext und die Schriftfarbe – wir bestätigen, fertigen und liefern deine Cap direkt zu dir nach Hause.</p>
 
-    <!-- Color selector -->
-    <div class="variant-section">
-      <div class="variant-label">Kappenfarbe wählen</div>
-      <div class="color-chips" id="colorChips">
-        <label class="color-chip selected" onclick="selectColor(this,'Schwarz')">
-          <span class="color-swatch" style="background:#1a1a1a;"></span> Schwarz
-        </label>
-        <label class="color-chip" onclick="selectColor(this,'Rosa')">
-          <span class="color-swatch" style="background:#f4a7c3;"></span> Rosa
-        </label>
-        <label class="color-chip" onclick="selectColor(this,'Weiß')">
-          <span class="color-swatch" style="background:#f8f8f8;"></span> Weiß
-        </label>
-      </div>
-    </div>
+  <a class="cta-wa" href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20eine%20Statement%20Cap%20bestellen%21%20Bitte%20sag%20mir%2C%20wie%20es%20weitergeht.%20%F0%9F%98%8A" target="_blank" rel="noopener" aria-label="Per WhatsApp bestellen">
+    <i class="fab fa-whatsapp"></i> Jetzt per WhatsApp bestellen
+  </a>
 
-    <!-- Text selector -->
-    <div class="variant-section">
-      <div class="variant-label">Stickerei / Wunschtext</div>
-      <div class="text-ideas">
-        <span class="text-chip" onclick="selectText(this,'CEO of Overthinking')">CEO of Overthinking</span>
-        <span class="text-chip" onclick="selectText(this,'In my mind I\'m always the best')">In my mind I'm always the best</span>
-        <span class="text-chip" onclick="selectText(this,'Pink Passion')">Pink Passion</span>
-        <span class="text-chip" onclick="selectText(this,'Victory State of Mind')">Victory State of Mind</span>
-        <span class="text-chip" onclick="selectText(this,'Cute but Psycho')">Cute but Psycho</span>
-        <span class="text-chip" onclick="selectText(this,'Pero no me jodas.')">Pero no me jodas.</span>
-        <span class="text-chip" onclick="selectText(this,'')">Eigener Text ✏️</span>
-      </div>
-      <input class="text-input" id="customText" type="text" maxlength="40" placeholder="Oder schreib deinen eigenen Text hier…" aria-label="Eigener Wunschtext">
-    </div>
+  <p style="margin-top:30px;font-size:.95rem;">Mehr entdecken: <a href="kollektionen.html" style="color:#8e44ad;">Alle Kollektionen</a> · <a href="geburtstag.html" style="color:#8e44ad;">Geburtstag</a> · <a href="journal.html" style="color:#8e44ad;">Dandelion Journal</a></p>
+</div>
 
-    <div class="specs-box">
-      🎨 <strong>Schriftfarbe:</strong> Frei wählbar (Weiß, Schwarz, Rosa, Hellblau, Gold…)<br>
-      📏 <strong>Größe:</strong> One Size, verstellbares Snapback-Verschluss<br>
-      🧵 <strong>Material:</strong> 100 % Baumwolle, weicher Stoff<br>
-      ⏱ <strong>Lieferzeit:</strong> 5–7 Werktage · Express auf Anfrage<br>
-      📦 <strong>Versand:</strong> Ab 5,90 € · kostenlos ab 60 € Bestellwert
-    </div>
-
-    <a class="cta-wa" id="waBtn" href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20eine%20Cap%20bestellen%20%E2%80%93%20Farbe%3A%20Schwarz%2C%20Text%3A%20..." target="_blank" rel="noopener" aria-label="Per WhatsApp bestellen">
-      <i class="fab fa-whatsapp"></i> Jetzt per WhatsApp bestellen
-    </a>
-    <p class="order-note">Du wählst Farbe & Text → wir bestätigen & fertigen deine Cap ✨</p>
+<section style="background:#f9f5ff;padding:40px 20px;margin:0;">
+  <div style="max-width:860px;margin:0 auto;">
+    <h2 style="font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:#5b21b6;margin-bottom:20px;">Häufig gestellte Fragen</h2>
+    <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;color:#3b0764;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Welche Kappenfarben sind verfügbar? <span style="color:#8e44ad;">+</span></summary><p style="margin:10px 0 0;font-size:.9rem;color:#444;line-height:1.6;">Die Cap ist in <strong>Schwarz, Rosa und Weiß</strong> erhältlich. Die Schriftfarbe (Stickerei) kannst du frei wählen – beliebt sind Weiß, Schwarz, Rosa, Hellblau und Gold.</p></details>
+    <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;color:#3b0764;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Kann ich einen eigenen Text wählen? <span style="color:#8e44ad;">+</span></summary><p style="margin:10px 0 0;font-size:.9rem;color:#444;line-height:1.6;">Ja, absolut! Du kannst jeden beliebigen Text, Namen oder Spruch wählen. Teile deinen Wunschtext einfach per WhatsApp mit.</p></details>
+    <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;color:#3b0764;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Wie lange dauert die Lieferung? <span style="color:#8e44ad;">+</span></summary><p style="margin:10px 0 0;font-size:.9rem;color:#444;line-height:1.6;">Da jede Cap individuell auf Bestellung gefertigt wird, beträgt die Lieferzeit <strong>5–7 Werktage</strong>. Für Expressbestellungen bitte vorab per WhatsApp anfragen.</p></details>
+    <details style="padding:16px 0;"><summary style="font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;color:#3b0764;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Was kostet die Cap und der Versand? <span style="color:#8e44ad;">+</span></summary><p style="margin:10px 0 0;font-size:.9rem;color:#444;line-height:1.6;">Die Cap kostet <strong>29,90 €</strong>. Der Versand kostet 5,90 € und ist ab einem Bestellwert von 60 € kostenlos. Persönliche Abholung in Bad Wörishofen ist ebenfalls möglich.</p></details>
   </div>
+</section>
 
-</div>
-
-<!-- Description -->
-<div class="description" style="max-width:1000px;margin:0 auto;padding:0 20px 40px;">
-  <h2>Die Cap, die deinen Style spricht</h2>
-  <p>Unsere Statement Caps sind mehr als eine Mütze – sie sind ein Ausdruck von Persönlichkeit. Jede Cap wird einzeln auf Bestellung gefertigt: du wählst die Kappenfarbe (Schwarz, Rosa oder Weiß), den Stickerei-Text und die Schriftfarbe – wir fertigen sie von Hand in Bad Wörishofen, Bayern.</p>
-  <p>Ob als Geschenk für die beste Freundin, als Outfit-Highlight für dich selbst oder als personalisiertes Statement-Piece für besondere Anlässe: Die Cap passt immer.</p>
-  <ul>
-    <li>Beliebte Texte: <strong>CEO of Overthinking</strong>, <strong>In my mind I'm always the best</strong>, <strong>Cute but Psycho</strong>, <strong>Victory State of Mind</strong></li>
-    <li>Farben: Schwarz, Rosa, Weiß – Schriftfarbe frei wählbar</li>
-    <li>Perfektes Geschenk zum Geburtstag, zu Weihnachten oder einfach so</li>
-    <li>Auch als Duo oder Trio für BFFs bestellbar – schreib uns einfach</li>
-  </ul>
-</div>
-
-<!-- FAQ -->
-<div class="faq-section">
-  <h2>Häufige Fragen zur Statement Cap</h2>
-  <details>
-    <summary>Welche Farben sind verfügbar?</summary>
-    <p>Die Cap ist in <strong>Schwarz, Rosa und Weiß</strong> erhältlich. Die Schriftfarbe (Stickerei) kannst du frei wählen – beliebt sind Weiß, Schwarz, Rosa, Hellblau und Gold.</p>
-  </details>
-  <details>
-    <summary>Kann ich einen eigenen Text wählen?</summary>
-    <p>Ja, absolut! Du kannst jeden beliebigen Text, Namen oder Spruch wählen. Teile deinen Wunschtext einfach per WhatsApp nach der Bestellung mit.</p>
-  </details>
-  <details>
-    <summary>Wie lange dauert die Lieferung?</summary>
-    <p>Da jede Cap individuell auf Bestellung gefertigt wird, beträgt die Lieferzeit <strong>5–7 Werktage</strong>. Für Expressbestellungen bitte vorab per WhatsApp anfragen.</p>
-  </details>
-  <details>
-    <summary>Was kostet die Cap und der Versand?</summary>
-    <p>Die Cap kostet <strong>29,90 €</strong>. Der Versand kostet 5,90 € und ist ab 60 € Bestellwert kostenlos. Persönliche Abholung in Bad Wörishofen ist ebenfalls möglich.</p>
-  </details>
-</div>
-
-<!-- Reviews -->
 <section class="reviews-section" aria-label="Kundenbewertungen">
-  <div class="reviews-inner">
-    <h2 class="reviews-title">Das sagen unsere Kundinnen ⭐</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Die Cap ist absolut wunderschön! Die Qualität der Stickerei hat mich begeistert. Kommt definitiv wieder!"</p>
-        <span class="review-author">— Sandra M.</span>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Perfektes Geschenk für meine BFF – sie liebt die schwarze CEO-Cap. Schnelle Lieferung, liebevoll verpackt."</p>
-        <span class="review-author">— Lena K.</span>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Endlich eine Cap die wirklich individuell ist. Pink Passion passt zu allem! Alle fragen mich wo ich sie her hab."</p>
-        <span class="review-author">— Julia W.</span>
-      </div>
+  <h2 class="reviews-title">Das sagen unsere Kundinnen ⭐</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Die Cap ist absolut wunderschön! Die Qualität der Stickerei hat mich begeistert. Kommt definitiv wieder!"</p>
+      <span class="review-author">— Sandra M.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Perfektes Geschenk für meine BFF – sie liebt die schwarze CEO-Cap. Schnelle Lieferung, liebevoll verpackt."</p>
+      <span class="review-author">— Lena K.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Endlich eine Cap die wirklich individuell ist. Pink Passion passt zu allem! Alle fragen mich wo ich sie her hab."</p>
+      <span class="review-author">— Julia W.</span>
     </div>
   </div>
 </section>
 
-<style>
-.upsell{background:#fdf0f6;padding:36px 16px 40px;margin-top:0}
-.upsell h2{text-align:center;font-size:1.15rem;font-weight:700;color:#3a2e3f;margin:0 0 24px;letter-spacing:.3px}
-.upsell-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
-.upsell-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(142,68,173,.1);text-align:center;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;display:block}
-.upsell-card:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(142,68,173,.18)}
-.upsell-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.upsell-card-body{padding:12px 10px 14px}
-.upsell-card-body strong{display:block;font-size:.88rem;font-weight:600;color:#3a2e3f;margin-bottom:4px;line-height:1.35}
-.upsell-card-body span{font-size:.85rem;color:#8e44ad;font-weight:700}
-@media(max-width:600px){.upsell-grid{grid-template-columns:repeat(2,1fr)}.upsell-grid .upsell-card:last-child{display:none}}
-</style>
 <section class="upsell" aria-label="Das könnte dir auch gefallen">
   <h2>Das könnte dir auch gefallen ✨</h2>
   <div class="upsell-grid">
@@ -547,67 +413,6 @@
 <a class="wa-fab" href="https://wa.me/491757668955" aria-label="WhatsApp Kontakt" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-var galleryImgs = [
-  {src:'sapca-colectie.webp', alt:'Alle Statement Caps Übersicht'},
-  {src:'sapca-negru-ceo.webp', alt:'CEO of Overthinking schwarze Cap mit Accessories'},
-  {src:'sapca-negru-inmymind.webp', alt:'In my mind I am always the best schwarze Cap'},
-  {src:'sapca-roz-pinkpassion.webp', alt:'Pink Passion rosa Cap mit Chanel Geschenk-Set'},
-  {src:'sapca-roz-victory.webp', alt:'Victory State of Mind rosa Cap Lifestyle'}
-];
-var galleryIdx = 0;
-
-(function initGallery(){
-  var dotsEl = document.getElementById('galleryDots');
-  galleryImgs.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.className = 'gallery-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label', 'Bild '+(i+1));
-    d.onclick = function(){ setMainIdx(i); };
-    dotsEl.appendChild(d);
-  });
-})();
-
-function setMainIdx(idx) {
-  galleryIdx = (idx + galleryImgs.length) % galleryImgs.length;
-  var img = document.getElementById('mainImg');
-  img.src = galleryImgs[galleryIdx].src;
-  img.alt = galleryImgs[galleryIdx].alt;
-  document.querySelectorAll('.gallery-thumbs img').forEach(function(t,i){ t.classList.toggle('active', i===galleryIdx); });
-  document.querySelectorAll('.gallery-dot').forEach(function(d,i){ d.classList.toggle('active', i===galleryIdx); });
-}
-
-function galleryNav(dir) { setMainIdx(galleryIdx + dir); }
-
-function setMain(thumb, src, alt) {
-  var idx = galleryImgs.findIndex(function(g){ return g.src===src; });
-  setMainIdx(idx >= 0 ? idx : 0);
-}
-
-function selectColor(chip, color) {
-  document.querySelectorAll('.color-chip').forEach(function(c){ c.classList.remove('selected'); });
-  chip.classList.add('selected');
-  updateWaLink();
-}
-
-function selectText(chip, text) {
-  document.querySelectorAll('.text-chip').forEach(function(c){ c.classList.remove('active'); });
-  chip.classList.add('active');
-  if(text) document.getElementById('customText').value = text;
-  updateWaLink();
-}
-
-function updateWaLink() {
-  var color = '';
-  document.querySelectorAll('.color-chip').forEach(function(c){
-    if(c.classList.contains('selected')) color = c.textContent.trim();
-  });
-  var text = document.getElementById('customText').value || 'bitte angeben';
-  var msg = 'Hallo, ich möchte eine Statement Cap bestellen!\nFarbe: ' + color + '\nText: ' + text + '\nBitte sag mir, wie es weitergeht. Danke! 😊';
-  document.getElementById('waBtn').href = 'https://wa.me/491757668955?text=' + encodeURIComponent(msg);
-}
-
-document.getElementById('customText').addEventListener('input', updateWaLink);
-
 (function(){
   try {
     var n = JSON.parse(localStorage.getItem('dandelionCart')||'[]').length;
@@ -615,15 +420,6 @@ document.getElementById('customText').addEventListener('input', updateWaLink);
     if(b && n > 0){ b.textContent = n; b.style.display = 'inline-flex'; }
   } catch(e) {}
 })();
-</script>
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-88K056PN19');
 </script>
 </body>
 </html>
