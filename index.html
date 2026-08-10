@@ -518,7 +518,8 @@
 <div id="authModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeAuthModal()">
   <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:30px;position:relative;">
     <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
-    <h2 id="authModalTitle" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:18px;">Anmelden</h2>
+    <h2 id="authModalTitle" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:6px;">Anmelden</h2>
+    <p style="font-size:.78rem;color:#888;margin:0 0 14px;line-height:1.5;">Konto = Bestellhistorie &amp; schnelleres Checkout. Oder bestelle einfach als <strong>Gast</strong> ohne Registrierung.</p>
     <div id="authError" style="display:none;background:#fde8e8;color:#c0392b;padding:8px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:12px;"></div>
     <input id="authName" type="text" placeholder="Dein Name" aria-label="Dein Name" class="form-input" style="width:100%;margin-bottom:10px;display:none;">
     <input id="authEmail" type="email" placeholder="E-Mail" aria-label="E-Mail-Adresse" class="form-input" style="width:100%;margin-bottom:10px;">
@@ -956,7 +957,7 @@
       <div id="savedDesignsRow" style="display:none;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
       <!-- Info vor "In den Warenkorb" -->
       <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:11px 14px;margin-bottom:10px;font-size:.78rem;color:#166534;line-height:1.6;">
-        ✅ <strong>Alle Personalisierungsdetails (Text, Farbe, Füllung) werden mit der Bestellung gespeichert</strong> – kein WhatsApp-Schritt nötig für die Personalisierung. Nach der Zahlung bestätigen wir nur noch Lieferdatum &amp; Adresse.
+        ✅ <strong>Alle Personalisierungsdetails (Text, Farbe, Füllung) werden mit der Bestellung gespeichert</strong> – kein WhatsApp-Schritt nötig. Nach der Zahlung erhältst du sofort eine <strong>Bestätigungs-E-Mail</strong>; wir melden uns nur noch für Lieferdatum &amp; Adresse.
       </div>
       <div style="background:#fef9ec;border:1.5px solid #f59e0b;border-radius:12px;padding:11px 14px;margin-bottom:12px;font-size:.78rem;color:#92400e;line-height:1.6;display:flex;align-items:flex-start;gap:8px;">
         <span style="font-size:1rem;flex-shrink:0;">⏳</span>
@@ -1088,7 +1089,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q2">Wie bestelle ich?</span> <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a" data-i18n="faq_a2">Konfiguriere deinen Ballon direkt im Konfigurator (Text, Farbe, Füllung), lege ihn in den Warenkorb und bezahle sicher per PayPal oder Kreditkarte. Alle Personalisierungsdetails werden mit der Bestellung gespeichert — kein extra WhatsApp-Schritt nötig. Nach der Zahlung erhältst du eine Bestellbestätigung; wir melden uns nur noch zur Abstimmung von Lieferdatum oder bei Rückfragen.</div>
+      <div class="faq-a" data-i18n="faq_a2">Konfiguriere deinen Ballon direkt im Konfigurator (Text, Farbe, Füllung), lege ihn in den Warenkorb und bezahle sicher per PayPal oder Kreditkarte. Alle Personalisierungsdetails werden automatisch mit der Bestellung gespeichert — kein extra WhatsApp-Schritt nötig. Direkt nach der Zahlung erhältst du eine <strong>Bestätigungs-E-Mail</strong> von PayPal. Wir melden uns anschließend per WhatsApp nur noch zur Abstimmung von Lieferdatum und -adresse.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q3">Wie schnell wird geliefert?</span> <i class="fas fa-chevron-down"></i></button>
@@ -1105,6 +1106,14 @@
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Kann ich eine bestimmte Farbe wählen?</span> <i class="fas fa-chevron-down"></i></button>
       <div class="faq-a">Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Muss ich ein Konto erstellen, um zu bestellen?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Nein! Du kannst ganz einfach als <strong>Gast bestellen</strong> – ohne Registrierung, ohne Passwort. Wenn du ein <strong>Konto erstellst</strong>, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Erhalte ich eine Bestätigung nach der Bestellung?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a">Ja! Direkt nach der Zahlung erhältst du eine <strong>automatische Bestätigungs-E-Mail</strong> von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.</div>
     </div>
   </div>
 </div>
