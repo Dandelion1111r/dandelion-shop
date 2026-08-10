@@ -136,7 +136,7 @@
       "name": "Kann ich mehrere Ballons bestellen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Mit dem Newsletter-Rabattcode DANDELION10 sparst du 10% auf deine erste Bestellung – der Code gilt einmalig und ist nicht mit anderen Aktionen kombinierbar."
+        "text": "Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab 3 Ballons erhältst du automatisch 10% Mengenrabatt – ohne Code, direkt beim Checkout. Alternativ gilt der Newsletter-Code DANDELION10 für 10% auf deine erste Bestellung. Die beiden Rabatte sind nicht kombinierbar."
       }
     },
     {
@@ -1101,6 +1101,9 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <div style="font-size:.74rem;color:#166534;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:8px 12px;margin-bottom:8px;line-height:1.5;">
         ✅ Personalisierungsdetails gespeichert &nbsp;·&nbsp; 💳 Kreditkarte möglich – kein PayPal-Konto nötig
       </div>
+      <div id="bulkDiscountBadge" style="display:none;font-size:.8rem;background:linear-gradient(135deg,#f3e6f9,#fce7f3);border:1.5px solid #d63384;border-radius:10px;padding:8px 12px;margin-bottom:8px;text-align:center;color:#8e44ad;font-weight:600;">
+        🎉 Ab 3 Ballons: <strong>10% Mengenrabatt</strong> wird automatisch abgezogen!
+      </div>
       <div id="paypal-button-container" style="margin-bottom:6px;"></div>
       <div style="font-size:.72rem;color:#666;text-align:center;margin-bottom:10px;line-height:1.4;">🎉 Nach der Zahlung erhältst du sofort deine <strong>Bestellnummer</strong> &amp; eine Bestätigungs-E-Mail.</div>
       <button class="btn-whatsapp" id="cartWhatsappBtn" style="width:100%;margin-bottom:10px;">
@@ -1175,7 +1178,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q4">Kann ich mehrere Ballons bestellen?</span> <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a" data-i18n="faq_a4">Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Mit dem Newsletter-Rabattcode <strong>DANDELION10</strong> sparst du <strong>10%</strong> auf deine erste Bestellung – der Code gilt einmalig und ist nicht mit anderen Aktionen kombinierbar.</div>
+      <div class="faq-a" data-i18n="faq_a4">Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen. Ab <strong>3 Ballons</strong> erhältst du automatisch <strong>10% Mengenrabatt</strong> – ohne Code, direkt beim Checkout. Alternativ gilt der Newsletter-Code <strong>DANDELION10</strong> für 10% auf deine erste Bestellung. Die beiden Rabatte sind nicht kombinierbar.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q5">Ist der Ballon mit Luft oder Helium gefüllt?</span> <i class="fas fa-chevron-down"></i></button>
@@ -1560,7 +1563,8 @@ window.subscribeNewsletter = function() {
       style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
       createOrder: function(data, actions) {
         const subtotal = cart.reduce((s, i) => s + i.price, 0);
-        const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+        const bulkDiscount = !appliedDiscount && cart.length >= 3;
+        const discountAmount = (appliedDiscount || bulkDiscount) ? subtotal * 0.1 : 0;
         const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
         const total = (subtotal - discountAmount + shipping).toFixed(2);
         return actions.order.create({
@@ -1570,7 +1574,8 @@ window.subscribeNewsletter = function() {
       onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
           const subtotal = cart.reduce((s, i) => s + i.price, 0);
-          const discountAmount = appliedDiscount ? subtotal * 0.1 : 0;
+          const bulkDiscount = !appliedDiscount && cart.length >= 3;
+          const discountAmount = (appliedDiscount || bulkDiscount) ? subtotal * 0.1 : 0;
           const shipping = subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_FEE;
           const orderTotal = subtotal - discountAmount + shipping;
           const customerEmail = details.payer && details.payer.email_address
@@ -1581,7 +1586,7 @@ window.subscribeNewsletter = function() {
             gtag('event', 'conversion', { send_to: 'AW-18318644224/yCf6CJ2xoNMcEICogZ9E', transaction_id: details.id });
             gtag('event', 'purchase', {
               transaction_id: details.id, value: orderTotal, currency: 'EUR', shipping: shipping,
-              coupon: appliedDiscount ? 'DANDELION10' : undefined,
+              coupon: appliedDiscount ? 'DANDELION10' : (bulkDiscount ? 'BULK3' : undefined),
               items: cart.map(function(item, i) {
                 return { item_id: 'balloon_' + (item.balloonType || 'latex'), item_name: item.productName || item.message || 'Personalisierter Ballon', price: item.price, quantity: 1, index: i };
               })
@@ -1593,7 +1598,7 @@ window.subscribeNewsletter = function() {
           var saveOrder = window.db ? window.db.collection('orders').add({
             userId: window.currentUser ? window.currentUser.uid : 'guest',
             email: customerEmail, items: cart,
-            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : null,
+            discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
             orderNumber: orderNum, status: 'paid',
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -1624,7 +1629,7 @@ window.subscribeNewsletter = function() {
               + (customerEmail ? '📧 ' + customerEmail + '\n' : '')
               + '📦 PayPal-ID: ' + details.id + '\n\n'
               + itemLines + '\n\n'
-              + (appliedDiscount ? '🏷️ Rabatt (10%): -' + discountAmount.toFixed(2).replace('.', ',') + ' €\n' : '')
+              + (appliedDiscount ? '🏷️ Rabattcode DANDELION10 (10%): -' + discountAmount.toFixed(2).replace('.', ',') + ' €\n' : (bulkDiscount ? '🎉 Mengenrabatt 3+ Ballons (10%): -' + discountAmount.toFixed(2).replace('.', ',') + ' €\n' : ''))
               + '🚚 Versand: ' + (shipping === 0 ? 'kostenlos' : shipping.toFixed(2).replace('.', ',') + ' €') + '\n'
               + '💰 *Gesamt: ' + orderTotal.toFixed(2).replace('.', ',') + ' € – BEZAHLT ✅*\n\n'
               + 'Bitte Personalisierungsdetails bestätigen.';
@@ -1825,6 +1830,26 @@ window.subscribeNewsletter = function() {
 })();
 </script>
 <!-- End Cookie Consent -->
+<script>
+(function() {
+  function updateBulkBadge() {
+    var badge = document.getElementById('bulkDiscountBadge');
+    if (!badge) return;
+    var countEl = document.getElementById('cartCount');
+    var count = countEl ? parseInt(countEl.textContent) || 0 : 0;
+    badge.style.display = (count >= 3 && !window.appliedDiscount) ? 'block' : 'none';
+  }
+  var observer = new MutationObserver(updateBulkBadge);
+  function attachObserver() {
+    var cartCount = document.getElementById('cartCount');
+    var discountMsg = document.getElementById('discountMessage');
+    if (cartCount) observer.observe(cartCount, { childList: true, characterData: true, subtree: true });
+    if (discountMsg) observer.observe(discountMsg, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', function() { attachObserver(); updateBulkBadge(); });
+  setTimeout(function() { attachObserver(); updateBulkBadge(); }, 1500);
+})();
+</script>
 <script>
 // Step-by-step configurator
 (function(){
