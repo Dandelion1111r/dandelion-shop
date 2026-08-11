@@ -19,6 +19,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
+  :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
+  .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
+  .skip-link:focus { left:8px; }
+  header{background:linear-gradient(135deg,#fdeef7,#f9e4f1);border-bottom:1px solid #e8d5e8;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+  .topbar{background:linear-gradient(90deg,#8e44ad,#d63384);color:#fff;text-align:center;padding:10px 20px 12px;}
+  .topbar-brand{font-size:1.1rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}
+  .topbar-divider{width:120px;height:1px;background:rgba(255,255,255,0.35);margin:0 auto 8px;}
+  .topbar-info{font-size:0.85rem;opacity:0.95;}
+  @media(max-width:600px){.topbar-info{font-size:0.75rem;}.topbar-brand{letter-spacing:1.5px;}}
+  .nav-inner{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:20px;height:175px;overflow:visible;}
+  .logo-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+  .logo-wrap img{height:155px;width:auto;display:block;object-fit:contain;}
+  .nav-links{display:flex!important;flex-direction:row!important;gap:16px;list-style:none!important;padding:0;margin:0 0 0 auto;}
+  .nav-links li{list-style:none!important;display:block;}
+  .nav-links a{text-decoration:none;color:#2d2d2d;font-size:0.88rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+  .nav-links a:hover,.nav-links a.active-nav{color:#d63384;}
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.12);padding:10px 0 8px;min-width:200px;z-index:999;list-style:none;margin:0;}
+  .nav-dropdown-menu li{list-style:none;}
+  .nav-dropdown-menu a{display:block;padding:9px 18px;font-size:0.85rem;color:#2d2d2d;text-decoration:none;white-space:nowrap;transition:background 0.15s,color 0.15s;}
+  .nav-dropdown-menu a:hover{background:#f3e6f9;color:#8e44ad;}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+  .nav-icons{display:flex;gap:18px;font-size:1.1rem;color:#2d2d2d;margin-left:auto;}
+  .nav-icons i{cursor:pointer;transition:color 0.2s;}
+  .nav-icons a{color:#2d2d2d;text-decoration:none;}
+  .nav-icons a:hover{color:#d63384;}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+  @media(max-width:900px){
+    .nav-inner{height:auto;min-height:0;padding:10px 16px;position:relative;}
+    .logo-wrap{width:56px;overflow:hidden;}
+    .logo-wrap img{height:56px;object-fit:cover;object-position:left center;margin-left:-2px;}
+    .nav-links{display:none!important;flex-direction:column!important;gap:0;position:absolute;top:100%;left:0;right:0;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex!important;}
+    .nav-links li{width:100%;}
+    .nav-links a{display:block;padding:14px 16px;border-top:1px solid #e8d5e8;}
+    .nav-dropdown-menu{position:static;transform:none;box-shadow:none;border-radius:0;padding:0 0 0 16px;background:transparent;}
+    .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{display:block;}
+    .nav-dropdown-menu a{padding:7px 0;font-size:0.85rem;color:#777;}
+    .nav-icons{gap:16px;}
+    .hamburger{display:block;font-size:1.4rem;}
+  }
+
   /* ── Skip link ── */
   .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
   .skip-link:focus { left:8px; }
@@ -29,13 +72,7 @@
 
   /* ── Nav ── */
   .p-nav { background:#fff; border-bottom:1px solid #f1e1f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
-  .p-nav .ni { max-width:1200px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; gap:16px; }
-  .p-nav .logo-a { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
-  .p-nav .logo-a img { height:44px; width:auto; }
-  .p-nav .nl { display:flex; list-style:none; gap:20px; padding:0; margin:0; margin-left:auto; }
-  .p-nav .nl a { text-decoration:none; color:#3a2e3f; font-size:.88rem; font-weight:500; white-space:nowrap; }
-  .p-nav .nl a:hover { color:#d63384; }
-
+            
   /* ── Main ── */
   main {
     flex: 1;
@@ -106,23 +143,71 @@
   footer { background: #3a2e3f; color: #fff; text-align: center; padding: 20px 24px; font-size: .78rem; opacity: .9; }
   footer a { color: #c084fc; text-decoration: none; margin: 0 8px; }
   footer a:hover { text-decoration: underline; }
+  /* ── Footer ── */
+  footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;font-family:'Poppins',sans-serif;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
+  .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
+  .footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;margin-bottom:8px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.5);}
+  .social-links{display:flex;gap:16px;}
+  .social-links a{color:rgba(255,255,255,.6);font-size:1.1rem;text-decoration:none;}
+  .social-links a:hover{color:#fff;}
+  .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-<nav class="p-nav" aria-label="Hauptnavigation">
-  <div class="ni">
-    <a class="logo-a" href="index.html" aria-label="Dandelion 11:11 – Startseite">
-      <img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" width="48" height="44" loading="lazy">
-    </a>
-    <ul class="nl">
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 60 € kostenlos | Persönliche Lieferung in der Region</div>
+<div class="topbar">
+  <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons &amp; Geschenke für jeden Anlass</div>
+  <div class="topbar-divider"></div>
+  <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &#160;|&#160; Handgemacht mit Liebe in Deutschland &#160;|&#160; Persönliche Beratung via WhatsApp</div>
+</div>
+<header>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <a href="index.html"><img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11"></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Shop</a></li>
-      <li><a href="kollektionen.html">Kollektionen</a></li>
-      <li><a href="index.html?page=ueberuns">Über uns</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="if(window.innerWidth<=900){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="muttertag-ballon.html">🌸 Muttertag</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="kuscheltiere.html">🧸 Kuscheltiere</a></li>
+          <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
+          <li><a href="sonstiges.html">✨ Sonstiges</a></li>
+          <li><a href="personalisierte-geschenke.html">🎁 Pers. Geschenke</a></li>
+          <li><a href="kollektionen.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+        </ul>
+      </li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="journal.html">Dandelion Journal</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
+    <div class="nav-icons">
+      <a href="index.html"><i class="fas fa-search"></i></a>
+      <a href="index.html"><i class="fas fa-heart"></i></a>
+      <a href="index.html" style="position:relative;"><i class="fas fa-shopping-bag"></i></a>
+      <a href="index.html" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Konto</span></a>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+    </div>
   </div>
-</nav>
+</header>
+
+<div id="main-content"></div>
 
 <main id="main-content">
   <div class="card">
@@ -141,13 +226,42 @@
 </main>
 
 <footer>
-  <a href="versand.html">Versand &amp; Rückgabe</a>
+  <div class="footer-inner">
+    <div>
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:12px;">✨ Dandelion 11:11 ✨</div>
+      <p style="font-size:.9rem;line-height:1.65;opacity:.75;margin-top:8px;">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="index.html">Alle Ballons</a>
+      <a href="geburtstag.html">Geburtstag</a>
+      <a href="hochzeit.html">Hochzeit</a>
+      <a href="babyparty.html">Babyparty</a>
+      <a href="fussball.html">Fußball</a>
+      <a href="kollektionen.html">Alle Kollektionen</a>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="journal.html">Dandelion Journal</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="versand.html">Versand &amp; Rückgabe</a>
       <a href="impressum.html">Impressum</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <a href="agb.html">AGB</a>
-  <a href="widerruf.html">Widerruf</a>
-  <br><br>
-  © 2026 Dandelion 11:11 · Bad Wörishofen, Bayern
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerrufsrecht</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dandelion 11:11 · Alle Rechte vorbehalten</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/dandelion11_design?igsh=bDY2YWR2YTk2OWFj&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raluca.jidvian?_r=1&_t=ZG-96u5t8J7tw1" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
 </footer>
+
+<a class="wa-fab" href="https://wa.me/491757668955" aria-label="WhatsApp Kontakt" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </body>
 </html>
