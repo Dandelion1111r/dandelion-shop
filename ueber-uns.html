@@ -191,12 +191,18 @@
       <li><a href="ueber-uns.html" class="active-nav" data-i18n="nav_ueber">Über uns</a></li>
       <li><a href="journal.html" data-i18n="nav_journal">Dandelion Journal</a></li>
       <li><a href="kontakt.html" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;gap:12px;">
+        <button onclick="toggleLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;">
+          <span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO
+        </button>
+      </li>
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-shopping-bag"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
+      <button id="lang-toggle" onclick="toggleLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
@@ -312,6 +318,101 @@
 
 <script>
 (function(){
+  var t={
+    de:{
+      nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt',
+      topbar_tagline:'Personalisierte Ballons & Geschenke für jeden Anlass',
+      topbar_info:'🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp',
+      back_to_config:'← Zurück zum Konfigurator',
+      ueber_h1:'Über Dandelion 11:11',ueber_subtitle:'Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.',
+      ueber_p1:'Als ich klein war, glaubte ich,<br>dass Dandelions magisch sind.',
+      ueber_p2:'Wenn ich eine fliegende Pusteblume fing und mir etwas wünschte, dann ging dieser Wunsch in Erfüllung.',
+      ueber_p3:'Heute weiß ich, dass es nicht ganz so einfach ist.',
+      ueber_p4:'Träume entstehen nicht von selbst.<br>Sie werden gebaut. Mit den Händen, mit Geduld, mit Verzicht.<br>Manchmal auf Schlaf. Manchmal auf Menschen.',
+      ueber_p5:'So entstand Dandelion.',
+      ueber_p6:'Nicht aus einem perfekten Plan, sondern aus einer Küche, in der mehr Kleber als Ordnung war.<br>Aus einem Keller, gestrichen mit Farbe und Hoffnung.<br>Aus Tagen, an denen ich nicht wusste, ob ich Kunst mache oder einfach nur ein großes, buntes Chaos erschaffe.',
+      ueber_weg_title:'Der Weg',
+      ueber_p7:'Ich habe Möbel montiert, Kartons geschleppt, Ballons zum Platzen gebracht und dabei auch die eine oder andere Existenzkrise durchlebt.',
+      ueber_p8:'Aber jedes Mal habe ich neu angefangen. Immer wieder.<br><em>Wie eine Dandelion, die fällt und trotzdem wieder aufsteigt.</em>',
+      ueber_heute_title:'Dandelion heute',
+      ueber_p9:'Dandelion ist mehr als ein Business.<br>Es ist ein Kindheitstraum, den ich mit beiden Händen festhalte.',
+      ueber_p10:'Jedes Detail, jede Blume, jedes Lächeln, das ich zurückbekommen habe, ist erarbeitet. Mit allem, was ich bin.',
+      ueber_p10b:'Vielleicht wirke ich manchmal wie ein verträumtes Mädchen. Aber hinter allem steht Arbeit, Entscheidung und Ausdauer.',
+      ueber_p11:'Dandelion ist meine Welt.<br>Eine Welt, die leiser geworden ist als der Anfang und klarer.',
+      ueber_p12:'Meine. Und vielleicht auch ein kleines Stück deine. 🌼',
+      ueber_award_title:'🏆 Ausgezeichnet: Adventskranz-Wettbewerb 2023',
+      ueber_award_text:'Im Dezember 2023 habe ich mit meinem selbstgestalteten Adventskranz beim Wettbewerb unserer lokalen Zeitung in Mindelheim gewonnen, mit liebevoll gestalteten Nussknacker-Figuren in Pink, Schwarz und Lila. Es war eine riesige Ehre, dass meine Arbeit in der Zeitung vorgestellt wurde! 🌟',
+      ueber_behind_title:'🎈 Hinter den Kulissen',ueber_behind_text:'Echte Momente von der Idee bis zum fertigen Ballon. Klick auf ein Bild zum Vergrößern.',
+      ueber_g1:'Erster Ballon geplatzt 😅',ueber_g2:'Möbel montieren im Keller',ueber_g3:'Kreatives Chaos in der Küche',
+      ueber_g4:'Erste Bestellungen verpacken',ueber_g5:'Details mit Liebe gestaltet',ueber_g6:'Fertige Kreationen',
+      footer_brand_text:'Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.',
+      footer_shop_title:'Shop',footer_link_all:'Alle Ballons',footer_link_geburtstag:'Geburtstag',footer_link_hochzeit:'Hochzeit',footer_link_babyparty:'Babyparty',
+      footer_info_title:'Info',footer_link_ueber:'Über uns',footer_link_kontakt:'Kontakt',footer_copyright:'Dandelion 11:11 · Alle Rechte vorbehalten'
+    },
+    ro:{
+      nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
+      topbar_tagline:'Baloane și cadouri personalizate pentru orice ocazie',
+      topbar_info:'🎈 Livrare gratuită de la 60 € &nbsp;|&nbsp; Lucrat manual cu drag în Germania &nbsp;|&nbsp; Consiliere personală prin WhatsApp',
+      back_to_config:'← Înapoi la configurator',
+      ueber_h1:'Despre Dandelion 11:11',ueber_subtitle:'O poveste despre vise, lipici, baloane sparte și magia din spatele lor.',
+      ueber_p1:'Când eram mică, credeam<br>că păpădiile sunt magice.',
+      ueber_p2:'Dacă prindeam o păpădie zburătoare și îmi puneam o dorință, dorința se îndeplinea.',
+      ueber_p3:'Astăzi știu că nu este chiar așa de simplu.',
+      ueber_p4:'Visurile nu apar de la sine.<br>Ele se construiesc. Cu mâinile, cu răbdare, cu sacrificii.<br>Câteodată renunțând la somn. Câteodată la oameni.',
+      ueber_p5:'Așa a apărut Dandelion.',
+      ueber_p6:'Nu dintr-un plan perfect, ci dintr-o bucătărie în care era mai mult lipici decât ordine.<br>Dintr-un subsol vopsit cu culoare și speranță.<br>Din zile în care nu știam dacă fac artă sau doar un mare haos colorat.',
+      ueber_weg_title:'Drumul',
+      ueber_p7:'Am montat mobilă, am cărat cutii, am spart baloane și am trecut și prin câte o mică criză existențială.',
+      ueber_p8:'Dar de fiecare dată am luat-o de la capăt. Mereu.<br><em>Ca o păpădie care cade și totuși se ridică din nou.</em>',
+      ueber_heute_title:'Dandelion astăzi',
+      ueber_p9:'Dandelion este mai mult decât o afacere.<br>Este un vis din copilărie, pe care îl țin cu ambele mâini.',
+      ueber_p10:'Fiecare detaliu, fiecare floare, fiecare zâmbet pe care l-am primit înapoi este muncit. Cu tot ce sunt.',
+      ueber_p10b:'Poate par câteodată o fată visătoare. Dar în spatele a tot stă muncă, decizie și perseverență.',
+      ueber_p11:'Dandelion este lumea mea.<br>O lume care a devenit mai liniștită decât la început și mai clară.',
+      ueber_p12:'A mea. Și poate, puțin, și a ta. 🌼',
+      ueber_award_title:'🏆 Premiat: Concursul de Coronițe de Advent 2023',
+      ueber_award_text:'În decembrie 2023 am câștigat cu coronița mea de Advent creată manual concursul jurnalului local din Mindelheim, cu figurine de spărgător de nuci create cu drag în roz, negru și mov. A fost o onoare imensă ca lucrarea mea să fie prezentată în jurnal! 🌟',
+      ueber_behind_title:'🎈 În culise',ueber_behind_text:'Momente reale de la idee până la balonul finit. Apasă pe o imagine pentru a o mări.',
+      ueber_g1:'Primul balon spart 😅',ueber_g2:'Montat mobilă în subsol',ueber_g3:'Haos creativ în bucătărie',
+      ueber_g4:'Împachetarea primelor comenzi',ueber_g5:'Detalii create cu drag',ueber_g6:'Creații finite',
+      footer_brand_text:'Baloane experiență lucrate manual pentru momentele tale de neuitat. Create cu drag, livrate personal.',
+      footer_shop_title:'Magazin',footer_link_all:'Toate baloanele',footer_link_geburtstag:'Aniversare',footer_link_hochzeit:'Nuntă',footer_link_babyparty:'Baby Shower',
+      footer_info_title:'Info',footer_link_ueber:'Despre noi',footer_link_kontakt:'Contact',footer_copyright:'Dandelion 11:11 · Toate drepturile rezervate'
+    }
+  };
+
+  function applyLang(l){
+    if(!t[l])l='de';
+    document.documentElement.lang=l;
+    localStorage.setItem('lang',l);
+    var flag=l==='ro'?'🇷🇴':'🇩🇪', code=l==='ro'?'RO':'DE';
+    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
+    var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
+    if(f)f.textContent=flag; if(c)c.textContent=code;
+    if(fm)fm.textContent=flag; if(cm)cm.textContent=code;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');if(t[l][k]!==undefined)el.textContent=t[l][k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-html');if(t[l][k]!==undefined)el.innerHTML=t[l][k];
+    });
+  }
+
+  window.toggleLang=function(){
+    applyLang(localStorage.getItem('lang')==='ro'?'de':'ro');
+  };
+
+  // Show mobile lang item when nav is open
+  var navLinks=document.getElementById('nav-links');
+  var mobileLang=navLinks&&navLinks.querySelector('.lang-mobile-item');
+  if(navLinks&&mobileLang){
+    var obs=new MutationObserver(function(){
+      mobileLang.style.display=navLinks.classList.contains('open')?'flex':'none';
+    });
+    obs.observe(navLinks,{attributes:true,attributeFilter:['class']});
+  }
+
+  applyLang(localStorage.getItem('lang')||'de');
   document.getElementById('footerYear').textContent=new Date().getFullYear();
   window.openLightbox=function(src,alt){if(!src)return;var lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;document.getElementById('lightbox-img').alt=alt||'';lb.style.display='flex';};
   window.closeLightbox=function(){document.getElementById('lightbox').style.display='none';};
