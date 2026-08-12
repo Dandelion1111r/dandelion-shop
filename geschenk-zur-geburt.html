@@ -172,13 +172,16 @@ a{text-decoration:none;color:inherit}
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="journal.html">Dandelion Journal</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
+    
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button></li>
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
       <a href="index.html"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="position:relative;"><i class="fas fa-shopping-bag"></i></a>
       <a href="index.html" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
-      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
+      aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
 </header>
@@ -289,6 +292,16 @@ a{text-decoration:none;color:inherit}
 </footer>
 
 <a class="wa-fab" href="https://wa.me/491757668955" aria-label="WhatsApp Kontakt" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+(function(){
+  var navI18n={de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}};
+  function applyNavLang(l){if(!navI18n[l])l='de';localStorage.setItem('lang',l);var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code'),fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');if(f)f.textContent=flag;if(c)c.textContent=code;if(fm)fm.textContent=flag;if(cm)cm.textContent=code;document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];});}
+  window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
+  var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
+  applyNavLang(localStorage.getItem('lang')||'de');
+})();
+</script>
 <script>
 (function(){
   function makeStar(size,color){
