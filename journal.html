@@ -236,10 +236,6 @@
       </div>
     </div>
     <ul class="nav-links" id="nav-links">
-      <li style="display:flex;gap:6px;align-items:center;">
-        <span onclick="setJournalLang('de')" id="lang-de" style="cursor:pointer;font-size:1.3rem;" title="Deutsch">🇩🇪</span>
-        <span onclick="setJournalLang('ro')" id="lang-ro" style="cursor:pointer;font-size:1.3rem;opacity:0.4;" title="Română">🇷🇴</span>
-      </li>
       <li><a href="index.html" data-i18n="nav_shop">Shop</a></li>
       <li class="nav-dropdown">
         <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}"><span data-i18n="nav_kollektionen">Kollektionen</span></a>
@@ -259,12 +255,16 @@
       <li><a href="ueber-uns.html" data-i18n="nav_ueber">Über uns</a></li>
       <li><a href="journal.html" class="active-nav" data-i18n="nav_journal">Dandelion Journal</a></li>
       <li><a href="kontakt.html" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;">
+        <button onclick="toggleJournalLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button>
+      </li>
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
+      <button id="lang-toggle" onclick="toggleJournalLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
@@ -483,17 +483,31 @@
         footer_copyright: '© 2026 Dandelion 11:11 · Toate drepturile rezervate'
       }
     };
-    window.setJournalLang = function(lang) {
+    function applyJournalLang(lang) {
+      if (!journalI18n[lang]) lang = 'de';
       localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      var flag = lang==='ro'?'🇷🇴':'🇩🇪', code = lang==='ro'?'RO':'DE';
+      var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
+      var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
+      if(f)f.textContent=flag; if(c)c.textContent=code;
+      if(fm)fm.textContent=flag; if(cm)cm.textContent=code;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (journalI18n[lang][key]) el.textContent = journalI18n[lang][key];
       });
-      const de = document.getElementById('lang-de');
-      const ro = document.getElementById('lang-ro');
-      if (de && ro) { de.style.opacity = lang==='de'?'1':'0.4'; ro.style.opacity = lang==='ro'?'1':'0.4'; }
+    }
+    window.toggleJournalLang = function() {
+      applyJournalLang(localStorage.getItem('lang')==='ro'?'de':'ro');
     };
-    setJournalLang(localStorage.getItem('lang') || 'de');
+    var navLinks=document.getElementById('nav-links');
+    var mobileLang=navLinks&&navLinks.querySelector('.lang-mobile-item');
+    if(navLinks&&mobileLang){
+      new MutationObserver(function(){
+        mobileLang.style.display=navLinks.classList.contains('open')?'flex':'none';
+      }).observe(navLinks,{attributes:true,attributeFilter:['class']});
+    }
+    applyJournalLang(localStorage.getItem('lang') || 'de');
   </script>
   <script>
     (function(){
