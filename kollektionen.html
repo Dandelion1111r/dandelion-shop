@@ -442,6 +442,7 @@
   <button class="filter-btn" onclick="filterProducts('geburtstag', this)">🎂 Geburtstag</button>
   <button class="filter-btn" onclick="filterProducts('hochzeit', this)">💍 Hochzeit</button>
   <button class="filter-btn" onclick="filterProducts('babyparty', this)">👶 Babyparty</button>
+  <button class="filter-btn" onclick="filterProducts('liebe', this)">💕 Liebe</button>
   <button class="filter-btn" onclick="filterProducts('fussball', this)">⚽ Fußball</button>
   <button class="filter-btn" onclick="filterProducts('kuscheltiere', this)">🧸 Kuscheltiere</button>
   <button class="filter-btn" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
@@ -615,6 +616,7 @@
       tag: 'Bestseller',
       emoji: '🎂',
       img: 'ballon-lila-champagner.webp',
+      url: 'produktlilachampagnerballon.html',
     },
     {
       id: 2,
@@ -625,6 +627,7 @@
       tag: 'Beliebt',
       emoji: '💍',
       img: 'hochzeitsballon-box-lila.webp',
+      url: 'produktlilahochzeitsballonbox.html',
     },
     {
       id: 3,
@@ -635,16 +638,18 @@
       tag: '',
       emoji: '🌸',
       img: 'feen-blumenbox.webp',
+      url: 'produktfeenblumenbox.html',
     },
     {
       id: 4,
-      name: 'Ballon Box Boho',
+      name: 'Ballon Box Boho Luxe',
       desc: 'Natürliche Boho-Ballon-Box mit Wunschtext – für moderne, stilvolle Geschenke.',
       price: 34.90,
       category: 'geburtstag',
       tag: '',
       emoji: '✨',
       img: 'ballon-box-boho-blau-gold.webp',
+      url: 'produktballonboxboholuxe.html',
     },
     {
       id: 5,
@@ -655,6 +660,7 @@
       tag: 'Premium',
       emoji: '🎁',
       img: 'ballon-box-schwarz-gold.webp',
+      url: 'produktballonboxschwarzgold.html',
     },
     {
       id: 6,
@@ -665,6 +671,7 @@
       tag: 'Beliebt',
       emoji: '🎓',
       img: 'abschluss-ballon-congradulations.webp',
+      url: 'produktabschlussballoncongradulations.html',
     },
     {
       id: 7,
@@ -675,6 +682,7 @@
       tag: '',
       emoji: '🎨',
       img: 'ballon-wunsch-illustration.webp',
+      url: 'produktballonmitwunschillustration.html',
     },
     {
       id: 8,
@@ -685,6 +693,7 @@
       tag: 'Neu',
       emoji: '🍫',
       img: 'ferrero-geburtstagsbox.webp',
+      url: 'produktferrerogeburtstagsbox.html',
     },
     {
       id: 9,
@@ -695,16 +704,18 @@
       tag: '',
       emoji: '🦄',
       img: 'einhorn-ballonstrauss.webp',
+      url: 'produkteinhornballonstrauss.html',
     },
     {
       id: 10,
-      name: 'Stitch Ballon',
+      name: 'Stitch Ballon mit Blumen',
       desc: 'Süßer Stitch-Ballon mit Blumen und Schmetterlingen – für alle Stitch-Fans.',
       price: 22.90,
       category: 'geburtstag',
       tag: 'Beliebt',
       emoji: '💙',
       img: 'ballon-stitch-blumen-schmetterlinge.webp',
+      url: 'produktpopballonstitchmitblumenschmetterlingen.html',
     },
     {
       id: 11,
@@ -715,6 +726,7 @@
       tag: '',
       emoji: '⚽',
       img: 'fussball-blumenbox.webp',
+      url: 'produktfussballblumenbox.html',
     },
     {
       id: 13,
@@ -725,6 +737,7 @@
       tag: 'Beliebt',
       emoji: '⚽',
       img: 'cr7-fan-geschenkbox.webp',
+      url: 'produktcr7fangeschenkbox.html',
     },
     {
       id: 14,
@@ -735,6 +748,7 @@
       tag: '',
       emoji: '⚽',
       img: 'fussball-schuh-blumenstrauss.webp',
+      url: 'produktfussballschuhblumenstrauss.html',
     },
     {
       id: 15,
@@ -745,6 +759,7 @@
       tag: 'Magisch',
       emoji: '🧸',
       img: 'teddy-baer-im-geschenkballon.webp',
+      url: 'produktteddybaerimgeschenkballon.html',
     },
     {
       id: 16,
@@ -755,6 +770,7 @@
       tag: 'Komplett-Set',
       emoji: '🧸',
       img: 'teddy-geschenkbox-mit-ballon.webp',
+      url: 'produktteddygeschenkboxmitballon.html',
     },
     {
       id: 17,
@@ -765,6 +781,7 @@
       tag: 'Romantisch',
       emoji: '💕',
       img: 'herzbox-mit-ferrero-roten-rosen.webp',
+      url: 'produktherzboxmitferrerorotenrosen.html',
     },
     {
       id: 18,
@@ -775,6 +792,7 @@
       tag: 'Valentinstag',
       emoji: '❤️',
       img: 'heissluftballon-happy-valentines-day.webp',
+      url: 'produktheissluftballonhappyvalentinesday.html',
     },
     {
       id: 12,
@@ -785,6 +803,7 @@
       tag: '',
       emoji: '🐉',
       img: 'drachen-blumenbox.webp',
+      url: 'produktdrachenblumenbox.html',
     },
   ];
 
@@ -792,38 +811,7 @@
   let currentFilter = 'all';
 
   function renderProducts(filter) {
-    const grid = document.getElementById('productsGrid');
-    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-    grid.innerHTML = filtered.map(p => `
-      <div class="product-card" data-id="${p.id}">
-        <div class="product-img-wrap">
-          ${p.img
-            ? `<img src="${p.img}" alt="${p.name}">`
-            : `<span class="no-img">${p.emoji}</span>`
-          }
-          ${p.tag ? `<span class="badge-tag">${p.tag}</span>` : ''}
-          ${p.sale ? `<span class="badge-sale">SALE</span>` : ''}
-        </div>
-        <div class="product-body">
-          <div class="product-name">${p.name}</div>
-          <div class="product-desc">${p.desc}</div>
-          <div class="product-footer">
-            <div class="product-price">
-              ${p.price.toFixed(2).replace('.', ',')} €
-              ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toFixed(2).replace('.', ',')} €</span>` : ''}
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <a href="index.html?kat=${p.category}" class="btn-configure" title="Personalisieren">
-                <i class="fas fa-magic"></i> Gestalten
-              </a>
-              <button class="btn-cart" onclick="addToCart(${p.id}, this)">
-                <i class="fas fa-cart-plus"></i> In den Korb
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `).join('');
+    renderFiltered();
   }
 
   let kollSortMode = 'default';
@@ -844,18 +832,18 @@
     if (!list.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Keine Produkte gefunden.</p>'; return; }
     grid.innerHTML = list.map(p => `
       <div class="product-card" data-id="${p.id}">
-        <div class="product-img-wrap">
-          ${p.img ? `<img src="${p.img}" alt="${p.name}">` : `<span class="no-img">${p.emoji}</span>`}
+        <a href="${p.url || 'index.html'}" class="product-img-wrap" style="display:block;text-decoration:none;">
+          ${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<span class="no-img">${p.emoji}</span>`}
           ${p.tag ? `<span class="badge-tag">${p.tag}</span>` : ''}
           ${p.sale ? `<span class="badge-sale">SALE</span>` : ''}
-        </div>
+        </a>
         <div class="product-body">
-          <div class="product-name">${p.name}</div>
+          <a href="${p.url || 'index.html'}" class="product-name" style="text-decoration:none;color:inherit;">${p.name}</a>
           <div class="product-desc">${p.desc}</div>
           <div class="product-footer">
             <div class="product-price">${p.price.toFixed(2).replace('.', ',')} € ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toFixed(2).replace('.', ',')} €</span>` : ''}</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <a href="index.html?kat=${p.category}" class="btn-configure" title="Personalisieren"><i class="fas fa-magic"></i> Gestalten</a>
+              <a href="${p.url || 'index.html'}" class="btn-configure" title="Zum Produkt"><i class="fas fa-eye"></i> Ansehen</a>
               <button class="btn-cart" onclick="addToCart(${p.id}, this)"><i class="fas fa-cart-plus"></i> In den Korb</button>
             </div>
           </div>
