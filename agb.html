@@ -61,17 +61,6 @@
   .lf-social a { color:rgba(255,255,255,.6); font-size:1rem; text-decoration:none; }
   .lf-social a:hover { color:#fff; }
   .wa-fab-l { position:fixed; bottom:24px; right:24px; background:#25d366; color:#fff; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.4); z-index:200; }
-
-  /* legal nav header */
-  .legal-header { background:#fff; border-bottom:1px solid rgba(142,68,173,.12); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(142,68,173,.07); }
-  .legal-header-inner { max-width:700px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:60px; gap:16px; }
-  .legal-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:#8e44ad; font-weight:700; font-size:1rem; letter-spacing:.3px; flex-shrink:0; }
-  .legal-logo img { width:36px; height:36px; object-fit:contain; }
-  .legal-nav-links { display:flex; gap:14px; flex-wrap:wrap; }
-  .legal-nav-links a { color:#6b5777; text-decoration:none; font-size:.82rem; font-weight:500; white-space:nowrap; }
-  .legal-nav-links a:hover { color:#8e44ad; }
-  .legal-lang-btn { background:none; border:1.5px solid #8e44ad; border-radius:20px; padding:3px 10px; cursor:pointer; font-size:.78rem; font-weight:700; letter-spacing:.5px; color:#8e44ad; display:inline-flex; align-items:center; gap:4px; line-height:1.3; opacity:.85; transition:opacity .2s; flex-shrink:0; }
-  .legal-lang-btn:hover { opacity:1; }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -79,23 +68,8 @@
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-<header class="legal-header" role="banner">
-  <div class="legal-header-inner">
-    <a href="index.html" class="legal-logo" aria-label="Zurück zur Startseite">
-      <img src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11 Logo" width="36" height="36">
-      <span>Dandelion 11:11</span>
-    </a>
-    <nav class="legal-nav-links" aria-label="Hauptnavigation">
-      <a href="index.html" data-i18n="nav_shop">Shop</a>
-      <a href="kollektionen.html" data-i18n="nav_koll">Kollektionen</a>
-      <a href="ueber-uns.html" data-i18n="nav_ueber">Über uns</a>
-      <a href="kontakt.html" data-i18n="nav_kontakt">Kontakt</a>
-    </nav>
-    <button id="lang-toggle" class="legal-lang-btn" onclick="toggleNavLang()" aria-label="Sprache wechseln"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
-  </div>
-</header>
-
-<div class="wrap" id="main-content">
+  <div class="wrap">
+    <a class="back" href="index.html">← Zurück zum Shop</a>
     <h1>Allgemeine Geschäftsbedingungen</h1>
     <h2>1. Geltungsbereich</h2>
     <p>
@@ -168,25 +142,5 @@
 })();
 </script>
 <!-- End Cookie Consent -->
-<script>
-(function(){
-  var navI18n={
-    de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_kontakt:'Kontakt'},
-    ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_kontakt:'Contact'}
-  };
-  function applyNavLang(l){
-    if(!navI18n[l])l='de';
-    localStorage.setItem('lang',l);
-    var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';
-    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
-    if(f)f.textContent=flag;if(c)c.textContent=code;
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
-    });
-  }
-  window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
-  applyNavLang(localStorage.getItem('lang')||'de');
-})();
-</script>
 </body>
 </html>
