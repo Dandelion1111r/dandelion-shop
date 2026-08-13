@@ -200,7 +200,7 @@
       "name": "Wie schnell liefert ihr Fußball-Geschenke?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bei Standardbestellungen rechnet ihr mit bis zu 7 Werktagen Lieferzeit. Im Raum Bad Wörishofen, Memmingen und Augsburg bieten wir auch persönliche Lieferung an. Bei dringenden Bestellungen bitte per WhatsApp melden."
+        "text": "Bei Standardbestellungen rechnet ihr mit 5–7 Werktagen Lieferzeit. Im Raum Bad Wörishofen, Memmingen und Augsburg bieten wir auch persönliche Lieferung an. Bei dringenden Bestellungen bitte per WhatsApp melden."
       }
     },
     {
@@ -442,6 +442,10 @@
           <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
           <li><a href="sonstiges.html">✨ Sonstiges</a></li>
           <li><a href="personalisierte-geschenke.html">🎁 Pers. Geschenke</a></li>
+          <li><a href="ostern.html">🐣 Ostern</a></li>
+          <li><a href="weihnachten.html">🎄 Weihnachten</a></li>
+          <li><a href="taufe-kommunion.html">✝ Taufe &amp; Kommunion</a></li>
+          <li><a href="gender-reveal.html">🎀 Gender Reveal</a></li>
           <li><a href="kollektionen.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
         </ul>
       </li>
@@ -456,8 +460,8 @@
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
-      <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
-      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
+      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
+      aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
 </header>
@@ -634,7 +638,7 @@
       </ul>
 
       <h2>Fußball-Geschenk kaufen: Lieferung in Bayern und deutschlandweit</h2>
-      <p>Im Raum <strong>Bad Wörishofen, Memmingen, Kaufbeuren und Augsburg</strong> liefern wir persönlich. Deutschlandweiter Versand mit DHL – <strong>ab 60 € Bestellwert versandkostenfrei</strong>. Vorlaufzeit: mindestens <strong>bis zu 7 Werktage</strong>, für personalisierte Designs gerne 10 Tage.</p>
+      <p>Im Raum <strong>Bad Wörishofen, Memmingen, Kaufbeuren und Augsburg</strong> liefern wir persönlich. Deutschlandweiter Versand mit DHL – <strong>ab 60 € Bestellwert versandkostenfrei</strong>. Vorlaufzeit: mindestens <strong>5–7 Werktage</strong>, für personalisierte Designs gerne 10 Tage.</p>
       <p>Fußball-Geschenke von Dandelion 11:11 passen perfekt zum <strong>Geburtstag</strong>, zu <strong>Spieltagen und Siegesfeiern</strong>, als Abschiedsgeschenk vom Team oder als Motivation für den Nachwuchskicker. Auch <strong>Vereinsgeschenke</strong> und Teambestellungen auf Anfrage möglich.</p>
 
       <h2>Personalisierung und Preise</h2>
@@ -649,12 +653,60 @@
     <h2 style="font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:#5b21b6;margin-bottom:20px;">Häufig gestellte Fragen – Fußball-Geschenke</h2>
     <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Was ist ein gutes Geschenk für einen Fußballfan? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Bei Dandelion 11:11 findest du einzigartige handgemachte Fußballgeschenke: von der Fußball-Blumenbox mit Rosen über den Fußballschuh-Blumenstrauß bis hin zu exklusiven CR7 Fan-Geschenkboxen mit Ronaldo-Rahmen und Trophäen.</p></details>
     <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Kann ich eine Fußball-Geschenkbox personalisieren? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Ja! Unser Fan-Strauß Ronaldo sowie die CR7-Geschenkboxen sind bereits auf Cristiano Ronaldo zugeschnitten. Für andere Vereine oder Spieler freuen wir uns über eine Anfrage per WhatsApp.</p></details>
-    <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Wie schnell liefert ihr Fußball-Geschenke? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Bei Standardbestellungen rechnet ihr mit bis zu 7 Werktagen Lieferzeit. Im Raum Bad Wörishofen, Memmingen und Augsburg bieten wir auch persönliche Lieferung an. Bei dringenden Bestellungen bitte per WhatsApp melden.</p></details>
+    <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Wie schnell liefert ihr Fußball-Geschenke? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Bei Standardbestellungen rechnet ihr mit 5–7 Werktagen Lieferzeit. Im Raum Bad Wörishofen, Memmingen und Augsburg bieten wir auch persönliche Lieferung an. Bei dringenden Bestellungen bitte per WhatsApp melden.</p></details>
     <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Was enthält die CR7 Fan-Geschenkbox? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Unsere CR7 Fan-Geschenkboxen beinhalten ein gerahmtes Bild mit Ronaldo-Motiv (in drei Varianten: Road to 2026, One Last Dance oder El Bicho), eine goldene Fußballer-Pokalfigur, eine kleine goldene Ball-Trophäe, alles liebevoll in schwarzem Papierstroh präsentiert.</p></details>
     <details style="border-bottom:1px solid #e9d8fd;padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Sind die Fußball-Geschenke auch für Kinder geeignet? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Ja! Unsere Fußball-Blumenbox und Blumensträuße sind ideal für fußballbegeisterte Kinder und Jugendliche. Für die CR7-Geschenkboxen empfehlen wir ein Alter ab 6 Jahren, da kleine Teile enthalten sind.</p></details>
     <details style="padding:16px 0;"><summary style="font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;">Welche Fußball-Geschenke eignen sich am besten zum Geburtstag? <span style="color:#8e44ad;">+</span></summary><p style="margin:12px 0 0;color:#444;line-height:1.7;">Bestseller zum Geburtstag sind unsere Fußball-Blumenbox (69&nbsp;€), der Fußballschuh-Blumenstrauß (55&nbsp;€) und die CR7 Fan-Geschenkbox Road to 2026 (39&nbsp;€). Alle können mit einem persönlichen Wunschtext ergänzt werden.</p></details>
   </div>
 </section>
+
+
+<div style="background:linear-gradient(135deg,#f3e8ff,#fce7f3);padding:40px 20px;margin:40px 0;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:700;color:#5b21b6;margin-bottom:28px;">So einfach geht's – in 3 Schritten</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
+      <div style="flex:1;min-width:200px;max-width:260px;background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(142,68,173,.1);">
+        <div style="font-size:2rem;margin-bottom:12px;">🛒</div>
+        <div style="font-weight:700;color:#5b21b6;font-size:1rem;margin-bottom:8px;">1. Produkt wählen</div>
+        <div style="font-size:.87rem;color:#555;line-height:1.5;">Such dir dein Lieblingsprodukt aus und füg es dem Warenkorb hinzu.</div>
+      </div>
+      <div style="flex:1;min-width:200px;max-width:260px;background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(142,68,173,.1);">
+        <div style="font-size:2rem;margin-bottom:12px;">✍️</div>
+        <div style="font-weight:700;color:#5b21b6;font-size:1rem;margin-bottom:8px;">2. Wunschtext eingeben</div>
+        <div style="font-size:.87rem;color:#555;line-height:1.5;">Deinen Wunschtext gibst du direkt im Konfigurator ein – er wird automatisch gespeichert.</div>
+      </div>
+      <div style="flex:1;min-width:200px;max-width:260px;background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(142,68,173,.1);">
+        <div style="font-size:2rem;margin-bottom:12px;">🎈</div>
+        <div style="font-weight:700;color:#5b21b6;font-size:1rem;margin-bottom:8px;">3. Empfangen & staunen</div>
+        <div style="font-size:.87rem;color:#555;line-height:1.5;">Wir liefern dein handgemachtes Unikat – persönlich oder per DHL in ganz Deutschland.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#fff;padding:40px 20px;margin:40px 0;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);">
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:700;color:#5b21b6;text-align:center;margin-bottom:28px;">⭐ Das sagen unsere Kundinnen</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+      <div style="flex:1;min-width:220px;max-width:280px;background:#f9f5ff;border-radius:14px;padding:20px;border-left:4px solid #8e44ad;">
+        <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
+        <p style="font-size:.88rem;color:#333;line-height:1.55;margin:0 0 12px;">"Absolut wunderschön! Der Ballon war noch schöner als auf den Fotos. Meine Freundin war total überrascht."</p>
+        <div style="font-size:.8rem;color:#7c3aed;font-weight:600;">— Sandra M.</div>
+      </div>
+      <div style="flex:1;min-width:220px;max-width:280px;background:#f9f5ff;border-radius:14px;padding:20px;border-left:4px solid #d63384;">
+        <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
+        <p style="font-size:.88rem;color:#333;line-height:1.55;margin:0 0 12px;">"Super schnelle Lieferung, liebevolle Verpackung und der personalisierte Text war perfekt. Komme definitiv wieder!"</p>
+        <div style="font-size:.8rem;color:#7c3aed;font-weight:600;">— Lena K.</div>
+      </div>
+      <div style="flex:1;min-width:220px;max-width:280px;background:#f9f5ff;border-radius:14px;padding:20px;border-left:4px solid #8e44ad;">
+        <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
+        <p style="font-size:.88rem;color:#333;line-height:1.55;margin:0 0 12px;">"Endlich ein Shop der wirklich individuell ist. Die Ballon-Box war ein Highlight auf der Party – alle haben gefragt wo ich das her hab!"</p>
+        <div style="font-size:.8rem;color:#7c3aed;font-weight:600;">— Julia W.</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.8rem;color:#888;margin-top:20px;">Echte Bewertungen von unseren Kundinnen · Ø 4,9 von 5 Sternen</p>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
