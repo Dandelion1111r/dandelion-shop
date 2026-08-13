@@ -104,3 +104,8 @@ footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255
 .social-links a{color:rgba(255,255,255,0.6);font-size:var(--fs-md);text-decoration:none;transition:color 0.2s;}
 .social-links a:hover{color:#fff;}
 .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
+.scan-me{position:absolute;top:40px;left:196px;display:flex;flex-direction:row;align-items:center;gap:5px;pointer-events:none;z-index:10;}
+.scan-me span{font-size:.85rem;font-weight:600;letter-spacing:.5px;font-family:Poppins,sans-serif;color:var(--purple);white-space:nowrap;background:rgba(255,255,255,.9);padding:2px 8px;border-radius:4px;border:1px solid var(--purple);}
+.scan-arrow{font-size:var(--fs-base);color:var(--purple);animation:pointQR .8s ease-in-out infinite;display:block;}
+@keyframes pointQR{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
+@media(max-width:768px){.scan-me{display:none;}}
