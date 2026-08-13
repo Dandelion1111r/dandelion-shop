@@ -109,3 +109,7 @@ footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255
 .scan-arrow{font-size:var(--fs-base);color:var(--purple);animation:pointQR .8s ease-in-out infinite;display:block;}
 @keyframes pointQR{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
 @media(max-width:768px){.scan-me{display:none;}}
+.logo-wordmark{display:flex;flex-direction:column;gap:0;margin-left:-2px;padding-bottom:18px;align-items:flex-start;text-align:left;}
+.logo-wordmark .wm-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
+.logo-wordmark .wm-tagline{font-size:.85rem;font-weight:400;font-style:italic;color:var(--text-light);letter-spacing:.3px;line-height:1;margin-top:10px;}
+@media(max-width:768px){.logo-wordmark{display:none;}}
