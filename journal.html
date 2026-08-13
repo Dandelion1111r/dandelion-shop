@@ -260,7 +260,7 @@
       <li><a href="journal.html" class="active-nav" data-i18n="nav_journal">Dandelion Journal</a></li>
       <li><a href="kontakt.html" data-i18n="nav_kontakt">Kontakt</a></li>
       <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;">
-        <button onclick="toggleJournalLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button>
+        <button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button>
       </li>
     </ul>
     <div class="nav-icons">
@@ -268,7 +268,7 @@
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
-      <button id="lang-toggle" onclick="toggleJournalLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
+      <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
@@ -501,7 +501,7 @@
         if (journalI18n[lang][key]) el.textContent = journalI18n[lang][key];
       });
     }
-    window.toggleJournalLang = function() {
+    window.toggleNavLang=function() {
       applyJournalLang(localStorage.getItem('lang')==='ro'?'de':'ro');
     };
     var navLinks=document.getElementById('nav-links');
