@@ -315,7 +315,7 @@
     
     <h2 style="color:#3a2e3f;font-size:1.1rem;margin:24px 0 8px;">Oster-Blumenbox mit Drachen – handgemacht &amp; personalisierbar</h2>
     <p style="font-size:.93rem;color:#5a4a63;">Ein einzigartiges, handgefertigtes Geschenk aus Bad Wörishofen – auf Wunsch individuell personalisiert und mit viel Sorgfalt zusammengestellt.</p>
-    <a class="cta" href="index.html?kat=sonstiges">Jetzt im Shop ansehen →</a>
+    <a id="btn-wa-order" class="cta" href="#" onclick="(function(e){e.preventDefault();var n=document.querySelector('h1')?document.querySelector('h1').textContent.trim():'dieses Produkt';window.open('https://wa.me/491757668955?text='+encodeURIComponent('Hallo, ich möchte gerne &quot;'+n+'&quot; bestellen. Können Sie mir weiterhelfen?')+'&source=produktseite','_blank');})(event)" style="display:flex;align-items:center;justify-content:center;gap:10px;"><i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Jetzt per WhatsApp bestellen</a>
     <p style="margin-top:30px;font-size:.95rem;">Mehr aus dieser Kategorie: <a href="kollektionen.html" style="color:#8e44ad;">Sonstiges</a> · <a href="kollektionen.html" style="color:#8e44ad;">alle Kollektionen ansehen</a> · <a href="journal.html" style="color:#8e44ad;">Dandelion Journal</a></p>
   </div>
 
@@ -358,18 +358,18 @@
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">„Absolut wunderschön! Die Qualität hat mich begeistert und die Lieferung war superschnell. Werde definitiv wieder bestellen."</p>
-      <span class="review-author">— Sandra M.</span>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">„Ein tolles Geschenk für meine beste Freundin. Sie war total überrascht und hat sich riesig gefreut. Sehr empfehlenswert!"</p>
-      <span class="review-author">— Julia K.</span>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
       <p class="review-text">„Perfekte Verpackung, liebevolle Details und pünktlich geliefert. Genau das, was ich mir vorgestellt habe. Vielen Dank!"</p>
-      <span class="review-author">— Andrei B.</span>
+      <span class="review-author">— Mia W.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Meine Mama hat geweint vor Freude – das schönste Muttertagsgeschenk, das ich je verschenkt habe. Danke Dandelion!"</p>
+      <span class="review-author">— Laura S.</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">„Superqualität! Die Blumen sahen frisch aus und der Ballon war perfekt personalisiert. Bin total begeistert."</p>
+      <span class="review-author">— Sophia R.</span>
     </div>
   </div>
 </section>
@@ -434,6 +434,28 @@
       <a href="https://wa.me/491757668955" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
+<style>
+#prod-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;}
+#prod-lightbox.open{display:flex;}
+#prod-lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.5);}
+.prod-photo{cursor:zoom-in;}
+</style>
+<div id="prod-lightbox" onclick="this.classList.remove('open')" aria-modal="true" role="dialog" aria-label="Bild vergrößert">
+  <img id="prod-lightbox-img" src="" alt="">
+</div>
+<script>
+(function(){
+  var ph=document.querySelector('.prod-photo');
+  if(!ph)return;
+  ph.addEventListener('click',function(){
+    var lb=document.getElementById('prod-lightbox');
+    document.getElementById('prod-lightbox-img').src=ph.src;
+    document.getElementById('prod-lightbox-img').alt=ph.alt;
+    lb.classList.add('open');
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('prod-lightbox').classList.remove('open');});
+})();
+</script>
 </footer>
 <a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" class="wa-fab" rel="noopener">
   <i class="fab fa-whatsapp"></i>
