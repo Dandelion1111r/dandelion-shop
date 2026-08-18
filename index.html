@@ -356,7 +356,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
         <img width="340" height="311" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
-          <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
+          <span class="wm-tagline" data-i18n="wm_tagline">✨ Momente, die bleiben. ✨</span>
         </div>
       </a>
       <div class="scan-me">
@@ -389,7 +389,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     <div class="nav-icons" style="margin-left:24px;">
       <span onclick="toggleSearchBar()" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()">
         <i class="fas fa-search" aria-hidden="true"></i>
-        <span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span>
+        <span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;" data-i18n="nav_suchen">Suchen</span>
       </span>
       <span onclick="showFavorites()" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Favoriten anzeigen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')showFavorites()">
         <i class="fas fa-heart" aria-hidden="true"></i>
@@ -704,7 +704,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <div style="background:#fff;padding:52px 20px 56px;border-top:1px solid #f0e6f8;">
   <div style="max-width:1100px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:36px;">
-      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:#d63384;font-weight:600;margin-bottom:8px;">🎈 Kollektionen</p>
+      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:#d63384;font-weight:600;margin-bottom:8px;" data-i18n="eyebrow_koll">🎈 Kollektionen</p>
       <h2 style="font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700;color:var(--purple);margin:0 0 10px;" data-i18n-html="koll_section_title">Für jeden Anlass das perfekte Geschenk</h2>
       <p style="color:#a98aab;font-size:.92rem;max-width:480px;margin:0 auto;" data-i18n="koll_section_sub">Handgefertigte Ballons für Geburtstage, Hochzeiten, Babypartys und mehr.</p>
     </div>
@@ -713,35 +713,35 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
         <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img src="geburtstagsballon-geschenkbox.webp" alt="Geburtstag Ballon Geschenkbox" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
           <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;" data-i18n="filter_geburtstag">Geburtstag</div>
-          <div style="font-size:.76rem;color:#a98aab;">Personalisierte Ballons & Sets</div>
+          <div style="font-size:.76rem;color:#a98aab;" data-i18n="cat_desc_geburtstag">Personalisierte Ballons & Sets</div>
         </div>
       </a>
       <a href="hochzeit.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.1)'">
         <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img src="hochzeitsballon-box-lila.webp" alt="Hochzeit Ballon Box Lila" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
           <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;" data-i18n="filter_hochzeit">Hochzeit</div>
-          <div style="font-size:.76rem;color:#a98aab;">Romantische Geschenkideen</div>
+          <div style="font-size:.76rem;color:#a98aab;" data-i18n="cat_desc_hochzeit">Romantische Geschenkideen</div>
         </div>
       </a>
       <a href="babyparty.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.1)'">
         <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img src="geburtstagsballon-blau-blumenbox.webp" alt="Babyparty Ballon Blumen Box" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
           <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;" data-i18n="filter_babyparty">Babyparty</div>
-          <div style="font-size:.76rem;color:#a98aab;">Gender Reveal & Geburt</div>
+          <div style="font-size:.76rem;color:#a98aab;" data-i18n="cat_desc_babyparty">Gender Reveal & Geburt</div>
         </div>
       </a>
       <a href="fussball.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.1)'">
         <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img src="fussball-blumenbox.webp" alt="Fußball Blumen Box Geschenk" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
           <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;" data-i18n="filter_fussball">Fußball</div>
-          <div style="font-size:.76rem;color:#a98aab;">Sport & Leidenschaft</div>
+          <div style="font-size:.76rem;color:#a98aab;" data-i18n="cat_desc_fussball">Sport & Leidenschaft</div>
         </div>
       </a>
       <a href="personalisierte-geschenke.html" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.1)'">
         <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img src="sapca-colectie.webp" alt="Personalisierte Geschenke" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
-          <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;">Pers. Geschenke</div>
-          <div style="font-size:.76rem;color:#a98aab;">Caps, Taschen &amp; mehr</div>
+          <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;" data-i18n="cat_title_geschenke">Pers. Geschenke</div>
+          <div style="font-size:.76rem;color:#a98aab;" data-i18n="cat_desc_geschenke">Caps, Taschen & mehr</div>
         </div>
       </a>
     </div>
@@ -2092,7 +2092,16 @@ window.subscribeNewsletter = function() {
       footer_link_babyparty:'Babyparty',footer_info_title:'Info',footer_link_ueber:'Über uns',footer_link_kontakt:'Kontakt',
       footer_link_versand:'Versand & Rückgabe',footer_copyright:'Dandelion 11:11 · Alle Rechte vorbehalten',
       toast_default:'🛒 Ballon wurde in den Warenkorb gelegt!',discount_title:'Willkommen bei Dandelion 11:11!',
-      discount_text:'Trag dich ein und sichere dir ',discount_btn:'Nein danke, ich zahle lieber voll',back_to_config:''
+      discount_text:'Trag dich ein und sichere dir ',discount_btn:'Nein danke, ich zahle lieber voll',back_to_config:'',
+      wm_tagline:'✨ Momente, die bleiben. ✨',nav_suchen:'Suchen',eyebrow_koll:'🎈 Kollektionen',
+      cat_desc_geburtstag:'Personalisierte Ballons & Sets',cat_desc_hochzeit:'Romantische Geschenkideen',
+      cat_desc_babyparty:'Gender Reveal & Geburt',cat_desc_fussball:'Sport & Leidenschaft',
+      cat_title_geschenke:'Pers. Geschenke',cat_desc_geschenke:'Caps, Taschen & mehr',
+      koll_section_title:'Für jeden Anlass das perfekte Geschenk',
+      topbar_info:'🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Wir schenken keine Produkte, wir schenken Emotionen &nbsp;|&nbsp; Persönliche Beratung via WhatsApp',
+      info_what_makes:'Was macht unsere Ballons besonders?',faq_title:'Häufige Fragen',
+      versand_title:'Versand &amp; Rückgabe 📦',real_photos_title:'Echte Ballons, echte Momente 📸',
+      reviews_title:'Was unsere Kunden sagen 💬'
     },
     ro:{
       nav_shop:'Magazin',nav_koll:'Colecții',nav_all_koll:'Vezi toate →',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
@@ -2169,7 +2178,16 @@ window.subscribeNewsletter = function() {
       footer_link_babyparty:'Baby Shower',footer_info_title:'Info',footer_link_ueber:'Despre noi',footer_link_kontakt:'Contact',
       footer_link_versand:'Transport & Returnare',footer_copyright:'Dandelion 11:11 · Toate drepturile rezervate',
       toast_default:'🛒 Balonul a fost adăugat în coș!',discount_title:'Bun venit la Dandelion 11:11!',
-      discount_text:'Înregistrează-te și obține ',discount_btn:'Nu, mulțumesc, prefer să plătesc prețul întreg',back_to_config:''
+      discount_text:'Înregistrează-te și obține ',discount_btn:'Nu, mulțumesc, prefer să plătesc prețul întreg',back_to_config:'',
+      wm_tagline:'✨ Momente de neuitat. ✨',nav_suchen:'Caută',eyebrow_koll:'🎈 Colecții',
+      cat_desc_geburtstag:'Baloane & seturi personalizate',cat_desc_hochzeit:'Idei de cadouri romantice',
+      cat_desc_babyparty:'Gender Reveal & Naștere',cat_desc_fussball:'Sport & Pasiune',
+      cat_title_geschenke:'Cadouri pers.',cat_desc_geschenke:'Șepci, genți & altele',
+      koll_section_title:'Cadoul perfect pentru orice ocazie',
+      topbar_info:'🎈 Livrare gratuită de la 60 € &nbsp;|&nbsp; Nu oferim produse, oferim emoții &nbsp;|&nbsp; Consultanță personală via WhatsApp',
+      info_what_makes:'Ce face baloanele noastre speciale?',faq_title:'Întrebări frecvente',
+      versand_title:'Transport &amp; Retur 📦',real_photos_title:'Baloane reale, momente reale 📸',
+      reviews_title:'Ce spun clienții noștri 💬'
     }
   };
   function applyNavLang(l){
@@ -2182,6 +2200,9 @@ window.subscribeNewsletter = function() {
     if(cm)cm.textContent=l==='ro'?'RO | DE':'DE | RO';
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-html');if(navI18n[l][k]!==undefined)el.innerHTML=navI18n[l][k];
     });
   }
   window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
