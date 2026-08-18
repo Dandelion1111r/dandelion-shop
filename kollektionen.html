@@ -969,8 +969,13 @@
   window.applyKollSearch = function() { applyView(); };
   window.applyKollSort = function(v) { _sortMode = v || 'default'; applyView(); };
 
-  // Initialize on load — show all cards, hide no-results message
-  document.addEventListener('DOMContentLoaded', function() { applyView(); });
+  // Initialize immediately (works whether script runs inline or deferred by Rocket Loader)
+  // Also hook DOMContentLoaded as fallback in case script runs before DOM is parsed
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyView);
+  } else {
+    applyView();
+  }
 })();
 </script>
 
