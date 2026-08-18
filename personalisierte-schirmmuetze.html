@@ -276,14 +276,14 @@
       <li><a href="journal.html">Dandelion Journal</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     
-      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button></li>
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-code-m">DE | RO</span></button></li>
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
-            <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 8px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:4px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-flag">🇩🇪</span><span id="lang-code">DE</span></button>
+            <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
     </div>
   </div>
@@ -439,8 +439,203 @@
 
 <script>
 (function(){
-  var navI18n={de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}};
-  function applyNavLang(l){if(!navI18n[l])l='de';localStorage.setItem('lang',l);var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code'),fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');if(f)f.textContent=flag;if(c)c.textContent=code;if(fm)fm.textContent=flag;if(cm)cm.textContent=code;document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];});}
+  var navI18n={
+    de:{
+      nav_shop:'Shop',nav_koll:'Kollektionen',nav_all_koll:'Alle ansehen →',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt',
+      topbar_tagline:'Personalisierte Ballons & Geschenke für jeden Anlass',
+      kontakt_sub:'Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼',
+      kontakt_standort:'Standort',kontakt_erreichbarkeit:'Erreichbarkeit',kontakt_email:'E-Mail',kontakt_whatsapp:'WhatsApp',
+      kontakt_jetzt_schreiben:'Jetzt schreiben',kontakt_nachricht_senden:'Nachricht senden',
+      kontakt_antwortzeit:'Wir melden uns innerhalb von 24 Stunden.',
+      kontakt_label_name:'Name',kontakt_label_email:'E-Mail',kontakt_label_betreff:'Betreff',kontakt_label_nachricht:'Nachricht',
+      kontakt_send_btn:'Via WhatsApp senden',kontakt_form_hinweis:'WhatsApp = schnellste Antwort · E-Mail = alternative für alle, die lieber schreiben.',
+      ueber_h1:'Über Dandelion 11:11',ueber_subtitle:'Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.',
+      ueber_behind_title:'🎈 Hinter den Kulissen',ueber_g1:'Erster Ballon geplatzt 😅',ueber_g2:'Möbel montieren im Keller',
+      ueber_g3:'Kreatives Chaos in der Küche',ueber_g4:'Erste Bestellungen verpacken',ueber_g5:'Details mit Liebe gestaltet',ueber_g6:'Fertige Kreationen',
+      luxury_tagline:'Handgefertigt in unserer Manufaktur · Premium-Materialien · Liebevolle Verpackung',
+      add_to_cart:'In den Warenkorb',koll_title:'🎈 Unsere Kollektionen',koll_sub:'Handgefertigte Ballons für jeden Anlass mit Liebe gestaltet',
+      koll_section_sub:'Handgefertigte Ballons für Geburtstage, Hochzeiten, Babypartys und mehr.',
+      filter_all:'Alle',filter_geburtstag:'Geburtstag',filter_hochzeit:'Hochzeit',filter_babyparty:'Babyparty',
+      filter_liebe:'Liebe',filter_fussball:'Fußball',filter_kuscheltiere:'Kuscheltiere',filter_sonstiges:'Sonstiges',
+      hiw_rating:'⭐ 4.9/5 aus echten Kundenstimmen',hiw_step1_title:'1. Wähle & personalisiere',
+      hiw_step1_text:'Wähle Farbe, Text & Füllung für deinen Ballon.',hiw_madein:'💜 Wir schenken keine Ballons, wir schenken Emotionen',
+      hiw_step2_title:'2. Wir fertigen mit Liebe',hiw_step2_text:'Jeder Ballon wird liebevoll von Hand vorbereitet.',
+      hiw_freeship:'🚚 Kostenlose Lieferung ab 60 €',hiw_step3_title:'3. Schnelle Lieferung',
+      ship_home_text:'In ca. 3–7 Werktagen direkt zu dir nach Hause.',
+      badge_sustainable:'Nachhaltig',badge_handmade:'Handgemacht',badge_secure:'Sicher bestellen',badge_fastship:'Schnelle Lieferung',
+      hero_title:'Personalisierter Ballon Bad Wörishofen, Bayern ✨',hero_sub:'Dein einzigartiger Ballon individuell gestaltet mit Text, Symbolen und farbiger Füllung',
+      hero_specs_title:'PRODUKTDETAILS',hero_specs_1:'Transparenter Bubble-Ballon, Ø ca. 50 cm',hero_specs_2:'Gesamthöhe ca. 60 cm',
+      hero_specs_3:'Mit Luft oder Helium gefüllt (Helium nur lokal, ca. 30 km)',hero_specs_4:'Haltbarkeit: ca. 4–12 Wochen oder länger bei richtiger Lagerung',
+      text_label:'Text auf dem Ballon',max_chars_50:'(max. 50 Zeichen)',font_color_label:'Schriftfarbe',font_size_label:'Schriftgröße',
+      custom_image_label:'Eigenes Bild / Logo hochladen',optional_label:'(optional)',shown_on_balloon_label:'Wird auf dem Ballon angezeigt',
+      balloon_color_filling_label:'Ballonfarbe',choose_color_label:'Wähle eine Farbe',balloon_type_label:'Ballontyp',
+      opt_latex:'🎈 Latex-Ballon (rund)',opt_herz:'💗 Herz-Ballon (+3,00 €)',opt_stern_typ:'⭐ Stern-Ballon (+3,00 €)',
+      opt_folie:'🌟 Folienballon Premium (+6,00 €)',opt_bubble:'🔮 Bubble-Ballon (transparent) (+9,00 €)',
+      design_template_label:'Design-Vorlage',opt_default:'Standard',opt_birthday:'🎂 Geburtstag',opt_valentine:'❤️ Valentinstag',
+      opt_graduation:'🎓 Abschluss',opt_wedding:'💍 Hochzeit',opt_newborn:'👶 Neugeborenes',opt_congrats:'🎊 Glückwünsche',opt_christmas:'🎄 Weihnachten',
+      symbol_add_label:'Symbol hinzufügen',opt_sym_none:'Kein Symbol',opt_sym_herz:'❤️ Herz',opt_sym_ring:'💍 Ring',
+      opt_sym_hut:'🎓 Absolventenhut',opt_sym_teddy:'🧸 Teddy',opt_sym_fuesse:'👣 Babyfüße',opt_sym_geschenk:'🎁 Geschenk',
+      opt_sym_party:'🎉 Party',opt_sym_blumen:'💐 Blumen',opt_sym_stern:'⭐ Stern',opt_sym_schmetterling:'🦋 Schmetterling',
+      opt_sym_mond:'🌙 Mond',opt_sym_glitzer:'✨ Glitzer',
+      text_effect_label:'Text-Effekt',opt_normal:'Normal',opt_fett:'Fett',opt_kursiv:'Kursiv',opt_schatten:'Mit Schatten',opt_umriss:'Umriss',
+      opt_glitzer:'✨ Glitzer-Effekt',filling_type_label:'Art der Füllung',opt_keine_fuellung:'Keine Füllung',
+      opt_mini_balloons:'Mini-Ballons 🎈',opt_confetti:'Konfetti 🎉',opt_hearts:'Herzen ❤️',opt_stars:'Sterne ⭐',opt_flowers:'Blumen 🌸',opt_butterflies:'Schmetterlinge 🦋',
+      card_label:'Grußkarte',optional_150_label:'(optional, max. 150 Zeichen)',describe_person_label:'Beschreibe die Person',
+      optional_recommendation_label:'(optional für individuelle Empfehlung)',quantity_title:'Menge',
+      save_label:'Speichern',share_label:'Teilen',secure_encrypted:'Sicher & verschlüsselt',satisfaction_guarantee:'Zufriedenheitsgarantie',
+      ship_home_text2:'3–7 Werktage',whatsapp_support_label:'WhatsApp-Support',upsell_title:'Das könnte dir auch gefallen',
+      local_delivery_note:'📍 Wohnst du in der Nähe von Bad Wörishofen? Dann liefere ich deinen Ballon gerne persönlich, auf Wunsch sogar mit einer handgeschriebenen Grußkarte vom Schenkenden.',
+      damage_note:'📦 Sollte der Ballon beschädigt ankommen, schick uns einfach ein Foto über WhatsApp, wir finden gemeinsam eine schnelle Lösung.',
+      cart_title:'Warenkorb',discount_code_apply:'Anwenden',cart_total:'Gesamtbetrag',
+      send_whatsapp:'Alternativ per WhatsApp anfragen 💬',clear_cart:'🗑 Warenkorb leeren',
+      feat_handmade_title:'Handgemacht',feat_handmade_text:'Jeder Ballon wird mit Liebe individuell gefertigt',
+      feat_ship_title:'Schnelle Lieferung',ship_home_text3:'3–7 Werktage nach Bestelleingang',
+      feat_sustainable_title:'Nachhaltig',feat_sustainable_text:'100% natürlicher Latex, biologisch abbaubar',
+      feat_whatsapp_title:'WhatsApp Support',feat_whatsapp_text:'Persönliche Beratung einfach schreiben!',
+      info_list1:'Großer transparenter Ballon (Ø 35–50 cm, je nach Design) aus hochwertigem Latex',
+      info_list2:'Gefüllt mit bunten Mini-Ballons, Konfetti, Herzen oder Sternen',
+      info_list3:'Personalisierter Text und Wunschsymbol im Inneren',info_list4:'Handgeschriebene Grußkarte inklusive',
+      info_list5:'Perfekt für Geburtstag, Hochzeit, Babyparty, Jubiläum & mehr',
+      info_list6:'Jeder Ballon ein Unikat liebevoll gestaltet in Deutschland',
+      info_list7:'Mit Luft gefüllt (hält 4–12 Wochen) oder Helium (+8 €, nur lokal ca. 30 km)',
+      faq_q1:'Wie lange hält der Ballon?',faq_a1:'Unser Standardballon wird mit Luft gefüllt und hält ca. 4–12 Wochen – viel länger als ein Heliumballon (1–2 Tage). Heliumfüllung ist möglich, jedoch nur für Kunden in Bad Wörishofen und Umgebung (ca. 30 km), da Helium nicht versandgeeignet ist. Aufpreis: +8 € pro Ballon.',
+      faq_q2:'Wie bestelle ich?',faq_a2:'Konfiguriere deinen Ballon direkt im Konfigurator (Text, Farbe, Füllung), lege ihn in den Warenkorb und bezahle sicher per PayPal oder Kreditkarte.',
+      faq_q3:'Wie schnell wird geliefert?',faq_a3:'Nach Bestellbestätigung bearbeiten wir deine Bestellung innerhalb von 1–3 Werktagen. Der Versand per DHL dauert danach zusätzlich 2–4 Werktage – insgesamt also bis zu 7 Werktage in Deutschland.',
+      faq_q4:'Kann ich mehrere Ballons bestellen?',faq_a4:'Ja! Du kannst mehrere verschiedene Ballons konfigurieren und alle zusammen in den Warenkorb legen.',
+      faq_q5:'Ist der Ballon mit Luft oder Helium gefüllt?',faq_a5:'Standardmäßig liefern wir mit Luft gefüllt – hält 4–12 Wochen und ist versandgeeignet. Auf Wunsch ist Heliumfüllung möglich (+8 €), aber nur für lokale Abholung oder Lieferung in Bad Wörishofen und Umgebung (ca. 30 km), da Helium nur 1–2 Tage hält.',
+      faq_q6:'Kann ich eine bestimmte Farbe wählen?',faq_a6:'Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe. Wir passen den Ballon individuell für dich an. 🎨',
+      faq_q7:'Muss ich ein Konto erstellen, um zu bestellen?',faq_a7:'Nein! Du kannst ganz einfach als Gast bestellen – ohne Registrierung, ohne Passwort.',
+      faq_q8:'Erhalte ich eine Bestätigung nach der Bestellung?',faq_a8:'Ja! Direkt nach der Zahlung erhältst du eine automatische Bestätigungs-E-Mail von PayPal mit allen Bestelldetails.',
+      vfaq_q1:'Wie lange dauert die Lieferung?',vfaq_a1:'Wir bearbeiten jede Bestellung individuell mit Liebe. Nach Bestellbestätigung versenden wir innerhalb von 1–3 Werktagen per DHL. Die Lieferzeit in Deutschland beträgt danach 2–4 Werktage.',
+      vfaq_q2:'Wie werden die Ballons verpackt?',vfaq_a2:'Die Ballons werden sorgfältig und sicher verpackt, damit sie unbeschädigt bei dir ankommen.',
+      vfaq_q3:'Kann ich meinen Ballon zurückgeben?',vfaq_a3:'Da jeder Ballon individuell und personalisiert für dich gefertigt wird, ist eine Rückgabe leider nicht möglich. Sollte dein Ballon beschädigt ankommen, schick uns einfach ein Foto wir finden gemeinsam eine Lösung! 💛',
+      vfaq_q4:'Was kostet der Versand?',vfaq_a4:'Der Versand erfolgt mit DHL Paket M und kostet 5,90 €. Ab einem Bestellwert von 60 € ist der Versand kostenlos.',
+      delivered_title:'🚗 Direkt zu dir geliefert',
+      footer_brand_text:'Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.',
+      footer_shop_title:'Shop',footer_link_all:'Alle Ballons',footer_link_geburtstag:'Geburtstag',footer_link_hochzeit:'Hochzeit',
+      footer_link_babyparty:'Babyparty',footer_info_title:'Info',footer_link_ueber:'Über uns',footer_link_kontakt:'Kontakt',
+      footer_link_versand:'Versand & Rückgabe',footer_copyright:'Dandelion 11:11 · Alle Rechte vorbehalten',
+      toast_default:'🛒 Ballon wurde in den Warenkorb gelegt!',discount_title:'Willkommen bei Dandelion 11:11!',
+      discount_text:'Trag dich ein und sichere dir ',discount_btn:'Nein danke, ich zahle lieber voll',back_to_config:'',
+      wm_tagline:'✨ Momente, die bleiben. ✨',nav_suchen:'Suchen',eyebrow_koll:'🎈 Kollektionen',
+      cat_desc_geburtstag:'Personalisierte Ballons & Sets',cat_desc_hochzeit:'Romantische Geschenkideen',
+      cat_desc_babyparty:'Gender Reveal & Geburt',cat_desc_fussball:'Sport & Leidenschaft',
+      cat_title_geschenke:'Pers. Geschenke',cat_desc_geschenke:'Caps, Taschen & mehr',
+      koll_section_title:'Für jeden Anlass das perfekte Geschenk',
+      topbar_info:'🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Wir schenken keine Produkte, wir schenken Emotionen &nbsp;|&nbsp; Persönliche Beratung via WhatsApp',
+      info_what_makes:'Was macht unsere Ballons besonders?',faq_title:'Häufige Fragen',
+      versand_title:'Versand &amp; Rückgabe 📦',real_photos_title:'Echte Ballons, echte Momente 📸',
+      reviews_title:'Was unsere Kunden sagen 💬',newsletter_btn:'Jetzt 10% sichern 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse',
+      prod_section_title:'Unsere Produkte',search_placeholder:'Suchen…',sort_label:'Sortieren',
+      in_den_warenkorb:'In den Warenkorb'
+    },
+    ro:{
+      nav_shop:'Magazin',nav_koll:'Colecții',nav_all_koll:'Vezi toate →',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
+      topbar_tagline:'Baloane personalizate & cadouri pentru orice ocazie',
+      kontakt_sub:'Ne bucurăm să te auzim! Scrie-ne simplu, răspundem cât mai repede. 🌼',
+      kontakt_standort:'Locație',kontakt_erreichbarkeit:'Disponibilitate',kontakt_email:'E-Mail',kontakt_whatsapp:'WhatsApp',
+      kontakt_jetzt_schreiben:'Scrie acum',kontakt_nachricht_senden:'Trimite mesaj',kontakt_antwortzeit:'Răspundem în termen de 24 de ore.',
+      kontakt_label_name:'Nume',kontakt_label_email:'E-Mail',kontakt_label_betreff:'Subiect',kontakt_label_nachricht:'Mesaj',
+      kontakt_send_btn:'Trimite via WhatsApp',kontakt_form_hinweis:'WhatsApp = cel mai rapid răspuns · E-Mail = alternativă pentru cei care preferă să scrie.',
+      ueber_h1:'Despre Dandelion 11:11',ueber_subtitle:'O poveste despre vise, lipici, baloane sparte și magia din spatele lor.',
+      ueber_behind_title:'🎈 În culise',ueber_g1:'Primul balon spart 😅',ueber_g2:'Montare mobilă în subsol',
+      ueber_g3:'Haos creativ în bucătărie',ueber_g4:'Primele comenzi ambalate',ueber_g5:'Detalii create cu dragoste',ueber_g6:'Creații finite',
+      luxury_tagline:'Realizat manual în atelierul nostru · Materiale premium · Ambalaj îngrijit',
+      add_to_cart:'Adaugă în coș',koll_title:'🎈 Colecțiile noastre',koll_sub:'Baloane handmade pentru orice ocazie, create cu dragoste',
+      koll_section_sub:'Baloane handmade pentru zile de naștere, nunți, baby showers și altele.',
+      filter_all:'Toate',filter_geburtstag:'Ziua de naștere',filter_hochzeit:'Nuntă',filter_babyparty:'Baby Shower',
+      filter_liebe:'Dragoste',filter_fussball:'Fotbal',filter_kuscheltiere:'Jucării de pluș',filter_sonstiges:'Diverse',
+      hiw_rating:'⭐ 4.9/5 din recenzii reale',hiw_step1_title:'1. Alege & personalizează',
+      hiw_step1_text:'Alege culoarea, textul & umplerea pentru balonul tău.',hiw_madein:'💜 Nu oferim baloane, oferim emoții',
+      hiw_step2_title:'2. Creăm cu dragoste',hiw_step2_text:'Fiecare balon este pregătit cu grijă manual.',
+      hiw_freeship:'🚚 Livrare gratuită de la 60 €',hiw_step3_title:'3. Livrare rapidă',
+      ship_home_text:'În aprox. 3–7 zile lucrătoare direct la tine acasă.',
+      badge_sustainable:'Ecologic',badge_handmade:'Handmade',badge_secure:'Cumpărare sigură',badge_fastship:'Livrare rapidă',
+      hero_title:'Balon personalizat Bad Wörishofen, Bavaria ✨',hero_sub:'Balonul tău unic, personalizat cu text, simboluri și umplere colorată',
+      hero_specs_title:'DETALII PRODUS',hero_specs_1:'Balon Bubble transparent, Ø aprox. 50 cm',hero_specs_2:'Înălțime totală aprox. 60 cm',
+      hero_specs_3:'Umplut cu aer sau heliu (heliu doar local, aprox. 30 km)',hero_specs_4:'Durată: aprox. 4–12 săptămâni sau mai mult cu depozitare corectă',
+      text_label:'Text pe balon',max_chars_50:'(max. 50 caractere)',font_color_label:'Culoarea fontului',font_size_label:'Dimensiunea fontului',
+      custom_image_label:'Încarcă imagine / logo propriu',optional_label:'(opțional)',shown_on_balloon_label:'Va fi afișat pe balon',
+      balloon_color_filling_label:'Culoarea balonului',choose_color_label:'Alege o culoare',balloon_type_label:'Tipul balonului',
+      opt_latex:'🎈 Balon Latex (rotund)',opt_herz:'💗 Balon Inimă (+3,00 €)',opt_stern_typ:'⭐ Balon Stea (+3,00 €)',
+      opt_folie:'🌟 Balon Folie Premium (+6,00 €)',opt_bubble:'🔮 Balon Bubble (transparent) (+9,00 €)',
+      design_template_label:'Șablon design',opt_default:'Standard',opt_birthday:'🎂 Ziua de naștere',opt_valentine:"❤️ Valentine's Day",
+      opt_graduation:'🎓 Absolvire',opt_wedding:'💍 Nuntă',opt_newborn:'👶 Nou-născut',opt_congrats:'🎊 Felicitări',opt_christmas:'🎄 Crăciun',
+      symbol_add_label:'Adaugă simbol',opt_sym_none:'Fără simbol',opt_sym_herz:'❤️ Inimă',opt_sym_ring:'💍 Inel',
+      opt_sym_hut:'🎓 Tochă de absolvire',opt_sym_teddy:'🧸 Ursuleț',opt_sym_fuesse:'👣 Tălpițe bebeluș',opt_sym_geschenk:'🎁 Cadou',
+      opt_sym_party:'🎉 Petrecere',opt_sym_blumen:'💐 Flori',opt_sym_stern:'⭐ Stea',opt_sym_schmetterling:'🦋 Fluture',
+      opt_sym_mond:'🌙 Lună',opt_sym_glitzer:'✨ Sclipici',
+      text_effect_label:'Efect text',opt_normal:'Normal',opt_fett:'Îngroșat',opt_kursiv:'Italic',opt_schatten:'Cu umbră',opt_umriss:'Contur',
+      opt_glitzer:'✨ Efect sclipici',filling_type_label:'Tipul umplerii',opt_keine_fuellung:'Fără umplere',
+      opt_mini_balloons:'Mini-baloane 🎈',opt_confetti:'Confetti 🎉',opt_hearts:'Inimi ❤️',opt_stars:'Stele ⭐',opt_flowers:'Flori 🌸',opt_butterflies:'Fluturi 🦋',
+      card_label:'Felicitare',optional_150_label:'(opțional, max. 150 caractere)',describe_person_label:'Descrie persoana',
+      optional_recommendation_label:'(opțional pentru recomandare personalizată)',quantity_title:'Cantitate',
+      save_label:'Salvează',share_label:'Distribuie',secure_encrypted:'Sigur & criptat',satisfaction_guarantee:'Garanție de satisfacție',
+      ship_home_text2:'3–7 zile lucrătoare',whatsapp_support_label:'Suport WhatsApp',upsell_title:'Ți-ar putea plăcea și',
+      local_delivery_note:'📍 Locuiești în apropierea Bad Wörishofen? Atunci îți livrez balonul personal, la cerere chiar cu o felicitare scrisă de mână.',
+      damage_note:'📦 Dacă balonul ajunge deteriorat, trimite-ne o fotografie pe WhatsApp și vom găsi împreună o soluție rapidă.',
+      cart_title:'Coș de cumpărături',discount_code_apply:'Aplică',cart_total:'Total',
+      send_whatsapp:'Alternativ, solicită prin WhatsApp 💬',clear_cart:'🗑 Golește coșul',
+      feat_handmade_title:'Handmade',feat_handmade_text:'Fiecare balon este creat individual cu dragoste',
+      feat_ship_title:'Livrare rapidă',ship_home_text3:'3–7 zile lucrătoare de la comandă',
+      feat_sustainable_title:'Ecologic',feat_sustainable_text:'100% latex natural, biodegradabil',
+      feat_whatsapp_title:'Suport WhatsApp',feat_whatsapp_text:'Consultanță personală, scrie-ne pur și simplu!',
+      info_list1:'Balon mare transparent (Ø 35–50 cm, în funcție de design) din latex premium',
+      info_list2:'Umplut cu mini-baloane colorate, confetti, inimi sau stele',
+      info_list3:'Text personalizat și simbol dorit în interior',info_list4:'Felicitare scrisă de mână inclusă',
+      info_list5:'Perfect pentru ziua de naștere, nuntă, baby shower, aniversare & altele',
+      info_list6:'Fiecare balon, un unicat creat cu dragoste în Germania',
+      info_list7:'Umplut cu aer (durează 4–12 săptămâni) sau heliu (+8 €, doar local aprox. 30 km)',
+      faq_q1:'Cât timp ține balonul?',faq_a1:'Balonul nostru standard este umplut cu aer și durează aprox. 4–12 săptămâni – mult mai mult decât un balon cu heliu (1–2 zile). Suprataxă heliu: +8 € per balon.',
+      faq_q2:'Cum comand?',faq_a2:'Configurează-ți balonul direct în configurator (text, culoare, umplere), adaugă-l în coș și plătește în siguranță prin PayPal sau card de credit.',
+      faq_q3:'Cât durează livrarea?',faq_a3:'După confirmarea comenzii, procesăm comanda ta în 1–3 zile lucrătoare. Transportul prin DHL durează suplimentar 2–4 zile lucrătoare.',
+      faq_q4:'Pot comanda mai multe baloane?',faq_a4:'Da! Poți configura mai multe baloane diferite și le poți adăuga pe toate în coș.',
+      faq_q5:'Balonul este umplut cu aer sau heliu?',faq_a5:'În mod standard livrăm umplut cu aer – durează 4–12 săptămâni și este potrivit pentru transport. La cerere heliu (+8 €), doar local aprox. 30 km.',
+      faq_q6:'Pot alege o anumită culoare?',faq_a6:'Da – și acesta este unul dintre cele mai mari avantaje ale noastre! Pur și simplu spune-ne culoarea dorită. Adaptăm balonul individual pentru tine. 🎨',
+      faq_q7:'Trebuie să îmi creez un cont pentru a comanda?',faq_a7:'Nu! Poți comanda simplu ca oaspete – fără înregistrare, fără parolă.',
+      faq_q8:'Primesc o confirmare după comandă?',faq_a8:'Da! Imediat după plată primești un e-mail automat de confirmare de la PayPal cu toate detaliile comenzii.',
+      vfaq_q1:'Cât durează livrarea?',vfaq_a1:'Procesăm fiecare comandă individual cu dragoste. Expediăm în 1–3 zile lucrătoare prin DHL. Livrare în Germania: 2–4 zile lucrătoare.',
+      vfaq_q2:'Cum sunt ambalate baloanele?',vfaq_a2:'Baloanele sunt ambalate cu grijă și în siguranță, astfel încât să ajungă la tine intacte.',
+      vfaq_q3:'Pot returna balonul meu?',vfaq_a3:'Deoarece fiecare balon este creat individual și personalizat, returnarea nu este posibilă. Dacă balonul ajunge deteriorat, trimite-ne o fotografie și vom găsi o soluție! 💛',
+      vfaq_q4:'Cât costă transportul?',vfaq_a4:'Transportul DHL Paket M costă 5,90 €. Gratuit de la 60 €.',
+      delivered_title:'🚗 Livrat direct la tine',
+      footer_brand_text:'Baloane handmade pentru momentele tale de neuitat. Create cu dragoste, expediate personal.',
+      footer_shop_title:'Magazin',footer_link_all:'Toate baloanele',footer_link_geburtstag:'Ziua de naștere',footer_link_hochzeit:'Nuntă',
+      footer_link_babyparty:'Baby Shower',footer_info_title:'Info',footer_link_ueber:'Despre noi',footer_link_kontakt:'Contact',
+      footer_link_versand:'Transport & Returnare',footer_copyright:'Dandelion 11:11 · Toate drepturile rezervate',
+      toast_default:'🛒 Balonul a fost adăugat în coș!',discount_title:'Bun venit la Dandelion 11:11!',
+      discount_text:'Înregistrează-te și obține ',discount_btn:'Nu, mulțumesc, prefer să plătesc prețul întreg',back_to_config:'',
+      wm_tagline:'✨ Momente de neuitat. ✨',nav_suchen:'Caută',eyebrow_koll:'🎈 Colecții',
+      cat_desc_geburtstag:'Baloane & seturi personalizate',cat_desc_hochzeit:'Idei de cadouri romantice',
+      cat_desc_babyparty:'Gender Reveal & Naștere',cat_desc_fussball:'Sport & Pasiune',
+      cat_title_geschenke:'Cadouri pers.',cat_desc_geschenke:'Șepci, genți & altele',
+      koll_section_title:'Cadoul perfect pentru orice ocazie',
+      topbar_info:'🎈 Livrare gratuită de la 60 € &nbsp;|&nbsp; Nu oferim produse, oferim emoții &nbsp;|&nbsp; Consultanță personală via WhatsApp',
+      info_what_makes:'Ce face baloanele noastre speciale?',faq_title:'Întrebări frecvente',
+      versand_title:'Transport &amp; Retur 📦',real_photos_title:'Baloane reale, momente reale 📸',
+      reviews_title:'Ce spun clienții noștri 💬',newsletter_btn:'Obține 10% acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail',
+      prod_section_title:'Produsele noastre',search_placeholder:'Caută…',sort_label:'Sortează',
+      in_den_warenkorb:'Adaugă în coș'
+    }
+  };
+  function applyNavLang(l){
+    if(!navI18n[l])l='de';
+    localStorage.setItem('lang',l);
+    var de=document.getElementById('lang-code-de'),ro=document.getElementById('lang-code-ro');
+    if(de){de.style.opacity=l==='de'?'1':'0.4';de.style.textDecoration=l==='de'?'underline':'none';}
+    if(ro){ro.style.opacity=l==='ro'?'1':'0.4';ro.style.textDecoration=l==='ro'?'underline':'none';}
+    var cm=document.getElementById('lang-code-m');
+    if(cm)cm.textContent=l==='ro'?'RO | DE':'DE | RO';
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-html');if(navI18n[l][k]!==undefined)el.innerHTML=navI18n[l][k];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-placeholder');if(navI18n[l][k]!==undefined)el.placeholder=navI18n[l][k];
+    });
+  }
   window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
   var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
   applyNavLang(localStorage.getItem('lang')||'de');
