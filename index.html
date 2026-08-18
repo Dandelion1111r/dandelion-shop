@@ -404,7 +404,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
         <span id="navAccountLabel" style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Anmelden</span>
         <span id="navGreeting" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:#fff;color:var(--pink);font-size:0.85rem;font-weight:600;white-space:nowrap;padding:8px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.15);"></span>
       </span>
-      <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code">DE</span></button>
+      <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
       <button class="hamburger" onclick="const nl=document.querySelector('.nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
     </div>
   </div>
@@ -2175,10 +2175,11 @@ window.subscribeNewsletter = function() {
   function applyNavLang(l){
     if(!navI18n[l])l='de';
     localStorage.setItem('lang',l);
-    var code=l==='ro'?'RO':'DE';
-    var c=document.getElementById('lang-code'),cm=document.getElementById('lang-code-m');
-    if(c)c.textContent=code;
-    if(cm)cm.textContent=code+' / '+(l==='ro'?'DE':'RO');
+    var de=document.getElementById('lang-code-de'),ro=document.getElementById('lang-code-ro');
+    if(de){de.style.opacity=l==='de'?'1':'0.4';de.style.textDecoration=l==='de'?'underline':'none';}
+    if(ro){ro.style.opacity=l==='ro'?'1':'0.4';ro.style.textDecoration=l==='ro'?'underline':'none';}
+    var cm=document.getElementById('lang-code-m');
+    if(cm)cm.textContent=l==='ro'?'RO | DE':'DE | RO';
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
     });
