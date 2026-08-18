@@ -925,30 +925,48 @@
 </footer>
 
 <script>
-// Products are pre-rendered as static HTML — JS only shows/hides cards by category & search
-function filterProducts(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  var q = (document.getElementById('kollSearch') ? document.getElementById('kollSearch').value : '').toLowerCase().trim();
-  var anyVisible = false;
-  document.querySelectorAll('#productsGrid .product-card').forEach(function(card) {
+// Products pre-rendered as static HTML; JS filters, searches and sorts by reordering DOM nodes
+var _kollSortMode = 'default';
+
+function _applyView() {
+  var activeBtn = document.querySelector('.filter-btn.active');
+  var cat = activeBtn ? (activeBtn.getAttribute('data-cat') || 'all') : 'all';
+  var q = ((document.getElementById('kollSearch') || {}).value || '').toLowerCase().trim();
+  var grid = document.getElementById('productsGrid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+
+  // filter visibility
+  var visible = [];
+  cards.forEach(function(card) {
     var catMatch = cat === 'all' || card.getAttribute('data-category') === cat;
     var nameMatch = !q || (card.getAttribute('data-name') || '').toLowerCase().indexOf(q) >= 0;
     var show = catMatch && nameMatch;
     card.style.display = show ? '' : 'none';
-    if (show) anyVisible = true;
+    if (show) visible.push(card);
   });
-  var msg = document.getElementById('noProductsMsg');
-  if (msg) msg.style.display = anyVisible ? 'none' : 'block';
-}
-function applyKollSearch(v) {
-  var activeBtn = document.querySelector('.filter-btn.active');
-  if (activeBtn) {
-    var cat = activeBtn.getAttribute('data-cat') || 'all';
-    filterProducts(cat, activeBtn);
+
+  // sort visible cards by re-inserting in sorted order before grid closing
+  if (_kollSortMode !== 'default') {
+    visible.sort(function(a, b) {
+      if (_kollSortMode === 'price-asc') return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+      if (_kollSortMode === 'price-desc') return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+      if (_kollSortMode === 'name-asc') return (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || '');
+      return 0;
+    });
+    visible.forEach(function(card) { grid.appendChild(card); });
   }
+
+  var msg = document.getElementById('noProductsMsg');
+  if (msg) msg.style.display = visible.length ? 'none' : 'block';
 }
-function applyKollSort(v) { /* sort not implemented in static mode */ }
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  _applyView();
+}
+function applyKollSearch(v) { _applyView(); }
+function applyKollSort(v) { _kollSortMode = v; _applyView(); }
 </script>
 
 <!-- Cookie Consent Banner -->
