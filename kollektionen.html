@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preload" as="image" href="ballon-box-boho-blau-gold.webp" fetchpriority="high">
   <title>Kollektionen: Personalisierte Ballons | Dandelion 11:11</title>
   <meta name="description" content="Entdecke alle Kollektionen handgemachter, personalisierter Ballons von Dandelion 11:11: Geburtstag, Hochzeit, Babyparty, Fußball und mehr.">
   <link rel="icon" type="image/png" href="Dandelionlogo-fixed.png">
@@ -11,9 +12,9 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#8e44ad">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="canonical" href="https://www.dandelion1111.de/kollektionen.html">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="canonical" href="https://www.dandelion1111.de/kollektionen.html">
   <link rel="alternate" hreflang="de" href="https://www.dandelion1111.de/kollektionen.html">
   <link rel="alternate" hreflang="x-default" href="https://www.dandelion1111.de/kollektionen.html">
   <meta property="og:type" content="website">
@@ -27,8 +28,8 @@
   <meta name="twitter:description" content="Entdecke alle Kollektionen handgemachter, personalisierter Ballons von Dandelion 11:11.">
   <meta name="twitter:image" content="https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src 'none'; object-src 'none';">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,353 +46,37 @@
     "@type": "CollectionPage",
     "name": "Kollektionen – Personalisierte Ballons & Geschenke",
     "url": "https://www.dandelion1111.de/kollektionen.html",
-    "description": "Alle handgemachten, personalisierten Ballons und Blumenboxen von Dandelion 11:11: Geburtstag, Hochzeit, Babyparty, Fußball und mehr.",
-    "hasPart": [
-      { "@type": "CollectionPage", "name": "Hochzeit", "url": "https://www.dandelion1111.de/hochzeit.html" },
-      { "@type": "CollectionPage", "name": "Geburtstag", "url": "https://www.dandelion1111.de/geburtstag.html" },
-      { "@type": "CollectionPage", "name": "Babyparty", "url": "https://www.dandelion1111.de/babyparty.html" },
-      { "@type": "CollectionPage", "name": "Fußball", "url": "https://www.dandelion1111.de/fussball.html" }
-    ]
+    "description": "Alle handgemachten, personalisierten Ballons und Blumenboxen von Dandelion 11:11."
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="landing-styles.css">
   <style>
-  /* ── Focus visible ── */
-  :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
-  button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
-  /* ── Skip link ── */
-  .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
-  .skip-link:focus { left:8px; }
-    :root {
-      --pink: #d63384;
-      --pink-light: #f472b6;
-      --purple: #8e44ad;
-      --purple-light: #c084fc;
-      --bg: #fdf0f6;
-      --white: #ffffff;
-      --gray: #f5f5f5;
-      --text: #2d2d2d;
-      --text-light: #777;
-      --border: #e8d5e8;
-      --radius: 18px;
-      --shadow: 0 8px 32px rgba(142,68,173,0.10);
-      --shadow-hover: 0 16px 48px rgba(142,68,173,0.18);
+    .cat-filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+    .cat-btn {
+      background:#fff; border:2px solid #e8d5e8; color:#2d2d2d;
+      padding:7px 18px; border-radius:50px; font-family:'Poppins',sans-serif;
+      font-size:.83rem; font-weight:500; cursor:pointer; transition:all .2s;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
-    /* ── Topbar ── */
-    .topbar {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      text-align: center;
-      padding: 6px 16px;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    .cat-btn:hover, .cat-btn.active {
+      background:linear-gradient(135deg,#8e44ad,#d63384); color:#fff; border-color:transparent;
     }
-    .topbar-brand { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; }
-    .topbar-divider { height: 1px; background: rgba(255,255,255,0.3); margin: 3px 0; }
-    .topbar-info { opacity: 0.95; }
-
-    /* ── Header ── */
-    header {
-      background: linear-gradient(135deg,#fdeef7,#f9e4f1);
-      border-bottom: 1px solid var(--border);
-      height: 175px;
-      display: flex;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(142,68,173,0.08);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 40px;
-    }
-    .logo-wrap { position: relative; flex-shrink: 0; }
-    .logo-wrap img { height: 155px; width: auto; display: block; }
-    .nav-links { display: flex; flex-direction: row; list-style: none; gap: 16px; padding: 0; margin: 0; margin-left: auto; }
-    .nav-links li { list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.88rem; transition: color 0.2s; padding: 4px 0; }
-    .nav-links a:hover, .nav-links a.active-nav { color: var(--pink); }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, #fce4f3 0%, #ede7f6 100%);
-      padding: 48px 24px 36px;
-      text-align: center;
-    }
-    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: var(--purple); margin-bottom: 10px; }
-    .hero p { color: #666; font-size: 1rem; max-width: 500px; margin: 0 auto; }
-    .hero p a { color: inherit; text-decoration: none; }
-
-    /* ── SEO product list ── */
-    .seo-section-title { color: var(--purple); font-size: 1.3rem; margin-bottom: 8px; }
-    .seo-cat-title { color: var(--purple); font-size: 1.05rem; margin-top: 20px; }
-    .seo-cat-title a { color: var(--purple); text-decoration: none; font-weight: 600; }
-    .seo-cat-title a:hover { color: var(--pink); }
-    .seo-links a { color: var(--purple); text-decoration: none; }
-    .seo-links a:hover { color: var(--pink); }
-
-    /* ── Filter tabs ── */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      padding: 28px 16px 16px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .filter-btn {
-      background: var(--white);
-      border: 2px solid var(--border);
-      color: var(--text);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      border-color: transparent;
-    }
-
-    /* ── Product grid ── */
-    .products-section { max-width: 1200px; margin: 0 auto; padding: 16px 16px 60px; }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    /* ── Product card ── */
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-
-    .product-img-wrap {
-      position: relative;
-      background: #f9f0fc;
-      aspect-ratio: 3 / 4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .product-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    .product-img-wrap .no-img {
-      font-size: 4rem;
-      line-height: 1;
-    }
-    .badge-tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 50px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .badge-sale {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #e53e3e;
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 50px;
-    }
-
-    .product-body { padding: 18px 18px 14px; flex: 1; display: flex; flex-direction: column; }
-    .product-name { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-    .product-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; flex: 1; margin-bottom: 14px; }
-    .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .product-price { font-size: 1.15rem; font-weight: 700; color: var(--purple); }
-    .product-price .old-price { font-size: 0.8rem; color: #aaa; text-decoration: line-through; font-weight: 400; margin-left: 6px; }
-
-    .btn-cart {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      border: none;
-      padding: 9px 16px;
-      border-radius: 50px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s, transform 0.2s;
-      white-space: nowrap;
-    }
-    .btn-cart:hover { opacity: 0.88; transform: scale(1.04); }
-    .btn-cart.added { background: linear-gradient(135deg, #38a169, #48bb78); }
-
-    .btn-configure {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      border: none;
-      color: #fff;
-      padding: 7px 14px;
-      border-radius: 50px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .btn-configure:hover { opacity: 0.88; }
-
-    /* ── Cart toast ── */
-    .toast {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: #2d2d2d;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      z-index: 999;
-      transition: transform 0.3s ease;
-      white-space: nowrap;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* ── Cart floating button ── */
-    .cart-fab {
-      position: fixed;
-      bottom: 28px;
-      right: 24px;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 20px rgba(142,68,173,0.4);
-      cursor: pointer;
-      text-decoration: none;
-      z-index: 200;
-      transition: transform 0.2s;
-    }
-    .cart-fab:hover { transform: scale(1.1); }
-    .cart-fab .fab-count {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      background: #fff;
-      color: var(--pink);
-      font-size: 0.7rem;
-      font-weight: 700;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--pink);
-    }
-
-    .hamburger { display:none; background:none; border:none; padding:0; color:inherit; cursor:pointer; line-height:1; font-size:1.4rem; }
-    @media(max-width:768px){
-      .nav-inner { height:auto; min-height:0; padding:10px 16px; position:relative; }
-      .logo-wrap img { height:56px; object-fit:cover; object-position:left center; margin-left:-2px; }
-      .nav-links { display:none!important; flex-direction:column!important; gap:0; position:absolute; top:100%; left:0; right:0; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:200; }
-      .nav-links.open { display:flex!important; }
-      .nav-links li { width:100%; }
-      .nav-links a { display:block; padding:14px 16px; border-top:1px solid var(--border); }
-      .hamburger { display:block; }
-    }
-
-    /* ── Mobile ── */
-    @media (max-width: 600px) {
-      header { height: auto; padding: 12px 0; }
-      .nav-inner { flex-wrap: wrap; gap: 12px; padding: 0 16px; }
-      .logo-wrap img { height: 70px; }
-      .nav-links { gap: 16px; font-size: 0.85rem; }
-      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .product-body { padding: 12px 12px 10px; }
-      .product-name { font-size: 0.88rem; }
-      .product-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .btn-cart { width: 100%; justify-content: center; }
-    }
-
-    /* ── Footer ── */
-    footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255,.85);padding:50px 30px 0;margin-top:60px;}
-    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
-    @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
-    .footer-brand p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.7;margin:0;}
-    .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
-    .footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;margin-bottom:8px;}
-    .footer-col a:hover{color:#fff;}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;font-size:.75rem;color:rgba(255,255,255,.5);}
-    .social-links{display:flex;gap:14px;}
-    .social-links a{color:rgba(255,255,255,.6);font-size:1rem;text-decoration:none;}
-    .social-links a:hover{color:#fff;}
-  
-  .logo-wordmark{display:flex;flex-direction:column;gap:0;margin-left:-2px;padding-bottom:18px;align-items:flex-start;text-align:left;}
-  .wm-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#8e44ad,#d63384);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
-  .wm-tagline{font-size:.85rem;font-weight:400;font-style:italic;color:#777;letter-spacing:.3px;line-height:1;margin-top:10px;}
-  .scan-me{position:absolute;top:40px;left:196px;display:flex;flex-direction:row;align-items:center;gap:5px;pointer-events:none;z-index:10;}
-  .scan-me span{font-size:.85rem;font-weight:600;letter-spacing:.5px;font-family:Poppins,sans-serif;color:#8e44ad;white-space:nowrap;background:rgba(255,255,255,.9);padding:2px 8px;border-radius:4px;border:1px solid #8e44ad;}
-  .scan-arrow{font-size:.95rem;color:#8e44ad;animation:pointQR .8s ease-in-out infinite;display:block;}
-  @keyframes pointQR{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
-  @media(max-width:900px){.logo-wordmark{display:none !important;}.scan-me{display:none !important;}}
-</style>
+  </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
+<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 60 € kostenlos | Persönliche Lieferung in der Region</div>
 
-<!-- Topbar -->
 <div class="topbar">
   <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
+  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons & Geschenke für jeden Anlass</div>
   <div class="topbar-divider"></div>
   <div class="topbar-info">🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Handgemacht mit Liebe in Deutschland &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
 </div>
 
-<!-- Header -->
 <header>
   <div class="nav-inner">
     <div class="logo-wrap" style="position:relative;flex-shrink:0;">
@@ -409,13 +94,32 @@
     </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Shop</a></li>
-      <li><a href="kollektionen.html" class="active-nav">Kollektionen</a></li>
+      <li class="nav-dropdown">
+        <a href="kollektionen.html" class="active-nav" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html">👶 Babyparty</a></li>
+          <li><a href="muttertag-ballon.html">🌸 Muttertag</a></li>
+          <li><a href="fussball.html">⚽ Fußball</a></li>
+          <li><a href="kuscheltiere.html">🧸 Kuscheltiere</a></li>
+          <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
+          <li><a href="sonstiges.html">✨ Sonstiges</a></li>
+          <li><a href="personalisierte-geschenke.html">🎁 Pers. Geschenke</a></li>
+          <li><a href="ostern.html">🐣 Ostern</a></li>
+          <li><a href="weihnachten.html">🎄 Weihnachten</a></li>
+          <li><a href="taufe-kommunion.html">✝ Taufe &amp; Kommunion</a></li>
+          <li><a href="gender-reveal.html">🎀 Gender Reveal</a></li>
+          <li><a href="kollektionen.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+        </ul>
+      </li>
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="journal.html">Dandelion Journal</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-flag-m">🇩🇪</span><span id="lang-code-m">DE</span> / 🇷🇴 RO</button></li>
     </ul>
-    <div class="nav-icons" style="display:flex;gap:18px;font-size:1rem;color:var(--text);margin-left:auto;">
-      <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
+    <div class="nav-icons">
+      <a href="#" onclick="var s=document.getElementById('prodSearch');if(s){s.focus();s.scrollIntoView({behavior:'smooth',block:'center'});}return false;" style="color:inherit;text-decoration:none;" title="Suchen" aria-label="Suchen"><i class="fas fa-search"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
       <a href="index.html" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="index.html" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
@@ -425,468 +129,327 @@
   </div>
 </header>
 
-<!-- Hero -->
-<div id="main-content" class="hero">
-  <h1>🎈 Unsere Kollektionen</h1>
-  <p>Handgefertigte Ballons für jeden Anlass, mit Liebe gestaltet</p>
-  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:12px 28px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:opacity 0.2s;">
-    <i class="fas fa-arrow-left"></i> Zurück zum Shop
-  </a>
-</div>
+<div id="main-content" class="wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="/">Startseite</a><span>›</span>Kollektionen
+  </nav>
+  <div class="intro-block">
+    <h1>Alle Kollektionen</h1>
+    <p class="intro">Handgefertigte Ballons und Geschenkboxen für jeden Anlass – personalisiert mit Namen, Wunschtext und Lieblingsfarben. Lieferung in der Region oder Versand deutschlandweit.</p>
+  </div>
 
-<p style="max-width:700px;margin:0 auto 28px;padding:0 20px;text-align:center;line-height:1.8;color:#3a2e3f;">In unseren Kollektionen findest du handgemachte Ballonboxen und Ballonsträuße für jeden Anlass, vom Geburtstag über die Hochzeit bis zur Babyparty. Jede Box wird in Bad Wörishofen, Bayern, individuell mit Namen, Wunschtext und Lieblingsfarben gestaltet und kann mit Konfetti-Ballons, Bändern und kleinen Deko-Elementen ergänzt werden. Wähle eine Kategorie über die Filter oder stöbere durch alle Designs.</p>
+  <div class="prod-toolbar">
+    <div class="cat-filter-bar" id="catFilterBar">
+      <button class="cat-btn active" data-cat="all">Alle</button>
+      <button class="cat-btn" data-cat="geburtstag">🎂 Geburtstag</button>
+      <button class="cat-btn" data-cat="hochzeit">💍 Hochzeit</button>
+      <button class="cat-btn" data-cat="babyparty">👶 Babyparty</button>
+      <button class="cat-btn" data-cat="liebe">💕 Liebe</button>
+      <button class="cat-btn" data-cat="fussball">⚽ Fußball</button>
+      <button class="cat-btn" data-cat="kuscheltiere">🧸 Kuscheltiere</button>
+      <button class="cat-btn" data-cat="sonstiges">✨ Sonstiges</button>
+    </div>
+    <div class="prod-search-wrap">
+      <i class="fas fa-search"></i>
+      <input id="prodSearch" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" autocomplete="off">
+    </div>
+    <select id="prodSort" aria-label="Sortierung">
+      <option value="default">Sortierung</option>
+      <option value="price-asc">Preis ↑</option>
+      <option value="price-desc">Preis ↓</option>
+      <option value="name-asc">Name A–Z</option>
+    </select>
+  </div>
 
-<!-- Filter -->
-<div class="filter-bar">
-  <button class="filter-btn active" data-cat="all" onclick="filterProducts('all', this)">Alle</button>
-  <button class="filter-btn" data-cat="geburtstag" onclick="filterProducts('geburtstag', this)">🎂 Geburtstag</button>
-  <button class="filter-btn" data-cat="hochzeit" onclick="filterProducts('hochzeit', this)">💍 Hochzeit</button>
-  <button class="filter-btn" data-cat="babyparty" onclick="filterProducts('babyparty', this)">👶 Babyparty</button>
-  <button class="filter-btn" data-cat="liebe" onclick="filterProducts('liebe', this)">💕 Liebe</button>
-  <button class="filter-btn" data-cat="fussball" onclick="filterProducts('fussball', this)">⚽ Fußball</button>
-  <button class="filter-btn" data-cat="kuscheltiere" onclick="filterProducts('kuscheltiere', this)">🧸 Kuscheltiere</button>
-  <button class="filter-btn" data-cat="sonstiges" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
-</div>
-<div style="max-width:1100px;margin:0 auto 8px;padding:0 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
-  <input id="kollSearch" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" oninput="applyKollSearch(this.value)" style="flex:1;min-width:150px;max-width:280px;padding:9px 16px;border-radius:20px;border:1.5px solid #ddd;font-size:.9rem;font-family:inherit;outline:none;" />
-  <select id="kollSortSel" onchange="applyKollSort(this.value)" style="padding:9px 16px;border-radius:20px;border:1.5px solid #ddd;font-size:.9rem;font-family:inherit;background:#fff;cursor:pointer;outline:none;">
-    <option value="default">⭐ Empfohlen</option>
-    <option value="price-asc">💶 Preis ↑</option>
-    <option value="price-desc">💶 Preis ↓</option>
-    <option value="name-asc">🔤 Name A–Z</option>
-  </select>
-</div>
+  <div class="prod-grid">
 
-<!-- Products -->
-<div class="products-section">
-  <div class="products-grid" id="productsGrid">
-
-    <div class="product-card" data-category="geburtstag" data-name="Lila Champagner Ballon" data-price="69.00">
-      <a href="produktlilachampagnerballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ballon-lila-champagner.webp" alt="Lila Champagner Ballon" loading="lazy">
-        <span class="badge-tag">Bestseller</span>
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktlilachampagnerballon.html" class="prod-img-wrap">
+        <img src="ballon-lila-champagner.webp" alt="Lila Champagner Ballon" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Bestseller</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktlilachampagnerballon.html" class="product-name" style="text-decoration:none;color:inherit;">Lila Champagner Ballon</a>
-        <div class="product-desc">Personalisierter Ballon in Lila-Champagner mit Wunschtext – für Geburtstag, Hochzeit &amp; mehr.</div>
-        <div class="product-footer">
-          <div class="product-price">69,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktlilachampagnerballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Lila%20Champagner%20Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktlilachampagnerballon.html" class="prod-name">Lila Champagner Ballon</a>
+        <div class="prod-desc">Personalisierter Ballon in Lila-Champagner mit Wunschtext – für Geburtstag, Hochzeit &amp; mehr.</div>
+        <div class="prod-footer">
+          <div class="prod-price">69,00 €</div>
+          <button onclick="addKollToCart('Lila Champagner Ballon',69.00,'ballon-lila-champagner.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="hochzeit" data-name="Hochzeits-Ballon-Box Lila" data-price="89.00">
-      <a href="produktlilahochzeitsballonbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="hochzeitsballon-box-lila.webp" alt="Hochzeits-Ballon-Box Lila" loading="lazy">
-        <span class="badge-tag">Beliebt</span>
+    <div class="prod-card" data-cat="hochzeit">
+      <a href="produktlilahochzeitsballonbox.html" class="prod-img-wrap">
+        <img src="hochzeitsballon-box-lila.webp" alt="Hochzeits-Ballon-Box Lila" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Beliebt</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktlilahochzeitsballonbox.html" class="product-name" style="text-decoration:none;color:inherit;">Hochzeits-Ballon-Box Lila</a>
-        <div class="product-desc">Romantische Ballon-Box mit Brautpaar-Namen &amp; Datum – handgemacht für den schönsten Tag.</div>
-        <div class="product-footer">
-          <div class="product-price">89,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktlilahochzeitsballonbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Hochzeits-Ballon-Box%20Lila%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktlilahochzeitsballonbox.html" class="prod-name">Hochzeits-Ballon-Box Lila</a>
+        <div class="prod-desc">Romantische Ballon-Box mit Brautpaar-Namen &amp; Datum – handgemacht für den schönsten Tag.</div>
+        <div class="prod-footer">
+          <div class="prod-price">89,00 €</div>
+          <button onclick="addKollToCart('Hochzeits-Ballon-Box Lila',89.00,'hochzeitsballon-box-lila.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="babyparty" data-name="Feen-Blumenbox" data-price="69.00">
-      <a href="produktfeenblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="feen-blumenbox.webp" alt="Feen-Blumenbox" loading="lazy">
+    <div class="prod-card" data-cat="babyparty">
+      <a href="produktfeenblumenbox.html" class="prod-img-wrap">
+        <img src="feen-blumenbox.webp" alt="Feen-Blumenbox" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktfeenblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Feen-Blumenbox</a>
-        <div class="product-desc">Magische Blumenbox mit Trockenblumen und persönlichem Ballon – verspielt &amp; romantisch.</div>
-        <div class="product-footer">
-          <div class="product-price">69,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktfeenblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Feen-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktfeenblumenbox.html" class="prod-name">Feen-Blumenbox</a>
+        <div class="prod-desc">Magische Blumenbox mit Trockenblumen und persönlichem Ballon – verspielt &amp; romantisch.</div>
+        <div class="prod-footer">
+          <div class="prod-price">69,00 €</div>
+          <button onclick="addKollToCart('Feen-Blumenbox',69.00,'feen-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Ballon Box Boho Luxe" data-price="79.00">
-      <a href="produktballonboxboholuxe.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ballon-box-boho-blau-gold.webp" alt="Ballon Box Boho Luxe" loading="lazy">
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktballonboxboholuxe.html" class="prod-img-wrap">
+        <img src="ballon-box-boho-blau-gold.webp" alt="Ballon Box Boho Luxe" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Bestseller</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktballonboxboholuxe.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon Box Boho Luxe</a>
-        <div class="product-desc">Natürliche Boho-Ballon-Box mit Wunschtext – für moderne, stilvolle Geschenke.</div>
-        <div class="product-footer">
-          <div class="product-price">79,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktballonboxboholuxe.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20Box%20Boho%20Luxe%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktballonboxboholuxe.html" class="prod-name">Ballon-Box Boho Luxe</a>
+        <div class="prod-desc">Personalisierter Chromballon in Blau-Gold mit Schmetterlingsdekor, umhüllt von Trockenblumen, Rosen und Pampasgras.</div>
+        <div class="prod-footer">
+          <div class="prod-price">79,00 €</div>
+          <button onclick="addKollToCart('Ballon-Box Boho Luxe',79.00,'ballon-box-boho-blau-gold.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Ballon Box Schwarz-Gold" data-price="85.00">
-      <a href="produktballonboxschwarzgold.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ballon-box-schwarz-gold.webp" alt="Ballon Box Schwarz-Gold" loading="lazy">
-        <span class="badge-tag">Premium</span>
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktballonboxschwarzgold.html" class="prod-img-wrap">
+        <img src="ballon-box-schwarz-gold.webp" alt="Ballon Box Schwarz-Gold" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Premium</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktballonboxschwarzgold.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon Box Schwarz-Gold</a>
-        <div class="product-desc">Elegante schwarze Geschenkbox mit goldenem Ballon – perfekt für runde Geburtstage.</div>
-        <div class="product-footer">
-          <div class="product-price">85,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktballonboxschwarzgold.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20Box%20Schwarz-Gold%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktballonboxschwarzgold.html" class="prod-name">Ballon-Box Schwarz &amp; Gold</a>
+        <div class="prod-desc">Luxuriöse Ballon-Box im Schwarz-Gold-Look mit großem schwarzem Ballon, goldenen Chromballons und dunkelroten Rosen.</div>
+        <div class="prod-footer">
+          <div class="prod-price">85,00 €</div>
+          <button onclick="addKollToCart('Ballon-Box Schwarz &amp; Gold',85.00,'ballon-box-schwarz-gold.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="sonstiges" data-name="Abschluss-Ballon Congradulations" data-price="39.00">
-      <a href="produktabschlussballoncongradulations.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="abschluss-ballon-congradulations.webp" alt="Abschluss-Ballon Congradulations" loading="lazy">
-        <span class="badge-tag">Beliebt</span>
+    <div class="prod-card" data-cat="sonstiges">
+      <a href="produktabschlussballoncongradulations.html" class="prod-img-wrap">
+        <img src="abschluss-ballon-congradulations.webp" alt="Abschluss-Ballon Congradulations" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Beliebt</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktabschlussballoncongradulations.html" class="product-name" style="text-decoration:none;color:inherit;">Abschluss-Ballon Congradulations</a>
-        <div class="product-desc">Personalisierter Ballon zum Abitur, Studium oder Ausbildungsabschluss mit Glückwunsch.</div>
-        <div class="product-footer">
-          <div class="product-price">39,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktabschlussballoncongradulations.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Abschluss-Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktabschlussballoncongradulations.html" class="prod-name">Abschluss-Ballon Congradulations</a>
+        <div class="prod-desc">Personalisierter Ballon zum Abitur, Studium oder Ausbildungsabschluss mit Glückwunsch.</div>
+        <div class="prod-footer">
+          <div class="prod-price">39,00 €</div>
+          <button onclick="addKollToCart('Abschluss-Ballon Congradulations',39.00,'abschluss-ballon-congradulations.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Ballon mit Wunsch-Illustration" data-price="59.00">
-      <a href="produktballonmitwunschillustration.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ballon-wunsch-illustration.webp" alt="Ballon mit Wunsch-Illustration" loading="lazy">
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktballonmitwunschillustration.html" class="prod-img-wrap">
+        <img src="ballon-wunsch-illustration.webp" alt="Ballon mit Wunsch-Illustration" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktballonmitwunschillustration.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon mit Wunsch-Illustration</a>
-        <div class="product-desc">Handgezeichneter Ballon mit individuellem Motiv und persönlichem Wunschtext.</div>
-        <div class="product-footer">
-          <div class="product-price">59,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktballonmitwunschillustration.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20mit%20Wunsch-Illustration%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktballonmitwunschillustration.html" class="prod-name">Ballon mit Wunsch-Illustration</a>
+        <div class="prod-desc">Handgezeichneter Ballon mit individuellem Motiv und persönlichem Wunschtext.</div>
+        <div class="prod-footer">
+          <div class="prod-price">59,00 €</div>
+          <button onclick="addKollToCart('Ballon mit Wunsch-Illustration',59.00,'ballon-wunsch-illustration.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Ferrero-Geburtstagsbox" data-price="55.00">
-      <a href="produktferrerogeburtstagsbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ferrero-geburtstagsbox.webp" alt="Ferrero-Geburtstagsbox" loading="lazy">
-        <span class="badge-tag">Neu</span>
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktferrerogeburtstagsbox.html" class="prod-img-wrap">
+        <img src="ferrero-geburtstagsbox.webp" alt="Ferrero Geburtstags-Box" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Neu</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktferrerogeburtstagsbox.html" class="product-name" style="text-decoration:none;color:inherit;">Ferrero-Geburtstagsbox</a>
-        <div class="product-desc">Pralinen &amp; personalisierter Ballon in einer Box – der doppelte Geburtstagsgenuss.</div>
-        <div class="product-footer">
-          <div class="product-price">55,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktferrerogeburtstagsbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ferrero-Geburtstagsbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktferrerogeburtstagsbox.html" class="prod-name">Ferrero Geburtstags-Box</a>
+        <div class="prod-desc">Edle Geburtstags-Box im Schwarz-Gold-Look mit Ferrero Rocher und goldener Geburtstagsbeschriftung.</div>
+        <div class="prod-footer">
+          <div class="prod-price">55,00 €</div>
+          <button onclick="addKollToCart('Ferrero Geburtstags-Box',55.00,'ferrero-geburtstagsbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Einhorn-Ballonstrauss" data-price="49.00">
-      <a href="produkteinhornballonstrauss.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="einhorn-ballonstrauss.webp" alt="Einhorn-Ballonstrauß" loading="lazy">
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produkteinhornballonstrauss.html" class="prod-img-wrap">
+        <img src="einhorn-ballonstrauss.webp" alt="Einhorn-Ballonstrauß" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produkteinhornballonstrauss.html" class="product-name" style="text-decoration:none;color:inherit;">Einhorn-Ballonstrauß</a>
-        <div class="product-desc">Verspielter Einhorn-Ballonstrauß – magisches Geschenk für Kinder &amp; Junggebliebene.</div>
-        <div class="product-footer">
-          <div class="product-price">49,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produkteinhornballonstrauss.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Einhorn-Ballonstrau%C3%9F%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produkteinhornballonstrauss.html" class="prod-name">Einhorn-Ballonstrauß</a>
+        <div class="prod-desc">Verspielter Einhorn-Ballonstrauß – magisches Geschenk für Kinder &amp; Junggebliebene.</div>
+        <div class="prod-footer">
+          <div class="prod-price">49,00 €</div>
+          <button onclick="addKollToCart('Einhorn-Ballonstrauß',49.00,'einhorn-ballonstrauss.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="geburtstag" data-name="Stitch Ballon mit Blumen" data-price="18.00">
-      <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="ballon-stitch-blumen-schmetterlinge.webp" alt="Stitch Ballon mit Blumen" loading="lazy">
-        <span class="badge-tag">Beliebt</span>
+    <div class="prod-card" data-cat="geburtstag">
+      <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="prod-img-wrap">
+        <img src="ballon-stitch-blumen-schmetterlinge.webp" alt="Stitch Ballon mit Blumen" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Beliebt</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="product-name" style="text-decoration:none;color:inherit;">Stitch Ballon mit Blumen</a>
-        <div class="product-desc">Süßer Stitch-Ballon mit Blumen und Schmetterlingen – für alle Stitch-Fans.</div>
-        <div class="product-footer">
-          <div class="product-price">18,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Stitch%20Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="prod-name">Pop-Ballon Stitch mit Blumen</a>
+        <div class="prod-desc">Süßer Stitch-Ballon mit Blumen und Schmetterlingen – für alle Stitch-Fans.</div>
+        <div class="prod-footer">
+          <div class="prod-price">18,00 €</div>
+          <button onclick="addKollToCart('Pop-Ballon Stitch mit Blumen',18.00,'ballon-stitch-blumen-schmetterlinge.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="fussball" data-name="Fussball-Blumenbox" data-price="69.00">
-      <a href="produktfussballblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="fussball-blumenbox.webp" alt="Fußball-Blumenbox" loading="lazy">
+    <div class="prod-card" data-cat="fussball">
+      <a href="produktfussballblumenbox.html" class="prod-img-wrap">
+        <img src="fussball-blumenbox.webp" alt="Fußball-Blumenbox" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktfussballblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Fußball-Blumenbox</a>
-        <div class="product-desc">Blumenbox im Fußball-Style – perfektes Geschenk für Fußballfans.</div>
-        <div class="product-footer">
-          <div class="product-price">69,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktfussballblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Fu%C3%9Fball-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktfussballblumenbox.html" class="prod-name">Fußball-Blumenbox</a>
+        <div class="prod-desc">Blumenbox im Fußball-Style – perfektes Geschenk für Fußballfans.</div>
+        <div class="prod-footer">
+          <div class="prod-price">69,00 €</div>
+          <button onclick="addKollToCart('Fußball-Blumenbox',69.00,'fussball-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="fussball" data-name="CR7 Fan-Geschenkbox" data-price="39.00">
-      <a href="produktcr7fangeschenkbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="fussball-geschenkbox-cr7-ronaldo-frontal.webp" alt="CR7 Fan-Geschenkbox" loading="lazy">
-        <span class="badge-tag">Beliebt</span>
+    <div class="prod-card" data-cat="fussball">
+      <a href="produktcr7fangeschenkbox.html" class="prod-img-wrap">
+        <img src="fussball-geschenkbox-cr7-ronaldo-frontal.webp" alt="CR7 Fan-Geschenkbox" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Beliebt</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktcr7fangeschenkbox.html" class="product-name" style="text-decoration:none;color:inherit;">CR7 Fan-Geschenkbox</a>
-        <div class="product-desc">Exklusive Fanbox für Cristiano Ronaldo Fans – mit CR7-Motiv und persönlichem Ballon.</div>
-        <div class="product-footer">
-          <div class="product-price">39,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktcr7fangeschenkbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22CR7%20Fan-Geschenkbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktcr7fangeschenkbox.html" class="prod-name">CR7 Fan-Geschenkbox</a>
+        <div class="prod-desc">Exklusive Fanbox für Cristiano Ronaldo Fans – mit CR7-Motiv und persönlichem Ballon.</div>
+        <div class="prod-footer">
+          <div class="prod-price">39,00 €</div>
+          <button onclick="addKollToCart('CR7 Fan-Geschenkbox',39.00,'fussball-geschenkbox-cr7-ronaldo-frontal.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="fussball" data-name="Fussball-Schuh-Blumenstrauss" data-price="55.00">
-      <a href="produktfussballschuhblumenstrauss.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="fussballschuh-blumenstrauss.webp" alt="Fußball-Schuh-Blumenstrauß" loading="lazy">
+    <div class="prod-card" data-cat="fussball">
+      <a href="produktfussballschuhblumenstrauss.html" class="prod-img-wrap">
+        <img src="fussballschuh-blumenstrauss.webp" alt="Fußball-Schuh-Blumenstrauß" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktfussballschuhblumenstrauss.html" class="product-name" style="text-decoration:none;color:inherit;">Fußball-Schuh-Blumenstrauß</a>
-        <div class="product-desc">Kreativer Blumenstrauß rund um einen echten Fußballschuh – das Geschenk für echte Fans.</div>
-        <div class="product-footer">
-          <div class="product-price">55,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktfussballschuhblumenstrauss.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Fu%C3%9Fball-Schuh-Blumenstrau%C3%9F%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktfussballschuhblumenstrauss.html" class="prod-name">Fußball-Schuh-Blumenstrauß</a>
+        <div class="prod-desc">Kreativer Blumenstrauß rund um einen echten Fußballschuh – das Geschenk für echte Fans.</div>
+        <div class="prod-footer">
+          <div class="prod-price">55,00 €</div>
+          <button onclick="addKollToCart('Fußball-Schuh-Blumenstrauß',55.00,'fussballschuh-blumenstrauss.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="kuscheltiere" data-name="Teddybaer im Geschenkballon" data-price="49.00">
-      <a href="produktteddybaerimgeschenkballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="teddybaer-geschenkballon-rot.webp" alt="Teddybär im Geschenkballon" loading="lazy">
-        <span class="badge-tag">Magisch</span>
+    <div class="prod-card" data-cat="kuscheltiere">
+      <a href="produktteddybaerimgeschenkballon.html" class="prod-img-wrap">
+        <img src="teddybaer-geschenkballon-rot.webp" alt="Teddybär im Geschenkballon" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Magisch</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktteddybaerimgeschenkballon.html" class="product-name" style="text-decoration:none;color:inherit;">Teddybär im Geschenkballon</a>
-        <div class="product-desc">Ein kuscheliger Teddybär verborgen in einem großen transparenten Ballon – magischer Überraschungsmoment.</div>
-        <div class="product-footer">
-          <div class="product-price">49,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktteddybaerimgeschenkballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Teddyb%C3%A4r%20im%20Geschenkballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktteddybaerimgeschenkballon.html" class="prod-name">Teddybär im Geschenkballon</a>
+        <div class="prod-desc">Ein kuscheliger Teddybär verborgen in einem großen transparenten Ballon – magischer Überraschungsmoment.</div>
+        <div class="prod-footer">
+          <div class="prod-price">49,00 €</div>
+          <button onclick="addKollToCart('Teddybär im Geschenkballon',49.00,'teddybaer-geschenkballon-rot.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="kuscheltiere" data-name="Teddy-Geschenkbox mit Ballon" data-price="59.00">
-      <a href="produktteddygeschenkboxmitballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="teddy-geschenkbox-mit-ballon.webp" alt="Teddy-Geschenkbox mit Ballon" loading="lazy">
-        <span class="badge-tag">Komplett-Set</span>
+    <div class="prod-card" data-cat="kuscheltiere">
+      <a href="produktteddygeschenkboxmitballon.html" class="prod-img-wrap">
+        <img src="teddy-geschenkbox-mit-ballon.webp" alt="Teddy-Geschenkbox mit Ballon" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Komplett-Set</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktteddygeschenkboxmitballon.html" class="product-name" style="text-decoration:none;color:inherit;">Teddy-Geschenkbox mit Ballon</a>
-        <div class="product-desc">Komplettes Kuscheltier-Geschenkset: Teddybär in festlicher Box mit passendem Ballon.</div>
-        <div class="product-footer">
-          <div class="product-price">59,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktteddygeschenkboxmitballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Teddy-Geschenkbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktteddygeschenkboxmitballon.html" class="prod-name">Teddy-Geschenkbox mit Ballon</a>
+        <div class="prod-desc">Komplettes Kuscheltier-Geschenkset: Teddybär in festlicher Box mit passendem Ballon.</div>
+        <div class="prod-footer">
+          <div class="prod-price">59,00 €</div>
+          <button onclick="addKollToCart('Teddy-Geschenkbox mit Ballon',59.00,'teddy-geschenkbox-mit-ballon.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="liebe" data-name="Herz-Box mit Ferrero und Roten Rosen" data-price="45.00">
-      <a href="produktherzboxmitferrerorotenrosen.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="herz-box-ferrero-rote-rosen.webp" alt="Herz-Box mit Ferrero und Roten Rosen" loading="lazy">
-        <span class="badge-tag">Romantisch</span>
+    <div class="prod-card" data-cat="liebe">
+      <a href="produktherzboxmitferrerorotenrosen.html" class="prod-img-wrap">
+        <img src="herz-box-ferrero-rote-rosen.webp" alt="Herz-Box mit Ferrero und Roten Rosen" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Romantisch</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktherzboxmitferrerorotenrosen.html" class="product-name" style="text-decoration:none;color:inherit;">Herz-Box mit Ferrero &amp; Roten Rosen</a>
-        <div class="product-desc">Herzförmige Box mit Ferrero Roché und roten Rosen – das romantische Geschenk für Verliebte.</div>
-        <div class="product-footer">
-          <div class="product-price">45,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktherzboxmitferrerorotenrosen.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Herz-Box%20mit%20Ferrero%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktherzboxmitferrerorotenrosen.html" class="prod-name">Herz-Box mit Ferrero &amp; Roten Rosen</a>
+        <div class="prod-desc">Herzförmige Box mit Ferrero Roché und roten Rosen – das romantische Geschenk für Verliebte.</div>
+        <div class="prod-footer">
+          <div class="prod-price">45,00 €</div>
+          <button onclick="addKollToCart('Herz-Box mit Ferrero & Roten Rosen',45.00,'herz-box-ferrero-rote-rosen.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="liebe" data-name="Heissluftballon Happy Valentines Day" data-price="65.00">
-      <a href="produktheissluftballonhappyvalentinesday.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="heissluftballon-valentinstag.webp" alt="Heißluftballon Happy Valentine's Day" loading="lazy">
-        <span class="badge-tag">Valentinstag</span>
+    <div class="prod-card" data-cat="liebe">
+      <a href="produktheissluftballonhappyvalentinesday.html" class="prod-img-wrap">
+        <img src="heissluftballon-valentinstag.webp" alt="Heißluftballon Happy Valentine's Day" width="600" height="800" loading="lazy">
+        <span class="prod-badge">Valentinstag</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktheissluftballonhappyvalentinesday.html" class="product-name" style="text-decoration:none;color:inherit;">Heißluftballon Happy Valentine's Day</a>
-        <div class="product-desc">Personalisierter Heißluftballon zum Valentinstag – ein Liebesgeschenk, das in Erinnerung bleibt.</div>
-        <div class="product-footer">
-          <div class="product-price">65,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktheissluftballonhappyvalentinesday.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Hei%C3%9Fluftballon%20Valentine%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktheissluftballonhappyvalentinesday.html" class="prod-name">Heißluftballon Happy Valentine's Day</a>
+        <div class="prod-desc">Personalisierter Heißluftballon zum Valentinstag – ein Liebesgeschenk, das in Erinnerung bleibt.</div>
+        <div class="prod-footer">
+          <div class="prod-price">65,00 €</div>
+          <button onclick="addKollToCart('Heißluftballon Happy Valentine\'s Day',65.00,'heissluftballon-valentinstag.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="sonstiges" data-name="Drachen-Blumenbox" data-price="55.00">
-      <a href="produktdrachenblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
-        <img src="drachen-blumenbox.webp" alt="Drachen-Blumenbox" loading="lazy">
+    <div class="prod-card" data-cat="sonstiges">
+      <a href="produktdrachenblumenbox.html" class="prod-img-wrap">
+        <img src="drachen-blumenbox.webp" alt="Drachen-Blumenbox" width="600" height="800" loading="lazy">
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
       </a>
-      <div class="product-body">
-        <a href="produktdrachenblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Drachen-Blumenbox</a>
-        <div class="product-desc">Mystische Blumenbox mit Drachen-Motiv – für Fantasy-Fans und besondere Momente.</div>
-        <div class="product-footer">
-          <div class="product-price">55,00 €</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="produktdrachenblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
-            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Drachen-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
-          </div>
+      <div class="prod-body">
+        <a href="produktdrachenblumenbox.html" class="prod-name">Drachen-Blumenbox</a>
+        <div class="prod-desc">Mystische Blumenbox mit Drachen-Motiv – für Fantasy-Fans und besondere Momente.</div>
+        <div class="prod-footer">
+          <div class="prod-price">55,00 €</div>
+          <button onclick="addKollToCart('Drachen-Blumenbox',55.00,'drachen-blumenbox.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
         </div>
       </div>
     </div>
+
+    <p class="prod-no-results" id="noResults">Kein Produkt gefunden.</p>
 
   </div>
 </div>
 
-<!-- Toast -->
-<div class="toast" id="toast">🛒 In den Warenkorb gelegt!</div>
-
-<!-- Cart FAB -->
-<a href="index.html" class="cart-fab" title="Zum Konfigurator">
-  <i class="fas fa-shopping-bag"></i>
-  <span class="fab-count" id="fabCount" style="display:none">0</span>
-</a>
-
-<!-- Alle Produkte -->
-<div class="seo-links" style="max-width:900px;margin:10px auto 40px;padding:0 20px;color:#3a2e3f;">
-  <h2 class="seo-section-title">Alle Produkte nach Kategorie</h2>
-
-  <h3 class="seo-cat-title">🎂 <a href="geburtstag.html">Geburtstag</a></h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktballonboxboholuxe.html">Ballon-Box Boho Luxe</a></li>
-    <li><a href="produktballonboxschwarzgold.html">Ballon-Box Schwarz &amp; Gold</a></li>
-    <li><a href="produktlilachampagnerballon.html">Lila Champagner-Ballon</a></li>
-    <li><a href="produktdarkchromeballonbox.html">Dark-Chrome Ballon-Box</a></li>
-    <li><a href="produktpilzgnomblumenbox.html">Pilz-Gnom Blumenbox</a></li>
-    <li><a href="produktferrerogeburtstagsbox.html">Ferrero Geburtstags-Box</a></li>
-    <li><a href="produktspidermangeburtstagsbox.html">Spiderman Geburtstags-Box</a></li>
-    <li><a href="produktgeburtstagsballonblaumitblumenbox.html">Geburtstagsballon Blau mit Blumenbox</a></li>
-    <li><a href="produktboxhandschuhblumenstrausskraftblueten.html">Boxhandschuh-Blumenstrauß "Kraft &amp; Blüten"</a></li>
-    <li><a href="produktpopballonstitchmitblumenschmetterlingen.html">Pop-Ballon "Stitch" mit Blumen &amp; Schmetterlingen</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">💍 <a href="hochzeit.html">Hochzeit</a></h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktromantischerrosaballon.html">Romantischer Rosa Ballon</a></li>
-    <li><a href="produktlilahochzeitsballonbox.html">Lila Hochzeits-Ballon-Box</a></li>
-    <li><a href="produktperlenbrautstraussivory.html">Perlen-Brautstrauß Ivory</a></li>
-    <li><a href="produktbrauthaarschmuckperlenorchideen.html">Brauthaarschmuck Perlen &amp; Orchideen</a></li>
-    <li><a href="produktpersonalisiertesringkissentablettmitnamendatum.html">Personalisiertes Ringkissen-Tablett mit Namen &amp; Datum</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">👶 <a href="babyparty.html">Babyparty</a></h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktdrachenblumenbox.html">Drachen Blumenbox</a></li>
-    <li><a href="produktfeenblumenbox.html">Feen-Blumenbox</a></li>
-    <li><a href="produktkinderjoyblumenstrauss.html">Kinder Joy Blumenstrauß</a></li>
-    <li><a href="produktpopmegenderrevealballonboyorgirl.html">Pop-Me Gender-Reveal-Ballon "Boy or Girl"</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">⚽ <a href="fussball.html">Fußball &amp; Auto</a></h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktfussballblumenbox.html">Fußball Blumenbox</a></li>
-    <li><a href="produktfussballschuhblumenstrauss.html">Fußballschuh-Blumenstrauß</a></li>
-    <li><a href="produktfussballfanstraussronaldo.html">Fußball-Fan Strauß "Ronaldo"</a></li>
-    <li><a href="produktfussballschuhstraussnike.html">Fußballschuh-Strauß "Nike"</a></li>
-    <li><a href="produktfussballschuhvasemitweissenrosen.html">Fußballschuh-Vase mit weißen Rosen</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">🧸 Kuscheltiere</h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktteddybaerblumenbox.html">Teddybär Blumenbox</a></li>
-    <li><a href="produktgamergeburtstagsset.html">Gamer Geburtstags-Set</a></li>
-    <li><a href="produktstitchblumenstrauss.html">Stitch Blumenstrauß</a></li>
-    <li><a href="produkteinhornballonstrauss.html">Einhorn-Ballonstrauß</a></li>
-    <li><a href="produktteddygeschenkboxmitballon.html">Teddy Geschenkbox mit Ballon</a></li>
-    <li><a href="produktregenbogeneinhornimballon.html">Regenbogen-Einhorn im Ballon</a></li>
-    <li><a href="produktteddybaerimgeschenkballon.html">Teddybär im Geschenkballon</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">💕 Liebe &amp; Valentinstag</h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktheissluftballonhappyvalentinesday.html">Heißluftballon "Happy Valentine's Day"</a></li>
-    <li><a href="produktherzboxmitferrerorotenrosen.html">Herz-Box mit Ferrero &amp; roten Rosen</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">🌸 <a href="muttertag-ballon.html">Muttertag</a></h3>
-  <ul style="line-height:1.9;">
-    <li><a href="muttertag-ballon.html">Muttertag Ballon personalisiert</a></li>
-    <li><a href="produktromantischerrosaballon.html">Romantischer Rosa Ballon</a></li>
-    <li><a href="produktherzboxmitferrerorotenrosen.html">Herz-Box mit Ferrero &amp; Rosen</a></li>
-  </ul>
-
-  <h3 class="seo-cat-title">✨ Sonstiges</h3>
-  <ul style="line-height:1.9;">
-    <li><a href="produktballonmitwunschillustration.html">Ballon mit Wunsch-Illustration</a></li>
-    <li><a href="produktblumenkorbmitfotomedaillon.html">Blumenkorb mit Foto-Medaillon</a></li>
-    <li><a href="produktpremiumblumenboxmitschmetterling.html">Premium Blumenbox mit Schmetterling</a></li>
-    <li><a href="produktwhiskeyferrerostrauss.html">Whiskey &amp; Ferrero Strauß</a></li>
-    <li><a href="produktgesichtskulpturmittrockenblumen.html">Gesicht-Skulptur mit Trockenblumen</a></li>
-    <li><a href="produktosterblumenboxmitdrachen.html">Oster-Blumenbox mit Drachen</a></li>
-    <li><a href="produktlamborghinimodellautobilderrahmen.html">Lamborghini Modellauto Bilderrahmen</a></li>
-    <li><a href="produktosterblumenboxmithaeschen.html">Oster-Blumenbox mit Häschen</a></li>
-    <li><a href="produktosterblumenboxmithasekueken.html">Oster-Blumenbox mit Hase &amp; Küken</a></li>
-    <li><a href="produktosterblumenboxmitmacaronkueken.html">Oster-Blumenbox mit Macaron-Küken</a></li>
-    <li><a href="produktosterblumenboxmitastronautenkueken.html">Oster-Blumenbox mit Astronauten-Küken</a></li>
-    <li><a href="produktosterblumenboxmitgruenemdrachen.html">Oster-Blumenbox mit grünem Drachen</a></li>
-    <li><a href="produktlamborghinimodellautobilderrahmenblau.html">Lamborghini Modellauto Bilderrahmen Blau</a></li>
-    <li><a href="produktosterblumenboxmithasenfamilie.html">Oster-Blumenbox mit Hasenfamilie</a></li>
-    <li><a href="produktosterblumenboxmitmacaronhase.html">Oster-Blumenbox mit Macaron-Hase</a></li>
-    <li><a href="produktgeburtstagsgeschenkboxfuerhundedogmom.html">Geburtstags-Geschenkbox für Hunde "Dog Mom"</a></li>
-    <li><a href="produkthundeleckerlisetmittennisball.html">Hundeleckerli-Set mit Tennisball</a></li>
-    <li><a href="produktblumenballrosavolleyball.html">Blumenball Rosa Volleyball</a></li>
-    <li><a href="produktdekooldtimermittrockenblumenperlen.html">Deko-Oldtimer mit Trockenblumen &amp; Perlen</a></li>
-    <li><a href="produktkaffeebecherblumenstraussmitfee.html">Kaffeebecher-Blumenstrauß mit Fee</a></li>
-    <li><a href="produkttennisschlaegerblumenstrauss.html">Tennisschläger-Blumenstrauß</a></li>
-    <li><a href="produktabschlussballoncongradulations.html">Abschluss-Ballon "conGRADulations"</a></li>
-    <li><a href="produktluxusblumenboxdiorschleife.html">Luxus-Blumenbox "Dior"-Schleife</a></li>
-  </ul>
-</div>
-
-<!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -895,7 +458,7 @@
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="index.html">Alle Ballons</a>
+      <a href="kollektionen.html">Alle Ballons</a>
       <a href="geburtstag.html">Geburtstag</a>
       <a href="hochzeit.html">Hochzeit</a>
       <a href="babyparty.html">Babyparty</a>
@@ -923,66 +486,50 @@
   </div>
 </footer>
 
+<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp" class="wa-fab"><i class="fab fa-whatsapp"></i></a>
+
 <script>
-(function() {
-  var _sortMode = 'default';
-
-  function applyView() {
-    var grid = document.getElementById('productsGrid');
-    if (!grid) return;
-    var activeBtn = document.querySelector('.filter-btn.active');
-    var cat = activeBtn ? (activeBtn.getAttribute('data-cat') || 'all') : 'all';
-    var searchEl = document.getElementById('kollSearch');
-    var q = searchEl ? searchEl.value.toLowerCase().trim() : '';
-
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
-    var visible = [];
-    cards.forEach(function(card) {
-      var catMatch = cat === 'all' || card.getAttribute('data-category') === cat;
-      var nameMatch = !q || (card.getAttribute('data-name') || '').toLowerCase().indexOf(q) >= 0;
-      var show = catMatch && nameMatch;
-      card.style.display = show ? '' : 'none';
-      if (show) visible.push(card);
-    });
-
-    if (_sortMode !== 'default' && visible.length > 1) {
-      visible.sort(function(a, b) {
-        if (_sortMode === 'price-asc') return parseFloat(a.getAttribute('data-price') || 0) - parseFloat(b.getAttribute('data-price') || 0);
-        if (_sortMode === 'price-desc') return parseFloat(b.getAttribute('data-price') || 0) - parseFloat(a.getAttribute('data-price') || 0);
-        if (_sortMode === 'name-asc') return (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || '');
-        return 0;
-      });
-      var msg = document.getElementById('noProductsMsg');
-      visible.forEach(function(card) { grid.insertBefore(card, msg || null); });
+  document.addEventListener('click', function(e){
+    const nav = document.getElementById('nav-links');
+    if(nav && nav.classList.contains('open') && !nav.contains(e.target) && !e.target.closest('.hamburger')) {
+      nav.classList.remove('open');
     }
+  });
 
-    var msg = document.getElementById('noProductsMsg');
-    if (!msg) {
-      msg = document.createElement('p');
-      msg.id = 'noProductsMsg';
-      msg.style.cssText = 'grid-column:1/-1;text-align:center;padding:40px;color:#999;display:none;';
-      msg.textContent = 'Keine Produkte gefunden.';
-      grid.appendChild(msg);
+  function addKollToCart(name, price, img) {
+    try {
+      const cart = JSON.parse(localStorage.getItem('dandelionCart') || '[]');
+      cart.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('dandelionCart', JSON.stringify(cart));
+    } catch(e) {}
+    updateNavCartBadge();
+    showCartToast(name);
+  }
+  function showCartToast(name) {
+    var t = document.getElementById('cartToast');
+    if(!t) {
+      t = document.createElement('div');
+      t.id = 'cartToast';
+      t.style.cssText = 'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#2d1b3d;color:#fff;padding:12px 22px;border-radius:50px;font-size:.88rem;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;gap:10px;align-items:center;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;';
+      t.innerHTML = '<i class="fas fa-check-circle" style="color:#8e44ad;"></i><span id="cartToastText"></span><a href="index.html" style="color:#d63384;font-weight:700;text-decoration:none;margin-left:8px;">Zur Kasse →</a>';
+      document.body.appendChild(t);
     }
-    msg.style.display = visible.length ? 'none' : 'block';
+    document.getElementById('cartToastText').textContent = name + ' hinzugefügt';
+    t.style.opacity = '1';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
   }
-
-  window.filterProducts = function(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-    if (btn) btn.classList.add('active');
-    applyView();
-  };
-  window.applyKollSearch = function() { applyView(); };
-  window.applyKollSort = function(v) { _sortMode = v || 'default'; applyView(); };
-
-  // Initialize immediately (works whether script runs inline or deferred by Rocket Loader)
-  // Also hook DOMContentLoaded as fallback in case script runs before DOM is parsed
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyView);
-  } else {
-    applyView();
+  function updateNavCartBadge() {
+    try {
+      const n = JSON.parse(localStorage.getItem('dandelionCart') || '[]').length;
+      const b = document.getElementById('navCartBadge');
+      if (!b) return;
+      if (n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
+      else { b.style.display = 'none'; }
+    } catch(e) {}
   }
-})();
+  updateNavCartBadge();
+  window.addEventListener('pageshow', updateNavCartBadge);
 </script>
 
 <!-- Cookie Consent Banner -->
@@ -990,7 +537,7 @@
   <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
     <div style="flex:1;min-width:220px;">
       🍪 <strong>Cookies &amp; Datenschutz</strong><br>
-      <span style="opacity:.85;">Wir nutzen notwendige Cookies für den Betrieb und optionale Dienste (Google Analytics, Microsoft Clarity, PayPal, Google Fonts) für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span>
+      <span style="opacity:.85;">Wir nutzen notwendige Cookies für den Betrieb und optionale Dienste für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
       <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Nur notwendige</button>
@@ -1000,82 +547,96 @@
 </div>
 <script>
 (function(){
+  function loadGA(){
+    if(window._gaLoaded)return;window._gaLoaded=true;
+    var s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
+    gtag('js',new Date());gtag('config','G-88K056PN19');
+  }
   function setCookieConsent(level){
     localStorage.setItem('cookieConsent',level);
     localStorage.setItem('cookieConsentDate', new Date().toISOString());
     document.getElementById('cookieBanner').style.display='none';
+    if(level==='all')loadGA();
   }
   window.setCookieConsent = setCookieConsent;
-  if(!localStorage.getItem('cookieConsent')){
-    setTimeout(function(){ document.getElementById('cookieBanner').style.display='block'; }, 800);
-  }
+  var consent=localStorage.getItem('cookieConsent');
+  if(consent==='all'){loadGA();}
+  else if(!consent){setTimeout(function(){ document.getElementById('cookieBanner').style.display='block'; }, 800);}
 })();
 </script>
-<!-- End Cookie Consent -->
+
 <script>
 (function(){
-  var navI18n={
-    de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},
-    ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}
-  };
-  function applyNavLang(l){
-    if(!navI18n[l])l='de';
-    localStorage.setItem('lang',l);
-    var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';
-    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
-    var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
-    if(f)f.textContent=flag;if(c)c.textContent=code;
-    if(fm)fm.textContent=flag;if(cm)cm.textContent=code;
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
+  var searchInput = document.getElementById('prodSearch');
+  var sortSelect = document.getElementById('prodSort');
+  var catBtns = document.querySelectorAll('.cat-btn');
+  var noRes = document.getElementById('noResults');
+  var grid = document.querySelector('.prod-grid');
+  if(!grid) return;
+
+  var activeCat = 'all';
+
+  catBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      catBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat') || 'all';
+      applyFilter();
     });
+  });
+
+  function getCards() {
+    return Array.from(grid.querySelectorAll('.prod-card'));
   }
+  function getPrice(card) {
+    var priceEl = card.querySelector('.prod-price');
+    if(!priceEl) return 0;
+    return parseFloat(priceEl.textContent.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
+  }
+  function getName(card) {
+    var nameEl = card.querySelector('.prod-name');
+    return nameEl ? nameEl.textContent.trim().toLowerCase() : '';
+  }
+
+  function applyFilter() {
+    var q = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    var sort = sortSelect ? sortSelect.value : 'default';
+    var cards = getCards();
+
+    var visible = cards.filter(function(card){
+      var catMatch = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
+      var textMatch = !q || card.textContent.toLowerCase().includes(q);
+      return catMatch && textMatch;
+    });
+
+    if(sort === 'price-asc') visible.sort(function(a,b){ return getPrice(a) - getPrice(b); });
+    else if(sort === 'price-desc') visible.sort(function(a,b){ return getPrice(b) - getPrice(a); });
+    else if(sort === 'name-asc') visible.sort(function(a,b){ return getName(a).localeCompare(getName(b)); });
+
+    cards.forEach(function(c){ c.style.display='none'; });
+    visible.forEach(function(card){ card.style.display=''; grid.insertBefore(card, noRes); });
+
+    if(noRes) noRes.classList.toggle('visible', visible.length === 0);
+  }
+
+  if(searchInput) searchInput.addEventListener('input', applyFilter);
+  if(sortSelect) sortSelect.addEventListener('change', applyFilter);
+})();
+</script>
+
+<script>
+(function(){
+  var navI18n={de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}};
+  function applyNavLang(l){if(!navI18n[l])l='de';localStorage.setItem('lang',l);var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code'),fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');if(f)f.textContent=flag;if(c)c.textContent=code;if(fm)fm.textContent=flag;if(cm)cm.textContent=code;document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];});}
   window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
-  var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');
-  if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
+  var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
   applyNavLang(localStorage.getItem('lang')||'de');
 })();
 </script>
-<script>
-(function(){
-  function makeStar(size,color){
-    var s=size,h=s/2,q=s*0.12;
-    var path='M'+h+',0 C'+h+','+q+' '+(h+q)+','+h+' '+s+','+h+' C'+(h+q)+','+h+' '+h+','+(h+q)+' '+h+','+s+' C'+h+','+(h+q)+' '+(h-q)+','+h+' 0,'+h+' C'+(h-q)+','+h+' '+h+','+q+' '+h+',0 Z';
-    return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="'+s+'" height="'+s+'"><path d="'+path+'" fill="'+encodeURIComponent(color)+'"/></svg>';
-  }
-  var colors=['#ffd700','#f5c518','#fff8dc','#ffffff','#ffe066'];
-  document.addEventListener('click',function(e){
-    var count=7+Math.floor(Math.random()*5);
-    for(var i=0;i<count;i++){
-      (function(i){
-        setTimeout(function(){
-          var el=document.createElement('img');
-          el.src=makeStar(8+Math.random()*12, colors[Math.floor(Math.random()*colors.length)]);
-          var sz=8+Math.random()*12;
-          el.style.cssText='position:fixed;pointer-events:none;z-index:99999;width:'+sz+'px;height:'+sz+'px;left:'+(e.clientX-sz/2)+'px;top:'+(e.clientY-sz/2)+'px;filter:drop-shadow(0 0 3px #ffd700);opacity:1;transition:none;';
-          document.body.appendChild(el);
-          var angle=Math.random()*Math.PI*2;
-          var dist=30+Math.random()*50;
-          var dx=Math.cos(angle)*dist, dy=Math.sin(angle)*dist;
-          var dur=600+Math.random()*400;
-          var start=null;
-          function anim(ts){
-            if(!start)start=ts;
-            var p=Math.min((ts-start)/dur,1);
-            var ease=1-Math.pow(1-p,3);
-            el.style.left=(e.clientX-sz/2+dx*ease)+'px';
-            el.style.top=(e.clientY-sz/2+dy*ease)+'px';
-            el.style.opacity=''+(1-p);
-            el.style.transform='rotate('+(p*180)+'deg) scale('+(1-p*0.5)+')';
-            if(p<1)requestAnimationFrame(anim);
-            else el.remove();
-          }
-          requestAnimationFrame(anim);
-        },i*40);
-      })(i);
-    }
-  });
-})();
-</script>
+
 </body>
 </html>
