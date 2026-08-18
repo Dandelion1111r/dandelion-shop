@@ -925,48 +925,52 @@
 </footer>
 
 <script>
-// Products pre-rendered as static HTML; JS filters, searches and sorts by reordering DOM nodes
-var _kollSortMode = 'default';
+(function() {
+  var _sortMode = 'default';
 
-function _applyView() {
-  var activeBtn = document.querySelector('.filter-btn.active');
-  var cat = activeBtn ? (activeBtn.getAttribute('data-cat') || 'all') : 'all';
-  var q = ((document.getElementById('kollSearch') || {}).value || '').toLowerCase().trim();
-  var grid = document.getElementById('productsGrid');
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+  function applyView() {
+    var grid = document.getElementById('productsGrid');
+    if (!grid) return;
+    var activeBtn = document.querySelector('.filter-btn.active');
+    var cat = activeBtn ? (activeBtn.getAttribute('data-cat') || 'all') : 'all';
+    var searchEl = document.getElementById('kollSearch');
+    var q = searchEl ? searchEl.value.toLowerCase().trim() : '';
 
-  // filter visibility
-  var visible = [];
-  cards.forEach(function(card) {
-    var catMatch = cat === 'all' || card.getAttribute('data-category') === cat;
-    var nameMatch = !q || (card.getAttribute('data-name') || '').toLowerCase().indexOf(q) >= 0;
-    var show = catMatch && nameMatch;
-    card.style.display = show ? '' : 'none';
-    if (show) visible.push(card);
-  });
-
-  // sort visible cards by re-inserting in sorted order before grid closing
-  if (_kollSortMode !== 'default') {
-    visible.sort(function(a, b) {
-      if (_kollSortMode === 'price-asc') return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
-      if (_kollSortMode === 'price-desc') return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
-      if (_kollSortMode === 'name-asc') return (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || '');
-      return 0;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+    var visible = [];
+    cards.forEach(function(card) {
+      var catMatch = cat === 'all' || card.getAttribute('data-category') === cat;
+      var nameMatch = !q || (card.getAttribute('data-name') || '').toLowerCase().indexOf(q) >= 0;
+      var show = catMatch && nameMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible.push(card);
     });
-    visible.forEach(function(card) { grid.appendChild(card); });
+
+    if (_sortMode !== 'default' && visible.length > 1) {
+      visible.sort(function(a, b) {
+        if (_sortMode === 'price-asc') return parseFloat(a.getAttribute('data-price') || 0) - parseFloat(b.getAttribute('data-price') || 0);
+        if (_sortMode === 'price-desc') return parseFloat(b.getAttribute('data-price') || 0) - parseFloat(a.getAttribute('data-price') || 0);
+        if (_sortMode === 'name-asc') return (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || '');
+        return 0;
+      });
+      visible.forEach(function(card) { grid.insertBefore(card, grid.firstChild); });
+    }
+
+    var msg = document.getElementById('noProductsMsg');
+    if (msg) msg.style.display = visible.length ? 'none' : 'block';
   }
 
-  var msg = document.getElementById('noProductsMsg');
-  if (msg) msg.style.display = visible.length ? 'none' : 'block';
-}
+  window.filterProducts = function(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    applyView();
+  };
+  window.applyKollSearch = function() { applyView(); };
+  window.applyKollSort = function(v) { _sortMode = v || 'default'; applyView(); };
 
-function filterProducts(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  _applyView();
-}
-function applyKollSearch(v) { _applyView(); }
-function applyKollSort(v) { _kollSortMode = v; _applyView(); }
+  // Initialize on load — show all cards, hide no-results message
+  document.addEventListener('DOMContentLoaded', function() { applyView(); });
+})();
 </script>
 
 <!-- Cookie Consent Banner -->
