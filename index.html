@@ -1173,16 +1173,16 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <div class="faq-a" data-i18n="faq_a5">Standardmäßig liefern wir mit Luft gefüllt – hält 4–12 Wochen und ist versandgeeignet. Auf Wunsch ist Heliumfüllung möglich (+8&nbsp;€), aber nur für lokale Abholung oder Lieferung in Bad Wörishofen und Umgebung (ca. 30 km), da Helium nur 1–2 Tage hält.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Kann ich eine bestimmte Farbe wählen?</span> <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨</div>
+      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q6">Kann ich eine bestimmte Farbe wählen?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a6">Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Muss ich ein Konto erstellen, um zu bestellen?</span> <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Nein! Du kannst ganz einfach als <strong>Gast bestellen</strong> – ohne Registrierung, ohne Passwort. Wenn du ein <strong>Konto erstellst</strong>, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.</div>
+      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q7">Muss ich ein Konto erstellen, um zu bestellen?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a7">Nein! Du kannst ganz einfach als Gast bestellen – ohne Registrierung, ohne Passwort. Wenn du ein Konto erstellst, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span>Erhalte ich eine Bestätigung nach der Bestellung?</span> <i class="fas fa-chevron-down"></i></button>
-      <div class="faq-a">Ja! Direkt nach der Zahlung erhältst du eine <strong>automatische Bestätigungs-E-Mail</strong> von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.</div>
+      <button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)"><span data-i18n="faq_q8">Erhalte ich eine Bestätigung nach der Bestellung?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a" data-i18n="faq_a8">Ja! Direkt nach der Zahlung erhältst du eine automatische Bestätigungs-E-Mail von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.</div>
     </div>
   </div>
 </div>
@@ -1441,8 +1441,8 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     <div style="font-size:2.6rem;">🎈</div>
     <h3 data-i18n="discount_title" style="font-size:1.4rem;font-weight:700;color:var(--purple);margin:10px 0 6px;">Willkommen bei Dandelion 11:11!</h3>
     <p data-i18n="discount_text" style="font-size:var(--fs-base);color:var(--text-light);margin-bottom:12px;">Trag dich ein und sichere dir <strong>10% Rabatt</strong> auf deine erste Bestellung:</p>
-    <input type="email" id="newsletterEmail" placeholder="Deine E-Mail-Adresse" style="width:100%;padding:12px 14px;border:1.5px solid #e0d0f0;border-radius:10px;font-size:var(--fs-base);margin-bottom:10px;box-sizing:border-box;font-family:inherit;outline:none;" />
-    <button onclick="subscribeNewsletter()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Jetzt 10% sichern 🎁</button>
+    <input type="email" id="newsletterEmail" data-i18n-placeholder="newsletter_email_placeholder" placeholder="Deine E-Mail-Adresse" style="width:100%;padding:12px 14px;border:1.5px solid #e0d0f0;border-radius:10px;font-size:var(--fs-base);margin-bottom:10px;box-sizing:border-box;font-family:inherit;outline:none;" />
+    <button onclick="subscribeNewsletter()" data-i18n="newsletter_btn" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Jetzt 10% sichern 🎁</button>
     <button data-i18n="discount_btn" onclick="closeDiscountPopup()" style="width:100%;padding:10px;background:transparent;color:var(--text-light);border:none;font-size:.85rem;cursor:pointer;text-decoration:underline;">Nein danke, ich zahle lieber voll</button>
     <div id="newsletterMsg" style="display:none;margin-top:12px;background:#f0fff4;border:2px solid #27ae60;border-radius:12px;padding:14px;text-align:center;">
       <div style="font-size:1rem;color:#27ae60;font-weight:700;margin-bottom:6px;">✅ Danke für deine Anmeldung!</div>
@@ -2101,7 +2101,11 @@ window.subscribeNewsletter = function() {
       topbar_info:'🎈 Kostenlose Lieferung ab 60 € &nbsp;|&nbsp; Wir schenken keine Produkte, wir schenken Emotionen &nbsp;|&nbsp; Persönliche Beratung via WhatsApp',
       info_what_makes:'Was macht unsere Ballons besonders?',faq_title:'Häufige Fragen',
       versand_title:'Versand &amp; Rückgabe 📦',real_photos_title:'Echte Ballons, echte Momente 📸',
-      reviews_title:'Was unsere Kunden sagen 💬'
+      reviews_title:'Was unsere Kunden sagen 💬',
+      faq_q6:'Kann ich eine bestimmte Farbe wählen?',faq_a6:'Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨',
+      faq_q7:'Muss ich ein Konto erstellen, um zu bestellen?',faq_a7:'Nein! Du kannst ganz einfach als Gast bestellen – ohne Registrierung, ohne Passwort. Wenn du ein Konto erstellst, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.',
+      faq_q8:'Erhalte ich eine Bestätigung nach der Bestellung?',faq_a8:'Ja! Direkt nach der Zahlung erhältst du eine automatische Bestätigungs-E-Mail von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.',
+      newsletter_btn:'Jetzt 10% sichern 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse'
     },
     ro:{
       nav_shop:'Magazin',nav_koll:'Colecții',nav_all_koll:'Vezi toate →',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
@@ -2187,7 +2191,11 @@ window.subscribeNewsletter = function() {
       topbar_info:'🎈 Livrare gratuită de la 60 € &nbsp;|&nbsp; Nu oferim produse, oferim emoții &nbsp;|&nbsp; Consultanță personală via WhatsApp',
       info_what_makes:'Ce face baloanele noastre speciale?',faq_title:'Întrebări frecvente',
       versand_title:'Transport &amp; Retur 📦',real_photos_title:'Baloane reale, momente reale 📸',
-      reviews_title:'Ce spun clienții noștri 💬'
+      reviews_title:'Ce spun clienții noștri 💬',
+      faq_q6:'Pot alege o anumită culoare?',faq_a6:'Da – și acesta este unul dintre cele mai mari avantaje ale noastre! Nu alegi dintr-o listă rigidă, ci pur și simplu ne spui culoarea dorită (ex. „Verde mentă", „Roz vechi", „Albastru închis"). Adaptăm balonul individual pentru tine. Selectorul de culori din configurator arată opțiunile populare ca orientare – dar nu este o limitare. 🎨',
+      faq_q7:'Trebuie să îmi creez un cont pentru a comanda?',faq_a7:'Nu! Poți comanda simplu ca oaspete – fără înregistrare, fără parolă. Dacă îți creezi un cont, poți vizualiza comenzile oricând la „Comenzile mele" și poți comanda și mai rapid data viitoare. Alegerea îți aparține.',
+      faq_q8:'Primesc o confirmare după comandă?',faq_a8:'Da! Imediat după plată primești un e-mail automat de confirmare de la PayPal cu toate detaliile comenzii. Ulterior te contactăm pe WhatsApp pentru a stabili data și adresa de livrare.',
+      newsletter_btn:'Obține 10% acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail'
     }
   };
   function applyNavLang(l){
@@ -2203,6 +2211,9 @@ window.subscribeNewsletter = function() {
     });
     document.querySelectorAll('[data-i18n-html]').forEach(function(el){
       var k=el.getAttribute('data-i18n-html');if(navI18n[l][k]!==undefined)el.innerHTML=navI18n[l][k];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-placeholder');if(navI18n[l][k]!==undefined)el.placeholder=navI18n[l][k];
     });
   }
   window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
