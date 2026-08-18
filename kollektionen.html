@@ -953,7 +953,8 @@
         if (_sortMode === 'name-asc') return (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || '');
         return 0;
       });
-      visible.forEach(function(card) { grid.insertBefore(card, grid.firstChild); });
+      var msg = document.getElementById('noProductsMsg');
+      visible.forEach(function(card) { grid.insertBefore(card, msg || null); });
     }
 
     var msg = document.getElementById('noProductsMsg');
