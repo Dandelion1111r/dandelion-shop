@@ -778,7 +778,6 @@
       </div>
     </div>
 
-    <p id="noProductsMsg" style="display:none;grid-column:1/-1;text-align:center;padding:40px;color:#999;">Keine Produkte gefunden.</p>
   </div>
 </div>
 
@@ -958,7 +957,14 @@
     }
 
     var msg = document.getElementById('noProductsMsg');
-    if (msg) msg.style.display = visible.length ? 'none' : 'block';
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.id = 'noProductsMsg';
+      msg.style.cssText = 'grid-column:1/-1;text-align:center;padding:40px;color:#999;display:none;';
+      msg.textContent = 'Keine Produkte gefunden.';
+      grid.appendChild(msg);
+    }
+    msg.style.display = visible.length ? 'none' : 'block';
   }
 
   window.filterProducts = function(cat, btn) {
