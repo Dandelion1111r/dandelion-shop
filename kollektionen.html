@@ -438,14 +438,14 @@
 
 <!-- Filter -->
 <div class="filter-bar">
-  <button class="filter-btn active" onclick="filterProducts('all', this)">Alle</button>
-  <button class="filter-btn" onclick="filterProducts('geburtstag', this)">🎂 Geburtstag</button>
-  <button class="filter-btn" onclick="filterProducts('hochzeit', this)">💍 Hochzeit</button>
-  <button class="filter-btn" onclick="filterProducts('babyparty', this)">👶 Babyparty</button>
-  <button class="filter-btn" onclick="filterProducts('liebe', this)">💕 Liebe</button>
-  <button class="filter-btn" onclick="filterProducts('fussball', this)">⚽ Fußball</button>
-  <button class="filter-btn" onclick="filterProducts('kuscheltiere', this)">🧸 Kuscheltiere</button>
-  <button class="filter-btn" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
+  <button class="filter-btn active" data-cat="all" onclick="filterProducts('all', this)">Alle</button>
+  <button class="filter-btn" data-cat="geburtstag" onclick="filterProducts('geburtstag', this)">🎂 Geburtstag</button>
+  <button class="filter-btn" data-cat="hochzeit" onclick="filterProducts('hochzeit', this)">💍 Hochzeit</button>
+  <button class="filter-btn" data-cat="babyparty" onclick="filterProducts('babyparty', this)">👶 Babyparty</button>
+  <button class="filter-btn" data-cat="liebe" onclick="filterProducts('liebe', this)">💕 Liebe</button>
+  <button class="filter-btn" data-cat="fussball" onclick="filterProducts('fussball', this)">⚽ Fußball</button>
+  <button class="filter-btn" data-cat="kuscheltiere" onclick="filterProducts('kuscheltiere', this)">🧸 Kuscheltiere</button>
+  <button class="filter-btn" data-cat="sonstiges" onclick="filterProducts('sonstiges', this)">✨ Sonstiges</button>
 </div>
 <div style="max-width:1100px;margin:0 auto 8px;padding:0 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
   <input id="kollSearch" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" oninput="applyKollSearch(this.value)" style="flex:1;min-width:150px;max-width:280px;padding:9px 16px;border-radius:20px;border:1.5px solid #ddd;font-size:.9rem;font-family:inherit;outline:none;" />
@@ -459,7 +459,327 @@
 
 <!-- Products -->
 <div class="products-section">
-  <div class="products-grid" id="productsGrid"></div>
+  <div class="products-grid" id="productsGrid">
+
+    <div class="product-card" data-category="geburtstag" data-name="Lila Champagner Ballon" data-price="69.00">
+      <a href="produktlilachampagnerballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ballon-lila-champagner.webp" alt="Lila Champagner Ballon" loading="lazy">
+        <span class="badge-tag">Bestseller</span>
+      </a>
+      <div class="product-body">
+        <a href="produktlilachampagnerballon.html" class="product-name" style="text-decoration:none;color:inherit;">Lila Champagner Ballon</a>
+        <div class="product-desc">Personalisierter Ballon in Lila-Champagner mit Wunschtext – für Geburtstag, Hochzeit &amp; mehr.</div>
+        <div class="product-footer">
+          <div class="product-price">69,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktlilachampagnerballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Lila%20Champagner%20Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="hochzeit" data-name="Hochzeits-Ballon-Box Lila" data-price="89.00">
+      <a href="produktlilahochzeitsballonbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="hochzeitsballon-box-lila.webp" alt="Hochzeits-Ballon-Box Lila" loading="lazy">
+        <span class="badge-tag">Beliebt</span>
+      </a>
+      <div class="product-body">
+        <a href="produktlilahochzeitsballonbox.html" class="product-name" style="text-decoration:none;color:inherit;">Hochzeits-Ballon-Box Lila</a>
+        <div class="product-desc">Romantische Ballon-Box mit Brautpaar-Namen &amp; Datum – handgemacht für den schönsten Tag.</div>
+        <div class="product-footer">
+          <div class="product-price">89,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktlilahochzeitsballonbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Hochzeits-Ballon-Box%20Lila%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="babyparty" data-name="Feen-Blumenbox" data-price="69.00">
+      <a href="produktfeenblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="feen-blumenbox.webp" alt="Feen-Blumenbox" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktfeenblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Feen-Blumenbox</a>
+        <div class="product-desc">Magische Blumenbox mit Trockenblumen und persönlichem Ballon – verspielt &amp; romantisch.</div>
+        <div class="product-footer">
+          <div class="product-price">69,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktfeenblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Feen-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Ballon Box Boho Luxe" data-price="79.00">
+      <a href="produktballonboxboholuxe.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ballon-box-boho-blau-gold.webp" alt="Ballon Box Boho Luxe" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktballonboxboholuxe.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon Box Boho Luxe</a>
+        <div class="product-desc">Natürliche Boho-Ballon-Box mit Wunschtext – für moderne, stilvolle Geschenke.</div>
+        <div class="product-footer">
+          <div class="product-price">79,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktballonboxboholuxe.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20Box%20Boho%20Luxe%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Ballon Box Schwarz-Gold" data-price="85.00">
+      <a href="produktballonboxschwarzgold.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ballon-box-schwarz-gold.webp" alt="Ballon Box Schwarz-Gold" loading="lazy">
+        <span class="badge-tag">Premium</span>
+      </a>
+      <div class="product-body">
+        <a href="produktballonboxschwarzgold.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon Box Schwarz-Gold</a>
+        <div class="product-desc">Elegante schwarze Geschenkbox mit goldenem Ballon – perfekt für runde Geburtstage.</div>
+        <div class="product-footer">
+          <div class="product-price">85,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktballonboxschwarzgold.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20Box%20Schwarz-Gold%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="sonstiges" data-name="Abschluss-Ballon Congradulations" data-price="39.00">
+      <a href="produktabschlussballoncongradulations.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="abschluss-ballon-congradulations.webp" alt="Abschluss-Ballon Congradulations" loading="lazy">
+        <span class="badge-tag">Beliebt</span>
+      </a>
+      <div class="product-body">
+        <a href="produktabschlussballoncongradulations.html" class="product-name" style="text-decoration:none;color:inherit;">Abschluss-Ballon Congradulations</a>
+        <div class="product-desc">Personalisierter Ballon zum Abitur, Studium oder Ausbildungsabschluss mit Glückwunsch.</div>
+        <div class="product-footer">
+          <div class="product-price">39,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktabschlussballoncongradulations.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Abschluss-Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Ballon mit Wunsch-Illustration" data-price="59.00">
+      <a href="produktballonmitwunschillustration.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ballon-wunsch-illustration.webp" alt="Ballon mit Wunsch-Illustration" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktballonmitwunschillustration.html" class="product-name" style="text-decoration:none;color:inherit;">Ballon mit Wunsch-Illustration</a>
+        <div class="product-desc">Handgezeichneter Ballon mit individuellem Motiv und persönlichem Wunschtext.</div>
+        <div class="product-footer">
+          <div class="product-price">59,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktballonmitwunschillustration.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ballon%20mit%20Wunsch-Illustration%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Ferrero-Geburtstagsbox" data-price="55.00">
+      <a href="produktferrerogeburtstagsbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ferrero-geburtstagsbox.webp" alt="Ferrero-Geburtstagsbox" loading="lazy">
+        <span class="badge-tag">Neu</span>
+      </a>
+      <div class="product-body">
+        <a href="produktferrerogeburtstagsbox.html" class="product-name" style="text-decoration:none;color:inherit;">Ferrero-Geburtstagsbox</a>
+        <div class="product-desc">Pralinen &amp; personalisierter Ballon in einer Box – der doppelte Geburtstagsgenuss.</div>
+        <div class="product-footer">
+          <div class="product-price">55,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktferrerogeburtstagsbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Ferrero-Geburtstagsbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Einhorn-Ballonstrauss" data-price="49.00">
+      <a href="produkteinhornballonstrauss.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="einhorn-ballonstrauss.webp" alt="Einhorn-Ballonstrauß" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produkteinhornballonstrauss.html" class="product-name" style="text-decoration:none;color:inherit;">Einhorn-Ballonstrauß</a>
+        <div class="product-desc">Verspielter Einhorn-Ballonstrauß – magisches Geschenk für Kinder &amp; Junggebliebene.</div>
+        <div class="product-footer">
+          <div class="product-price">49,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produkteinhornballonstrauss.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Einhorn-Ballonstrau%C3%9F%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="geburtstag" data-name="Stitch Ballon mit Blumen" data-price="18.00">
+      <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="ballon-stitch-blumen-schmetterlinge.webp" alt="Stitch Ballon mit Blumen" loading="lazy">
+        <span class="badge-tag">Beliebt</span>
+      </a>
+      <div class="product-body">
+        <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="product-name" style="text-decoration:none;color:inherit;">Stitch Ballon mit Blumen</a>
+        <div class="product-desc">Süßer Stitch-Ballon mit Blumen und Schmetterlingen – für alle Stitch-Fans.</div>
+        <div class="product-footer">
+          <div class="product-price">18,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktpopballonstitchmitblumenschmetterlingen.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Stitch%20Ballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="fussball" data-name="Fussball-Blumenbox" data-price="69.00">
+      <a href="produktfussballblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="fussball-blumenbox.webp" alt="Fußball-Blumenbox" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktfussballblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Fußball-Blumenbox</a>
+        <div class="product-desc">Blumenbox im Fußball-Style – perfektes Geschenk für Fußballfans.</div>
+        <div class="product-footer">
+          <div class="product-price">69,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktfussballblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Fu%C3%9Fball-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="fussball" data-name="CR7 Fan-Geschenkbox" data-price="39.00">
+      <a href="produktcr7fangeschenkbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="cr7-fan-geschenkbox.webp" alt="CR7 Fan-Geschenkbox" loading="lazy">
+        <span class="badge-tag">Beliebt</span>
+      </a>
+      <div class="product-body">
+        <a href="produktcr7fangeschenkbox.html" class="product-name" style="text-decoration:none;color:inherit;">CR7 Fan-Geschenkbox</a>
+        <div class="product-desc">Exklusive Fanbox für Cristiano Ronaldo Fans – mit CR7-Motiv und persönlichem Ballon.</div>
+        <div class="product-footer">
+          <div class="product-price">39,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktcr7fangeschenkbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22CR7%20Fan-Geschenkbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="fussball" data-name="Fussball-Schuh-Blumenstrauss" data-price="55.00">
+      <a href="produktfussballschuhblumenstrauss.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="fussball-schuh-blumenstrauss.webp" alt="Fußball-Schuh-Blumenstrauß" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktfussballschuhblumenstrauss.html" class="product-name" style="text-decoration:none;color:inherit;">Fußball-Schuh-Blumenstrauß</a>
+        <div class="product-desc">Kreativer Blumenstrauß rund um einen echten Fußballschuh – das Geschenk für echte Fans.</div>
+        <div class="product-footer">
+          <div class="product-price">55,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktfussballschuhblumenstrauss.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Fu%C3%9Fball-Schuh-Blumenstrau%C3%9F%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kuscheltiere" data-name="Teddybaer im Geschenkballon" data-price="49.00">
+      <a href="produktteddybaerimgeschenkballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="teddy-baer-im-geschenkballon.webp" alt="Teddybär im Geschenkballon" loading="lazy">
+        <span class="badge-tag">Magisch</span>
+      </a>
+      <div class="product-body">
+        <a href="produktteddybaerimgeschenkballon.html" class="product-name" style="text-decoration:none;color:inherit;">Teddybär im Geschenkballon</a>
+        <div class="product-desc">Ein kuscheliger Teddybär verborgen in einem großen transparenten Ballon – magischer Überraschungsmoment.</div>
+        <div class="product-footer">
+          <div class="product-price">49,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktteddybaerimgeschenkballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Teddyb%C3%A4r%20im%20Geschenkballon%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kuscheltiere" data-name="Teddy-Geschenkbox mit Ballon" data-price="59.00">
+      <a href="produktteddygeschenkboxmitballon.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="teddy-geschenkbox-mit-ballon.webp" alt="Teddy-Geschenkbox mit Ballon" loading="lazy">
+        <span class="badge-tag">Komplett-Set</span>
+      </a>
+      <div class="product-body">
+        <a href="produktteddygeschenkboxmitballon.html" class="product-name" style="text-decoration:none;color:inherit;">Teddy-Geschenkbox mit Ballon</a>
+        <div class="product-desc">Komplettes Kuscheltier-Geschenkset: Teddybär in festlicher Box mit passendem Ballon.</div>
+        <div class="product-footer">
+          <div class="product-price">59,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktteddygeschenkboxmitballon.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Teddy-Geschenkbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="liebe" data-name="Herz-Box mit Ferrero und Roten Rosen" data-price="45.00">
+      <a href="produktherzboxmitferrerorotenrosen.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="herzbox-mit-ferrero-roten-rosen.webp" alt="Herz-Box mit Ferrero und Roten Rosen" loading="lazy">
+        <span class="badge-tag">Romantisch</span>
+      </a>
+      <div class="product-body">
+        <a href="produktherzboxmitferrerorotenrosen.html" class="product-name" style="text-decoration:none;color:inherit;">Herz-Box mit Ferrero &amp; Roten Rosen</a>
+        <div class="product-desc">Herzförmige Box mit Ferrero Roché und roten Rosen – das romantische Geschenk für Verliebte.</div>
+        <div class="product-footer">
+          <div class="product-price">45,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktherzboxmitferrerorotenrosen.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Herz-Box%20mit%20Ferrero%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="liebe" data-name="Heissluftballon Happy Valentines Day" data-price="65.00">
+      <a href="produktheissluftballonhappyvalentinesday.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="heissluftballon-happy-valentines-day.webp" alt="Heißluftballon Happy Valentine's Day" loading="lazy">
+        <span class="badge-tag">Valentinstag</span>
+      </a>
+      <div class="product-body">
+        <a href="produktheissluftballonhappyvalentinesday.html" class="product-name" style="text-decoration:none;color:inherit;">Heißluftballon Happy Valentine's Day</a>
+        <div class="product-desc">Personalisierter Heißluftballon zum Valentinstag – ein Liebesgeschenk, das in Erinnerung bleibt.</div>
+        <div class="product-footer">
+          <div class="product-price">65,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktheissluftballonhappyvalentinesday.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Hei%C3%9Fluftballon%20Valentine%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="sonstiges" data-name="Drachen-Blumenbox" data-price="55.00">
+      <a href="produktdrachenblumenbox.html" class="product-img-wrap" style="display:block;text-decoration:none;">
+        <img src="drachen-blumenbox.webp" alt="Drachen-Blumenbox" loading="lazy">
+      </a>
+      <div class="product-body">
+        <a href="produktdrachenblumenbox.html" class="product-name" style="text-decoration:none;color:inherit;">Drachen-Blumenbox</a>
+        <div class="product-desc">Mystische Blumenbox mit Drachen-Motiv – für Fantasy-Fans und besondere Momente.</div>
+        <div class="product-footer">
+          <div class="product-price">55,00 €</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="produktdrachenblumenbox.html" class="btn-configure"><i class="fas fa-eye"></i> Ansehen</a>
+            <a href="https://wa.me/491757668955?text=Hallo%2C%20ich%20m%C3%B6chte%20%22Drachen-Blumenbox%22%20bestellen." target="_blank" class="btn-cart"><i class="fab fa-whatsapp"></i> Bestellen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p id="noProductsMsg" style="display:none;grid-column:1/-1;text-align:center;padding:40px;color:#999;">Keine Produkte gefunden.</p>
+  </div>
 </div>
 
 <!-- Toast -->
@@ -605,297 +925,30 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Produktdaten: hier kannst du einfach neue Produkte hinzufügen
-  const products = [
-    {
-      id: 1,
-      name: 'Lila Champagner Ballon',
-      desc: 'Personalisierter Ballon in Lila-Champagner mit Wunschtext – für Geburtstag, Hochzeit & mehr.',
-      price: 69.00,
-      category: 'geburtstag',
-      tag: 'Bestseller',
-      emoji: '🎂',
-      img: 'ballon-lila-champagner.webp',
-      url: 'produktlilachampagnerballon.html',
-    },
-    {
-      id: 2,
-      name: 'Hochzeits-Ballon-Box Lila',
-      desc: 'Romantische Ballon-Box mit Brautpaar-Namen & Datum – handgemacht für den schönsten Tag.',
-      price: 89.00,
-      category: 'hochzeit',
-      tag: 'Beliebt',
-      emoji: '💍',
-      img: 'hochzeitsballon-box-lila.webp',
-      url: 'produktlilahochzeitsballonbox.html',
-    },
-    {
-      id: 3,
-      name: 'Feen-Blumenbox',
-      desc: 'Magische Blumenbox mit Trockenblumen und persönlichem Ballon – verspielt & romantisch.',
-      price: 69.00,
-      category: 'babyparty',
-      tag: '',
-      emoji: '🌸',
-      img: 'feen-blumenbox.webp',
-      url: 'produktfeenblumenbox.html',
-    },
-    {
-      id: 4,
-      name: 'Ballon Box Boho Luxe',
-      desc: 'Natürliche Boho-Ballon-Box mit Wunschtext – für moderne, stilvolle Geschenke.',
-      price: 79.00,
-      category: 'geburtstag',
-      tag: '',
-      emoji: '✨',
-      img: 'ballon-box-boho-blau-gold.webp',
-      url: 'produktballonboxboholuxe.html',
-    },
-    {
-      id: 5,
-      name: 'Ballon Box Schwarz-Gold',
-      desc: 'Elegante schwarze Geschenkbox mit goldenem Ballon – perfekt für runde Geburtstage.',
-      price: 85.00,
-      category: 'geburtstag',
-      tag: 'Premium',
-      emoji: '🎁',
-      img: 'ballon-box-schwarz-gold.webp',
-      url: 'produktballonboxschwarzgold.html',
-    },
-    {
-      id: 6,
-      name: 'Abschluss-Ballon Congradulations',
-      desc: 'Personalisierter Ballon zum Abitur, Studium oder Ausbildungsabschluss mit Glückwunsch.',
-      price: 39.00,
-      category: 'sonstiges',
-      tag: 'Beliebt',
-      emoji: '🎓',
-      img: 'abschluss-ballon-congradulations.webp',
-      url: 'produktabschlussballoncongradulations.html',
-    },
-    {
-      id: 7,
-      name: 'Ballon mit Wunsch-Illustration',
-      desc: 'Handgezeichneter Ballon mit individuellem Motiv und persönlichem Wunschtext.',
-      price: 59.00,
-      category: 'geburtstag',
-      tag: '',
-      emoji: '🎨',
-      img: 'ballon-wunsch-illustration.webp',
-      url: 'produktballonmitwunschillustration.html',
-    },
-    {
-      id: 8,
-      name: 'Ferrero-Geburtstagsbox',
-      desc: 'Pralinés & personalisierter Ballon in einer Box – der doppelte Geburtstagsgenuss.',
-      price: 55.00,
-      category: 'geburtstag',
-      tag: 'Neu',
-      emoji: '🍫',
-      img: 'ferrero-geburtstagsbox.webp',
-      url: 'produktferrerogeburtstagsbox.html',
-    },
-    {
-      id: 9,
-      name: 'Einhorn-Ballonstrauß',
-      desc: 'Verspielter Einhorn-Ballonstrauß – magisches Geschenk für Kinder & Junggebliebene.',
-      price: 49.00,
-      category: 'geburtstag',
-      tag: '',
-      emoji: '🦄',
-      img: 'einhorn-ballonstrauss.webp',
-      url: 'produkteinhornballonstrauss.html',
-    },
-    {
-      id: 10,
-      name: 'Stitch Ballon mit Blumen',
-      desc: 'Süßer Stitch-Ballon mit Blumen und Schmetterlingen – für alle Stitch-Fans.',
-      price: 18.00,
-      category: 'geburtstag',
-      tag: 'Beliebt',
-      emoji: '💙',
-      img: 'ballon-stitch-blumen-schmetterlinge.webp',
-      url: 'produktpopballonstitchmitblumenschmetterlingen.html',
-    },
-    {
-      id: 11,
-      name: 'Fußball-Blumenbox',
-      desc: 'Blumenbox im Fußball-Style – perfektes Geschenk für Fußballfans.',
-      price: 69.00,
-      category: 'fussball',
-      tag: '',
-      emoji: '⚽',
-      img: 'fussball-blumenbox.webp',
-      url: 'produktfussballblumenbox.html',
-    },
-    {
-      id: 13,
-      name: 'CR7 Fan-Geschenkbox',
-      desc: 'Exklusive Fanbox für Cristiano Ronaldo Fans – mit CR7-Motiv und persönlichem Ballon.',
-      price: 39.00,
-      category: 'fussball',
-      tag: 'Beliebt',
-      emoji: '⚽',
-      img: 'cr7-fan-geschenkbox.webp',
-      url: 'produktcr7fangeschenkbox.html',
-    },
-    {
-      id: 14,
-      name: 'Fußball-Schuh-Blumenstrauß',
-      desc: 'Kreativer Blumenstrauß rund um einen echten Fußballschuh – das Geschenk für echte Fans.',
-      price: 55.00,
-      category: 'fussball',
-      tag: '',
-      emoji: '⚽',
-      img: 'fussball-schuh-blumenstrauss.webp',
-      url: 'produktfussballschuhblumenstrauss.html',
-    },
-    {
-      id: 15,
-      name: 'Teddybär im Geschenkballon',
-      desc: 'Ein kuscheliger Teddybär verborgen in einem großen transparenten Ballon – magischer Überraschungsmoment.',
-      price: 49.00,
-      category: 'kuscheltiere',
-      tag: 'Magisch',
-      emoji: '🧸',
-      img: 'teddy-baer-im-geschenkballon.webp',
-      url: 'produktteddybaerimgeschenkballon.html',
-    },
-    {
-      id: 16,
-      name: 'Teddy-Geschenkbox mit Ballon',
-      desc: 'Komplettes Kuscheltier-Geschenkset: Teddybär in festlicher Box mit passendem Ballon.',
-      price: 59.00,
-      category: 'kuscheltiere',
-      tag: 'Komplett-Set',
-      emoji: '🧸',
-      img: 'teddy-geschenkbox-mit-ballon.webp',
-      url: 'produktteddygeschenkboxmitballon.html',
-    },
-    {
-      id: 17,
-      name: 'Herz-Box mit Ferrero & Roten Rosen',
-      desc: 'Herzförmige Box mit Ferrero Roché und roten Rosen – das romantische Geschenk für Verliebte.',
-      price: 45.00,
-      category: 'liebe',
-      tag: 'Romantisch',
-      emoji: '💕',
-      img: 'herzbox-mit-ferrero-roten-rosen.webp',
-      url: 'produktherzboxmitferrerorotenrosen.html',
-    },
-    {
-      id: 18,
-      name: 'Heißluftballon Happy Valentine\'s Day',
-      desc: 'Personalisierter Heißluftballon-Ballon zum Valentinstag – ein Liebesgeschenk, das in Erinnerung bleibt.',
-      price: 65.00,
-      category: 'liebe',
-      tag: 'Valentinstag',
-      emoji: '❤️',
-      img: 'heissluftballon-happy-valentines-day.webp',
-      url: 'produktheissluftballonhappyvalentinesday.html',
-    },
-    {
-      id: 12,
-      name: 'Drachen-Blumenbox',
-      desc: 'Mystische Blumenbox mit Drachen-Motiv – für Fantasy-Fans und besondere Momente.',
-      price: 55.00,
-      category: 'sonstiges',
-      tag: '',
-      emoji: '🐉',
-      img: 'drachen-blumenbox.webp',
-      url: 'produktdrachenblumenbox.html',
-    },
-  ];
-
-  let cartCount = 0;
-  let currentFilter = 'all';
-
-  function renderProducts(filter) {
-    renderFiltered();
+// Products are pre-rendered as static HTML — JS only shows/hides cards by category & search
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var q = (document.getElementById('kollSearch') ? document.getElementById('kollSearch').value : '').toLowerCase().trim();
+  var anyVisible = false;
+  document.querySelectorAll('#productsGrid .product-card').forEach(function(card) {
+    var catMatch = cat === 'all' || card.getAttribute('data-category') === cat;
+    var nameMatch = !q || (card.getAttribute('data-name') || '').toLowerCase().indexOf(q) >= 0;
+    var show = catMatch && nameMatch;
+    card.style.display = show ? '' : 'none';
+    if (show) anyVisible = true;
+  });
+  var msg = document.getElementById('noProductsMsg');
+  if (msg) msg.style.display = anyVisible ? 'none' : 'block';
+}
+function applyKollSearch(v) {
+  var activeBtn = document.querySelector('.filter-btn.active');
+  if (activeBtn) {
+    var cat = activeBtn.getAttribute('data-cat') || 'all';
+    filterProducts(cat, activeBtn);
   }
-
-  let kollSortMode = 'default';
-
-  function getSortedFiltered(cat, q) {
-    let list = cat === 'all' ? products : products.filter(p => p.category === cat);
-    if (q) { const lq = q.toLowerCase(); list = list.filter(p => p.name.toLowerCase().includes(lq) || p.desc.toLowerCase().includes(lq)); }
-    if (kollSortMode === 'price-asc') list = [...list].sort((a,b) => a.price - b.price);
-    else if (kollSortMode === 'price-desc') list = [...list].sort((a,b) => b.price - a.price);
-    else if (kollSortMode === 'name-asc') list = [...list].sort((a,b) => a.name.localeCompare(b.name));
-    return list;
-  }
-
-  function renderFiltered() {
-    const q = (document.getElementById('kollSearch')?.value || '').trim();
-    const grid = document.getElementById('productsGrid');
-    const list = getSortedFiltered(currentFilter, q);
-    if (!list.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Keine Produkte gefunden.</p>'; return; }
-    grid.innerHTML = list.map(p => `
-      <div class="product-card" data-id="${p.id}">
-        <a href="${p.url || 'index.html'}" class="product-img-wrap" style="display:block;text-decoration:none;">
-          ${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<span class="no-img">${p.emoji}</span>`}
-          ${p.tag ? `<span class="badge-tag">${p.tag}</span>` : ''}
-          ${p.sale ? `<span class="badge-sale">SALE</span>` : ''}
-        </a>
-        <div class="product-body">
-          <a href="${p.url || 'index.html'}" class="product-name" style="text-decoration:none;color:inherit;">${p.name}</a>
-          <div class="product-desc">${p.desc}</div>
-          <div class="product-footer">
-            <div class="product-price">${p.price.toFixed(2).replace('.', ',')} € ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toFixed(2).replace('.', ',')} €</span>` : ''}</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <a href="${p.url || 'index.html'}" class="btn-configure" title="Zum Produkt"><i class="fas fa-eye"></i> Ansehen</a>
-              <button class="btn-cart" onclick="addToCart(${p.id}, this)"><i class="fas fa-cart-plus"></i> In den Korb</button>
-            </div>
-          </div>
-        </div>
-      </div>`).join('');
-  }
-
-  window.applyKollSearch = function(v) { renderFiltered(); };
-  window.applyKollSort = function(v) { kollSortMode = v; renderFiltered(); };
-
-  window.filterProducts = function(cat, btn) {
-    currentFilter = cat;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderFiltered();
-  };
-
-  window.addToCart = function(id, btn) {
-    cartCount++;
-    const fab = document.getElementById('fabCount');
-    fab.textContent = cartCount;
-    fab.style.display = 'flex';
-    btn.classList.add('added');
-    btn.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt';
-    setTimeout(() => {
-      btn.classList.remove('added');
-      btn.innerHTML = '<i class="fas fa-cart-plus"></i> In den Korb';
-    }, 2000);
-    showToast();
-  };
-
-  function showToast() {
-    const t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
-  }
-
-  renderFiltered();
-
-  function updateNavCartBadge() {
-    try {
-      const n = JSON.parse(localStorage.getItem('dandelionCart') || '[]').length;
-      const b = document.getElementById('navCartBadge');
-      if (!b) return;
-      if (n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
-      else { b.style.display = 'none'; }
-    } catch(e) {}
-  }
-  updateNavCartBadge();
-  window.addEventListener('pageshow', updateNavCartBadge);
-}); // end DOMContentLoaded
+}
+function applyKollSort(v) { /* sort not implemented in static mode */ }
 </script>
 
 <!-- Cookie Consent Banner -->
