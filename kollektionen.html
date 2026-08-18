@@ -605,6 +605,7 @@
 </footer>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   // Produktdaten: hier kannst du einfach neue Produkte hinzufügen
   const products = [
     {
@@ -851,17 +852,17 @@
       </div>`).join('');
   }
 
-  function applyKollSearch(v) { renderFiltered(); }
-  function applyKollSort(v) { kollSortMode = v; renderFiltered(); }
+  window.applyKollSearch = function(v) { renderFiltered(); };
+  window.applyKollSort = function(v) { kollSortMode = v; renderFiltered(); };
 
-  function filterProducts(cat, btn) {
+  window.filterProducts = function(cat, btn) {
     currentFilter = cat;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderFiltered();
-  }
+  };
 
-  function addToCart(id, btn) {
+  window.addToCart = function(id, btn) {
     cartCount++;
     const fab = document.getElementById('fabCount');
     fab.textContent = cartCount;
@@ -873,7 +874,7 @@
       btn.innerHTML = '<i class="fas fa-cart-plus"></i> In den Korb';
     }, 2000);
     showToast();
-  }
+  };
 
   function showToast() {
     const t = document.getElementById('toast');
@@ -894,6 +895,7 @@
   }
   updateNavCartBadge();
   window.addEventListener('pageshow', updateNavCartBadge);
+}); // end DOMContentLoaded
 </script>
 
 <!-- Cookie Consent Banner -->
