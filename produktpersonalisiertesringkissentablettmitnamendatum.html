@@ -322,6 +322,8 @@
     
     <h2 style="color:#3a2e3f;font-size:1.1rem;margin:24px 0 8px;">Personalisiertes Ringkissen-Tablett mit Namen &amp; Datum – handgemacht &amp; personalisierbar</h2>
     <p style="font-size:.93rem;color:#5a4a63;">Ein liebevoll gestaltetes Hochzeitsgeschenk, das die Einzigartigkeit dieses besonderen Tages widerspiegelt – handgefertigt in Bad Wörishofen.</p>
+    <button onclick="addKollToCart('Personalisiertes Ringkissen-Tablett mit Namen &amp; Datum',35.0,'ringkissen-tablett-rote-rosen.webp')" class="cta" style="background:linear-gradient(135deg,#8e44ad,#d63384);margin-bottom:10px;"><i class="fas fa-shopping-bag" style="font-size:1.1rem;"></i> In den Warenkorb</button>
+
     <a id="btn-wa-order" class="cta" href="#" onclick="(function(e){e.preventDefault();var n=document.querySelector('h1')?document.querySelector('h1').textContent.trim():'dieses Produkt';window.open('https://wa.me/491757668955?text='+encodeURIComponent('Hallo, ich möchte gerne &quot;'+n+'&quot; bestellen. Können Sie mir weiterhelfen?')+'&source=produktseite','_blank');})(event)" style="display:flex;align-items:center;justify-content:center;gap:10px;"><i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Jetzt per WhatsApp bestellen</a>
     <p style="margin-top:30px;font-size:.95rem;">Mehr aus dieser Kategorie: <a href="hochzeit.html" style="color:#8e44ad;">Hochzeit</a> · <a href="kollektionen.html" style="color:#8e44ad;">alle Kollektionen ansehen</a> · <a href="journal.html" style="color:#8e44ad;">Dandelion Journal</a></p>
   </div>
@@ -755,6 +757,43 @@
     }
   });
 })();
+</script>
+<script>
+  function addKollToCart(name, price, img) {
+    try {
+      const cart = JSON.parse(localStorage.getItem('dandelionCart') || '[]');
+      cart.push({ id: Date.now(), name, productName: name, price, img, qty: 1, isKollProduct: true });
+      localStorage.setItem('dandelionCart', JSON.stringify(cart));
+    } catch(e) {}
+    updateNavCartBadge();
+    showCartToast(name);
+  }
+  function showCartToast(name) {
+    var t = document.getElementById('cartToast');
+    if(!t) {
+      t = document.createElement('div');
+      t.id = 'cartToast';
+      t.style.cssText = 'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#2d1b3d;color:#fff;padding:12px 22px;border-radius:50px;font-size:.88rem;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;gap:10px;align-items:center;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;';
+      t.innerHTML = '<i class="fas fa-check-circle" style="color:#8e44ad;"></i><span id="cartToastText"></span><a href="index.html" style="color:#d63384;font-weight:700;text-decoration:none;margin-left:8px;">Zur Kasse \u2192</a>';
+      document.body.appendChild(t);
+    }
+    document.getElementById('cartToastText').textContent = name + ' hinzugef\u00fcgt';
+    t.style.opacity = '1';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function(){ t.style.opacity = '0'; }, 3000);
+  }
+  function updateNavCartBadge() {
+    try {
+      const n = JSON.parse(localStorage.getItem('dandelionCart') || '[]').length;
+      const b = document.getElementById('navCartBadge');
+      if (!b) return;
+      if (n > 0) { b.textContent = n; b.style.display = 'inline-flex'; }
+      else { b.style.display = 'none'; }
+    } catch(e) {}
+  }
+  updateNavCartBadge();
+  window.addEventListener('pageshow', updateNavCartBadge);
+
 </script>
 </body>
 </html>
