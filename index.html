@@ -447,92 +447,15 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
   <div class="ueberuns-hero">
     <div style="font-size:2.8rem;margin-bottom:12px;">💌</div>
     <h2 data-i18n="nav_kontakt" style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--purple);margin-bottom:10px;">Kontakt</h2>
-    <p data-i18n="kontakt_sub" style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼</p>
-    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:12px 28px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">
-      ← Zurück zum Konfigurator
-    </a>
+    <p style="color:var(--text-light);font-size:1rem;max-width:480px;margin:0 auto 22px;">Schreib uns per WhatsApp oder E-Mail – wir antworten so schnell wie möglich. 🌼</p>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:28px;">
+      <a href="https://wa.me/491757668955" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:hallo@dandelion1111.de" style="color:var(--pink);font-size:var(--fs-sm);font-weight:500;">hallo@dandelion1111.de</a>
+      <a href="kontakt.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:12px 28px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">Alle Kontaktmöglichkeiten →</a>
+    </div>
+    <a href="#" onclick="showPage('shop');return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--text-light);font-size:var(--fs-sm);text-decoration:none;" data-i18n="back_to_config">← Zurück zum Konfigurator</a>
   </div>
 
-  <div style="max-width:900px;margin:0 auto;padding:48px 20px 60px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
-        <div style="font-size:var(--fs-lg);margin-bottom:10px;">📍</div>
-        <h3 data-i18n="kontakt_standort" style="font-weight:700;color:var(--purple);margin-bottom:6px;">Standort</h3>
-        <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Dandelion 11:11<br>86825 Bad Wörishofen, Bayern</p>
-        <div style="margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid #f0e6f8;">
-          <iframe
-            title="Bad Wörishofen, Bayern"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=10.5551%2C47.9767%2C10.6151%2C48.0167&layer=mapnik&marker=47.9967%2C10.5851"
-            width="100%" height="180" style="border:0;display:block;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        <a href="https://share.google/NfZ4wRrAoxlBNK1rV" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;margin-top:12px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:50px;padding:9px 18px;font-size:var(--fs-sm);font-weight:600;text-decoration:none;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span data-i18n="kontakt_google_maps">Auf Google Maps ansehen</span>
-        </a>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
-        <div style="font-size:var(--fs-lg);margin-bottom:10px;">⏰</div>
-        <h3 data-i18n="kontakt_erreichbarkeit" style="font-weight:700;color:var(--purple);margin-bottom:6px;">Erreichbarkeit</h3>
-        <p style="color:var(--text-light);font-size:var(--fs-base);line-height:1.6;">Montag – Freitag<br>8:00 – 19:00 Uhr<br><span style="color:var(--pink);font-weight:500;">💬 WhatsApp: immer erreichbar</span></p>
-        <p style="color:var(--text-light);font-size:var(--fs-sm);margin-top:8px;line-height:1.5;">📞 Wir sind bewusst nur per WhatsApp &amp; E-Mail erreichbar – so können wir jede Anfrage mit voller Aufmerksamkeit beantworten.</p>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
-        <div style="font-size:var(--fs-lg);margin-bottom:10px;">📧</div>
-        <h3 data-i18n="kontakt_email" style="font-weight:700;color:var(--purple);margin-bottom:6px;">E-Mail</h3>
-        <a href="mailto:hallo@dandelion1111.de" style="color:var(--pink);font-size:var(--fs-base);font-weight:500;text-decoration:none;">hallo@dandelion1111.de</a>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);">
-        <div style="font-size:var(--fs-lg);margin-bottom:10px;">💬</div>
-        <h3 data-i18n="kontakt_whatsapp" style="font-weight:700;color:var(--purple);margin-bottom:10px;">WhatsApp</h3>
-        <a href="https://wa.me/491757668955" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:10px 20px;border-radius:50px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;">
-          <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_jetzt_schreiben">Jetzt schreiben</span>
-        </a>
-      </div>
-    </div>
-
-    <div style="background:#fff;border-radius:18px;padding:32px;box-shadow:var(--shadow);">
-      <h3 data-i18n="kontakt_nachricht_senden" style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:var(--fs-md);">Nachricht senden</h3>
-      <p data-i18n="kontakt_antwortzeit" style="color:var(--text-light);font-size:var(--fs-sm);margin-bottom:22px;">Wir melden uns innerhalb von 24 Stunden.</p>
-      <div style="margin-bottom:14px;">
-        <label for="k-name" data-i18n="kontakt_label_name" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Name</label>
-        <input id="k-name" type="text" placeholder="Dein Name" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
-      </div>
-      <div style="margin-bottom:14px;">
-        <label for="k-email" data-i18n="kontakt_label_email" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">E-Mail</label>
-        <input id="k-email" type="email" placeholder="deine@email.de" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
-      </div>
-      <div style="margin-bottom:14px;">
-        <label for="k-subject" data-i18n="kontakt_label_betreff" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Betreff</label>
-        <input id="k-subject" type="text" placeholder="Worum geht es?" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'">
-      </div>
-      <div style="margin-bottom:20px;">
-        <label for="k-msg" data-i18n="kontakt_label_nachricht" style="display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:5px;">Nachricht</label>
-        <textarea id="k-msg" placeholder="Schreib uns deine Frage oder Wünsche..." rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-family:'Poppins',sans-serif;font-size:var(--fs-sm);outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='var(--border)'"></textarea>
-      </div>
-      <!-- Honeypot: hidden field, real users never fill this in -->
-      <div style="position:absolute;left:-9999px;" aria-hidden="true">
-        <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
-      </div>
-      <div id="recaptcha-notice" style="margin-bottom:16px;font-size:0.72rem;color:var(--text-light);text-align:center;">
-        Geschützt durch reCAPTCHA –
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--purple);">Datenschutz</a> &amp;
-        <a href="https://policies.google.com/terms" target="_blank" rel="noopener" style="color:var(--purple);">Nutzungsbedingungen</a>
-      </div>
-      <button onclick="sendKontaktWA()" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;padding:13px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-        <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_send_btn">Via WhatsApp senden</span>
-      </button>
-      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
-        <div style="flex:1;height:1px;background:var(--border);"></div>
-        <span style="font-size:var(--fs-xs);color:var(--text-light);">oder</span>
-        <div style="flex:1;height:1px;background:var(--border);"></div>
-      </div>
-      <button onclick="(function(){const n=document.getElementById('k-name').value.trim(),e=document.getElementById('k-email').value.trim(),s=document.getElementById('k-subject').value.trim(),m=document.getElementById('k-msg').value.trim();if(!m){alert('Bitte schreib eine Nachricht.');return;}const sub=s||'Kontaktanfrage Dandelion 11:11';const body=(n?'Name: '+n+'\n':'')+(e?'E-Mail: '+e+'\n\n':'\n')+m;window.location.href='mailto:hallo@dandelion1111.de?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);})()" style="width:100%;background:#fff;color:var(--purple);border:2px solid var(--purple);padding:12px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='#fff'">
-        <i class="fas fa-envelope"></i> Per E-Mail senden
-      </button>
-      <p data-i18n="kontakt_form_hinweis" style="text-align:center;font-size:0.75rem;color:var(--text-light);margin-top:10px;">WhatsApp = schnellste Antwort · E-Mail = alternative für alle, die lieber schreiben.</p>
-    </div>
-  </div>
 
 
 </div>
