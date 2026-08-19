@@ -854,9 +854,9 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
         <span class="price-main">32,90 €</span>
         <span class="price-tax">Endpreis gem. § 19 UStG (keine MwSt.) + Versand</span>
       </div>
-      <p style="font-size:.78rem;color:var(--text-light);margin:0 0 10px;">Kollektionsprodukte ab 18 €</p>
+      <p data-i18n="koll_from_price" style="font-size:.78rem;color:var(--text-light);margin:0 0 10px;">Kollektionsprodukte ab 18 €</p>
       <a href="kollektionen.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;padding:11px 22px;border-radius:50px;font-weight:700;font-size:var(--fs-sm);text-decoration:none;margin-bottom:14px;box-shadow:0 4px 14px rgba(142,68,173,.3);transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(142,68,173,.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(142,68,173,.3)'">
-        🎈 Alle Kollektionen ansehen →
+        <span data-i18n="all_koll_btn">🎈 Alle Kollektionen ansehen →</span>
       </a>
       <div class="hero-specs" style="margin-top:14px;background:#f7eefb;border-radius:12px;padding:14px 16px;font-size:0.88rem;color:#555;line-height:1.6;">
         <strong style="color:var(--purple);" data-i18n="hero_specs_title">PRODUKTDETAILS</strong>
@@ -1274,8 +1274,8 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 
 <!-- ═══ TIKTOK VIDEO ═══ -->
 <div style="background:#fdf6ff;padding:48px 24px;text-align:center;border-top:1px solid #f0e6f8;">
-  <h2 style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Schau uns bei der Arbeit zu 🎬</h2>
-  <p style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:28px;">Jeder Ballon entsteht mit Liebe – direkt aus Bad Wörishofen</p>
+  <h2 data-i18n="tiktok_title" style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Schau uns bei der Arbeit zu 🎬</h2>
+  <p data-i18n="tiktok_sub" style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:28px;">Jeder Ballon entsteht mit Liebe – direkt aus Bad Wörishofen</p>
   <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:800px;margin:0 auto 24px;">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@raluca.jidvian/video/7656504838410325281" data-video-id="7656504838410325281" style="max-width:325px;min-width:288px;border-radius:16px;overflow:hidden;">
       <section><a target="_blank" href="https://www.tiktok.com/@raluca.jidvian/video/7656504838410325281">@raluca.jidvian</a></section>
@@ -1285,7 +1285,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     </blockquote>
   </div>
   <a href="https://www.tiktok.com/@raluca.jidvian" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:50px;padding:11px 26px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;border:none;">
-    <i class="fab fa-tiktok"></i> Mehr auf TikTok ansehen
+    <i class="fab fa-tiktok"></i> <span data-i18n="tiktok_btn">Mehr auf TikTok ansehen</span>
   </a>
 </div>
 <script>
@@ -1309,8 +1309,8 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <div style="background:#fff;padding:52px 24px;border-top:1px solid #f0e6f8;">
   <div style="max-width:1100px;margin:0 auto;text-align:center;">
     <p style="font-size:var(--fs-sm);letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:8px;">@dandelion_11.11</p>
-    <h2 style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Folge uns auf Instagram 📸</h2>
-    <p style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:32px;">Neueste Kreationen, Behind-the-Scenes & besondere Momente</p>
+    <h2 data-i18n="ig_title" style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Folge uns auf Instagram 📸</h2>
+    <p data-i18n="ig_sub" style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:32px;">Neueste Kreationen, Behind-the-Scenes & besondere Momente</p>
     <behold-widget feed-id="iOFEEFArCI3zLXmbj53S"></behold-widget>
     <script>
       (()=>{if(window.__bhldScript)return;window.__bhldScript=true;const d=document,s=d.createElement('script');s.type='module';s.src='https://w.behold.so/widget.js';setTimeout(()=>{d.head.append(s);},0);})();
@@ -1365,7 +1365,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
   <h2 class="section-title" data-i18n-html="reviews_title">Was unsere Kunden sagen 💬</h2>
   <div style="text-align:center;margin-bottom:20px;">
     <a href="https://www.google.com/maps/search/Dandelion+11:11+Bad+W%C3%B6rishofen" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:50px;padding:10px 22px;font-size:var(--fs-sm);font-weight:600;text-decoration:none;border:none;">
-      <span style="color:#ffe066;font-size:1rem;">★★★★★</span> 4.9/5 · Alle Google-Bewertungen lesen →
+      <span style="color:#ffe066;font-size:1rem;">★★★★★</span> <span data-i18n="google_reviews_btn">4.9/5 · Alle Google-Bewertungen lesen →</span>
     </a>
   </div>
   <div class="reviews-grid">
@@ -2132,7 +2132,11 @@ window.subscribeNewsletter = function() {
       faq_q6:'Kann ich eine bestimmte Farbe wählen?',faq_a6:'Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨',
       faq_q7:'Muss ich ein Konto erstellen, um zu bestellen?',faq_a7:'Nein! Du kannst ganz einfach als Gast bestellen – ohne Registrierung, ohne Passwort. Wenn du ein Konto erstellst, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.',
       faq_q8:'Erhalte ich eine Bestätigung nach der Bestellung?',faq_a8:'Ja! Direkt nach der Zahlung erhältst du eine automatische Bestätigungs-E-Mail von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.',
-      newsletter_btn:'Jetzt 10% sichern 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse'
+      newsletter_btn:'Jetzt 10% sichern 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse',
+      tiktok_title:'Schau uns bei der Arbeit zu 🎬',tiktok_sub:'Jeder Ballon entsteht mit Liebe – direkt aus Bad Wörishofen',tiktok_btn:'Mehr auf TikTok ansehen',
+      ig_title:'Folge uns auf Instagram 📸',ig_sub:'Neueste Kreationen, Behind-the-Scenes & besondere Momente',
+      all_koll_btn:'🎈 Alle Kollektionen ansehen →',google_reviews_btn:'4.9/5 · Alle Google-Bewertungen lesen →',
+      koll_from_price:'Kollektionsprodukte ab 18 €'
     },
     ro:{
       nav_shop:'Magazin',nav_koll:'Colecții',nav_all_koll:'Vezi toate →',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
@@ -2222,7 +2226,11 @@ window.subscribeNewsletter = function() {
       faq_q6:'Pot alege o anumită culoare?',faq_a6:'Da – și acesta este unul dintre cele mai mari avantaje ale noastre! Nu alegi dintr-o listă rigidă, ci pur și simplu ne spui culoarea dorită (ex. „Verde mentă", „Roz vechi", „Albastru închis"). Adaptăm balonul individual pentru tine. Selectorul de culori din configurator arată opțiunile populare ca orientare – dar nu este o limitare. 🎨',
       faq_q7:'Trebuie să îmi creez un cont pentru a comanda?',faq_a7:'Nu! Poți comanda simplu ca oaspete – fără înregistrare, fără parolă. Dacă îți creezi un cont, poți vizualiza comenzile oricând la „Comenzile mele" și poți comanda și mai rapid data viitoare. Alegerea îți aparține.',
       faq_q8:'Primesc o confirmare după comandă?',faq_a8:'Da! Imediat după plată primești un e-mail automat de confirmare de la PayPal cu toate detaliile comenzii. Ulterior te contactăm pe WhatsApp pentru a stabili data și adresa de livrare.',
-      newsletter_btn:'Obține 10% acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail'
+      newsletter_btn:'Obține 10% acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail',
+      tiktok_title:'Urmărește-ne la lucru 🎬',tiktok_sub:'Fiecare balon este creat cu dragoste – direct din Bad Wörishofen',tiktok_btn:'Mai mult pe TikTok',
+      ig_title:'Urmărește-ne pe Instagram 📸',ig_sub:'Cele mai noi creații, Behind-the-Scenes & momente speciale',
+      all_koll_btn:'🎈 Vezi toate colecțiile →',google_reviews_btn:'4.9/5 · Citește toate recenziile Google →',
+      koll_from_price:'Produse din colecție de la 18 €'
     }
   };
   function applyNavLang(l){
