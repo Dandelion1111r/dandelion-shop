@@ -445,7 +445,7 @@
       </div>
     </div>
 
-    <p class="prod-no-results" id="noResults">Kein Produkt gefunden.</p>
+    <p class="prod-no-results" id="noResults" style="display:none;">Kein Produkt gefunden.</p>
 
   </div>
 </div>
@@ -620,7 +620,7 @@
     cards.forEach(function(c){ c.style.display='none'; });
     visible.forEach(function(card){ card.style.display=''; grid.insertBefore(card, noRes); });
 
-    if(noRes) noRes.classList.toggle('visible', visible.length === 0);
+    if(noRes) noRes.style.display = visible.length === 0 ? 'block' : 'none';
   }
 
   if(searchInput) searchInput.addEventListener('input', applyFilter);
