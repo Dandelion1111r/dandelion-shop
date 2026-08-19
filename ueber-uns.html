@@ -111,6 +111,9 @@
   /* Page styles */
   .page-hero { background:linear-gradient(135deg,#f9eef6,#f0e4f8); text-align:center; padding:56px 20px 48px; border-bottom:1px solid var(--border); }
   .page-hero img { height:90px; width:auto; margin:0 auto 16px; display:block; }
+  .hero-photos { display:flex; gap:20px; justify-content:center; align-items:flex-end; margin:0 auto 28px; max-width:600px; }
+  .hero-photos img { width:48%; max-width:260px; height:320px; object-fit:cover; object-position:top center; border-radius:20px; box-shadow:0 8px 32px rgba(142,68,173,0.18); display:block; }
+  @media(max-width:500px){ .hero-photos { gap:12px; } .hero-photos img { height:220px; border-radius:14px; } }
   .page-hero h1 { font-size:clamp(1.8rem,4.5vw,2.6rem); font-weight:700; color:var(--purple); margin:0 0 12px; }
   .page-hero .subtitle { color:var(--text-light); font-size:1rem; max-width:520px; margin:0 auto 24px; }
   .page-hero .btn-back { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--purple),var(--pink)); color:#fff; border:none; padding:12px 28px; border-radius:50px; font-weight:600; font-size:var(--fs-sm); text-decoration:none; transition:opacity 0.2s; }
@@ -214,7 +217,10 @@
 
 <main id="main-content">
   <div class="page-hero">
-    <img width="1009" height="924" src="Dandelionlogo-fixed.png" alt="Dandelion 11:11" loading="eager">
+    <div class="hero-photos">
+      <img width="1200" height="1600" src="raluca-blumenstrauss-rosen.webp" alt="Raluca, Gründerin von Dandelion 11:11 aus Bad Wörishofen, mit einem großen Strauß aus rosa und weißen Rosen" loading="eager">
+      <img width="1200" height="1600" src="raluca-zeitung-mindelheim.webp" alt="Raluca, Inhaberin von Dandelion 11:11, mit dem Zeitungsartikel der Mindelheimer Zeitung über ihren preisgekrönten Adventskranz" loading="eager">
+    </div>
     <h1 data-i18n="ueber_h1">Über Dandelion 11:11</h1>
     <p class="subtitle" data-i18n="ueber_subtitle">Eine Geschichte über Träume, Kleber, geplatzte Ballons und die Magie dahinter.</p>
     <a href="index.html" class="btn-back" data-i18n="back_to_config">← Zurück zum Konfigurator</a>
