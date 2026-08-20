@@ -73,6 +73,10 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
     var _triggered=false;
     function tryShow(){
       if(_triggered)return;
+      // Only show after user has scrolled at least 30% of the page
+      var scrolled=(window.scrollY||document.documentElement.scrollTop);
+      var pageH=document.documentElement.scrollHeight-window.innerHeight;
+      if(pageH>0&&scrolled/pageH<0.3)return;
       // Do not show while cookie banner is visible
       var banner=document.getElementById("cookieBanner");
       if(banner&&banner.style.display!=="none")return;
@@ -85,7 +89,7 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
       tryShow();
     });
     // Mobile fallback: 30s after cookie consent
-    var _mobileTimer=setTimeout(tryShow,30000);
+    var _mobileTimer=setTimeout(tryShow,60000);
     document.addEventListener("click",function(){clearTimeout(_mobileTimer);},{once:true});
   }
   if(localStorage.getItem("cookieConsent")){
