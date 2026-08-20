@@ -217,6 +217,31 @@
 </style>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+<!-- Google Analytics 4 – gated by cookie consent -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  analytics_storage:'denied',
+  ad_storage:'denied',
+  wait_for_update:500
+});
+function _loadGA(){
+  if(window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-88K056PN19');
+}
+if(localStorage.getItem('cookieConsent') === 'all') {
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  _loadGA();
+}
+window._onCookieConsentAll = _loadGA;
+</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
