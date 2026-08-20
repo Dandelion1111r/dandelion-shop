@@ -141,6 +141,31 @@
   .wa-fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;}
   @media(max-width:600px){.nav-links-row a:not(:last-child):not(.wa-nav){display:none;}}
 </style>
+<!-- Google Analytics 4 – gated by cookie consent -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  analytics_storage:'denied',
+  ad_storage:'denied',
+  wait_for_update:500
+});
+function _loadGA(){
+  if(window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-88K056PN19');
+}
+if(localStorage.getItem('cookieConsent') === 'all') {
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  _loadGA();
+}
+window._onCookieConsentAll = _loadGA;
+</script>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px;top:8px;background:#8e44ad;color:#fff;padding:8px 16px;border-radius:4px;font-size:.875rem;font-weight:600;text-decoration:none;z-index:10000;">Zum Inhalt springen</a>

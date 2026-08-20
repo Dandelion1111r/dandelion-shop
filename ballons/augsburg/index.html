@@ -126,6 +126,31 @@ footer a{color:#f3a6c6;text-decoration:none;}
 .wa-fab svg{fill:#fff;width:30px;height:30px;}
 @media(max-width:600px){nav a:not(.nav-cta){display:none;}}
 </style>
+<!-- Google Analytics 4 – gated by cookie consent -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  analytics_storage:'denied',
+  ad_storage:'denied',
+  wait_for_update:500
+});
+function _loadGA(){
+  if(window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-88K056PN19');
+}
+if(localStorage.getItem('cookieConsent') === 'all') {
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  _loadGA();
+}
+window._onCookieConsentAll = _loadGA;
+</script>
 </head>
 <body>
 <div class="topbar">🎈 Personalisierte Ballons nach Augsburg – handgemacht in Bayern, DHL-Lieferung 1–2 Werktage</div>
