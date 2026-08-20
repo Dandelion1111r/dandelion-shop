@@ -315,25 +315,33 @@
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <link rel="stylesheet" href="styles.css">
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
+<!-- Google Analytics 4 – gated by cookie consent (item 53) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  analytics_storage:'denied',
+  ad_storage:'denied',
+  wait_for_update:500
+});
+function _loadGA(){
+  if(window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+  document.head.appendChild(s);
   gtag('js', new Date());
   gtag('config', 'G-88K056PN19');
   gtag('config', 'AW-18318644224');
-  // GA4: view_item on page load
-  gtag('event', 'view_item', {
-    currency: 'EUR',
-    value: 32.9,
-    items: [{
-      item_id: 'balloon_personalized',
-      item_name: 'Personalisierter Geschenkballon',
-      price: 32.9,
-      quantity: 1
-    }]
-  });
+  gtag('event', 'view_item', {currency:'EUR',value:32.9,items:[{item_id:'balloon_personalized',item_name:'Personalisierter Geschenkballon',price:32.9,quantity:1}]});
+}
+// Load GA only if user has already consented
+if(localStorage.getItem('cookieConsent') === 'all') {
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  _loadGA();
+}
+window._onCookieConsentAll = _loadGA;
 </script>
 </head>
 <body>
@@ -435,9 +443,10 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     </div>
   </div>
   <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
-    <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;">
-      <input id="navSearchInput" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" data-i18n-placeholder="search_placeholder" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value)">
+    <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;position:relative;">
+      <input id="navSearchInput" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" data-i18n-placeholder="search_placeholder" autocomplete="off" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);" oninput="runProductSearch(this.value);showSearchSuggestions(this.value)">
       <i class="fas fa-times" onclick="toggleSearchBar()" role="button" aria-label="Suche schließen" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSearchBar()" style="cursor:pointer;align-self:center;font-size:1.1rem;color:var(--text-light);"></i>
+      <div id="searchSuggestions" style="display:none;position:absolute;top:100%;left:0;right:36px;background:#fff;border:1px solid #e0d0f0;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.1);z-index:300;margin-top:4px;overflow:hidden;"></div>
     </div>
   </div>
 </header>
@@ -1377,6 +1386,55 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <!-- ═══ SCRIPT ═══ -->
 <script src="main.js" defer></script>
 <script>
+// ─── Search autocomplete (item 46) ───────────────────────────────────────────
+var _searchSuggestions = [
+  {label:'Personalisierter Geburtstagsballon', url:'geschenkballons/geburtstag/', icon:'🎂'},
+  {label:'Geburtstagsballon mit Namen', url:'produktgeburtstagsballonblaumitblumenbox.html', icon:'🎈'},
+  {label:'Teddybär im Geschenkballon', url:'produkte/teddybaer-im-geschenkballon/', icon:'🧸'},
+  {label:'Geschenk zum Geburtstag', url:'geschenkballons/geburtstag/', icon:'🎁'},
+  {label:'Hochzeitsballon Box', url:'geschenkballons/hochzeit/', icon:'💍'},
+  {label:'Hochzeit Geschenk', url:'geschenkballons/hochzeit/', icon:'💐'},
+  {label:'Babyparty Ballon', url:'geschenkballons/babyparty/', icon:'👶'},
+  {label:'Baby Shower Geschenk', url:'geschenkballons/babyparty/', icon:'🍼'},
+  {label:'Ballon für Mama', url:'geschenke/mama/', icon:'💜'},
+  {label:'Muttertag Geschenk', url:'geschenke/mama/', icon:'🌷'},
+  {label:'Feen-Blumenbox', url:'produkte/feen-blumenbox/', icon:'🧚'},
+  {label:'Ballon für Papa', url:'geschenke/papa/', icon:'👨'},
+  {label:'Vatertag Geschenk', url:'geschenke/papa/', icon:'🏆'},
+  {label:'Dark Chrome Ballon Box', url:'produkte/dark-chrome-ballon-box/', icon:'⚫'},
+  {label:'Boho Luxe Ballon Box', url:'produkte/ballon-box-boho-luxe/', icon:'✨'},
+  {label:'Blumenkorb mit Foto', url:'produkte/blumenkorb-mit-foto-medaillon/', icon:'📸'},
+  {label:'Teddybär Blumenbox', url:'produkte/teddybaer-blumenbox/', icon:'🧸'},
+  {label:'Alle Produkte', url:'produkte/', icon:'🛍️'},
+  {label:'Ballons Bad Wörishofen', url:'ballons-bad-woerishofen.html', icon:'📍'},
+  {label:'Ballons Augsburg', url:'ballons/augsburg/', icon:'📍'},
+  {label:'Ballons München', url:'ballons/muenchen/', icon:'📍'},
+];
+
+window.showSearchSuggestions = function(q) {
+  var box = document.getElementById('searchSuggestions');
+  if(!box) return;
+  q = (q||'').trim().toLowerCase();
+  if(q.length < 2){box.style.display='none';return;}
+  var matches = _searchSuggestions.filter(function(s){
+    return s.label.toLowerCase().includes(q);
+  }).slice(0,6);
+  if(!matches.length){box.style.display='none';return;}
+  box.innerHTML = matches.map(function(s){
+    return '<a href="'+s.url+'" style="display:flex;align-items:center;gap:10px;padding:10px 14px;text-decoration:none;color:#2d2d2d;font-size:.88rem;border-bottom:1px solid #f5eafc;transition:background .15s;" onmouseover="this.style.background=\'#f9eef6\'" onmouseout="this.style.background=\'\'">'+
+      '<span style="font-size:1.1rem;">'+s.icon+'</span>'+
+      '<span>'+s.label.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<strong>$1</strong>')+'</span>'+
+    '</a>';
+  }).join('');
+  box.style.display='block';
+};
+document.addEventListener('click', function(e){
+  if(!e.target.closest('#navSearchBar')) {
+    var box = document.getElementById('searchSuggestions');
+    if(box) box.style.display='none';
+  }
+});
+
 // Upsell add-ons (Grußkarte + Konfetti)
 window.updateCartAddons = function() {
   var base = window._cartSubtotal || 0; // set by patch below
@@ -1431,9 +1489,16 @@ window.addEventListener('load', function() {
 <!-- reCAPTCHA v3 -->
 <script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
 
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
+<!-- Microsoft Clarity – gated by cookie consent (item 53) -->
+<script>
+function _loadClarity(){
+  if(window._clarityLoaded) return;
+  window._clarityLoaded = true;
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
+}
+if(localStorage.getItem('cookieConsent') === 'all') _loadClarity();
+var _prevOnConsent = window._onCookieConsentAll;
+window._onCookieConsentAll = function(){ if(_prevOnConsent)_prevOnConsent(); _loadClarity(); };
 </script>
 
 <!-- EmailJS (pentru comenzi) -->
@@ -1502,8 +1567,20 @@ window.subscribeNewsletter = function() {
 };
 </script>
 
-<!-- PayPal Smart Buttons (Live) -->
-<script src="https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR" onload="if(typeof window.renderPayPalBtn==='function')window.renderPayPalBtn();" async></script>
+<!-- PayPal Smart Buttons – deferred until cart has items (item 52) -->
+<script>
+window._paypalSDKUrl = 'https://www.paypal.com/sdk/js?client-id=AfUlmArev-ffHHG09y86kHXV1kICAGXtYwPCuD7-mMaoZgobDsiLo3-Z9PyttWmOCpFXTEdPu5k46M7U&currency=EUR';
+window._paypalSDKLoading = false;
+window.loadPayPalSDK = function(){
+  if(window._paypalSDKLoading || window.paypal) return;
+  window._paypalSDKLoading = true;
+  var s = document.createElement('script');
+  s.src = window._paypalSDKUrl;
+  s.async = true;
+  s.onload = function(){ if(typeof window.renderPayPalBtn==='function') window.renderPayPalBtn(); };
+  document.head.appendChild(s);
+};
+</script>
 
 <script>
   window._paypalRendered = false;
@@ -1777,6 +1854,10 @@ window.subscribeNewsletter = function() {
     localStorage.setItem('cookieConsent',level);
     localStorage.setItem('cookieConsentDate', new Date().toISOString());
     document.getElementById('cookieBanner').style.display='none';
+    if(level === 'all' && typeof window._onCookieConsentAll === 'function'){
+      gtag && gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+      window._onCookieConsentAll();
+    }
   }
   window.setCookieConsent = setCookieConsent;
   if(!localStorage.getItem('cookieConsent')){
@@ -2198,6 +2279,44 @@ window.subscribeNewsletter = function() {
   var nav=document.querySelector('.nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');
   if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
   applyNavLang(localStorage.getItem('lang')||'de');
+})();
+</script>
+
+<!-- Sticky mobile CTA (item 48) -->
+<div id="stickyCTA" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:1990;background:linear-gradient(135deg,#8e44ad,#d63384);padding:12px 20px;box-shadow:0 -4px 20px rgba(142,68,173,.35);safe-area-inset-bottom:env(safe-area-inset-bottom);">
+  <div style="max-width:600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div style="color:rgba(255,255,255,.9);font-size:.8rem;line-height:1.3;">
+      <div style="font-weight:700;color:#fff;font-size:.95rem;">ab 32,90 €</div>
+      <div>Handgemacht · Personalisierbar</div>
+    </div>
+    <button onclick="document.getElementById('configuratorSection')?.scrollIntoView({behavior:'smooth'});this.closest('#stickyCTA').style.display='none';" style="background:#fff;color:#8e44ad;border:none;border-radius:50px;padding:12px 22px;font-weight:700;font-size:.9rem;cursor:pointer;white-space:nowrap;flex-shrink:0;">🎈 Jetzt gestalten</button>
+  </div>
+</div>
+<script>
+(function(){
+  // Show sticky CTA on mobile only, after scrolling past the configurator
+  if(window.innerWidth > 768) return;
+  var cta = document.getElementById('stickyCTA');
+  if(!cta) return;
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    if(shown) return;
+    var cart = document.getElementById('cartCard');
+    if(cart && cart.style.display !== 'none') return; // hide when cart is visible
+    if(window.scrollY > 300){
+      shown = true;
+      cta.style.display = 'block';
+    }
+  }, {passive:true});
+  // Hide sticky CTA when cart opens
+  var _origUpdate = window.updateCartUI;
+  if(_origUpdate) {
+    window.updateCartUI = function(){
+      _origUpdate.apply(this, arguments);
+      if(document.getElementById('cartCard')?.style.display === 'block')
+        cta.style.display = 'none';
+    };
+  }
 })();
 </script>
 </body>
