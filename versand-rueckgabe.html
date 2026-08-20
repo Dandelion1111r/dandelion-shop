@@ -335,5 +335,36 @@
   var nav = document.getElementById('nav-links'), ml = nav && nav.querySelector('.lang-mobile-item');
   if (nav && ml) { new MutationObserver(function(){ ml.style.display = nav.classList.contains('open') ? 'flex' : 'none'; }).observe(nav, {attributes:true, attributeFilter:['class']}); }
 </script>
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:'Poppins',system-ui,sans-serif;font-size:.85rem;line-height:1.55;">
+  <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
+    <div style="flex:1;min-width:220px;">
+      🍪 <strong>Cookies &amp; Datenschutz</strong><br>
+      <span style="opacity:.85;">Wir nutzen notwendige Cookies für den Betrieb und optionale Dienste (Google Analytics, Microsoft Clarity, PayPal, Google Fonts) für ein besseres Erlebnis. Mehr in unserer <a href="datenschutz.html" style="color:#c084fc;text-decoration:underline;">Datenschutzerklärung</a>.</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
+      <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Nur notwendige</button>
+      <button onclick="setCookieConsent('all')" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-family:inherit;font-size:.82rem;font-weight:600;cursor:pointer;">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function setCookieConsent(level){
+    localStorage.setItem('cookieConsent',level);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    document.getElementById('cookieBanner').style.display='none';
+    if(level === 'all' && typeof window._onCookieConsentAll === 'function'){
+      gtag && gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+      window._onCookieConsentAll();
+    }
+  }
+  window.setCookieConsent = setCookieConsent;
+  if(!localStorage.getItem('cookieConsent')){
+    setTimeout(function(){ document.getElementById('cookieBanner').style.display='block'; }, 800);
+  }
+})();
+</script>
+<!-- End Cookie Consent -->
 </body>
 </html>
