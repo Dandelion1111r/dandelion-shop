@@ -2,7 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /cart
 Disallow: /checkout
+Disallow: /account
 Disallow: /api/
+Disallow: /*?*utm_
 
 # Allow important crawlers specific access
 User-agent: Googlebot
