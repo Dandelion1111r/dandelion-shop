@@ -53,6 +53,7 @@
 }
 </script>
 <style>
+html{overflow-x:hidden}
   :focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
   button:focus-visible, a:focus-visible { outline: 2px solid #8e44ad; outline-offset: 3px; }
   .skip-link { position:absolute; left:-9999px; top:8px; background:#8e44ad; color:#fff; padding:8px 16px; border-radius:4px; font-size:.875rem; font-weight:600; text-decoration:none; z-index:10000; }
@@ -64,7 +65,7 @@
     --fs-base:0.95rem; --fs-md:1.1rem; --fs-lg:1.4rem;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;;overflow-x:hidden}
   .topbar { background:linear-gradient(90deg,var(--purple),var(--pink)); color:#fff; text-align:center; padding:10px 20px 12px; }
   .topbar-brand { font-size:var(--fs-lg); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
   .topbar-divider { width:120px; height:1px; background:rgba(255,255,255,0.35); margin:0 auto 8px; }

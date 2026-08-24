@@ -53,12 +53,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
+html{overflow-x:hidden}
   :root{--purple:#8e44ad;--pink:#d63384;--bg:#fff;--text:#2d2d2d;--muted:#666;--border:#e8d5e8;--card-bg:#fff;}
   @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0f24;--text:#f0e6f8;--muted:#c0a8d8;--border:#3a2050;--card-bg:#2d1b3d;}}
   :root[data-theme="dark"]{--bg:#1a0f24;--text:#f0e6f8;--muted:#c0a8d8;--border:#3a2050;--card-bg:#2d1b3d;}
   :root[data-theme="light"]{--bg:#fff;--text:#2d2d2d;--muted:#666;--border:#e8d5e8;--card-bg:#fff;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;;overflow-x:hidden}
   :focus-visible{outline:2px solid var(--purple);outline-offset:3px;}
   /* Header */
   header{background:linear-gradient(135deg,#fdeef7,#f9e4f1);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06);}
