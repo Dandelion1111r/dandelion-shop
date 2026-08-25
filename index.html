@@ -608,7 +608,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
   <iframe id="iframe-widerruf" src="" style="width:100%;min-height:80vh;border:none;display:block;" loading="lazy" title="Widerrufsbelehrung"></iframe>
 </div>
 
-<div id="main-content"></div>
+<div id="main-content" role="main"></div>
 <div id="page-shop">
 
 <!-- ═══ HOW IT WORKS ═══ -->
@@ -792,7 +792,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
             <path d="M170 365 Q155 390 165 410" stroke="#c080a0" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="4 3"/>
           </svg>
           <div class="balloon-overlay" id="balloonOverlay">
-            <img id="customImageDisplay" alt="Hochgeladenes Bild auf dem Ballon" style="display:none;width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,0.8);box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+            <img id="customImageDisplay" width="110" height="110" alt="Hochgeladenes Bild auf dem Ballon" style="display:none;width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,0.8);box-shadow:0 2px 12px rgba(0,0,0,0.15);">
             <span class="balloon-emoji-display" id="emojiDisplay" style="display:none;"></span>
             <div class="balloon-text-display" id="textDisplay" style="color:#8e44ad;"></div>
           </div>
@@ -892,7 +892,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <label class="form-label" for="customImageInput"><span data-i18n="custom_image_label">Eigenes Bild / Logo hochladen</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="optional_label">(optional)</span></label>
       <input type="file" id="customImageInput" accept="image/*" class="form-input" style="padding:10px;">
       <div id="customImagePreviewRow" style="display:none;align-items:center;gap:10px;margin-top:8px;">
-        <img id="customImageThumb" alt="Vorschau des hochgeladenen Bildes" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
+        <img id="customImageThumb" width="48" height="48" alt="Vorschau des hochgeladenen Bildes" style="width:48px;height:48px;object-fit:cover;border-radius:8px;border:1px solid #ddd;">
         <span style="font-size:var(--fs-sm);color:var(--text-light);flex:1;" data-i18n="shown_on_balloon_label">Wird auf dem Ballon angezeigt</span>
         <i class="fas fa-times" id="removeCustomImage" style="cursor:pointer;color:var(--text-light);"></i>
       </div>
@@ -1395,7 +1395,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <p data-i18n="footer_brand_text">Handgemachte Erlebnisballons für deine unvergesslichen Momente. Mit Liebe gestaltet, persönlich versendet.</p>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="footer_shop_title">Shop</h4>
+      <h4 data-i18n="footer_shop_title">Shop</h3>
       <a href="kollektionen.html" data-i18n="footer_link_all">Alle Ballons</a>
       <a href="geburtstag.html" data-i18n="footer_link_geburtstag">Geburtstag</a>
       <a href="hochzeit.html" data-i18n="footer_link_hochzeit">Hochzeit</a>
@@ -1403,7 +1403,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <a href="fussball.html">Fußball</a>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="footer_info_title">Info</h4>
+      <h4 data-i18n="footer_info_title">Info</h3>
       <a href="ueber-uns.html" data-i18n="footer_link_ueber">Über uns</a>
       <a href="journal.html">Dandelion Journal</a>
       <a href="faq.html">FAQ</a>
