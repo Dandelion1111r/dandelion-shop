@@ -30,6 +30,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self'; frame-src 'none'; object-src 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
+<style>@font-face{font-family:"Font Awesome 6 Free";font-display:swap}@font-face{font-family:"Font Awesome 6 Brands";font-display:swap}</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <script type="application/ld+json">
@@ -143,7 +144,7 @@
 
   .logo-wordmark{display:flex;flex-direction:column;gap:0;margin-left:-2px;padding-bottom:18px;align-items:flex-start;text-align:left;}
   .wm-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#8e44ad,#d63384);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
-  .wm-tagline{font-size:.85rem;font-weight:400;font-style:italic;color:#777;letter-spacing:.3px;line-height:1;margin-top:10px;}
+  .wm-tagline{font-size:.85rem;font-weight:400;font-style:italic;color:#5f5f5f;letter-spacing:.3px;line-height:1;margin-top:10px;}
   .scan-me{position:absolute;top:40px;left:196px;display:flex;flex-direction:row;align-items:center;gap:5px;pointer-events:none;z-index:10;}
   .scan-me span{font-size:.85rem;font-weight:600;letter-spacing:.5px;font-family:Poppins,sans-serif;color:#8e44ad;white-space:nowrap;background:rgba(255,255,255,.9);padding:2px 8px;border-radius:4px;border:1px solid #8e44ad;}
   .scan-arrow{font-size:.95rem;color:#8e44ad;animation:pointQR .8s ease-in-out infinite;display:block;}
@@ -180,7 +181,7 @@
         <span>Scan me</span>
       </div>
     </div>
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <li><a href="/" data-i18n="nav_shop">Shop</a></li>
       <li class="nav-dropdown">
         <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}" data-i18n="nav_koll">Kollektionen</a>
@@ -212,8 +213,8 @@
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
-      <a href="/" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
-      <a href="/" style="color:inherit;text-decoration:none;"><i class="fas fa-shopping-bag"></i></a>
+      <a href="/" aria-label="Favoriten" style="color:inherit;text-decoration:none;"><i class="fas fa-heart" aria-hidden="true"></i></a>
+      <a href="/" style="color:inherit;text-decoration:none;" aria-label="Warenkorb"><i class="fas fa-shopping-bag" aria-hidden="true"></i></a>
       <a href="/" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
       <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
       <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
