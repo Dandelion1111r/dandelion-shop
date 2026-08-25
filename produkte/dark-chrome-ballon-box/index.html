@@ -856,5 +856,17 @@
   window.addEventListener('pageshow', updateNavCartBadge);
 
 </script>
+<script>
+(function(){
+  try {
+    var rv = JSON.parse(localStorage.getItem('dandelionRecentlyViewed')||'[]');
+    var item = {name:'Dark-Chrome Ballon-Box',url:'https://www.dandelion1111.de/produkte/dark-chrome-ballon-box/',img:'https://www.dandelion1111.de/ballon-box-dark-chrome-schwarz-gold.webp',price:'85,00 €'};
+    rv = rv.filter(function(x){return x.url!==item.url;});
+    rv.unshift(item);
+    if(rv.length>8) rv.length=8;
+    localStorage.setItem('dandelionRecentlyViewed',JSON.stringify(rv));
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

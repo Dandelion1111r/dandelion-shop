@@ -857,5 +857,17 @@
   window.addEventListener('pageshow', updateNavCartBadge);
 
 </script>
+<script>
+(function(){
+  try {
+    var rv = JSON.parse(localStorage.getItem('dandelionRecentlyViewed')||'[]');
+    var item = {name:'Ballon-Box Boho Luxe',url:'https://www.dandelion1111.de/produkte/ballon-box-boho-luxe/',img:'https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp',price:'79,00 €'};
+    rv = rv.filter(function(x){return x.url!==item.url;});
+    rv.unshift(item);
+    if(rv.length>8) rv.length=8;
+    localStorage.setItem('dandelionRecentlyViewed',JSON.stringify(rv));
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
