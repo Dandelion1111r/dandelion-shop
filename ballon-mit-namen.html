@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" href="Dandelionlogo-fixed.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="Dandelionlogo-fixed.webp" as="image" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script type="application/ld+json">
 {
@@ -159,7 +160,7 @@ a{text-decoration:none;color:inherit}
   <div class="nav-inner">
     <div class="logo-wrap" style="position:relative;flex-shrink:0;">
       <a href="/" style="display:flex;align-items:flex-end;gap:10px;text-decoration:none;">
-        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" loading="eager">
+        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" fetchpriority="high" loading="eager">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
           <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
@@ -193,8 +194,8 @@ a{text-decoration:none;color:inherit}
       </li>
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="journal.html">Dandelion Journal</a></li>
-      <li><a href="kontakt.html">Kontakt</a>
-      <a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="faq.html">FAQ</a></li>
     
       <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-code-m">DE | RO</span></button></li>
     </ul>

@@ -22,6 +22,7 @@
 <meta name="theme-color" content="#8e44ad">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="Dandelionlogo-fixed.webp" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -187,7 +188,7 @@
   <div class="nav-inner">
     <div class="logo-wrap" style="position:relative;flex-shrink:0;">
       <a href="/" style="display:flex;align-items:flex-end;gap:10px;text-decoration:none;">
-        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" loading="eager">
+        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" fetchpriority="high" loading="eager">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
           <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
@@ -221,8 +222,8 @@
       </li>
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="journal.html">Dandelion Journal</a></li>
-      <li><a href="kontakt.html">Kontakt</a>
-      <a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="faq.html">FAQ</a></li>
     </ul>
     <div class="nav-icons">
       <a href="#" onclick="var s=document.getElementById('prodSearch');if(s){s.focus();s.scrollIntoView({behavior:'smooth',block:'center'});}return false;" style="color:inherit;text-decoration:none;" title="Suchen" aria-label="Suchen"><i class="fas fa-search"></i></a>

@@ -11,6 +11,8 @@
 <link rel="icon" type="image/png" href="Dandelionlogo-fixed.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="ballon-wunsch-illustration.webp" as="image" fetchpriority="high">
+<link rel="preload" href="Dandelionlogo-fixed.webp" as="image">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script type="application/ld+json">
 {
@@ -157,7 +159,7 @@ a{text-decoration:none;color:inherit}
   <div class="nav-inner">
     <div class="logo-wrap" style="position:relative;flex-shrink:0;">
       <a href="/" style="display:flex;align-items:flex-end;gap:10px;text-decoration:none;">
-        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" loading="eager">
+        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" alt="Dandelion 11:11" fetchpriority="high" loading="eager">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
           <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
@@ -191,8 +193,8 @@ a{text-decoration:none;color:inherit}
       </li>
       <li><a href="ueber-uns.html">Über uns</a></li>
       <li><a href="journal.html">Dandelion Journal</a></li>
-      <li><a href="kontakt.html">Kontakt</a>
-      <a href="faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="faq.html">FAQ</a></li>
     </ul>
     <div class="nav-icons">
       <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><i class="fas fa-search" aria-hidden="true"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
@@ -208,6 +210,7 @@ a{text-decoration:none;color:inherit}
 <div id="main-content"></div>
 
 <div class="hero">
+  <img src="ballon-wunsch-illustration.webp" alt="Personalisierter Geschenkballon mit Wunschillustration, handgemacht in Deutschland" width="600" height="600" fetchpriority="high" loading="eager" style="width:min(320px,80vw);height:auto;border-radius:16px;margin-bottom:18px;display:block;margin-left:auto;margin-right:auto;box-shadow:0 8px 32px rgba(142,68,173,0.15);">
   <h1>Personalisierter Geschenkballon 🎈<br>Handgemacht in Deutschland</h1>
   <p>Einzigartige Ballongeschenke mit persönlichem Text, Namen oder Illustration – gefertigt in Bad Wörishofen, Bayern, und sicher versandt in ganz Deutschland.</p>
   <div class="badges">
