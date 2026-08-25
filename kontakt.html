@@ -147,6 +147,7 @@
 </style>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" async onload="emailjs.init({publicKey:'yZhEVZfxCfnqlmFkq'})"></script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
@@ -286,10 +287,10 @@
       <div style="position:absolute;left:-9999px;" aria-hidden="true">
         <input id="k-website" type="text" name="website" tabindex="-1" autocomplete="off">
       </div>
-      <button class="btn-wa" onclick="sendKontaktWA()">
-        <i class="fab fa-whatsapp"></i> <span data-i18n="kontakt_send_btn">Via WhatsApp senden</span>
+      <button class="btn-wa" onclick="sendKontaktForm()" id="k-submit-btn" style="width:100%;margin-bottom:10px;">
+        <i class="fas fa-paper-plane"></i> <span>Nachricht senden</span>
       </button>
-      <p class="form-note" data-i18n="kontakt_form_hinweis">Das Formular öffnet WhatsApp mit deiner Nachricht.</p>
+      <p id="k-form-note" class="form-note">Wir antworten innerhalb von 24 Stunden per E-Mail oder WhatsApp.</p>
     </div>
   </div>
 </main>
@@ -380,20 +381,37 @@
   };
   setLang(lang);
   document.getElementById('footerYear').textContent=new Date().getFullYear();
-  window.sendKontaktWA=function(){
+  window.sendKontaktForm=function(){
     var honey=document.getElementById('k-website');
     if(honey&&honey.value)return;
     var name=(document.getElementById('k-name').value||'').trim();
     var email=(document.getElementById('k-email').value||'').trim();
     var subject=(document.getElementById('k-subject').value||'').trim();
     var msg=(document.getElementById('k-msg').value||'').trim();
-    if(!name&&!msg){alert('Bitte füll mindestens deinen Namen und deine Nachricht aus.');return;}
-    var text='Hallo Dandelion 11:11! 🌼\n\n';
-    if(name)text+='Name: '+name+'\n';
-    if(email)text+='E-Mail: '+email+'\n';
-    if(subject)text+='Betreff: '+subject+'\n';
-    if(msg)text+='\nNachricht:\n'+msg;
-    window.open('https://wa.me/491757668955?text='+encodeURIComponent(text),'_blank');
+    if(!name||!msg){alert('Bitte füll mindestens deinen Namen und deine Nachricht aus.');return;}
+    var btn=document.getElementById('k-submit-btn');
+    if(btn){btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Wird gesendet…';}
+    // EmailJS send
+    var ejsSent=false;
+    function afterSend(){
+      if(ejsSent)return;
+      ejsSent=true;
+      // also open WhatsApp for owner notification
+      var text='Hallo Dandelion 11:11! 🌼\n\nName: '+name+(email?'\nE-Mail: '+email:'')+(subject?'\nBetreff: '+subject:'')+'\n\nNachricht:\n'+msg;
+      if(typeof gtag==='function'){gtag('event','generate_lead',{event_category:'contact',event_label:subject||'Kontaktformular'});}
+      window.open('https://wa.me/491757668955?text='+encodeURIComponent(text),'_blank');
+      window.location.href='danke.html';
+    }
+    if(typeof emailjs!=='undefined'){
+      emailjs.send('service_njmc1nf','template_l8cb34c',{
+        email:email||'kein-email@dandelion1111.de',
+        order_id:'Kontakt-'+Date.now(),
+        orders:[{name:subject||'Kontaktformular',price:'–',units:1}],
+        cost:{shipping:'–',tax:'–',total:name+': '+msg.substring(0,200)}
+      }).then(afterSend).catch(afterSend);
+    } else {
+      afterSend();
+    }
   };
 })();
 </script>
