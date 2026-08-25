@@ -50,7 +50,8 @@
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <style>@font-face{font-family:"Font Awesome 6 Free";font-display:swap}@font-face{font-family:"Font Awesome 6 Brands";font-display:swap}</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="landing-styles.css">
   <style>
@@ -92,7 +93,7 @@
         <span>Scan me</span>
       </div>
     </div>
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <li><a href="/">Shop</a></li>
       <li class="nav-dropdown">
         <a href="kollektionen.html" class="active-nav" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
@@ -121,7 +122,7 @@
     </ul>
     <div class="nav-icons">
       <a href="#" onclick="var s=document.getElementById('prodSearch');if(s){s.focus();s.scrollIntoView({behavior:'smooth',block:'center'});}return false;" style="color:inherit;text-decoration:none;" title="Suchen" aria-label="Suchen"><i class="fas fa-search"></i></a>
-      <a href="/" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
+      <a href="/" aria-label="Favoriten" style="color:inherit;text-decoration:none;"><i class="fas fa-heart" aria-hidden="true"></i></a>
       <a href="/" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="/" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
       <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>

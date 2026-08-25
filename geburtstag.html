@@ -51,6 +51,7 @@
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Font Awesome 6 Free";font-display:swap}@font-face{font-family:"Font Awesome 6 Brands";font-display:swap}</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <link rel="stylesheet" href="landing-styles.css">
@@ -409,7 +410,7 @@
         <span>Scan me</span>
       </div>
     </div>
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <li><a href="/">Shop</a></li>
       <li class="nav-dropdown">
         <a href="#" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
@@ -439,7 +440,7 @@
     </ul>
     <div class="nav-icons">
       <a href="#" onclick="var s=document.getElementById('prodSearch');if(s){s.focus();s.scrollIntoView({behavior:'smooth',block:'center'});}return false;" style="color:inherit;text-decoration:none;" title="Suchen" aria-label="Suchen"><i class="fas fa-search"></i></a>
-      <a href="/" style="color:inherit;text-decoration:none;"><i class="fas fa-heart"></i></a>
+      <a href="/" aria-label="Favoriten" style="color:inherit;text-decoration:none;"><i class="fas fa-heart" aria-hidden="true"></i></a>
       <a href="/" style="color:inherit;text-decoration:none;position:relative;"><i class="fas fa-shopping-bag"></i><span id="navCartBadge" style="display:none;position:absolute;top:-7px;right:-9px;background:#e91e8c;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;align-items:center;justify-content:center;"></span></a>
       <a href="/" style="color:inherit;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><i class="fas fa-user"></i><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
             <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
@@ -713,24 +714,24 @@
 <div style="background:linear-gradient(135deg,#fdf0f6,#f3e6f9);padding:60px 20px;margin-bottom:0;">
   <div style="max-width:1100px;margin:0 auto;">
     <h2 style="text-align:center;font-size:1.4rem;font-weight:700;color:#8e44ad;margin-bottom:8px;">Aus unserem Journal</h2>
-    <p style="text-align:center;font-size:.9rem;color:#777;margin-bottom:36px;">Inspiration, Ideen & Geschichten rund ums Verschenken</p>
+    <p style="text-align:center;font-size:.9rem;color:#5f5f5f;margin-bottom:36px;">Inspiration, Ideen & Geschichten rund ums Verschenken</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
     <a href="/journal-babyparty-geschenk-ideen.html" style="background:#fff;border-radius:16px;padding:24px;text-decoration:none;color:inherit;box-shadow:0 4px 20px rgba(142,68,173,.08);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:10px;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(142,68,173,.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.08)'">
       <span style="font-size:2rem;">🎀</span>
       <strong style="font-size:.95rem;color:#2d2d2d;line-height:1.35;">Babyparty Geschenk Ideen</strong>
-      <span style="font-size:.85rem;color:#777;line-height:1.5;">Was wirklich ankommt – persönliche Ideen mit Herz</span>
+      <span style="font-size:.85rem;color:#5f5f5f;line-height:1.5;">Was wirklich ankommt – persönliche Ideen mit Herz</span>
       <span style="font-size:.8rem;font-weight:600;color:#8e44ad;margin-top:4px;">Weiterlesen →</span>
     </a>
     <a href="/journal-lamborghini-vater-geschenk.html" style="background:#fff;border-radius:16px;padding:24px;text-decoration:none;color:inherit;box-shadow:0 4px 20px rgba(142,68,173,.08);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:10px;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(142,68,173,.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.08)'">
       <span style="font-size:2rem;">🏎️</span>
       <strong style="font-size:.95rem;color:#2d2d2d;line-height:1.35;">Lamborghini Geschenk für Väter</strong>
-      <span style="font-size:.85rem;color:#777;line-height:1.5;">Wenn Papa Benzin im Blut hat – Geschenk-Ideen</span>
+      <span style="font-size:.85rem;color:#5f5f5f;line-height:1.5;">Wenn Papa Benzin im Blut hat – Geschenk-Ideen</span>
       <span style="font-size:.8rem;font-weight:600;color:#8e44ad;margin-top:4px;">Weiterlesen →</span>
     </a>
     <a href="/journal-dog-mom-geschenkbox.html" style="background:#fff;border-radius:16px;padding:24px;text-decoration:none;color:inherit;box-shadow:0 4px 20px rgba(142,68,173,.08);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:10px;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 30px rgba(142,68,173,.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.08)'">
       <span style="font-size:2rem;">🐾</span>
       <strong style="font-size:.95rem;color:#2d2d2d;line-height:1.35;">Dog Mom Geschenkbox</strong>
-      <span style="font-size:.85rem;color:#777;line-height:1.5;">Das perfekte Geschenk für Hundeliebhaberinnen</span>
+      <span style="font-size:.85rem;color:#5f5f5f;line-height:1.5;">Das perfekte Geschenk für Hundeliebhaberinnen</span>
       <span style="font-size:.8rem;font-weight:600;color:#8e44ad;margin-top:4px;">Weiterlesen →</span>
     </a>
     </div>
