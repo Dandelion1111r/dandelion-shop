@@ -316,7 +316,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript>
 <!-- Google Analytics 4 – gated by cookie consent (item 53) -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -646,7 +646,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:28px;">
       <a href="/geschenk-zum-geburtstag/" style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.1);text-decoration:none;color:inherit;display:block;border:1px solid #f5d6ee;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(214,51,132,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(142,68,173,.1)'">
-        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img width="400" height="533" src="geburtstagsballon-geschenkbox.webp" alt="Personalisierter Geburtstagsballon mit Geschenkbox" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;display:flex;align-items:center;justify-content:center;"><img width="400" height="533" src="geburtstagsballon-geschenkbox.webp" alt="Personalisierter Geburtstagsballon mit Geschenkbox" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
         <div style="padding:14px 16px 16px;text-align:center;">
           <div style="font-weight:700;color:var(--purple);font-size:.92rem;margin-bottom:3px;">🎂 Geburtstag</div>
           <div style="font-size:.76rem;color:#a98aab;">Personalisierte Ballons & Sets</div>
@@ -1562,7 +1562,7 @@ window.addEventListener('load', function() {
 <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <!-- reCAPTCHA v3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LeCKj8tAAAAALbDBccbAMBvhZVd6DFvgopyDGYg" async defer></script>
+<!-- reCAPTCHA loaded lazily on first contact form submit -->
 
 <!-- Microsoft Clarity – gated by cookie consent (item 53) -->
 <script>
