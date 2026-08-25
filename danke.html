@@ -296,6 +296,13 @@
 <a class="wa-fab" href="https://wa.me/491757668955" aria-label="WhatsApp Kontakt" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <script>
 (function(){
+  if(typeof gtag==='function'){
+    gtag('event','generate_lead',{event_category:'contact',event_label:'danke_page'});
+  }
+})();
+</script>
+<script>
+(function(){
   function makeStar(size,color){
     var s=size,h=s/2,q=s*0.12;
     var path='M'+h+',0 C'+h+','+q+' '+(h+q)+','+h+' '+s+','+h+' C'+(h+q)+','+h+' '+h+','+(h+q)+' '+h+','+s+' C'+h+','+(h+q)+' '+(h-q)+','+h+' 0,'+h+' C'+(h-q)+','+h+' '+h+','+q+' '+h+',0 Z';
