@@ -1760,6 +1760,14 @@ window.loadPayPalSDK = function(){
                 cost: { shipping: shipping.toFixed(2), tax: '0.00', total: orderTotal.toFixed(2) }
               }).catch(function(err) { console.warn('EmailJS send failed:', err); });
             }
+            // Owner notification email
+            if (typeof emailjs !== 'undefined') {
+              emailjs.send('service_njmc1nf', 'template_l8cb34c', {
+                email: 'jidvian.raluca@yahoo.com', order_id: '🛍️ NEUE BESTELLUNG – ' + orderNum,
+                orders: cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
+                cost: { shipping: shipping.toFixed(2), tax: customerEmail || 'Gast', total: orderTotal.toFixed(2) }
+              }).catch(function() {});
+            }
 
             // Build WhatsApp order notification for owner
             var isGuest = !window.currentUser;
@@ -1795,9 +1803,13 @@ window.loadPayPalSDK = function(){
               +   '<div style="font-size:.72rem;color:#999;margin-top:4px;">Bitte notieren oder Screenshot machen</div>'
               + '</div>'
               + '<p style="color:#666;font-size:.85rem;margin-bottom:20px;line-height:1.5;">Alle Details wurden gespeichert. Du erhältst in Kürze eine Bestätigungs-E-Mail. Wir melden uns per WhatsApp zur Abstimmung von Lieferdatum &amp; Adresse und nennen dabei diese Bestellnummer.</p>'
-              + '<button onclick="document.body.removeChild(this.closest(\'div\').parentElement);" style="display:block;width:100%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;padding:14px 24px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;margin-bottom:0;">✨ Super, alles klar!</button>'
+              + '<a href="' + waUrl + '" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:14px 24px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;margin-bottom:12px;text-decoration:none;box-sizing:border-box;">📲 Bestellung per WhatsApp bestätigen</a>'
+              + '<button onclick="document.body.removeChild(this.closest(\'div\').parentElement);" style="display:block;width:100%;background:#f3e6f9;color:#8e44ad;padding:12px 24px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;border:none;">✨ Super, alles klar!</button>'
               + '</div>';
             document.body.appendChild(modal);
+
+            // Auto-open WhatsApp after short delay so owner is notified even if customer closes modal
+            setTimeout(function(){ window.open(waUrl, '_blank'); }, 800);
 
             showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
             cart = []; appliedDiscount = false; window._paypalRendered = false; updateCartUI();
