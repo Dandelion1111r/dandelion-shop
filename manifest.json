@@ -28,5 +28,44 @@
   ],
   "categories": [
     "shopping"
+  ],
+  "screenshots": [
+    {
+      "src": "geburtstagsballon-geschenkbox.webp",
+      "sizes": "400x501",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Personalisierter Geburtstagsballon mit Geschenkbox"
+    },
+    {
+      "src": "ballon-box-boho-blau-gold.webp",
+      "sizes": "641x800",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Ballon-Box Boho Luxe – Blau & Gold"
+    },
+    {
+      "src": "hochzeitsballon-box-lila.webp",
+      "sizes": "641x800",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Hochzeitsballon Box personalisiert"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ballon gestalten",
+      "short_name": "Gestalten",
+      "description": "Personalisiere deinen Ballon direkt",
+      "url": "/?page=shop",
+      "icons": [{ "src": "icon192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kollektionen",
+      "short_name": "Kollektion",
+      "description": "Alle Geschenk-Kollektionen ansehen",
+      "url": "/?page=kollektionen",
+      "icons": [{ "src": "icon192.png", "sizes": "192x192" }]
+    }
   ]
 }
