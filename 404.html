@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Seite nicht gefunden | Dandelion 11:11</title>
 <meta name="robots" content="noindex,follow">
+<meta name="keywords" content="Seite nicht gefunden, Dandelion 11:11">
 <meta name="description" content="Diese Seite wurde leider nicht gefunden. Entdecke unsere personalisierten Ballons, Blumenboxen und Geschenke auf dandelion1111.de – handgemacht in Bad Wörishofen.">
+<link rel="stylesheet" href="/styles.css">
 <link rel="canonical" href="https://www.dandelion1111.de/404.html">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Dandelion 11:11">
@@ -16,6 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://www.dandelion1111.de/404.html">
 <meta property="og:type" content="website">
+<meta name="twitter:site" content="@dandelion11_1111">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Seite nicht gefunden | Dandelion 11:11">
 <meta name="twitter:description" content="Die gesuchte Seite wurde nicht gefunden. Entdecke unsere personalisierten Ballons und Geschenke.">
@@ -99,7 +102,23 @@ p{font-size:1rem;color:#6b5a7a;max-width:380px;line-height:1.65;margin-bottom:28
 </script>
 <link rel="preload" href="fa-subset.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="Dandelionlogo-fixed.webp" as="image">
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Dandelion 11:11",
+  "url": "https://www.dandelion1111.de/",
+  "logo": "https://www.dandelion1111.de/Dandelionlogo-fixed.webp",
+  "email": "hallo@dandelion1111.de",
+  "telephone": "+491757668955",
+  "sameAs": ["https://www.instagram.com/dandelion11_design","https://www.tiktok.com/@raluca.jidvian"]
+}
+</script>
+<style>
+#backToTop{position:fixed;bottom:84px;right:24px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;font-size:1.2rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(142,68,173,.4);z-index:199;transition:opacity .2s;}
+#backToTop.visible{display:flex;}
+#backToTop:hover{opacity:.85;}
+</style></head>
 <body>
 <main id="main-content" role="main">
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
@@ -116,5 +135,30 @@ p{font-size:1rem;color:#6b5a7a;max-width:380px;line-height:1.65;margin-bottom:28
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
   </script>
 </main>
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;font-family:'Poppins',system-ui,sans-serif;font-size:.85rem;">
+  <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
+    <div style="flex:1;min-width:220px;">🍪 <strong>Cookies</strong> – <a href="datenschutz.html" style="color:#c084fc;">Mehr erfahren</a></div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="setCookieConsent('necessary')" style="background:transparent;color:#c084fc;border:1px solid #c084fc;padding:8px 16px;border-radius:50px;font-family:inherit;font-size:.82rem;cursor:pointer;">Nur notwendige</button>
+      <button onclick="setCookieConsent('all')" style="background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;border:none;padding:8px 18px;border-radius:50px;font-family:inherit;font-size:.82rem;cursor:pointer;">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function setCookieConsent(level){localStorage.setItem('cookieConsent',level);document.getElementById('cookieBanner').style.display='none';}
+  window.setCookieConsent=setCookieConsent;
+  if(!localStorage.getItem('cookieConsent')){setTimeout(function(){document.getElementById('cookieBanner').style.display='block';},800);}
+})();
+</script>
+<button id="backToTop" aria-label="Nach oben" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+<script>
+(function(){
+  var btn=document.getElementById('backToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});
+})();
+</script>
+<a href="https://wa.me/491757668955" class="wa-fab" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank" style="position:fixed;bottom:24px;right:24px;background:#25d366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:200;">&#128172;</a>
 </body>
 </html>
