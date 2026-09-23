@@ -282,6 +282,14 @@
   .scan-arrow{font-size:.95rem;color:#8e44ad;animation:pointQR .8s ease-in-out infinite;display:block;}
   @keyframes pointQR{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
   @media(max-width:900px){.logo-wordmark{display:none !important;}.scan-me{display:none !important;}}
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 <link rel="stylesheet" href="fa-subset.min.css">
 <!-- Google Analytics 4 -->
@@ -881,5 +889,9 @@
   window.addEventListener('pageshow', updateNavCartBadge);
 
 </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
+  </script>
 </body>
 </html>

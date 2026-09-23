@@ -69,6 +69,14 @@
   .lf-social a { color:rgba(255,255,255,.6); font-size:1rem; text-decoration:none; }
   .lf-social a:hover { color:#fff; }
   .wa-fab-l { position:fixed; bottom:24px; right:24px; background:#25d366; color:#fff; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.4); z-index:200; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 <link rel="stylesheet" href="fa-subset.min.css">
 <script type="application/ld+json">
@@ -179,5 +187,9 @@
 })();
 </script>
 <!-- End Cookie Consent -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
+  </script>
 </body>
 </html>
