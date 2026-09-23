@@ -170,7 +170,60 @@ footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255
 .logo-wordmark{display:flex;flex-direction:column;gap:0;margin-left:-2px;padding-bottom:18px;align-items:flex-start;text-align:left;}
 .logo-wordmark .wm-name{font-size:1.25rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
 .logo-wordmark .wm-tagline{font-size:.85rem;font-weight:400;font-style:italic;color:var(--text-light);letter-spacing:.3px;line-height:1;margin-top:10px;}
-@media(max-width:768px){.logo-wordmark{display:none;}}</style>
+@media(max-width:768px){.logo-wordmark{display:none;}}
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .search-filter-bar {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 0 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-filter-bar input[type="search"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 16px;
+    border: 1px solid #e0d0f0;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: .9rem;
+    outline: none;
+    background: #fff;
+    color: #3a2e3f;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .search-filter-bar input[type="search"]:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 3px rgba(142,68,173,.15);
+  }
+  .search-filter-bar select {
+    padding: 10px 14px;
+    border: 1px solid #e0d0f0;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: .9rem;
+    background: #fff;
+    color: #3a2e3f;
+    cursor: pointer;
+    outline: none;
+  }
+  .no-results-msg {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8e44ad;
+    font-size: 1rem;
+    display: none;
+  }
+</style>
 <link rel="stylesheet" href="fa-subset.min.css">
 
   <script type="application/ld+json">
@@ -571,5 +624,43 @@ footer{background:linear-gradient(135deg,#2d1b3d,#1a0f24);color:rgba(255,255,255
 })();
 </script>
 <!-- End Cookie Consent -->
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xnrsigk022");
+  </script>
+<script>
+(function(){
+  var searchInput = document.getElementById('catSearchInput');
+  var sortSelect = document.getElementById('catSortSelect');
+  var noRes = document.getElementById('catNoResults');
+  var grid = document.querySelector('.cards, .grid, .products-grid, section.cards');
+  if(!grid) grid = document.querySelector('[class*="card"]') ? document.querySelector('[class*="card"]').parentElement : null;
+  if(!grid || !searchInput) return;
+
+  function getCards() { return Array.from(grid.querySelectorAll('a.card, .card, .prod-card')); }
+  function getPrice(card) {
+    var el = card.querySelector('.price, .prod-price');
+    return el ? parseFloat(el.textContent.replace(/[^0-9,]/g,'').replace(',','.')) || 0 : 0;
+  }
+  function getName(card) {
+    var el = card.querySelector('strong, h3, .prod-name, .card-title');
+    return el ? el.textContent.trim().toLowerCase() : card.textContent.trim().toLowerCase();
+  }
+  function apply() {
+    var q = searchInput.value.trim().toLowerCase();
+    var sort = sortSelect ? sortSelect.value : 'default';
+    var cards = getCards();
+    var visible = cards.filter(function(c){ return !q || c.textContent.toLowerCase().includes(q); });
+    if(sort === 'price-asc') visible.sort(function(a,b){ return getPrice(a) - getPrice(b); });
+    else if(sort === 'price-desc') visible.sort(function(a,b){ return getPrice(b) - getPrice(a); });
+    else if(sort === 'name-asc') visible.sort(function(a,b){ return getName(a).localeCompare(getName(b)); });
+    cards.forEach(function(c){ c.style.display='none'; });
+    visible.forEach(function(c){ c.style.display=''; });
+    if(noRes) noRes.style.display = visible.length === 0 ? 'block' : 'none';
+  }
+  searchInput.addEventListener('input', apply);
+  if(sortSelect) sortSelect.addEventListener('change', apply);
+})();
+</script>
 </body>
 </html>
