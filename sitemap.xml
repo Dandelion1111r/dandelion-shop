@@ -1,624 +1,1245 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.dandelion1111.de/18-geburtstag/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>18. Geburtstag Geschenk personalisiert – Ballon & Box | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/30-geburtstag/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>30. Geburtstag Geschenk personalisiert – Ballon & Box | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/babyparty.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/drachen-blumenbox.webp</image:loc>
+      <image:title>Personalisierter Babyparty-Ballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-abschluss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/abschluss-ballon-congradulations.webp</image:loc>
+      <image:title>Ballon zum Abschluss &amp; Abitur – personalisiert</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-box-geschenk.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Ballon Box Geschenk – personalisiert</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-geburtstag-personalisiert.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-wunsch-illustration.webp</image:loc>
+      <image:title>Ballon Geburtstag personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-hochzeit-deko.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-box-lila.webp</image:loc>
+      <image:title>Ballon Hochzeit Deko – personalisiert</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-mit-namen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Ballon mit Namen personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballon-wunschtext.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-wunsch-illustration.webp</image:loc>
+      <image:title>Ballon mit Wunschtext personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons-bad-woerishofen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons Bad Wörishofen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons/augsburg/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons Augsburg | Dandelion 11:11 Bayern</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons/kaufbeuren/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons Kaufbeuren | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons/landsberg/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons Landsberg am Lech | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons/memmingen/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons Memmingen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ballons/muenchen/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp</image:loc>
+      <image:title>Personalisierte Ballons München | Dandelion 11:11 Bayern</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/bubble-ballon-personalisiert.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Bubble Ballon personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/einschulung-geschenk/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Einschulung Geschenk personalisiert – Ballon & Box | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/faq.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/Dandelionlogo-fixed.png</image:loc>
+      <image:title>FAQ – Häufige Fragen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/fussball.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-blumenbox.webp</image:loc>
+      <image:title>Personalisierter Fußballballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geburtstag.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Personalisierter Geburtstagsballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/gender-reveal.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/gender-reveal-ballon-boy-or-girl.webp</image:loc>
+      <image:title>Gender Reveal Ballon kaufen – Boy or Girl | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenk-zum-geburtstag/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Geschenk zum Geburtstag – personalisierte Ballons & Boxen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenk-zur-geburt.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Ballon & Geschenk zur Geburt | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballon-frau.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-lila-champagner.webp</image:loc>
+      <image:title>Geschenkballon für Frauen – personalisiert</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballon-geburtstag.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Geschenkballon Geburtstag – personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballon-hochzeit/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-rosa.webp</image:loc>
+      <image:title>Hochzeitsballon & Geschenk zur Hochzeit – personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballon-mann.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-dark-chrome-schwarz-gold.webp</image:loc>
+      <image:title>Geschenkballon für Männer – personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballons/babyparty/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Baby Shower Ballon & Babyparty Geschenk | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballons/geburtstag/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-blau-blumenbox.webp</image:loc>
+      <image:title>Personalisierte Geburtstagsballons | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkballons/hochzeit/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-box-lila.webp</image:loc>
+      <image:title>Hochzeitsballon personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenkbox-geburtstag.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ferrero-geburtstagsbox.webp</image:loc>
+      <image:title>Geschenkbox Geburtstag personalisiert</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenke-fuer-mama/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Geschenk für Mama – personalisierte Ballons & Blumenboxen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenke/mama/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/feen-blumenbox.webp</image:loc>
+      <image:title>Ballon für Mama & Muttertag Geschenk | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/geschenke/papa/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-dark-chrome-schwarz-gold.webp</image:loc>
+      <image:title>Ballon für Papa & Vatertag Geschenk | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/hochzeit.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-rosa.webp</image:loc>
+      <image:title>Personalisierter Hochzeitsballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>1.0</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Personalisierte Geschenkballons kaufen | Dandelion 11:11 Bayern</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/jga-geschenk/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-luxe.webp</image:loc>
+      <image:title>JGA Geschenk für die Braut – Ballon & Box personalisiert | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-babyparty-geschenk-ideen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/feen-blumenbox.webp</image:loc>
+      <image:title>Babyparty Geschenk Ideen: Was wirklich ankommt</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-boxhandschuhe-blumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/boxhandschuh-blumenstrauss-frontal.webp</image:loc>
+      <image:title>Zwischen Kraft und Blüten: Blumenstrauß mit Boxhandschuhen</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-dog-mom-geschenkbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hunde-geschenkbox-dogmom-1.webp</image:loc>
+      <image:title>Dog Mom Geschenkbox</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-fussball-blumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-blumenbox.webp</image:loc>
+      <image:title>Für die Liebe zum Fußball: Blumenstrauß für Fußballfans</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-hochzeit-ballon-personalisiert.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/lilahochzeitsballonbox.webp</image:loc>
+      <image:title>Hochzeitsballon personalisiert – Geschenk</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-lamborghini-vater-geschenk.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/lamborghini-modellauto-bilderrahmen.webp</image:loc>
+      <image:title>Lamborghini Geschenk für Väter</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-mama-ballon-box-boho.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Muttertag Geschenk: Mama Ballon Box Boho</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-tennis-blumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/tennisschlaeger-blumenstrauss.webp</image:loc>
+      <image:title>Tennisschläger Blumenstrauß</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-volleyball-blumenball.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/blumenball-rosa-volleyball.webp</image:loc>
+      <image:title>Volleyball Blumenball</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/boxhandschuh-blumenstrauss-frontal.webp</image:loc>
+      <image:title>Dandelion Journal: Die Schönheit der Gegensätze</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/jugendweihe-geschenk/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Jugendweihe Geschenk personalisiert – Ballon & Box | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/kollektionen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Kollektionen: Personalisierte Ballons für jeden Anlass | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/kontakt.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/Dandelionlogo-fixed.png</image:loc>
+      <image:title>Kontakt – Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/kundenfotos.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/Dandelionlogo-fixed.png</image:loc>
+      <image:title>Kundenfotos – Echte Ballons, echte Momente | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/kuscheltiere.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-blumenbox.webp</image:loc>
+      <image:title>Kuscheltier-Geschenke &amp; Plüschtier-Ballons | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/liebe.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/herz-box-ferrero-rote-rosen.webp</image:loc>
+      <image:title>Valentinstag &amp; Liebesgeschenke | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/muttertag-ballon.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-lila-champagner.webp</image:loc>
+      <image:title>Muttertag Ballon – Geschenk für Mama | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ostern.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-haeschen.webp</image:loc>
+      <image:title>Ostergeschenke handgemacht kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/personalisierte-geschenke.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/sapca-colectie.webp</image:loc>
+      <image:title>Personalisierte Geschenke gestalten | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/personalisierte-schirmmuetze.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/sapca-colectie.webp</image:loc>
+      <image:title>Personalisierte Schirmmütze mit Wunschtext</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/personalisierter-geschenkballon-deutschland.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
+      <image:title>Personalisierter Geschenkballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktabschlussballoncongradulations.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/abschluss-ballon-congradulations.webp</image:loc>
+      <image:title>Abschluss-Ballon &quot;conGRADulations&quot; kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktballonboxschwarzgold.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-schwarz-gold.webp</image:loc>
+      <image:title>Ballon-Box Schwarz &amp; Gold kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktballonmitwunschillustration.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-wunsch-illustration.webp</image:loc>
+      <image:title>Ballon mit Wunsch-Illustration kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktblumenballrosavolleyball.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/blumenball-rosa-volleyball.webp</image:loc>
+      <image:title>Blumenball Rosa Volleyball kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktboxhandschuhblumenstrausskraftblueten.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/boxhandschuh-blumenstrauss-frontal.webp</image:loc>
+      <image:title>Boxhandschuh-Blumenstrauß &quot;Kraft &amp; Blüten&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktbrauthaarschmuckperlenorchideen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/brauthaarschmuck-perlen-orchideen.webp</image:loc>
+      <image:title>Brauthaarschmuck Perlen &amp; Orchideen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktcr7fangeschenkbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-geschenkbox-cr7-ronaldo-inhalt.webp</image:loc>
+      <image:title>CR7 Fan-Geschenkbox &quot;Road to 2026&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktcr7fangeschenkboxelbicho.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp</image:loc>
+      <image:title>CR7 Fan-Geschenkbox &quot;El Bicho&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktcr7fangeschenkboxonelastdance.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp</image:loc>
+      <image:title>CR7 Fan-Geschenkbox &quot;One Last Dance&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktdekooldtimermittrockenblumenperlen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/deko-oldtimer-trockenblumen-perlen-set.webp</image:loc>
+      <image:title>Deko-Oldtimer mit Trockenblumen &amp; Perlen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktdrachenblumenbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/drachen-blumenbox.webp</image:loc>
+      <image:title>Drachen Blumenbox kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/ballon-box-boho-luxe/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
+      <image:title>Ballon-Box Boho Luxe kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/blumenkorb-mit-foto-medaillon/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/blumenkorb-foto-medaillon.webp</image:loc>
+      <image:title>Blumenkorb mit Foto-Medaillon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/dark-chrome-ballon-box/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-box-dark-chrome-schwarz-gold.webp</image:loc>
+      <image:title>Dark-Chrome Ballon-Box kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/feen-blumenbox/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/feen-blumenbox.webp</image:loc>
+      <image:title>Feen-Blumenbox kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Alle Produkte | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/teddybaer-blumenbox/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-blumenbox.webp</image:loc>
+      <image:title>Teddybär Blumenbox kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkte/teddybaer-im-geschenkballon/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Teddybär im Geschenkballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkteinhornballonstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/einhorn-ballonstrauss.webp</image:loc>
+      <image:title>Einhorn-Ballonstrauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktferrerogeburtstagsbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ferrero-geburtstagsbox.webp</image:loc>
+      <image:title>Ferrero Geburtstags-Box kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktfussballblumenbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-blumenbox.webp</image:loc>
+      <image:title>Fußball Blumenbox kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktfussballfanstraussronaldo.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussball-fan-strauss-ronaldo.webp</image:loc>
+      <image:title>Fußball-Fan Strauß &quot;Ronaldo&quot; kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktfussballschuhblumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussballschuh-blumenstrauss.webp</image:loc>
+      <image:title>Fußballschuh-Blumenstrauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktfussballschuhstraussnike.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussballschuh-strauss-nike.webp</image:loc>
+      <image:title>Fußballschuh-Strauß &quot;Nike&quot; kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktfussballschuhvasemitweissenrosen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/fussballschuh-vase-weisse-rosen.webp</image:loc>
+      <image:title>Fußballschuh-Vase mit weißen Rosen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktgamergeburtstagsset.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/gamer-geburtstags-set.webp</image:loc>
+      <image:title>Gamer Geburtstags-Set kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktgeburtstagsballonblaumitblumenbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/geburtstagsballon-blau-blumenbox.webp</image:loc>
+      <image:title>Geburtstagsballon Blau mit Blumenbox | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktgeburtstagsgeschenkboxfuerhundedogmom.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hunde-geschenkbox-dogmom-1.webp</image:loc>
+      <image:title>Geburtstagsbox für Hunde &quot;Dog Mom&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktgesichtskulpturmittrockenblumen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/gesicht-skulptur-trockenblumen.webp</image:loc>
+      <image:title>Gesicht-Skulptur mit Trockenblumen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktheissluftballonhappyvalentinesday.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/heissluftballon-valentinstag.webp</image:loc>
+      <image:title>Heißluftballon &quot;Happy Valentine</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktherzboxmitferrerorotenrosen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/herz-box-ferrero-rote-rosen.webp</image:loc>
+      <image:title>Herz-Box mit Ferrero &amp; roten Rosen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkthundeleckerlisetmittennisball.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hunde-geschenkbox-dogmom-4.webp</image:loc>
+      <image:title>Hundeleckerli-Set mit Tennisball kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktkaffeebecherblumenstraussmitfee.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/kaffeebecher-blumenstrauss-fee-detail.webp</image:loc>
+      <image:title>Kaffeebecher-Blumenstrauß mit Fee kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktkinderjoyblumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/kinder-joy-blumenstrauss.webp</image:loc>
+      <image:title>Kinder Joy Blumenstrauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktlamborghinimodellautobilderrahmen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/lamborghini-modellauto-bilderrahmen.webp</image:loc>
+      <image:title>Lamborghini Modellauto Bilderrahmen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktlamborghinimodellautobilderrahmenblau.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/lamborghini-modellauto-bilderrahmen-blau.webp</image:loc>
+      <image:title>Lamborghini Modellauto Bilderrahmen Blau | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktlilachampagnerballon.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-lila-champagner.webp</image:loc>
+      <image:title>Lila Champagner-Ballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktlilahochzeitsballonbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-box-lila.webp</image:loc>
+      <image:title>Lila Hochzeits-Ballon-Box kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktluxusblumenboxdiorschleife.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/dior-blumenbox-schleife.webp</image:loc>
+      <image:title>Luxus-Blumenbox &quot;Dior&quot;-Schleife kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmitastronautenkueken.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-astronauten-kueken.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Astronauten-Küken | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmitdrachen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/easter-drachen-blumenbox.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Drachen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmitgruenemdrachen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-gruener-drache.webp</image:loc>
+      <image:title>Oster-Blumenbox mit grünem Drachen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmithaeschen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-haeschen.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Häschen kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmithasekueken.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-hase-kueken.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Hase &amp; Küken kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmithasenfamilie.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-hasenfamilie.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Hasenfamilie kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmitmacaronhase.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-macaron-hase.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Macaron-Hase kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktosterblumenboxmitmacaronkueken.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/oster-blumenbox-macaron-kueken.webp</image:loc>
+      <image:title>Oster-Blumenbox mit Macaron-Küken kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktperlenbrautstraussivory.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/brautstrauss-perlen-ivory.webp</image:loc>
+      <image:title>Perlen-Brautstrauß Ivory kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktpersonalisiertesringkissentablettmitnamendatum.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ringkissen-tablett-rote-rosen.webp</image:loc>
+      <image:title>Ringkissen-Tablett mit Namen &amp; Datum | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktpilzgnomblumenbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/pilz-gnom-blumenbox.webp</image:loc>
+      <image:title>Pilz-Gnom Blumenbox kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktpopballonstitchmitblumenschmetterlingen.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-stitch-blumen-schmetterlinge.webp</image:loc>
+      <image:title>Stitch-Ballon mit Blumen &amp; Schmetterlinge | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktpopmegenderrevealballonboyorgirl.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/gender-reveal-ballon-boy-or-girl.webp</image:loc>
+      <image:title>Pop-Me Gender-Reveal-Ballon &quot;Boy or Girl&quot; | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktpremiumblumenboxmitschmetterling.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/premium-blumenbox-schmetterling.webp</image:loc>
+      <image:title>Premium Blumenbox mit Schmetterling kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktregenbogeneinhornimballon.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/regenbogen-einhorn-ballon.webp</image:loc>
+      <image:title>Regenbogen-Einhorn im Ballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktromantischerrosaballon.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/hochzeitsballon-rosa.webp</image:loc>
+      <image:title>Romantischer Rosa Ballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktspidermangeburtstagsbox.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/spiderman-geburtstagsbox.webp</image:loc>
+      <image:title>Spiderman Geburtstags-Box kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktstitchblumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/stitch-blumenstrauss.webp</image:loc>
+      <image:title>Stitch Blumenstrauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktteddygeschenkboxmitballon.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddy-geschenkbox-mit-ballon.webp</image:loc>
+      <image:title>Teddy Geschenkbox mit Ballon kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produkttennisschlaegerblumenstrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/tennisschlaeger-blumenstrauss.webp</image:loc>
+      <image:title>Tennisschläger-Blumenstrauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktwhiskeyferrerostrauss.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/whiskey-ferrero-strauss.webp</image:loc>
+      <image:title>Whiskey &amp; Ferrero Strauß kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/sonstiges.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/ballon-wunsch-illustration.webp</image:loc>
+      <image:title>Sonstige Geschenke &amp; Dekorationen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/taufe-kommunion.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Geschenke zur Taufe & Kommunion kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/ueber-uns.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/Dandelionlogo-fixed.png</image:loc>
+      <image:title>Über uns</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/valentinstag-geschenk/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/heissluftballon-valentinstag.webp</image:loc>
+      <image:title>Valentinstag Geschenk – personalisierte Ballons & Rosen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://www.dandelion1111.de/versand.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/Dandelionlogo-fixed.png</image:loc>
+      <image:title>Versand &amp; Rückgabe | Dandelion 11:11</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/weihnachten.html</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.6</priority>
+  
+    <image:image>
+      <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
+      <image:title>Weihnachtsgeschenke handgemacht kaufen | Dandelion 11:11</image:title>
+    </image:image>
   </url>
 </urlset>
