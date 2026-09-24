@@ -338,7 +338,13 @@
     <h2 style="color:#8e44ad;font-size:1.15rem;margin:32px 0 14px;">Wie wir Fußball-Arrangements gestalten</h2>
     <p>Die Herausforderung bei Sport-Geschenken: Sie müssen authentisch wirken, nicht kitschig. Wir erreichen das durch gezielte Farbauswahl statt Vereinslogos. Rote und weiße Rosen für Bayern-Fans, Schwarz-Gelb für Dortmund-Liebhaber, Grün-Weiß für Werder-Anhänger – die Farben sprechen für sich, ohne rechtliche Einschränkungen bei Markenrechten zu umgehen.</p>
     <p>Zusätzlich können wir Trikot-Nummern, Spielernamen oder persönliche Botschaften auf dem Begleitballon unterbringen. Das Resultat: ein Geschenk, das sofort zugeordnet und für immer erinnert wird.</p>
-  </article>
+  
+<div style="margin:2rem 0;padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f3eaf8,#fdf6fb);border-radius:12px;border-left:4px solid #8e44ad;">
+  <p style="margin:0 0 .5rem;font-weight:600;color:#8e44ad;">✨ Direkt bestellen</p>
+  <p style="margin:0 0 .75rem;font-size:.95rem;">Entdecke unseren <strong>Fußball Blumenbox</strong> – handgemacht in Bad Wörishofen.</p>
+  <a href="/produktfussballblumenbox.html" style="display:inline-block;background:#8e44ad;color:#fff;padding:.5rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;">Zum Produkt →</a>
+</div>
+</article>
 
     <div class="more">
       <h2 data-i18n="more_title">Mehr aus dem Journal</h2>
@@ -573,6 +579,14 @@
   if(!btn)return;
   window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});
 })();
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
 </script>
 </body>
 </html>

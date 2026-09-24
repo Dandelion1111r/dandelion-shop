@@ -22,5 +22,13 @@
 <body>
 <p>Diese Seite wurde verschoben. <a href="/personalisierte-schirmmuetze.html">Zur Seite Personalisierte Schirmmütze</a></p>
 <script>window.location.replace('/personalisierte-schirmmuetze.html');</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 </body>
 </html>
