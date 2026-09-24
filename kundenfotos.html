@@ -538,5 +538,13 @@ footer { background: linear-gradient(135deg,#2d1b69,#5b1c5a); color: rgba(255,25
   window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300);},{passive:true});
 })();
 </script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 </body>
 </html>
