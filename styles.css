@@ -217,3 +217,26 @@
   .featured-image{max-width:100%;aspect-ratio:3/4;}
   .verse{padding:10px 14px;}
 }
+
+/* ── Simple product detail pages (produkt*.html) ── */
+.wrap:has(.prod-photo){max-width:800px;}
+.prod-photo{display:block;width:100%;max-width:520px;max-height:560px;object-fit:contain;border-radius:20px;background:#f9eef6;margin:0 auto 28px;}
+.price{font-size:1.5rem;font-weight:700;color:#d63384;margin:12px 0 16px;}
+.specs{background:linear-gradient(135deg,#fdf0fa,#f5e8f8);border-radius:14px;padding:16px 20px;font-size:.9rem;line-height:1.7;color:#5a4a63;margin-bottom:14px;}
+.specs strong{color:#3a2e3f;}
+/* Upsell / related products */
+.upsell{max-width:1100px;margin:48px auto 0;padding:0 20px 60px;}
+.upsell h2{font-size:1.3rem;font-weight:700;color:#8e44ad;margin-bottom:24px;text-align:center;}
+.upsell-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.upsell-card{display:block;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(142,68,173,.09);text-decoration:none;color:inherit;transition:transform .2s;}
+.upsell-card:hover{transform:translateY(-4px);}
+.upsell-card img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#f9eef6;}
+.upsell-card-body{padding:14px 16px 16px;}
+.upsell-card-body .prod-name{font-size:.9rem;font-weight:600;color:#2d2d2d;display:block;margin-bottom:6px;}
+.upsell-card-body .prod-price{font-size:1rem;font-weight:700;color:#d63384;}
+/* Reviews title on product detail pages */
+.reviews-title{font-size:1.4rem;font-weight:700;color:#8e44ad;text-align:center;margin-bottom:28px;}
+@media(max-width:640px){
+  .upsell-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .prod-photo{max-height:380px;}
+}
