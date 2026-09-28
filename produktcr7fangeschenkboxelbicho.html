@@ -843,5 +843,43 @@ if('serviceWorker' in navigator){
   });
 }
 </script>
+<script>
+(function(){
+  var g=document.querySelector(".gallery");
+  if(!g)return;
+  var imgs=Array.from(g.querySelectorAll("img"));
+  if(imgs.length<2)return;
+  var track=document.createElement("div");
+  track.className="gallery-track";
+  imgs.forEach(function(img){track.appendChild(img);});
+  var thumbs=document.createElement("div");
+  thumbs.className="gallery-thumbs";
+  imgs.forEach(function(img,i){
+    var t=document.createElement("img");
+    t.src=img.src; t.alt=img.alt; t.className="gallery-thumb"+(i===0?" active":"");
+    t.loading="lazy";
+    t.onclick=function(){track.scrollTo({left:img.offsetLeft,behavior:"smooth"});};
+    thumbs.appendChild(t);
+  });
+  var dots=document.createElement("div");
+  dots.className="gallery-dots";
+  imgs.forEach(function(img,i){
+    var d=document.createElement("button");
+    d.className="gallery-dot"+(i===0?" active":"");
+    d.setAttribute("aria-label","Bild "+(i+1));
+    d.onclick=function(){track.scrollTo({left:img.offsetLeft,behavior:"smooth"});};
+    dots.appendChild(d);
+  });
+  g.innerHTML="";
+  g.appendChild(track);
+  g.appendChild(dots);
+  g.appendChild(thumbs);
+  track.addEventListener("scroll",function(){
+    var idx=Math.round(track.scrollLeft/track.clientWidth);
+    dots.querySelectorAll(".gallery-dot").forEach(function(d,i){d.classList.toggle("active",i===idx);});
+    thumbs.querySelectorAll(".gallery-thumb").forEach(function(t,i){t.classList.toggle("active",i===idx);});
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
