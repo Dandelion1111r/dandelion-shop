@@ -1601,7 +1601,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <!-- TOAST -->
 <div class="toast" id="toast" data-i18n="toast_default">🛒 Ballon wurde in den Warenkorb gelegt!</div>
 
-<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" onclick="typeof gtag==='function'&&gtag('event','click_whatsapp',{event_category:'engagement',event_label:'float_button'})" style="position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;" rel="noopener noreferrer">
+<a href="https://wa.me/491757668955" target="_blank" aria-label="WhatsApp Kontakt" onclick="typeof gtag==='function'&&gtag('event','click_whatsapp',{event_category:'engagement',event_label:'float_button'})" style="position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:500;color:#fff;font-size:1.6rem;text-decoration:none;" rel="noopener noreferrer">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -2089,7 +2089,7 @@ window.loadPayPalSDK = function(){
 </script>
 
 <!-- Cookie Consent Banner -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:.85rem;line-height:1.55;">
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1e1530;color:#f0eaf8;padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 24px rgba(0,0,0,.25);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:.85rem;line-height:1.55;">
   <div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
     <div style="flex:1;min-width:220px;">
       🍪 <strong>Cookies &amp; Datenschutz</strong><br>
@@ -2536,7 +2536,7 @@ window.loadPayPalSDK = function(){
 </script>
 
 <!-- Sticky mobile CTA (item 48) -->
-<div id="stickyCTA" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:1990;background:linear-gradient(135deg,#8e44ad,#d63384);padding:12px 20px;box-shadow:0 -4px 20px rgba(142,68,173,.35);safe-area-inset-bottom:env(safe-area-inset-bottom);">
+<div id="stickyCTA" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:1990;background:linear-gradient(135deg,#8e44ad,#d63384);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 20px rgba(142,68,173,.35);">
   <div style="max-width:600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;">
     <div style="color:rgba(255,255,255,.9);font-size:.8rem;line-height:1.3;">
       <div style="font-weight:700;color:#fff;font-size:.95rem;">ab 32,90 €</div>

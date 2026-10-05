@@ -80,7 +80,7 @@
   .lf-social { display:flex; gap:14px; }
   .lf-social a { color:rgba(255,255,255,.6); font-size:1rem; text-decoration:none; }
   .lf-social a:hover { color:#fff; }
-  .wa-fab-l { position:fixed; bottom:24px; right:24px; background:#25d366; color:#fff; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.4); z-index:200; }
+  .wa-fab-l { position:fixed; bottom:calc(24px + env(safe-area-inset-bottom,0px)); right:24px; background:#25d366; color:#fff; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.4); z-index:200; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
