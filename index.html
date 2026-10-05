@@ -1913,7 +1913,7 @@ window.loadPayPalSDK = function(){
             email: customerEmail, items: cart,
             phone: ppPhone.trim(),
             name: ppName.trim() || null,
-            address: { street: ppStreet.trim() || null, plz: ppPlz.trim() || null, ort: ppOrt.trim() || null },
+            addressFull: [ppStreet.trim(), ppPlz.trim() && ppOrt.trim() ? ppPlz.trim() + ' ' + ppOrt.trim() : null].filter(Boolean).join(', ') || null,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
             orderNumber: orderNum, status: 'paid', starred: false,
