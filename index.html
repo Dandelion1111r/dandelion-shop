@@ -1908,12 +1908,23 @@ window.loadPayPalSDK = function(){
 
           var orderNum = 'D-' + Math.random().toString(36).substr(2, 6).toUpperCase();
 
+          var ppItemsSummary = cart.map(function(i, idx) {
+            var name = i.productName || i.message || 'Ballon';
+            var details = [];
+            if (i.balloonColor) details.push(i.balloonColor);
+            if (i.balloonType && i.balloonType !== 'latex') details.push(i.balloonType);
+            if (i.filling && i.filling !== 'mini-balloons') details.push(i.filling);
+            if (i.card) details.push('Karte: ' + i.card);
+            if (i.persona) details.push('Hinweis: ' + i.persona);
+            return (idx+1) + '. ' + name + (details.length ? ' (' + details.join(', ') + ')' : '') + ' – ' + i.price.toFixed(2) + ' €';
+          }).join(' | ');
           var saveOrder = window.db ? window.db.collection('orders').add({
             userId: window.currentUser ? window.currentUser.uid : 'guest',
             email: customerEmail, items: cart,
             phone: ppPhone.trim(),
             name: ppName.trim() || null,
             addressFull: [ppStreet.trim(), ppPlz.trim() && ppOrt.trim() ? ppPlz.trim() + ' ' + ppOrt.trim() : null].filter(Boolean).join(', ') || null,
+            itemsSummary: ppItemsSummary,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
             orderNumber: orderNum, status: 'paid', starred: false,
