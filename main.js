@@ -78,7 +78,7 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
       }).catch(function(){});
     }
     // Save order to Firestore (guest or logged-in)
-    const _waOrder={userId:window.currentUser?window.currentUser.uid:"guest",email:emailVal&&emailVal.trim()||null,phone:phoneVal.trim(),name:nameVal&&nameVal.trim()||null,address:{street:streetVal&&streetVal.trim()||null,plz:plzVal&&plzVal.trim()||null,ort:ortVal&&ortVal.trim()||null},orderType:"whatsapp",items:cart.map(function(i){const o=Object.assign({},i);delete o.customImage;return o;}),total:parseFloat(total),discountCode:appliedDiscount?"DANDELION10":null,shipping:shipping,status:"pending"};
+    const _waOrder={userId:window.currentUser?window.currentUser.uid:"guest",email:emailVal&&emailVal.trim()||null,phone:phoneVal.trim(),name:nameVal&&nameVal.trim()||null,address:{street:streetVal&&streetVal.trim()||null,plz:plzVal&&plzVal.trim()||null,ort:ortVal&&ortVal.trim()||null},orderType:"whatsapp",items:cart.map(function(i){const o=Object.assign({},i);delete o.customImage;return o;}),total:parseFloat(total),discountCode:appliedDiscount?"DANDELION10":null,shipping:shipping,status:"pending",starred:false};
     if(window.db)window.db.collection("orders").add(Object.assign(_waOrder,{createdAt:firebase.firestore.FieldValue.serverTimestamp()})).catch(function(){});
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
     // Show success toast
@@ -93,7 +93,7 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
   div.style.cssText="background:#f7eefb;border:1.5px solid var(--purple);border-radius:12px;padding:14px 16px;margin-bottom:12px;";
   div.innerHTML=`
 <p style="font-size:var(--fs-sm);font-weight:700;color:var(--purple);margin-bottom:10px;">📋 ${lang==="ro"?"Detalii comandă":"Bestelldetails"}</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:8px;">
   <div style="position:relative;">
     <input type="text" id="waNameInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="${lang==="ro"?"Prenume Nume ✱":"Vorname Nachname ✱"}" required>
   </div>
