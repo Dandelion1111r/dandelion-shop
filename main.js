@@ -14,6 +14,22 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
   window._sendWAOrder = function(emailVal, phoneVal, nameVal, streetVal, plzVal, ortVal) {
     if(!phoneVal || !phoneVal.trim()) {
       alert("Bitte gib deine Telefonnummer an (Pflichtfeld).");
+      document.getElementById("waPhoneInput")?.focus();
+      return;
+    }
+    if(!nameVal || !nameVal.trim()) {
+      alert("Bitte gib deinen Namen an (Pflichtfeld).");
+      document.getElementById("waNameInput")?.focus();
+      return;
+    }
+    if(!streetVal || !streetVal.trim()) {
+      alert("Bitte gib deine Lieferadresse an (Pflichtfeld).");
+      document.getElementById("waStreetInput")?.focus();
+      return;
+    }
+    if(!plzVal || !plzVal.trim() || !ortVal || !ortVal.trim()) {
+      alert("Bitte gib PLZ und Ort an (Pflichtfeld).");
+      document.getElementById(!plzVal||!plzVal.trim()?"waPlzInput":"waOrtInput")?.focus();
       return;
     }
     const lang = localStorage.getItem("lang")||"de";
@@ -78,18 +94,19 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
   div.innerHTML=`
 <p style="font-size:var(--fs-sm);font-weight:700;color:var(--purple);margin-bottom:10px;">📋 ${lang==="ro"?"Detalii comandă":"Bestelldetails"}</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
-  <input type="text" id="waNameInput" class="form-input" style="margin-bottom:0;" placeholder="${lang==="ro"?"Prenume Nume":"Vorname Nachname"}">
   <div style="position:relative;">
-    <input type="tel" id="waPhoneInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="${lang==="ro"?"Telefon (obligatoriu)":"Telefon (Pflichtfeld)"}" required>
-    <span style="position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--pink);font-size:0.7rem;font-weight:700;">✱</span>
+    <input type="text" id="waNameInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="${lang==="ro"?"Prenume Nume ✱":"Vorname Nachname ✱"}" required>
+  </div>
+  <div style="position:relative;">
+    <input type="tel" id="waPhoneInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="${lang==="ro"?"Telefon ✱":"Telefon ✱"}" required>
   </div>
 </div>
 <input type="email" id="waEmailInput" class="form-input" style="margin-bottom:8px;" placeholder="${lang==="ro"?"Email (opțional)":"E-Mail (optional)"}">
-<p style="font-size:var(--fs-xs);font-weight:600;color:var(--text-light);margin-bottom:6px;">📍 ${lang==="ro"?"Adresă de livrare (opțional)":"Lieferadresse (optional)"}</p>
-<input type="text" id="waStreetInput" class="form-input" style="margin-bottom:8px;" placeholder="${lang==="ro"?"Stradă + Nr.":"Straße + Hausnummer"}">
+<p style="font-size:var(--fs-xs);font-weight:600;color:var(--pink);margin-bottom:6px;">📍 ${lang==="ro"?"Adresă de livrare (obligatorie)":"Lieferadresse (Pflichtfeld)"}</p>
+<input type="text" id="waStreetInput" class="form-input" style="margin-bottom:8px;border-color:var(--pink);" placeholder="${lang==="ro"?"Stradă + Nr. ✱":"Straße + Hausnummer ✱"}" required>
 <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;margin-bottom:10px;">
-  <input type="text" id="waPlzInput" class="form-input" style="margin-bottom:0;" placeholder="PLZ" maxlength="10">
-  <input type="text" id="waOrtInput" class="form-input" style="margin-bottom:0;" placeholder="${lang==="ro"?"Oraș":"Ort / Stadt"}">
+  <input type="text" id="waPlzInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="PLZ ✱" maxlength="10" required>
+  <input type="text" id="waOrtInput" class="form-input" style="margin-bottom:0;border-color:var(--pink);" placeholder="${lang==="ro"?"Oraș ✱":"Ort / Stadt ✱"}" required>
 </div>
 <button onclick="window._sendWAOrder(document.getElementById('waEmailInput')?.value?.trim()||'',document.getElementById('waPhoneInput')?.value?.trim()||'',document.getElementById('waNameInput')?.value?.trim()||'',document.getElementById('waStreetInput')?.value?.trim()||'',document.getElementById('waPlzInput')?.value?.trim()||'',document.getElementById('waOrtInput')?.value?.trim()||'');if(document.getElementById('waPhoneInput')?.value?.trim())document.getElementById('waEmailCapture')?.remove();" style="width:100%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;border-radius:10px;padding:12px 16px;font-family:Poppins,sans-serif;font-size:var(--fs-sm);font-weight:600;cursor:pointer;">➡ ${lang==="ro"?"Trimite comanda pe WhatsApp":"Bestellung per WhatsApp senden"}</button>`;
   const cartBtn=document.getElementById("cartWhatsappBtn");
