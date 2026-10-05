@@ -80,6 +80,11 @@
       transition-duration: 0.01ms !important;
     }
   }
+  @media (max-width: 600px) {
+    .prod-toolbar { flex-direction: column; align-items: stretch; }
+    .prod-search-wrap { width: 100%; }
+    #prodSort { width: 100%; }
+  }
 </style>
 
   <script type="application/ld+json">
@@ -284,6 +289,12 @@
       <button class="cat-btn" data-cat="liebe">💕 Liebe</button>
       <button class="cat-btn" data-cat="fussball">⚽ Fußball</button>
       <button class="cat-btn" data-cat="kuscheltiere">🧸 Kuscheltiere</button>
+      <button class="cat-btn" data-cat="muttertag">🌸 Muttertag</button>
+      <button class="cat-btn" data-cat="ostern">🐣 Ostern</button>
+      <button class="cat-btn" data-cat="weihnachten">🎄 Weihnachten</button>
+      <button class="cat-btn" data-cat="taufe">✝ Taufe &amp; Kommunion</button>
+      <button class="cat-btn" data-cat="gender-reveal">🎀 Gender Reveal</button>
+      <button class="cat-btn" data-cat="geschenke">🎁 Pers. Geschenke</button>
       <button class="cat-btn" data-cat="sonstiges">✨ Sonstiges</button>
     </div>
     <div class="prod-search-wrap">
@@ -489,6 +500,38 @@
     </div>
 
     <div class="prod-card" data-cat="fussball">
+      <a href="produktcr7fangeschenkboxelbicho.html" class="prod-img-wrap">
+        <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp" srcset="fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp 600w, thumbs/fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp 400w" sizes="(max-width:600px) calc(50vw - 20px), (max-width:1100px) calc(33vw - 14px), 350px" alt="CR7 Fan-Geschenkbox El Bicho" width="600" height="800" loading="lazy">
+        <span class="prod-badge">El Bicho</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
+      </a>
+      <div class="prod-body">
+        <a href="produktcr7fangeschenkboxelbicho.html" class="prod-name">CR7 Fan-Geschenkbox El Bicho</a>
+        <div class="prod-desc">Exklusive CR7-Fanbox mit "El Bicho"-Sammelkarten-Bilderrahmen, Pokalfigur und Ball-Trophäe.</div>
+        <div class="prod-footer">
+          <div class="prod-price">39,00 €</div>
+          <button onclick="addKollToCart('CR7 Fan-Geschenkbox El Bicho',39.00,'fussball-geschenkbox-cr7-ronaldo-inhalt-sticker.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="fussball">
+      <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-img-wrap">
+        <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp" srcset="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp 600w, thumbs/fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp 400w" sizes="(max-width:600px) calc(50vw - 20px), (max-width:1100px) calc(33vw - 14px), 350px" alt="CR7 Fan-Geschenkbox One Last Dance" width="600" height="800" loading="lazy">
+        <span class="prod-badge">One Last Dance</span>
+        <div class="prod-heart"><i class="far fa-heart"></i></div>
+      </a>
+      <div class="prod-body">
+        <a href="produktcr7fangeschenkboxonelastdance.html" class="prod-name">CR7 Fan-Geschenkbox One Last Dance</a>
+        <div class="prod-desc">Exklusive CR7-Fanbox mit "One Last Dance"-Bilderrahmen, Pokalfigur und Ball-Trophäe als Abschied-Edition.</div>
+        <div class="prod-footer">
+          <div class="prod-price">39,00 €</div>
+          <button onclick="addKollToCart('CR7 Fan-Geschenkbox One Last Dance',39.00,'fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp')" class="prod-btn"><i class="fas fa-shopping-bag"></i> In den Warenkorb</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="fussball">
       <a href="produktfussballschuhblumenstrauss.html" class="prod-img-wrap">
         <img src="fussballschuh-blumenstrauss.webp" srcset="fussballschuh-blumenstrauss.webp 533w, thumbs/fussballschuh-blumenstrauss.webp 400w" sizes="(max-width:600px) calc(50vw - 20px), (max-width:1100px) calc(33vw - 14px), 350px" alt="Fußball-Schuh-Blumenstrauß" width="600" height="800" loading="lazy">
         <div class="prod-heart"><i class="far fa-heart"></i></div>
@@ -582,7 +625,7 @@
       </div>
     </div>
 
-    <p class="prod-no-results" id="noResults" style="display:none;">Kein Produkt gefunden.</p>
+    <p class="prod-no-results" id="noResults" style="display:none;">Kein Produkt gefunden. <span id="noResultsLink"></span></p>
 
   </div>
 </div>
@@ -633,6 +676,21 @@
       nav.classList.remove('open');
     }
   });
+
+  // Close mobile nav when a nav link is clicked
+  (function(){
+    var nav = document.getElementById('nav-links');
+    if(!nav) return;
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        if(window.innerWidth <= 768) {
+          nav.classList.remove('open');
+          var ham = document.querySelector('.hamburger');
+          if(ham) ham.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+  })();
 
   function addKollToCart(name, price, img) {
     try {
@@ -758,7 +816,22 @@
     cards.forEach(function(c){ c.style.display='none'; });
     visible.forEach(function(card){ card.style.display=''; grid.insertBefore(card, noRes); });
 
-    if(noRes) noRes.style.display = visible.length === 0 ? 'block' : 'none';
+    if(noRes) {
+      noRes.style.display = visible.length === 0 ? 'block' : 'none';
+      var linkEl = document.getElementById('noResultsLink');
+      if(linkEl) {
+        var catLinks = {
+          'muttertag':'muttertag-ballon.html','ostern':'ostern.html',
+          'weihnachten':'weihnachten.html','taufe':'taufe-kommunion.html',
+          'gender-reveal':'gender-reveal.html','geschenke':'personalisierte-geschenke.html'
+        };
+        if(catLinks[activeCat] && visible.length === 0) {
+          linkEl.innerHTML = '<a href="'+catLinks[activeCat]+'" style="color:#8e44ad;font-weight:600;">Zur Kategorie →</a>';
+        } else {
+          linkEl.innerHTML = '';
+        }
+      }
+    }
   }
 
   if(searchInput) searchInput.addEventListener('input', applyFilter);
