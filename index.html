@@ -17,7 +17,7 @@
   <link rel="alternate" hreflang="de" href="https://www.dandelion1111.de/">
   <link rel="alternate" hreflang="x-default" href="https://www.dandelion1111.de/">
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-  <link rel="preload" href="main.js?v=20261006" as="script">
+  <link rel="preload" href="main.js?v=20261006b" as="script">
   <link rel="preload" href="Dandelionlogo-fixed.webp" as="image" fetchpriority="high">
   <link rel="preload" href="geburtstagsballon-geschenkbox.webp" as="image" fetchpriority="high">
 
@@ -1655,7 +1655,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 </div>
 
 <!-- ═══ SCRIPT ═══ -->
-<script src="main.js?v=20261006" defer></script>
+<script src="main.js?v=20261006b" defer></script>
 <script>
 // ─── Search autocomplete (item 46) ───────────────────────────────────────────
 var _searchSuggestions = [
@@ -1911,13 +1911,13 @@ window.loadPayPalSDK = function(){
           var ppItemsSummary = cart.map(function(i, idx) {
             var name = i.productName || i.message || 'Ballon';
             var details = [];
-            if (i.balloonColor) details.push(i.balloonColor);
-            if (i.balloonType && i.balloonType !== 'latex') details.push(i.balloonType);
-            if (i.filling && i.filling !== 'mini-balloons') details.push(i.filling);
+            if (i.balloonColor) details.push('Farbe: ' + i.balloonColor);
+            if (i.balloonType && i.balloonType !== 'latex') details.push('Typ: ' + i.balloonType);
+            if (i.filling && i.filling !== 'mini-balloons') details.push('Füllung: ' + i.filling);
             if (i.card) details.push('Karte: ' + i.card);
             if (i.persona) details.push('Hinweis: ' + i.persona);
-            return (idx+1) + '. ' + name + (details.length ? ' (' + details.join(', ') + ')' : '') + ' – ' + i.price.toFixed(2) + ' €';
-          }).join(' | ');
+            return (idx+1) + '. ' + name + (details.length ? ' | ' + details.join(' | ') : '') + ' | Preis: ' + i.price.toFixed(2) + ' €';
+          }).join('\n');
           var saveOrder = window.db ? window.db.collection('orders').add({
             userId: window.currentUser ? window.currentUser.uid : 'guest',
             email: customerEmail, items: cart,
@@ -1925,6 +1925,7 @@ window.loadPayPalSDK = function(){
             name: ppName.trim() || null,
             addressFull: [ppStreet.trim(), ppPlz.trim() && ppOrt.trim() ? ppPlz.trim() + ' ' + ppOrt.trim() : null].filter(Boolean).join(', ') || null,
             itemsSummary: ppItemsSummary,
+            itemsCount: cart.length,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
             orderNumber: orderNum, status: 'paid', starred: false,
