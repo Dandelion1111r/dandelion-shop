@@ -331,7 +331,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Personalisierter Geschenkballon",
-        "item": "https://www.dandelion1111.de/"
+        "item": "https://www.dandelion1111.de/personalisierter-geschenkballon.html"
       }
     ]
   }
@@ -431,7 +431,7 @@ window._onCookieConsentAll = _loadGA;
   "name": "Dandelion 11:11 – Personalisierte Ballons & Geschenke",
   "description": "Handgemachte personalisierte Ballons und Geschenke von Dandelion 11:11 in Bad Wörishofen.",
   "thumbnailUrl": "https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp",
-  "uploadDate": "2024-01-15",
+  "uploadDate": "2026-10-06",
   "contentUrl": "https://www.tiktok.com/@raluca.jidvian/video/7656504838410325281",
   "embedUrl": "https://www.tiktok.com/embed/7656504838410325281",
   "author": {
@@ -1002,14 +1002,14 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <label class="form-label" for="messageInput"><span data-i18n="text_label">Text auf dem Ballon</span> <span style="font-weight:400;color:var(--text-light);" data-i18n="max_chars_50">(max. 50 Zeichen)</span></label>
       <input type="text" id="messageInput" class="form-input" placeholder="z.B. Alles Gute zum Geburtstag!" data-i18n-placeholder="message_placeholder" maxlength="50">
       <label class="form-label" data-i18n="font_color_label">Schriftfarbe</label>
-      <div class="swatches" id="textColorSwatches">
-        <div class="text-swatch active" style="background:#8e44ad;" data-color="#8e44ad" data-name="Lila" title="Lila"></div>
-        <div class="text-swatch" style="background:#d63384;" data-color="#d63384" data-name="Pink" title="Pink"></div>
-        <div class="text-swatch" style="background:#1a1a2e;" data-color="#1a1a2e" data-name="Dunkelblau" title="Dunkelblau"></div>
-        <div class="text-swatch" style="background:#ffffff;border:2px solid #ddd;" data-color="#ffffff" data-name="Weiß" title="Weiß"></div>
-        <div class="text-swatch" style="background:#c0392b;" data-color="#c0392b" data-name="Rot" title="Rot"></div>
-        <div class="text-swatch" style="background:#27ae60;" data-color="#27ae60" data-name="Grün" title="Grün"></div>
-        <div class="text-swatch" style="background:#f39c12;" data-color="#f39c12" data-name="Gold" title="Gold"></div>
+      <div class="swatches" id="textColorSwatches" role="radiogroup" aria-label="Schriftfarbe wählen">
+        <button type="button" class="text-swatch active" style="background:#8e44ad;" data-color="#8e44ad" data-name="Lila" title="Lila" aria-label="Schriftfarbe: Lila" aria-pressed="true"></button>
+        <button type="button" class="text-swatch" style="background:#d63384;" data-color="#d63384" data-name="Pink" title="Pink" aria-label="Schriftfarbe: Pink" aria-pressed="false"></button>
+        <button type="button" class="text-swatch" style="background:#1a1a2e;" data-color="#1a1a2e" data-name="Dunkelblau" title="Dunkelblau" aria-label="Schriftfarbe: Dunkelblau" aria-pressed="false"></button>
+        <button type="button" class="text-swatch" style="background:#ffffff;border:2px solid #ddd;" data-color="#ffffff" data-name="Weiß" title="Weiß" aria-label="Schriftfarbe: Weiß" aria-pressed="false"></button>
+        <button type="button" class="text-swatch" style="background:#c0392b;" data-color="#c0392b" data-name="Rot" title="Rot" aria-label="Schriftfarbe: Rot" aria-pressed="false"></button>
+        <button type="button" class="text-swatch" style="background:#27ae60;" data-color="#27ae60" data-name="Grün" title="Grün" aria-label="Schriftfarbe: Grün" aria-pressed="false"></button>
+        <button type="button" class="text-swatch" style="background:#f39c12;" data-color="#f39c12" data-name="Gold" title="Gold" aria-label="Schriftfarbe: Gold" aria-pressed="false"></button>
       </div>
       <label class="form-label" for="fontSizeSlider" data-i18n="font_size_label">Schriftgröße</label>
       <div class="slider-row">
@@ -1036,19 +1036,19 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
         <span style="font-size:var(--fs-sm);color:var(--text-light);" data-i18n="choose_color_label">Wähle eine Farbe</span>
         <span class="selected-name" id="selectedColorName">Pink</span>
       </div>
-      <div class="swatches" id="balloonColorSwatches">
-        <div class="swatch active" style="background:#FF69B4;" data-color="#FF69B4" data-name="Pink" title="Pink"></div>
-        <div class="swatch" style="background:#ADD8E6;" data-color="#ADD8E6" data-name="Hellblau" title="Hellblau"></div>
-        <div class="swatch" style="background:#FFD700;" data-color="#FFD700" data-name="Gold" title="Gold"></div>
-        <div class="swatch" style="background:#98FB98;" data-color="#98FB98" data-name="Mint" title="Mint"></div>
-        <div class="swatch" style="background:#FFA500;" data-color="#FFA500" data-name="Orange" title="Orange"></div>
-        <div class="swatch" style="background:#FF6B6B;" data-color="#FF6B6B" data-name="Koralle" title="Koralle"></div>
-        <div class="swatch" style="background:#C9A0DC;" data-color="#C9A0DC" data-name="Lila" title="Lila"></div>
-        <div class="swatch" style="background:#FFFFFF;" data-color="#FFFFFF" data-name="Weiß" title="Weiß"></div>
-        <div class="swatch" style="background:#B0C4DE;" data-color="#B0C4DE" data-name="Stahlblau" title="Stahlblau"></div>
-        <div class="swatch" style="background:#FFB6C1;" data-color="#FFB6C1" data-name="Hellrosa" title="Hellrosa"></div>
-        <div class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume"></div>
-        <div class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki"></div>
+      <div class="swatches" id="balloonColorSwatches" role="radiogroup" aria-label="Ballonfarbe wählen">
+        <button type="button" class="swatch active" style="background:#FF69B4;" data-color="#FF69B4" data-name="Pink" title="Pink" aria-label="Ballonfarbe: Pink" aria-pressed="true"></button>
+        <button type="button" class="swatch" style="background:#ADD8E6;" data-color="#ADD8E6" data-name="Hellblau" title="Hellblau" aria-label="Ballonfarbe: Hellblau" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#FFD700;" data-color="#FFD700" data-name="Gold" title="Gold" aria-label="Ballonfarbe: Gold" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#98FB98;" data-color="#98FB98" data-name="Mint" title="Mint" aria-label="Ballonfarbe: Mint" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#FFA500;" data-color="#FFA500" data-name="Orange" title="Orange" aria-label="Ballonfarbe: Orange" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#FF6B6B;" data-color="#FF6B6B" data-name="Koralle" title="Koralle" aria-label="Ballonfarbe: Koralle" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#C9A0DC;" data-color="#C9A0DC" data-name="Lila" title="Lila" aria-label="Ballonfarbe: Lila" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#FFFFFF;" data-color="#FFFFFF" data-name="Weiß" title="Weiß" aria-label="Ballonfarbe: Weiß" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#B0C4DE;" data-color="#B0C4DE" data-name="Stahlblau" title="Stahlblau" aria-label="Ballonfarbe: Stahlblau" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#FFB6C1;" data-color="#FFB6C1" data-name="Hellrosa" title="Hellrosa" aria-label="Ballonfarbe: Hellrosa" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#DDA0DD;" data-color="#DDA0DD" data-name="Pflaume" title="Pflaume" aria-label="Ballonfarbe: Pflaume" aria-pressed="false"></button>
+        <button type="button" class="swatch" style="background:#F0E68C;" data-color="#F0E68C" data-name="Khaki" title="Khaki" aria-label="Ballonfarbe: Khaki" aria-pressed="false"></button>
       </div>
       <p style="font-size:.75rem;color:var(--text-light);margin:6px 0 10px;line-height:1.5;">🎨 <em>Keine Farbe dabei? Kein Problem, schreib uns deine Wunschfarbe in das Textfeld, wir passen sie an.</em></p>
       <label class="form-label" for="balloonTypeSelect" data-i18n="balloon_type_label">Ballontyp</label>
