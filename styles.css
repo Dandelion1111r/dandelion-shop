@@ -83,7 +83,7 @@
 
 /* ── Product cards & toolbar ── */
 .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 70px;}
-.breadcrumb-nav{font-size:.85rem;color:#888;margin-bottom:18px;}
+.breadcrumb-nav{font-size:.85rem;color:#666;margin-bottom:18px;}
 .breadcrumb-nav a{color:#8e44ad;text-decoration:none;}
 .breadcrumb-nav span{margin:0 6px;}
 .intro-block{text-align:center;padding:20px 0 10px;}
@@ -197,7 +197,7 @@
 }
 
 /* ── Journal article pages ── */
-.meta{font-size:.85rem;color:#888;margin-bottom:10px;}
+.meta{font-size:.85rem;color:#666;margin-bottom:10px;}
 .entry-tag{display:inline-block;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:50px;letter-spacing:.5px;margin-bottom:22px;}
 .featured-image{width:100%;max-width:500px;margin:0 auto 32px;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#f3e6f9;display:flex;align-items:center;justify-content:center;}
 .featured-image img{width:100%;height:100%;object-fit:contain;}
@@ -215,7 +215,7 @@
 .more-card:hover{transform:translateY(-3px);}
 .more-thumb{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,#f9eef6,#e8d5e8);flex-shrink:0;}
 .more-title{font-size:.95rem;font-weight:600;color:#2d2d2d;margin-bottom:4px;}
-.more-excerpt{font-size:.83rem;color:#888;line-height:1.5;}
+.more-excerpt{font-size:.83rem;color:#666;line-height:1.5;}
 @media(max-width:600px){
   .featured-image{max-width:100%;aspect-ratio:3/4;}
   .verse{padding:10px 14px;}
