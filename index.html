@@ -648,9 +648,9 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <!-- Auth Modal: Login / Register -->
 <div id="authModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeAuthModal()">
   <div style="background:#fff;border-radius:20px;max-width:380px;width:100%;padding:30px;position:relative;">
-    <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
+    <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666;">×</button>
     <p id="authModalTitle" role="heading" aria-level="2" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:6px;">Anmelden</p>
-    <p style="font-size:.78rem;color:#888;margin:0 0 14px;line-height:1.5;">Konto = Bestellhistorie &amp; schnelleres Checkout. Oder bestelle einfach als <strong>Gast</strong> ohne Registrierung.</p>
+    <p style="font-size:.78rem;color:#666;margin:0 0 14px;line-height:1.5;">Konto = Bestellhistorie &amp; schnelleres Checkout. Oder bestelle einfach als <strong>Gast</strong> ohne Registrierung.</p>
     <div id="authError" style="display:none;background:#fde8e8;color:#c0392b;padding:8px 12px;border-radius:8px;font-size:0.85rem;margin-bottom:12px;"></div>
     <input id="authName" type="text" placeholder="Dein Name" aria-label="Dein Name" class="form-input" style="width:100%;margin-bottom:10px;display:none;">
     <input id="authEmail" type="email" placeholder="E-Mail" aria-label="E-Mail-Adresse" autocomplete="email" class="form-input" style="width:100%;margin-bottom:10px;">
@@ -665,9 +665,9 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 <!-- Orders Modal: order tracking for logged-in users -->
 <div id="ordersModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;" onclick="if(event.target===this)closeOrdersModal()">
   <div style="background:#fff;border-radius:20px;max-width:600px;width:100%;padding:30px;position:relative;">
-    <button onclick="closeOrdersModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;">×</button>
+    <button onclick="closeOrdersModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666;">×</button>
     <p role="heading" aria-level="2" style="font-size:1.3rem;font-weight:700;color:#6b2f8c;margin-bottom:6px;">Meine Bestellungen</p>
-    <p id="ordersAccountEmail" style="font-size:0.85rem;color:#888;margin-bottom:18px;"></p>
+    <p id="ordersAccountEmail" style="font-size:0.85rem;color:#666;margin-bottom:18px;"></p>
     <div id="ordersList" style="display:flex;flex-direction:column;gap:14px;"></div>
     <button onclick="logoutUser()" style="margin-top:20px;width:100%;background:#eee;color:#444;border:none;padding:10px;border-radius:50px;font-weight:600;cursor:pointer;">Abmelden</button>
   </div>
@@ -2055,11 +2055,11 @@ window.loadPayPalSDK = function(){
   function loadOrders() {
     const list = document.getElementById('ordersList');
     if (!currentUser) { list.innerHTML = ''; return; }
-    list.innerHTML = '<p style="color:#888;font-size:0.9rem;">Lade Bestellungen…</p>';
+    list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Lade Bestellungen…</p>';
     db.collection('orders').where('userId', '==', currentUser.uid).orderBy('createdAt', 'desc').get()
       .then(snap => {
         if (snap.empty) {
-          list.innerHTML = '<p style="color:#888;font-size:0.9rem;">Noch keine Bestellungen.</p>';
+          list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Noch keine Bestellungen.</p>';
           return;
         }
         list.innerHTML = snap.docs.map(doc => {
@@ -2075,7 +2075,7 @@ window.loadPayPalSDK = function(){
               <span>${o.items ? o.items.length : 0} Ballon(s)</span>
               <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span>
             </div>
-            <div style="font-size:0.85rem;color:#888;margin-top:4px;">${date} · Status: ${o.status === 'paid' ? 'Bezahlt ✅' : (o.status || '')}</div>
+            <div style="font-size:0.85rem;color:#666;margin-top:4px;">${date} · Status: ${o.status === 'paid' ? 'Bezahlt ✅' : (o.status || '')}</div>
           </div>`;
         }).join('');
       })
