@@ -120,12 +120,13 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
   function initDiscountPopup(){
     if(localStorage.getItem("discountPopupShown"))return;
     var _triggered=false;
+    var _pageH=document.documentElement.scrollHeight-window.innerHeight;
+    window.addEventListener('resize',function(){_pageH=document.documentElement.scrollHeight-window.innerHeight;},{passive:true});
     function tryShow(){
       if(_triggered)return;
       // Only show after user has scrolled at least 30% of the page
       var scrolled=(window.scrollY||document.documentElement.scrollTop);
-      var pageH=document.documentElement.scrollHeight-window.innerHeight;
-      if(pageH>0&&scrolled/pageH<0.3)return;
+      if(_pageH>0&&scrolled/_pageH<0.3)return;
       // Do not show while cookie banner is visible
       var banner=document.getElementById("cookieBanner");
       if(banner&&banner.style.display!=="none")return;
