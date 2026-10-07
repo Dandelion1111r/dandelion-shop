@@ -27,7 +27,8 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional"></noscript>
-  <link rel="preload" href="main.js?v=20261006c" as="script">
+  <link rel="preload" href="main.js?v=20261007a" as="script">
+  <link rel="preload" as="font" crossorigin fetchpriority="low" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" href="Dandelionlogo-fixed.webp" as="image">
   <link rel="preload" as="image" href="thumbs/teddybaer-geschenkballon-rot.webp" imagesrcset="teddybaer-geschenkballon-rot.webp 533w, thumbs/teddybaer-geschenkballon-rot.webp 400w" imagesizes="(max-width:600px) calc(50vw - 18px), 260px" fetchpriority="high">
 
@@ -1596,7 +1597,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 </div>
 
 <!-- ═══ SCRIPT ═══ -->
-<script src="main.js?v=20261006c" defer></script>
+<script src="main.js?v=20261007a" defer></script>
 <script>
 // ─── Search autocomplete (item 46) ───────────────────────────────────────────
 var _searchSuggestions = [
@@ -2289,8 +2290,9 @@ window.loadPayPalSDK = function(){
       +'<path d="'+path+'" fill="'+encodeURIComponent(color)+'"/></svg>';
   }
   var colors = ['#f5c518','#ffd700','#fffacd','#f0c040','#ffffff'];
-  var _wrapW = wrap.offsetWidth || 220;
-  var _wrapH = wrap.offsetHeight || 185;
+  var _wrapW = 220;
+  var _wrapH = 185;
+  requestAnimationFrame(function(){ _wrapW = wrap.offsetWidth || 220; _wrapH = wrap.offsetHeight || 185; });
   window.addEventListener('resize', function(){ _wrapW = wrap.offsetWidth || 220; _wrapH = wrap.offsetHeight || 185; }, {passive:true});
   function spawnSparkle(){
     var el = document.createElement('img');
