@@ -827,65 +827,99 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 </div>
 
 <!-- ═══ BELIEBTE PRODUKTE ═══ -->
-<div style="background:linear-gradient(160deg,#fdf6fb 0%,#f0e8f8 100%);padding:60px 20px 68px;border-top:1px solid #ead8f5;">
+<style>
+.bp-section{background:linear-gradient(160deg,#fdf6fb 0%,#f0e8f8 100%);padding:56px 20px 64px;border-top:1px solid #ead8f5;}
+.bp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:36px;}
+.bp-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 28px rgba(142,68,173,.12);text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(229,186,240,.6);transition:transform .22s,box-shadow .22s;}
+.bp-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(214,51,132,.18);}
+.bp-img{aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;}
+.bp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.bp-card:hover .bp-img img{transform:scale(1.05);}
+.bp-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+.bp-tag{font-size:.64rem;color:#d63384;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;}
+.bp-name{font-weight:700;color:#2d2235;font-size:.97rem;margin-bottom:4px;line-height:1.3;}
+.bp-desc{font-size:.82rem;color:#7a5a7e;margin-bottom:auto;padding-bottom:12px;}
+.bp-footer{display:flex;align-items:center;justify-content:space-between;}
+.bp-price{font-weight:800;color:var(--purple);font-size:1.05rem;}
+.bp-cta{font-size:.74rem;color:#d63384;font-weight:600;}
+.bp-header{text-align:center;margin-bottom:36px;}
+.bp-header p.eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.68rem;color:#d63384;font-weight:700;margin-bottom:9px;}
+.bp-header h2{font-size:clamp(1.45rem,4vw,2.2rem);font-weight:800;color:var(--purple);margin:0 0 10px;letter-spacing:-.02em;}
+.bp-header p.sub{color:#7a5a7e;font-size:.94rem;max-width:380px;margin:0 auto;line-height:1.6;}
+@media(max-width:480px){
+  .bp-section{padding:36px 14px 44px;}
+  .bp-grid{gap:12px;margin-bottom:28px;}
+  .bp-card{border-radius:15px;}
+  .bp-body{padding:10px 12px 12px;}
+  .bp-tag{font-size:.6rem;margin-bottom:3px;}
+  .bp-name{font-size:.85rem;margin-bottom:2px;}
+  .bp-desc{display:none;}
+  .bp-price{font-size:.95rem;}
+  .bp-cta{display:none;}
+  .bp-header{margin-bottom:22px;}
+  .bp-header h2{font-size:1.25rem;}
+  .bp-header p.sub{font-size:.82rem;}
+}
+</style>
+<div class="bp-section">
   <div style="max-width:960px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:44px;">
-      <p style="letter-spacing:3px;text-transform:uppercase;font-size:.7rem;color:#d63384;font-weight:700;margin-bottom:10px;">⭐ Bestseller</p>
-      <h2 style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--purple);margin:0 0 12px;letter-spacing:-.02em;">Beliebte Produkte</h2>
-      <p style="color:#7a5a7e;font-size:1rem;max-width:400px;margin:0 auto;line-height:1.6;">Handgemacht · Personalisiert · Direkt aus Bad Wörishofen</p>
+    <div class="bp-header">
+      <p class="eyebrow">⭐ Bestseller</p>
+      <h2>Beliebte Produkte</h2>
+      <p class="sub">Handgemacht · Personalisiert · Direkt aus Bad Wörishofen</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:40px;">
-      <a href="/produkte/teddybaer-im-geschenkballon/" style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 28px rgba(142,68,173,.12);text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(229,186,240,.6);transition:transform .22s,box-shadow .22s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 14px 40px rgba(214,51,132,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 28px rgba(142,68,173,.12)'">
-        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;"><img width="400" height="533" src="teddybaer-geschenkballon-rot.webp" srcset="teddybaer-geschenkballon-rot.webp 533w, thumbs/teddybaer-geschenkballon-rot.webp 400w" sizes="(max-width:600px) calc(50vw - 24px), 440px" alt="Teddybär im Geschenkballon personalisiert mit Wunschtext" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:.68rem;color:#d63384;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">⭐ Bestseller</div>
-          <div style="font-weight:700;color:#2d2235;font-size:1.05rem;margin-bottom:5px;line-height:1.3;">Teddybär im Geschenkballon</div>
-          <div style="font-size:.85rem;color:#7a5a7e;margin-bottom:auto;padding-bottom:14px;">Personalisiert mit Namen & Wunschtext</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;">
-            <div style="font-weight:800;color:var(--purple);font-size:1.1rem;">ab 65 €</div>
-            <div style="font-size:.78rem;color:#d63384;font-weight:600;">Jetzt ansehen →</div>
+    <div class="bp-grid">
+      <a href="/produkte/teddybaer-im-geschenkballon/" class="bp-card">
+        <div class="bp-img"><img width="400" height="300" src="teddybaer-geschenkballon-rot.webp" srcset="teddybaer-geschenkballon-rot.webp 533w, thumbs/teddybaer-geschenkballon-rot.webp 400w" sizes="(max-width:480px) calc(50vw - 20px), (max-width:960px) calc(50vw - 30px), 450px" alt="Teddybär im Geschenkballon personalisiert mit Wunschtext" loading="lazy"></div>
+        <div class="bp-body">
+          <div class="bp-tag">⭐ Bestseller</div>
+          <div class="bp-name">Teddybär im Geschenkballon</div>
+          <div class="bp-desc">Personalisiert mit Namen & Wunschtext</div>
+          <div class="bp-footer">
+            <div class="bp-price">ab 65 €</div>
+            <div class="bp-cta">ansehen →</div>
           </div>
         </div>
       </a>
-      <a href="/produkte/feen-blumenbox/" style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 28px rgba(142,68,173,.12);text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(229,186,240,.6);transition:transform .22s,box-shadow .22s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 14px 40px rgba(214,51,132,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 28px rgba(142,68,173,.12)'">
-        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;"><img width="400" height="533" src="feen-blumenbox.webp" srcset="feen-blumenbox.webp 641w, thumbs/feen-blumenbox.webp 400w" sizes="(max-width:600px) calc(50vw - 24px), 440px" alt="Feen Blumenbox mit personalisiertem Ballon, handgemacht" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:.68rem;color:#d63384;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">🌸 Für Mama & Geburtstag</div>
-          <div style="font-weight:700;color:#2d2235;font-size:1.05rem;margin-bottom:5px;line-height:1.3;">Feen-Blumenbox</div>
-          <div style="font-size:.85rem;color:#7a5a7e;margin-bottom:auto;padding-bottom:14px;">Verspielt, romantisch & personalisiert</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;">
-            <div style="font-weight:800;color:var(--purple);font-size:1.1rem;">ab 55 €</div>
-            <div style="font-size:.78rem;color:#d63384;font-weight:600;">Jetzt ansehen →</div>
+      <a href="/produkte/feen-blumenbox/" class="bp-card">
+        <div class="bp-img"><img width="400" height="300" src="feen-blumenbox.webp" srcset="feen-blumenbox.webp 641w, thumbs/feen-blumenbox.webp 400w" sizes="(max-width:480px) calc(50vw - 20px), (max-width:960px) calc(50vw - 30px), 450px" alt="Feen Blumenbox mit personalisiertem Ballon, handgemacht" loading="lazy"></div>
+        <div class="bp-body">
+          <div class="bp-tag">🌸 Mama & Geburtstag</div>
+          <div class="bp-name">Feen-Blumenbox</div>
+          <div class="bp-desc">Verspielt, romantisch & personalisiert</div>
+          <div class="bp-footer">
+            <div class="bp-price">ab 55 €</div>
+            <div class="bp-cta">ansehen →</div>
           </div>
         </div>
       </a>
-      <a href="/produkte/ballon-box-boho-luxe/" style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 28px rgba(142,68,173,.12);text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(229,186,240,.6);transition:transform .22s,box-shadow .22s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 14px 40px rgba(214,51,132,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 28px rgba(142,68,173,.12)'">
-        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;"><img width="400" height="533" src="ballon-box-boho-blau-gold.webp" srcset="ballon-box-boho-blau-gold.webp 641w, thumbs/ballon-box-boho-blau-gold.webp 400w" sizes="(max-width:600px) calc(50vw - 24px), 440px" alt="Ballon Box Boho Luxe personalisiert mit Trockenblumen und Ballon" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:.68rem;color:#d63384;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">🔥 Top-Seller</div>
-          <div style="font-weight:700;color:#2d2235;font-size:1.05rem;margin-bottom:5px;line-height:1.3;">Ballon-Box Boho Luxe</div>
-          <div style="font-size:.85rem;color:#7a5a7e;margin-bottom:auto;padding-bottom:14px;">Boho-Stil mit Trockenblumen & Ballon</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;">
-            <div style="font-weight:800;color:var(--purple);font-size:1.1rem;">ab 75 €</div>
-            <div style="font-size:.78rem;color:#d63384;font-weight:600;">Jetzt ansehen →</div>
+      <a href="/produkte/ballon-box-boho-luxe/" class="bp-card">
+        <div class="bp-img"><img width="400" height="300" src="ballon-box-boho-blau-gold.webp" srcset="ballon-box-boho-blau-gold.webp 641w, thumbs/ballon-box-boho-blau-gold.webp 400w" sizes="(max-width:480px) calc(50vw - 20px), (max-width:960px) calc(50vw - 30px), 450px" alt="Ballon Box Boho Luxe personalisiert mit Trockenblumen und Ballon" loading="lazy"></div>
+        <div class="bp-body">
+          <div class="bp-tag">🔥 Top-Seller</div>
+          <div class="bp-name">Ballon-Box Boho Luxe</div>
+          <div class="bp-desc">Boho-Stil mit Trockenblumen & Ballon</div>
+          <div class="bp-footer">
+            <div class="bp-price">ab 75 €</div>
+            <div class="bp-cta">ansehen →</div>
           </div>
         </div>
       </a>
-      <a href="/produkte/dark-chrome-ballon-box/" style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 28px rgba(142,68,173,.12);text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(229,186,240,.6);transition:transform .22s,box-shadow .22s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 14px 40px rgba(214,51,132,.18)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 28px rgba(142,68,173,.12)'">
-        <div style="aspect-ratio:4/3;overflow:hidden;background:#f9f0fc;"><img width="400" height="533" src="ballon-box-dark-chrome-schwarz-gold.webp" srcset="ballon-box-dark-chrome-schwarz-gold.webp 641w, thumbs/ballon-box-dark-chrome-schwarz-gold.webp 400w" sizes="(max-width:600px) calc(50vw - 24px), 440px" alt="Dark Chrome Ballon Box schwarz gold für Männer personalisiert" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>
-        <div style="padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:.68rem;color:#d63384;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">🖤 Für Papa & Männer</div>
-          <div style="font-weight:700;color:#2d2235;font-size:1.05rem;margin-bottom:5px;line-height:1.3;">Dark-Chrome Ballon-Box</div>
-          <div style="font-size:.85rem;color:#7a5a7e;margin-bottom:auto;padding-bottom:14px;">Edel, maskulin & individuell</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;">
-            <div style="font-weight:800;color:var(--purple);font-size:1.1rem;">ab 70 €</div>
-            <div style="font-size:.78rem;color:#d63384;font-weight:600;">Jetzt ansehen →</div>
+      <a href="/produkte/dark-chrome-ballon-box/" class="bp-card">
+        <div class="bp-img"><img width="400" height="300" src="ballon-box-dark-chrome-schwarz-gold.webp" srcset="ballon-box-dark-chrome-schwarz-gold.webp 641w, thumbs/ballon-box-dark-chrome-schwarz-gold.webp 400w" sizes="(max-width:480px) calc(50vw - 20px), (max-width:960px) calc(50vw - 30px), 450px" alt="Dark Chrome Ballon Box schwarz gold für Männer personalisiert" loading="lazy"></div>
+        <div class="bp-body">
+          <div class="bp-tag">🖤 Papa & Männer</div>
+          <div class="bp-name">Dark-Chrome Ballon-Box</div>
+          <div class="bp-desc">Edel, maskulin & individuell</div>
+          <div class="bp-footer">
+            <div class="bp-price">ab 70 €</div>
+            <div class="bp-cta">ansehen →</div>
           </div>
         </div>
       </a>
     </div>
     <div style="text-align:center;">
-      <a href="/produkte/" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 6px 20px rgba(214,51,132,.3);transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 10px 30px rgba(214,51,132,.45)'" onmouseout="this.style.boxShadow='0 6px 20px rgba(214,51,132,.3)'">Alle Produkte ansehen →</a>
+      <a href="/produkte/" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 6px 20px rgba(214,51,132,.3);">Alle Produkte ansehen →</a>
     </div>
   </div>
 </div>
