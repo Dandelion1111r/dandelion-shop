@@ -2,13 +2,25 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8"/>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-88K056PN19"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',wait_for_update:500});
+function _loadGA(){
+  if(window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-88K056PN19';
+  document.head.appendChild(s);
   gtag('js', new Date());
   gtag('config', 'G-88K056PN19');
+}
+if(localStorage.getItem('cookieConsent') === 'all') {
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  _loadGA();
+}
+window._onCookieConsentAll = _loadGA;
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>Seite nicht gefunden | Dandelion 11:11</title>
