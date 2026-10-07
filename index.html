@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional"></noscript>
   <link rel="preload" href="main.js?v=20261006c" as="script">
@@ -1711,14 +1714,23 @@ var _prevOnConsent = window._onCookieConsentAll;
 window._onCookieConsentAll = function(){ if(_prevOnConsent)_prevOnConsent(); _loadClarity(); };
 </script>
 
-<!-- EmailJS (pentru comenzi) -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" async></script>
+<!-- EmailJS – loaded on demand at checkout start, not on page load -->
 <script>
-window.addEventListener('load', function() {
-  if (typeof emailjs !== 'undefined') {
+window._emailjsReady = false;
+window._loadEmailJS = function(cb) {
+  if (window._emailjsReady) { if (cb) cb(); return; }
+  if (window._emailjsLoading) { if (cb) window._emailjsCbs = (window._emailjsCbs||[]).concat(cb); return; }
+  window._emailjsLoading = true;
+  window._emailjsCbs = cb ? [cb] : [];
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = function() {
     emailjs.init({ publicKey: 'yZhEVZfxCfnqlmFkq' });
-  }
-});
+    window._emailjsReady = true;
+    (window._emailjsCbs || []).forEach(function(f){ f(); });
+  };
+  document.head.appendChild(s);
+};
 
 // ─── Brevo Newsletter Subscribe ───────────────────────────────────────────────
 var BREVO_FORM_URL = 'https://315e7f8f.sibforms.com/serve/MUIFABr_i_N4Tw_xh2o6bpfM5a_SIS-gD5kwRBom_VHdo1lsUTIsvnHPHsUzZLdyG7_d1aLjvpUxLqUfsqZzV0Sdm3Rdr9akrL3q39SS6zcAYXs1Oquh7WdgkZQhDwquvQTxlVq4GJCTtZZn-_E0OHcID8xI5MHlhuLpM7BEKh2iXeUv4iMvRhIBdOj5DrFqOcH67wUJemEt12ErCw==';
@@ -1872,21 +1884,22 @@ window.loadPayPalSDK = function(){
           }) : Promise.resolve();
 
           saveOrder.then(function() {
-            if (customerEmail && typeof emailjs !== 'undefined') {
+            var _cart = cart.slice(), _shipping = shipping, _orderTotal = orderTotal, _orderNum = orderNum, _customerEmail = customerEmail;
+            window._loadEmailJS(function() {
+              if (_customerEmail) {
+                emailjs.send('service_njmc1nf', 'template_l8cb34c', {
+                  email: _customerEmail, order_id: _orderNum,
+                  orders: _cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
+                  cost: { shipping: _shipping.toFixed(2), tax: '0.00', total: _orderTotal.toFixed(2) }
+                }).catch(function(err) { console.warn('EmailJS send failed:', err); });
+              }
+              // Owner notification email
               emailjs.send('service_njmc1nf', 'template_l8cb34c', {
-                email: customerEmail, order_id: orderNum,
-                orders: cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
-                cost: { shipping: shipping.toFixed(2), tax: '0.00', total: orderTotal.toFixed(2) }
-              }).catch(function(err) { console.warn('EmailJS send failed:', err); });
-            }
-            // Owner notification email
-            if (typeof emailjs !== 'undefined') {
-              emailjs.send('service_njmc1nf', 'template_l8cb34c', {
-                email: 'jidvian.raluca@yahoo.com', order_id: '🛍️ NEUE BESTELLUNG – ' + orderNum,
-                orders: cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
-                cost: { shipping: shipping.toFixed(2), tax: customerEmail || 'Gast', total: orderTotal.toFixed(2) }
+                email: 'jidvian.raluca@yahoo.com', order_id: '🛍️ NEUE BESTELLUNG – ' + _orderNum,
+                orders: _cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
+                cost: { shipping: _shipping.toFixed(2), tax: _customerEmail || 'Gast', total: _orderTotal.toFixed(2) }
               }).catch(function() {});
-            }
+            });
 
             // Build WhatsApp order notification for owner
             var isGuest = !window.currentUser;
