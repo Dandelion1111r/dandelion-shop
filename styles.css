@@ -7,7 +7,7 @@
 /* ── Product grid (category pages) ── */
 .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:50px;}
 @media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
-.prod-no-results{display:none;text-align:center;padding:40px 20px;color:#999;font-size:1rem;grid-column:1/-1;}
+.prod-no-results{display:none;text-align:center;padding:40px 20px;color:#666;font-size:1rem;grid-column:1/-1;}
 .prod-no-results.visible{display:block;}
 .prod-search-wrap{flex:1;min-width:180px;position:relative;}
 .prod-search-wrap i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#aaa;font-size:.85rem;pointer-events:none;}

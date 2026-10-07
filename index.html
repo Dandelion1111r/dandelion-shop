@@ -1936,7 +1936,7 @@ window.loadPayPalSDK = function(){
               + '<div style="background:#f3e6f9;border-radius:12px;padding:14px 18px;margin:0 0 16px;text-align:center;">'
               +   '<div style="font-size:.75rem;color:#8e44ad;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">Deine Bestellnummer</div>'
               +   '<div style="font-size:1.6rem;font-weight:800;color:#6b2f8c;letter-spacing:.12em;font-family:monospace;">' + orderNum + '</div>'
-              +   '<div style="font-size:.72rem;color:#999;margin-top:4px;">Bitte notieren oder Screenshot machen</div>'
+              +   '<div style="font-size:.72rem;color:#8e44ad;margin-top:4px;">Bitte notieren oder Screenshot machen</div>'
               + '</div>'
               + '<p style="color:#666;font-size:.85rem;margin-bottom:20px;line-height:1.5;">Alle Details wurden gespeichert. Du erhältst in Kürze eine Bestätigungs-E-Mail. Wir melden uns per WhatsApp zur Abstimmung von Lieferdatum &amp; Adresse und nennen dabei diese Bestellnummer.</p>'
               + '<a href="' + waUrl + '" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:14px 24px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;margin-bottom:12px;text-decoration:none;box-sizing:border-box;" rel="noopener noreferrer">📲 Bestellung per WhatsApp bestätigen</a>'
@@ -2245,6 +2245,7 @@ window.loadPayPalSDK = function(){
       (function(i){
         setTimeout(function(){
           var el=document.createElement('img');
+          el.alt='';
           el.src=makeStar(8+Math.random()*12, colors[Math.floor(Math.random()*colors.length)]);
           var sz=8+Math.random()*12;
           el.style.cssText='position:fixed;pointer-events:none;z-index:99999;width:'+sz+'px;height:'+sz+'px;'
@@ -2294,6 +2295,7 @@ window.loadPayPalSDK = function(){
   window.addEventListener('resize', function(){ _wrapW = wrap.offsetWidth || 220; _wrapH = wrap.offsetHeight || 185; }, {passive:true});
   function spawnSparkle(){
     var el = document.createElement('img');
+    el.alt = '';
     el.className = 'logo-sparkle';
     var sz = 10 + Math.random()*14;
     var color = colors[Math.floor(Math.random()*colors.length)];

@@ -808,7 +808,7 @@
   if(!grid) return;
   var noRes = document.createElement('p');
   noRes.id = 'prod-no-results';
-  noRes.style.cssText = 'display:none;text-align:center;padding:40px 20px;color:#999;font-size:1rem;grid-column:1/-1;';
+  noRes.style.cssText = 'display:none;text-align:center;padding:40px 20px;color:#666;font-size:1rem;grid-column:1/-1;';
   noRes.textContent = 'Kein Produkt gefunden.';
   grid.appendChild(noRes);
   function getCards(){return Array.from(grid.querySelectorAll('.prod-card'));}
