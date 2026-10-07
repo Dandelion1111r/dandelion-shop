@@ -27,8 +27,7 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional"></noscript>
-  <link rel="preload" href="main.js?v=20261007b" as="script">
-  <link rel="preload" as="font" crossorigin fetchpriority="low" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" href="main.js?v=20261007c" as="script">
   <link rel="preload" href="Dandelionlogo-fixed.webp" as="image">
   <link rel="preload" as="image" href="thumbs/teddybaer-geschenkballon-rot.webp" imagesrcset="teddybaer-geschenkballon-rot.webp 533w, thumbs/teddybaer-geschenkballon-rot.webp 400w" imagesizes="(max-width:600px) calc(50vw - 18px), 260px" fetchpriority="high">
 
@@ -1597,7 +1596,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 </div>
 
 <!-- ═══ SCRIPT ═══ -->
-<script src="main.js?v=20261007b" defer></script>
+<script src="main.js?v=20261007c" defer></script>
 <script>
 // ─── Search autocomplete (item 46) ───────────────────────────────────────────
 var _searchSuggestions = [
@@ -2018,7 +2017,8 @@ window.loadPayPalSDK = function(){
       updateGreeting(user);
     });
   }
-  window._loadFirebase(_initFb);
+  window._fbInitCb = _initFb;
+  try{if(localStorage.getItem('_fbWasLoggedIn'))window._loadFirebase(_initFb);}catch(e){}
 
   function showAuthError(msg) {
     var el = document.getElementById('authError');
