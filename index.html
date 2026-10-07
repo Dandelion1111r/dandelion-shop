@@ -27,7 +27,7 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional"></noscript>
-  <link rel="preload" href="main.js?v=20261007a" as="script">
+  <link rel="preload" href="main.js?v=20261007b" as="script">
   <link rel="preload" as="font" crossorigin fetchpriority="low" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" href="Dandelionlogo-fixed.webp" as="image">
   <link rel="preload" as="image" href="thumbs/teddybaer-geschenkballon-rot.webp" imagesrcset="teddybaer-geschenkballon-rot.webp 533w, thumbs/teddybaer-geschenkballon-rot.webp 400w" imagesizes="(max-width:600px) calc(50vw - 18px), 260px" fetchpriority="high">
@@ -1597,7 +1597,7 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
 </div>
 
 <!-- ═══ SCRIPT ═══ -->
-<script src="main.js?v=20261007a" defer></script>
+<script src="main.js?v=20261007b" defer></script>
 <script>
 // ─── Search autocomplete (item 46) ───────────────────────────────────────────
 var _searchSuggestions = [
@@ -1695,10 +1695,37 @@ window.addEventListener('load', function() {
 });
 </script>
 
-<!-- Firebase (account login + order tracking) -->
-<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<!-- Firebase – lazy-loaded only when needed (checkout / account) -->
+<script>
+(function(){
+  var _cbs=[];
+  window._fbLoaded=false;
+  window._fbLoading=false;
+  window._loadFirebase=function(cb){
+    if(window._fbLoaded){if(cb)cb();return;}
+    if(cb)_cbs.push(cb);
+    if(window._fbLoading)return;
+    window._fbLoading=true;
+    function seq(srcs,done){
+      if(!srcs.length){done();return;}
+      var s=document.createElement('script');
+      s.src=srcs[0];
+      s.onload=function(){seq(srcs.slice(1),done);};
+      document.head.appendChild(s);
+    }
+    seq([
+      'https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js',
+      'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js',
+      'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js'
+    ],function(){
+      window._fbLoaded=true;
+      _cbs.forEach(function(f){f();});
+      _cbs=[];
+    });
+  };
+  try{if(localStorage.getItem('_fbWasLoggedIn'))window._loadFirebase();}catch(e){}
+})();
+</script>
 <!-- reCAPTCHA v3 -->
 <!-- reCAPTCHA loaded lazily on first contact form submit -->
 
@@ -1880,7 +1907,7 @@ window.loadPayPalSDK = function(){
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
             orderNumber: orderNum, status: 'paid', starred: false,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            createdAt: (typeof firebase!=='undefined'&&firebase.firestore)?firebase.firestore.FieldValue.serverTimestamp():new Date()
           }) : Promise.resolve();
 
           saveOrder.then(function() {
@@ -1963,7 +1990,7 @@ window.loadPayPalSDK = function(){
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  const firebaseConfig = {
+  var _fbConfig = {
     apiKey: "AIzaSyAgTZyCOj8iGztcVlvrfH1bMCT4bMeeLeg",
     authDomain: "dandelion1111-5cff0.firebaseapp.com",
     projectId: "dandelion1111-5cff0",
@@ -1972,26 +1999,39 @@ window.loadPayPalSDK = function(){
     appId: "1:866002511071:web:6751757b0259fdfdad356a",
     measurementId: "G-88K056PN19"
   };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  window.db = db;
+  var auth = null, db = null, currentUser = null, authMode = 'login';
 
-  let authMode = 'login'; // 'login' or 'register'
-  let currentUser = null;
+  function _initFb() {
+    if (auth) return;
+    if (!firebase.apps.length) firebase.initializeApp(_fbConfig);
+    auth = firebase.auth();
+    db = firebase.firestore();
+    window.db = db;
+    auth.onAuthStateChanged(function(user) {
+      currentUser = user;
+      window.currentUser = user;
+      try { user ? localStorage.setItem('_fbWasLoggedIn','1') : localStorage.removeItem('_fbWasLoggedIn'); } catch(e) {}
+      var icon = document.querySelector('#navAccountIcon i');
+      if (icon) icon.style.color = user ? 'var(--pink)' : '';
+      var lbl = document.getElementById('navAccountLabel');
+      if (lbl) lbl.textContent = user ? 'Mein Konto' : 'Anmelden';
+      updateGreeting(user);
+    });
+  }
+  window._loadFirebase(_initFb);
 
   function showAuthError(msg) {
-    const el = document.getElementById('authError');
+    var el = document.getElementById('authError');
     el.textContent = msg;
     el.style.display = 'block';
   }
 
   window.onAccountIconClick = function() {
-    if (currentUser) {
-      openOrdersModal();
-    } else {
-      openAuthModal();
-    }
+    window._loadFirebase(function() {
+      _initFb();
+      if (currentUser) openOrdersModal();
+      else openAuthModal();
+    });
   };
 
   window.openAuthModal = function() {
@@ -2011,7 +2051,7 @@ window.loadPayPalSDK = function(){
     updateAuthModalLabels();
   };
   function updateAuthModalLabels() {
-    const isLogin = authMode === 'login';
+    var isLogin = authMode === 'login';
     document.getElementById('authModalTitle').textContent = isLogin ? 'Anmelden' : 'Konto erstellen';
     document.getElementById('authSubmitBtn').textContent = isLogin ? 'Anmelden' : 'Registrieren';
     document.getElementById('authToggleText').textContent = isLogin ? 'Noch kein Konto?' : 'Bereits ein Konto?';
@@ -2021,40 +2061,29 @@ window.loadPayPalSDK = function(){
   }
 
   window.submitAuthForm = function() {
-    const name = document.getElementById('authName').value.trim();
-    const email = document.getElementById('authEmail').value.trim();
-    const password = document.getElementById('authPassword').value;
+    if (!auth) { showAuthError('Bitte warten…'); return; }
+    var name = document.getElementById('authName').value.trim();
+    var email = document.getElementById('authEmail').value.trim();
+    var password = document.getElementById('authPassword').value;
     if (!email || !password) { showAuthError('Bitte E-Mail und Passwort eingeben.'); return; }
-    const action = authMode === 'login'
+    var action = authMode === 'login'
       ? auth.signInWithEmailAndPassword(email, password)
       : auth.createUserWithEmailAndPassword(email, password)
-          .then(cred => name ? cred.user.updateProfile({ displayName: name }) : null);
-    action
-      .then(() => closeAuthModal())
-      .catch(err => showAuthError(err.message));
+          .then(function(cred){ return name ? cred.user.updateProfile({ displayName: name }) : null; });
+    action.then(function(){ closeAuthModal(); }).catch(function(err){ showAuthError(err.message); });
   };
 
   window.logoutUser = function() {
-    auth.signOut().then(() => closeOrdersModal());
+    if (auth) auth.signOut().then(function(){ closeOrdersModal(); });
   };
 
   function updateGreeting(user) {
-    const greeting = document.getElementById('navGreeting');
+    var greeting = document.getElementById('navGreeting');
     if (!user) { greeting.classList.remove('has-greeting'); greeting.style.display = 'none'; return; }
-    const name = user.displayName || (user.email ? user.email.split('@')[0] : '');
-    greeting.textContent = `✨ Hey, ${name}! 🧚 ✨`;
+    var name = user.displayName || (user.email ? user.email.split('@')[0] : '');
+    greeting.textContent = '✨ Hey, ' + name + '! 🧚 ✨';
     greeting.classList.add('has-greeting');
   }
-
-  auth.onAuthStateChanged(user => {
-    currentUser = user;
-    window.currentUser = user;
-    const icon = document.querySelector('#navAccountIcon i');
-    if (icon) icon.style.color = user ? 'var(--pink)' : '';
-    const lbl = document.getElementById('navAccountLabel');
-    if (lbl) lbl.textContent = user ? 'Mein Konto' : 'Anmelden';
-    updateGreeting(user);
-  });
 
   window.openOrdersModal = function() {
     document.getElementById('ordersAccountEmail').textContent = currentUser ? currentUser.email : '';
@@ -2066,33 +2095,28 @@ window.loadPayPalSDK = function(){
   };
 
   function loadOrders() {
-    const list = document.getElementById('ordersList');
-    if (!currentUser) { list.innerHTML = ''; return; }
+    var list = document.getElementById('ordersList');
+    if (!currentUser || !db) { list.innerHTML = ''; return; }
     list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Lade Bestellungen…</p>';
-    db.collection('orders').where('userId', '==', currentUser.uid).orderBy('createdAt', 'desc').get()
-      .then(snap => {
-        if (snap.empty) {
-          list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Noch keine Bestellungen.</p>';
-          return;
-        }
-        list.innerHTML = snap.docs.map(doc => {
-          const o = doc.data();
-          const date = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleDateString('de-DE') : '';
-          const numBadge = o.orderNumber ? `<div style="background:#f3e6f9;border-radius:8px;padding:6px 12px;margin-bottom:10px;display:flex;align-items:center;gap:8px;">
-              <span style="font-size:.72rem;color:#8e44ad;font-weight:700;letter-spacing:.07em;text-transform:uppercase;">Bestellnummer</span>
-              <span style="font-size:1rem;font-weight:800;color:#6b2f8c;letter-spacing:.1em;font-family:monospace;">${o.orderNumber}</span>
-            </div>` : '';
-          return `<div style="border:1px solid var(--border);border-radius:14px;padding:14px 16px;">
-            ${numBadge}
-            <div style="display:flex;justify-content:space-between;font-weight:600;color:#6b2f8c;">
-              <span>${o.items ? o.items.length : 0} Ballon(s)</span>
-              <span>${(o.total || 0).toFixed(2).replace('.', ',')} €</span>
-            </div>
-            <div style="font-size:0.85rem;color:#666;margin-top:4px;">${date} · Status: ${o.status === 'paid' ? 'Bezahlt ✅' : (o.status || '')}</div>
-          </div>`;
+    db.collection('orders').where('userId','==',currentUser.uid).orderBy('createdAt','desc').get()
+      .then(function(snap) {
+        if (snap.empty) { list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Noch keine Bestellungen.</p>'; return; }
+        list.innerHTML = snap.docs.map(function(doc) {
+          var o = doc.data();
+          var date = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleDateString('de-DE') : '';
+          var numBadge = o.orderNumber ? '<div style="background:#f3e6f9;border-radius:8px;padding:6px 12px;margin-bottom:10px;display:flex;align-items:center;gap:8px;">'
+            + '<span style="font-size:.72rem;color:#8e44ad;font-weight:700;letter-spacing:.07em;text-transform:uppercase;">Bestellnummer</span>'
+            + '<span style="font-size:1rem;font-weight:800;color:#6b2f8c;letter-spacing:.1em;font-family:monospace;">' + o.orderNumber + '</span>'
+            + '</div>' : '';
+          return '<div style="border:1px solid var(--border);border-radius:14px;padding:14px 16px;">'
+            + numBadge
+            + '<div style="display:flex;justify-content:space-between;font-weight:600;color:#6b2f8c;">'
+            + '<span>' + (o.items ? o.items.length : 0) + ' Ballon(s)</span>'
+            + '<span>' + (o.total||0).toFixed(2).replace('.',',') + ' €</span></div>'
+            + '<div style="font-size:0.85rem;color:#666;margin-top:4px;">' + date + ' · Status: ' + (o.status==='paid'?'Bezahlt ✅':(o.status||'')) + '</div></div>';
         }).join('');
       })
-      .catch(err => { list.innerHTML = '<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>'; console.error(err); });
+      .catch(function(err){ list.innerHTML='<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>';console.error(err);});
   }
 
   document.getElementById('footerYear').textContent = new Date().getFullYear();
