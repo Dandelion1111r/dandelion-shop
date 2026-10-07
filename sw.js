@@ -1,4 +1,4 @@
-const CACHE = 'dandelion-v3';
+const CACHE = 'dandelion-v4';
 const CACHE_FIRST = [
   '/',
   '/styles.css',
