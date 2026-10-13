@@ -1830,6 +1830,12 @@ window._paypalSDKLoading = false;
 window.loadPayPalSDK = function(){
   if(window._paypalSDKLoading || window.paypal) return;
   window._paypalSDKLoading = true;
+  // Always init Firebase when PayPal loads, so window.db is ready at checkout
+  if(typeof window._loadFirebase==='function') {
+    window._loadFirebase(function(){
+      if(typeof window._fbInitCb==='function') window._fbInitCb();
+    });
+  }
   var s = document.createElement('script');
   s.src = window._paypalSDKUrl;
   s.async = true;
@@ -1903,7 +1909,7 @@ window.loadPayPalSDK = function(){
             if (i.persona) details.push('Hinweis: ' + i.persona);
             return (idx+1) + '. ' + name + (details.length ? ' | ' + details.join(' | ') : '') + ' | Preis: ' + i.price.toFixed(2) + ' €';
           }).join('\n');
-          var saveOrder = window.db ? window.db.collection('orders').add({
+          var _orderData = {
             userId: window.currentUser ? window.currentUser.uid : 'guest',
             email: customerEmail, items: cart,
             phone: ppPhone.trim(),
@@ -1913,9 +1919,22 @@ window.loadPayPalSDK = function(){
             itemsCount: cart.length,
             discountCode: appliedDiscount ? VALID_DISCOUNT_CODE : (bulkDiscount ? 'BULK3' : null),
             total: orderTotal, paypalOrderId: details.id,
-            orderNumber: orderNum, status: 'paid', starred: false,
+            orderNumber: orderNum, orderType: 'paypal', status: 'paid', starred: false,
             createdAt: (typeof firebase!=='undefined'&&firebase.firestore)?firebase.firestore.FieldValue.serverTimestamp():new Date()
-          }) : Promise.resolve();
+          };
+          function _doSaveOrder() {
+            if (window.db) return window.db.collection('orders').add(_orderData);
+            // db not ready yet — wait up to 4s for Firebase to init
+            return new Promise(function(resolve) {
+              var waited = 0;
+              var iv = setInterval(function() {
+                waited += 200;
+                if (window.db) { clearInterval(iv); window.db.collection('orders').add(_orderData).then(resolve).catch(resolve); }
+                else if (waited >= 4000) { clearInterval(iv); resolve(); }
+              }, 200);
+            });
+          }
+          var saveOrder = _doSaveOrder();
 
           saveOrder.then(function() {
             var _cart = cart.slice(), _shipping = shipping, _orderTotal = orderTotal, _orderNum = orderNum, _customerEmail = customerEmail;
@@ -1978,8 +1997,7 @@ window.loadPayPalSDK = function(){
               + '</div>';
             document.body.appendChild(modal);
 
-            // Auto-open WhatsApp after short delay so owner is notified even if customer closes modal
-            setTimeout(function(){ window.open(waUrl, '_blank'); }, 800);
+            // WhatsApp is opened via the button in the modal (click-triggered, not setTimeout, to avoid popup blockers)
 
             showToast('🎉 Vielen Dank! Deine Bestellung war erfolgreich.');
             cart = []; appliedDiscount = false; window._paypalRendered = false; updateCartUI();
