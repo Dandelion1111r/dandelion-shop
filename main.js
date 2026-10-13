@@ -43,12 +43,15 @@ let state={message:"",textColor:"#8e44ad",fontSize:20,balloonColor:"#FF69B4",fil
       if(item.isKollProduct){
         msg += `  📦 ${item.productName||"Produkt"}\n`;
       } else {
-        msg += `  📝 Text: ${item.message||"(kein Text)"}\n`;
-        msg += `  🎨 Farbe: ${item.balloonColor||""} | Typ: ${item.balloonType||"latex"}\n`;
-        msg += `  ✨ Design: ${item.design||"Standard"} | Symbol: ${item.symbol||"–"}\n`;
-        msg += `  🌸 Füllung: ${item.filling||"–"}\n`;
+        if(item.message)msg += `  📝 Text: ${item.message}\n`;
+        msg += `  🎨 Ballonfarbe: ${item.balloonColor||""} | Schriftfarbe: ${item.textColor||""}\n`;
+        msg += `  Typ: ${item.balloonType||"latex"} | Füllung: ${item.filling||"–"}\n`;
+        if(item.symbol)msg += `  Symbol: ${item.symbol}\n`;
+        if(item.textEffect && item.textEffect!=="normal")msg += `  ✨ Text-Effekt: ${item.textEffect}\n`;
+        if(item.design && item.design!=="default")msg += `  Design-Vorlage: ${item.design}\n`;
         if(item.card)msg += `  💌 Grußkarte: ${item.card}\n`;
         if(item.persona)msg += `  💡 Hinweis: ${item.persona}\n`;
+        if(item.customImage)msg += `  🖼️ Eigenes Bild: ja (wird separat gesendet)\n`;
       }
       msg += `  💶 Preis: ${item.price.toFixed(2)} €\n\n`;
     });
