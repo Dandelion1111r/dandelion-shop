@@ -1902,11 +1902,16 @@ window.loadPayPalSDK = function(){
           var ppItemsSummary = cart.map(function(i, idx) {
             var name = i.productName || i.message || 'Ballon';
             var details = [];
+            if (i.message) details.push('Text: ' + i.message);
+            if (i.symbol) details.push('Symbol: ' + i.symbol);
             if (i.balloonColor) details.push('Farbe: ' + i.balloonColor);
+            if (i.textColor) details.push('Schriftfarbe: ' + i.textColor);
             if (i.balloonType && i.balloonType !== 'latex') details.push('Typ: ' + i.balloonType);
-            if (i.filling && i.filling !== 'mini-balloons') details.push('Füllung: ' + i.filling);
+            if (i.filling) details.push('Füllung: ' + i.filling);
+            if (i.textEffect && i.textEffect !== 'normal') details.push('Effekt: ' + i.textEffect);
             if (i.card) details.push('Karte: ' + i.card);
             if (i.persona) details.push('Hinweis: ' + i.persona);
+            if (i.customImage) details.push('Eigenes Bild: ja');
             return (idx+1) + '. ' + name + (details.length ? ' | ' + details.join(' | ') : '') + ' | Preis: ' + i.price.toFixed(2) + ' €';
           }).join('\n');
           var _orderData = {
@@ -1957,13 +1962,20 @@ window.loadPayPalSDK = function(){
             // Build WhatsApp order notification for owner
             var isGuest = !window.currentUser;
             var itemLines = cart.map(function(item) {
-              var name = item.productName || item.name || item.message || 'Ballon';
+              var name = item.productName || item.message || 'Ballon';
               var details_text = [];
-              if (item.text) details_text.push('Text: ' + item.text);
-              if (item.color) details_text.push('Farbe: ' + item.color);
-              if (item.size) details_text.push('Größe: ' + item.size);
-              return '🎈 ' + name + ' – ' + item.price.toFixed(2).replace('.', ',') + ' €' + (details_text.length ? '\n   ' + details_text.join(' | ') : '');
-            }).join('\n');
+              if (item.message) details_text.push('✏️ Text: ' + item.message);
+              if (item.symbol) details_text.push('Symbol: ' + item.symbol);
+              if (item.balloonColor) details_text.push('🎨 Farbe: ' + item.balloonColor);
+              if (item.textColor) details_text.push('Schriftfarbe: ' + item.textColor);
+              if (item.balloonType && item.balloonType !== 'latex') details_text.push('Typ: ' + item.balloonType);
+              if (item.filling && item.filling !== 'mini-balloons') details_text.push('Füllung: ' + item.filling);
+              if (item.textEffect && item.textEffect !== 'normal') details_text.push('Effekt: ' + item.textEffect);
+              if (item.card) details_text.push('💌 Karte: ' + item.card);
+              if (item.persona) details_text.push('💡 Hinweis: ' + item.persona);
+              if (item.customImage) details_text.push('🖼️ Eigenes Bild: ja');
+              return '🎈 ' + name + ' – ' + item.price.toFixed(2).replace('.', ',') + ' €' + (details_text.length ? '\n   ' + details_text.join('\n   ') : '');
+            }).join('\n\n');
             var waMsg = '🛍️ *NEUE BESTELLUNG* – Dandelion 11:11\n\n'
               + '🔖 *Bestellnummer: ' + orderNum + '*\n'
               + (isGuest ? '👤 Gast-Bestellung\n' : '👤 Registrierter Kunde\n')
