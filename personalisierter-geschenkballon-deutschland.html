@@ -224,21 +224,25 @@
 <body>
 <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-<div id="urgencyBar" style="background:#8e44ad;color:#fff;text-align:center;font-size:0.75rem;font-weight:600;padding:6px 10px;letter-spacing:0.3px;">🎈 Handgemacht mit Liebe | Versand ab 80 € kostenlos | Persönliche Lieferung in der Region</div>
+<div id="urgencyBar" style="background:var(--purple);color:#fff;text-align:center;font-size:var(--fs-xs);font-weight:600;padding:6px 10px;letter-spacing:0.3px;"></div>
+
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-brand">✨ Dandelion 11:11 ✨</div>
-  <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Personalisierte Ballons &amp; Geschenke für jeden Anlass</div>
+  <div style="font-size:var(--fs-sm);opacity:0.9;margin-bottom:6px;letter-spacing:0.3px;" data-i18n="topbar_tagline">Personalisierte Ballons & Geschenke für jeden Anlass</div>
   <div class="topbar-divider"></div>
-  <div class="topbar-info">🎈 Kostenlose Lieferung ab 80 € &#160;|&#160; Handgemacht mit Liebe in Deutschland &#160;|&#160; Persönliche Beratung via WhatsApp</div>
+  <div class="topbar-info" data-i18n-html="topbar_info">🎈 Kostenlose Lieferung ab 80 € &nbsp;|&nbsp; Wir schenken keine Produkte, wir schenken Emotionen &nbsp;|&nbsp; Persönliche Beratung via WhatsApp</div>
 </div>
+
+<!-- HEADER -->
 <header>
-  <div class="nav-inner">
+  <div class="nav-inner" style="display:flex;flex-direction:row;align-items:center;">
     <div class="logo-wrap" style="position:relative;flex-shrink:0;">
-      <a href="/" style="display:flex;align-items:flex-end;gap:10px;text-decoration:none;">
-        <img width="1009" height="924" src="Dandelionlogo-fixed.webp" srcset="Dandelionlogo-fixed.webp 800w, thumbs/Dandelionlogo-fixed.webp 200w" sizes="(max-width:768px) 56px, 155px" alt="Dandelion 11:11" fetchpriority="high" loading="eager">
+      <a href="/" aria-label="Dandelion 11:11 – Startseite" style="display:flex;align-items:flex-end;gap:10px;text-decoration:none;">
+        <img width="340" height="311" src="Dandelionlogo-fixed.webp" srcset="thumbs/Dandelionlogo-fixed.webp 200w, Dandelionlogo-fixed.webp 800w" sizes="(max-width:768px) 56px, 155px" alt="Dandelion 11:11" fetchpriority="low" loading="eager">
         <div class="logo-wordmark">
           <span class="wm-name">Dandelion 11:11</span>
-          <span class="wm-tagline">✨ Momente, die bleiben. ✨</span>
+          <span class="wm-tagline" data-i18n="wm_tagline">✨ Momente, die bleiben. ✨</span>
         </div>
       </a>
       <div class="scan-me">
@@ -246,40 +250,58 @@
         <span>Scan me</span>
       </div>
     </div>
-    <ul class="nav-links" id="nav-links" aria-label="Hauptnavigation">
-      <li><a href="/">Shop</a></li>
-      <li class="nav-dropdown">
-        <a href="#" onclick="if(window.innerWidth<=900){this.closest('.nav-dropdown').classList.toggle('open');return false;}">Kollektionen</a>
+    <ul class="nav-links" style="display:flex;flex-direction:row;list-style:none;gap:16px;padding:0;margin:0 0 0 auto;">
+      <li style="list-style:none;"><a href="/" id="nav-shop" class="nav-page-link" data-i18n="nav_shop">Shop</a></li>
+      <li style="list-style:none;" class="nav-dropdown">
+        <a href="kollektionen.html" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a>
         <ul class="nav-dropdown-menu">
           <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
           <li><a href="hochzeit.html">💍 Hochzeit</a></li>
           <li><a href="babyparty.html">👶 Babyparty</a></li>
           <li><a href="muttertag-ballon.html">🌸 Muttertag</a></li>
+          <li><a href="ostern.html">🐣 Ostern</a></li>
+          <li><a href="weihnachten.html">🎄 Weihnachten</a></li>
+          <li><a href="taufe-kommunion.html">✝ Taufe &amp; Kommunion</a></li>
+          <li><a href="gender-reveal.html">🎀 Gender Reveal</a></li>
           <li><a href="fussball.html">⚽ Fußball</a></li>
           <li><a href="kuscheltiere.html">🧸 Kuscheltiere</a></li>
           <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
           <li><a href="sonstiges.html">✨ Sonstiges</a></li>
           <li><a href="personalisierte-geschenke.html">🎁 Pers. Geschenke</a></li>
-          <li><a href="ostern.html">🐣 Ostern</a></li>
-          <li><a href="weihnachten.html">🎄 Weihnachten</a></li>
-          <li><a href="taufe-kommunion.html">✝ Taufe &amp; Kommunion</a></li>
-          <li><a href="gender-reveal.html">🎀 Gender Reveal</a></li>
-          <li><a href="kollektionen.html" style="color:#8e44ad;font-weight:600;">Alle ansehen →</a></li>
+          <li><a href="ballongeschenke.html">🎈 Ballongeschenke</a></li>
+          <li><a href="kollektionen.html" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
-      <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="journal.html">Dandelion Journal</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-    <li style="list-style:none;"><a href="https://foto.dandelion1111.de/" class="nav-page-link">Fotografie</a></li>
+      <li style="list-style:none;"><a href="ueber-uns.html" id="nav-ueberuns" class="nav-page-link" data-i18n="nav_ueber">Über uns</a></li>
+      <li style="list-style:none;"><a href="journal.html" id="nav-journal" class="nav-page-link">Dandelion Journal</a></li>
+      <li style="list-style:none;"><a href="kontakt.html" id="nav-kontakt" class="nav-page-link" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li style="list-style:none;"><a href="faq.html" id="nav-faq" class="nav-page-link">FAQ</a></li>
+      <li style="list-style:none;"><a href="https://foto.dandelion1111.de/" class="nav-page-link">Fotografie</a></li>
+      <li class="lang-mobile-item" style="padding:10px 0;border-top:1px solid rgba(255,255,255,.15);margin-top:4px;display:none;justify-content:center;"><button onclick="toggleNavLang()" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:5px 16px;cursor:pointer;font-size:0.9rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:6px;"><span id="lang-code-m">DE / RO</span></button></li>
     </ul>
-    <div class="nav-icons">
-      <span onclick="window.location.href='index.html'" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen"><svg class="nav-svg" aria-hidden="true" width="1.1em" height="1.1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span></span>
-      <a href="/" aria-label="Favoriten"><svg class="nav-svg" aria-hidden="true" width="1.1em" height="1.1em" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></a>
-      <a href="/" style="position:relative;" aria-label="Warenkorb"><svg class="nav-svg" aria-hidden="true" width="1.1em" height="1.1em" viewBox="0 0 448 512"><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg></a>
-      <a href="/" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;" title="Mein Konto / Anmelden" aria-label="Mein Konto"><svg class="nav-svg" aria-hidden="true" width="1.1em" height="1.1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg><span style="font-size:0.65rem;font-weight:600;letter-spacing:.3px;line-height:1;">Anmelden</span></a>
+    <div class="nav-icons" style="margin-left:24px;">
+      <span onclick="document.getElementById('navSearchBar')&&(document.getElementById('navSearchBar').style.display=document.getElementById('navSearchBar').style.display==='none'?'block':'none')" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen" tabindex="0">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;" data-i18n="nav_suchen">Suchen</span>
+      </span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Favoriten" tabindex="0">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+      </span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Warenkorb anzeigen" tabindex="0">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+      </span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Konto" tabindex="0">
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Anmelden</span>
+      </span>
       <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
-      <button class="hamburger" onclick="const nl=document.getElementById('nav-links');nl.classList.toggle('open');this.setAttribute('aria-expanded',nl.classList.contains('open'));event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><svg class="nav-svg" aria-hidden="true" width="1.4em" height="1.4em" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+      <button class="hamburger" onclick="const nl=document.querySelector('.nav-links');const open=nl.classList.toggle('open');this.setAttribute('aria-expanded',open);this.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;">
+    <div style="max-width:600px;margin:0 auto;display:flex;gap:8px;position:relative;">
+      <input id="navSearchInput" type="search" placeholder="Produkte durchsuchen…" aria-label="Produkte durchsuchen" autocomplete="off" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;font-size:var(--fs-sm);">
+      <i class="fas fa-times" onclick="document.getElementById('navSearchBar').style.display='none'" role="button" aria-label="Suche schließen" tabindex="0" style="cursor:pointer;align-self:center;font-size:1.1rem;color:#888;"></i>
     </div>
   </div>
 </header>
