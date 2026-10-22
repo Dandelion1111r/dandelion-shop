@@ -196,12 +196,22 @@
         <button onclick="setLang('ro')" style="background:none;border:none;cursor:pointer;font-size:.85rem;color:var(--text);">🇷🇴 RO</button>
       </li>
     </ul>
-    <div class="nav-icons">
-      <button id="lang-toggle" onclick="toggleLang()" style="background:none;border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:.8rem;cursor:pointer;color:var(--text);font-family:'Poppins',sans-serif;" aria-label="Sprache wechseln">🇩🇪 DE</button>
-      <a href="https://wa.me/491757668955" target="_blank" rel="noopener" aria-label="WhatsApp" style="color:var(--text);text-decoration:none;"><i class="fab fa-whatsapp" style="font-size:1.3rem;color:#25D366;"></i></a>
-      <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menü öffnen">☰</button>
+    <div class="nav-icons" style="margin-left:24px;">
+      <span onclick="document.getElementById('navSearchBar')&&(document.getElementById('navSearchBar').style.display=document.getElementById('navSearchBar').style.display==='none'?'block':'none')" style="cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Suche öffnen" tabindex="0">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Suchen</span>
+      </span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Favoriten" tabindex="0"><i class="fas fa-heart" aria-hidden="true"></i></span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;align-items:center;" role="button" aria-label="Warenkorb" tabindex="0"><i class="fas fa-shopping-bag" aria-hidden="true"></i></span>
+      <span onclick="location.href='/'" style="position:relative;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;" role="button" aria-label="Konto" tabindex="0">
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:.3px;color:inherit;line-height:1;white-space:nowrap;">Anmelden</span>
+      </span>
+      <button id="lang-toggle" onclick="toggleNavLang()" aria-label="Sprache wechseln" style="background:none;border:1.5px solid currentColor;border-radius:20px;padding:3px 10px;cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:.5px;color:inherit;display:inline-flex;align-items:center;gap:2px;line-height:1.2;opacity:0.85;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><span id="lang-code-de" style="opacity:1;">DE</span><span style="opacity:0.45;">|</span><span id="lang-code-ro" style="opacity:0.45;">RO</span></button>
+      <button class="hamburger" onclick="const nl=document.querySelector('.nav-links');const open=nl.classList.toggle('open');this.setAttribute('aria-expanded',open);this.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');event.stopPropagation();" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
     </div>
   </div>
+  <div id="navSearchBar" style="display:none;background:#fff;border-top:1px solid #eee;padding:10px 20px;"><div style="max-width:600px;margin:0 auto;display:flex;gap:8px;"><input type="search" placeholder="Produkte durchsuchen…" style="flex:1;padding:10px 14px;border-radius:10px;border:1px solid #ddd;"><i class="fas fa-times" onclick="document.getElementById('navSearchBar').style.display='none'" style="cursor:pointer;align-self:center;font-size:1.1rem;color:#888;"></i></div></div>
 </header>
 
 <main id="main-content">
