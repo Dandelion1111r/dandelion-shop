@@ -1353,9 +1353,33 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
   <h2 data-i18n="tiktok_title" style="font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--purple);margin-bottom:8px;">Schau uns bei der Arbeit zu 🎬</h2>
   <p data-i18n="tiktok_sub" style="color:var(--text-light);font-size:var(--fs-base);margin-bottom:28px;">Jeder Ballon entsteht mit Liebe, direkt aus Bad Wörishofen</p>
   <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:800px;margin:0 auto 24px;">
-    <iframe src="https://www.tiktok.com/embed/v2/7656504838410325281" allowfullscreen sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin" style="width:325px;height:740px;border:none;border-radius:16px;overflow:hidden;"></iframe>
-    <iframe src="https://www.tiktok.com/embed/v2/7654997323965009184" allowfullscreen sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin" style="width:325px;height:740px;border:none;border-radius:16px;overflow:hidden;"></iframe>
+    <div class="tt-preview" data-id="7656504838410325281" style="width:325px;height:560px;border-radius:16px;overflow:hidden;background:#000;position:relative;cursor:pointer;flex-shrink:0;">
+      <img src="https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp" alt="TikTok Video" style="width:100%;height:100%;object-fit:cover;opacity:0.75;">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+        <div style="width:64px;height:64px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="#7c3aed"/></svg>
+        </div>
+        <span style="color:#fff;font-size:0.85rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Video ansehen auf TikTok</span>
+      </div>
+    </div>
+    <div class="tt-preview" data-id="7654997323965009184" style="width:325px;height:560px;border-radius:16px;overflow:hidden;background:#000;position:relative;cursor:pointer;flex-shrink:0;">
+      <img src="https://www.dandelion1111.de/raluca-dandelion-ballon-arrangement-werkstatt.webp" alt="TikTok Video" style="width:100%;height:100%;object-fit:cover;opacity:0.75;">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+        <div style="width:64px;height:64px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="#7c3aed"/></svg>
+        </div>
+        <span style="color:#fff;font-size:0.85rem;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Video ansehen auf TikTok</span>
+      </div>
+    </div>
   </div>
+  <script>
+  document.querySelectorAll('.tt-preview').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.getAttribute('data-id');
+      el.innerHTML='<iframe src="https://www.tiktok.com/embed/v2/'+id+'" allowfullscreen sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin" style="width:100%;height:100%;border:none;"></iframe>';
+    });
+  });
+  </script>
   <a href="https://www.tiktok.com/@raluca.jidvian" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-radius:50px;padding:11px 26px;font-weight:600;font-size:var(--fs-sm);text-decoration:none;border:none;">
     <i class="fab fa-tiktok"></i> <span data-i18n="tiktok_btn">Mehr auf TikTok ansehen</span>
   </a>
