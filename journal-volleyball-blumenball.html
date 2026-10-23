@@ -509,10 +509,11 @@
     if(!navI18n[l])l='de';
     localStorage.setItem('lang',l);
     var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';
-    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
+    var cde=document.getElementById('lang-code-de'),cro=document.getElementById('lang-code-ro');
+    if(cde){cde.style.opacity=l==='de'?'1':'0.35';}
+    if(cro){cro.style.opacity=l==='ro'?'1':'0.35';}
     var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
-    if(f)f.textContent=flag;if(c)c.textContent=code;
-    if(fm)fm.textContent=flag;if(cm)cm.textContent=code;
+    if(fm)fm.textContent=flag;if(cm)cm.textContent=code==='DE'?'DE / RO':'RO / DE';
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
     });
