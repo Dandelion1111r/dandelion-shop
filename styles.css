@@ -118,6 +118,28 @@
 .faq-box{background:#fff;border-radius:18px;padding:30px;margin-top:40px;box-shadow:0 4px 20px rgba(142,68,173,0.08);}
 .faq-box h2{text-align:center;margin-top:0;}
 
+/* ── Journal product cards (inline) ── */
+.prod-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;margin:28px 0;}
+.prod-card-j{text-decoration:none;color:inherit;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(142,68,173,.10);display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;}
+.prod-card-j:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(142,68,173,.18);}
+.prod-card-j img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.prod-card-j-body{padding:12px 14px 14px;flex:1;}
+.prod-card-j-name{font-size:.9rem;font-weight:700;color:#2d2d2d;margin-bottom:4px;}
+.prod-card-j-price{font-size:.95rem;font-weight:700;color:#8e44ad;}
+.cta-block{background:linear-gradient(135deg,#8e44ad18,#d6338418);border:1.5px solid #d63384;border-radius:18px;padding:28px 24px;margin:36px 0;text-align:center;}
+.cta-block h3{margin:0 0 8px;color:#2d2d2d;font-size:1.1rem;}
+.cta-block p{margin:0 0 18px;font-size:.9rem;color:#555;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#8e44ad,#d63384);color:#fff;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;transition:opacity .2s;}
+.cta-btn:hover{opacity:.87;}
+.faq-section{margin-top:40px;}
+.faq-section h2{color:#2d2d2d;font-size:1.15rem;margin-bottom:16px;}
+.more-posts{margin-top:48px;padding-top:32px;border-top:1.5px solid #f0e8f7;}
+.more-posts h2{font-size:1.1rem;margin-bottom:16px;color:#2d2d2d;}
+.more-card-j{display:flex;gap:14px;align-items:center;padding:16px 18px;background:#fff;border-radius:14px;box-shadow:0 3px 14px rgba(142,68,173,.08);text-decoration:none;color:inherit;margin-bottom:12px;transition:box-shadow .2s;}
+.more-card-j:hover{box-shadow:0 6px 24px rgba(142,68,173,.16);}
+.more-card-j-title{font-weight:700;font-size:.95rem;color:#8e44ad;margin-bottom:4px;}
+.more-card-j-excerpt{font-size:.85rem;color:#666;}
+
 /* ── Über uns story ── */
 .hero-photos{display:flex;gap:20px;justify-content:center;align-items:flex-end;margin:0 auto 28px;max-width:600px;}
 .hero-photos img{width:48%;max-width:260px;height:320px;object-fit:cover;object-position:top center;border-radius:20px;box-shadow:0 8px 32px rgba(142,68,173,0.18);display:block;}

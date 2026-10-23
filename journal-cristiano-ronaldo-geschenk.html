@@ -272,17 +272,18 @@
   </div>
 </header>
 
-<div id="main-content" class="journal-wrap">
-  <a href="journal.html" class="back-link">← Zurück zum Journal</a>
+<div class="wrap" role="main">
+  <a href="journal.html" class="back">← Zurück zum Journal</a>
   <div class="eyebrow">Dandelion Journal · Geschenk-Inspiration</div>
-  <h1 class="article-h1">Cristiano Ronaldo Geschenk kaufen – CR7 Geschenkideen für echte Fans</h1>
-  <div class="article-meta">22. Oktober 2026 · Dandelion 11:11 · Bad Wörishofen, Bayern</div>
+  <h1>Cristiano Ronaldo Geschenk kaufen – CR7 Geschenkideen für echte Fans</h1>
+  <div class="meta">22. Oktober 2026 · Dandelion 11:11 · Bad Wörishofen, Bayern</div>
+  <span class="entry-tag">⚽ Fußball-Geschenk · Journal</span>
 
-  <div class="article-hero">
+  <div class="featured-image">
     <img src="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp" srcset="fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp 600w, thumbs/fussball-geschenkbox-cr7-ronaldo-inhalt-detail.webp 400w" sizes="(max-width:800px) 100vw, 760px" alt="Cristiano Ronaldo Geschenk – CR7 Box One Last Dance von Dandelion 11:11" width="600" height="800" loading="eager" fetchpriority="high">
   </div>
 
-  <div class="article-body">
+  <article id="main-content">
     <h2>Warum ein Cristiano Ronaldo Geschenk so besonders ist</h2>
     <p>Cristiano Ronaldo ist mehr als ein Fußballspieler – er ist eine Legende, ein Phänomen, eine Lebenshaltung. Für echte CR7-Fans ist Ronaldo Leidenschaft, Disziplin und Durchhaltewillen in einer Person. Ein <strong>Cristiano Ronaldo Geschenk</strong> muss deshalb genauso sein: außergewöhnlich, persönlich und unvergesslich.</p>
     <p>Bei Dandelion 11:11 haben wir handgemachte <strong>CR7 Geschenkboxen</strong> geschaffen, die genau das widerspiegeln. Keine Massenware aus dem Fanshop – sondern liebevoll zusammengestellte Boxen mit ikonischen Ronaldo-Motiven, goldenen Details und der Möglichkeit, einen persönlichen Wunschtext hinzuzufügen.</p>
@@ -380,7 +381,7 @@
         </div>
       </a>
     </div>
-  </div>
+  </article>
 </div>
 
 <footer>
@@ -433,6 +434,30 @@ document.addEventListener('click',function(e){const nav=document.getElementById(
 </script>
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}
+</script>
+<script>
+(function(){
+  var navI18n={
+    de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},
+    ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}
+  };
+  function applyNavLang(l){
+    if(!navI18n[l])l='de';
+    localStorage.setItem('lang',l);
+    var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';
+    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
+    var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
+    if(f)f.textContent=flag;if(c)c.textContent=code;
+    if(fm)fm.textContent=flag;if(cm)cm.textContent=code;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
+    });
+  }
+  window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
+  var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');
+  if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
+  applyNavLang(localStorage.getItem('lang')||'de');
+})();
 </script>
 </body>
 </html>
