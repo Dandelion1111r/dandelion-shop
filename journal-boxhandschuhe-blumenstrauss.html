@@ -484,11 +484,13 @@
     };
     window.setJournalLang = function(lang) {
       localStorage.setItem('lang', lang);
-      document.getElementById('lang-de').style.opacity = lang === 'de' ? '1' : '0.4';
-      document.getElementById('lang-ro').style.opacity = lang === 'ro' ? '1' : '0.4';
+      var cde=document.getElementById('lang-code-de'),cro=document.getElementById('lang-code-ro');
+      if(cde)cde.style.opacity=lang==='de'?'1':'0.45';
+      if(cro)cro.style.opacity=lang==='ro'?'1':'0.45';
+      var cm=document.getElementById('lang-code-m');if(cm)cm.textContent=lang==='ro'?'RO':'DE';
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (journalI18n[lang][key]) el.textContent = journalI18n[lang][key];
+        if (journalI18n[lang] && journalI18n[lang][key] !== undefined) el.textContent = journalI18n[lang][key];
       });
     };
     setJournalLang(localStorage.getItem('lang') || 'de');
@@ -538,26 +540,12 @@
 <!-- End Cookie Consent -->
 <script>
 (function(){
-  var navI18n={
-    de:{nav_shop:'Shop',nav_koll:'Kollektionen',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt'},
-    ro:{nav_shop:'Magazin',nav_koll:'Colecții',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact'}
+  window.toggleNavLang=function(){
+    var l=localStorage.getItem('lang')==='ro'?'de':'ro';
+    if(typeof setJournalLang==='function')setJournalLang(l);
   };
-  function applyNavLang(l){
-    if(!navI18n[l])l='de';
-    localStorage.setItem('lang',l);
-    var flag=l==='ro'?'🇷🇴':'🇩🇪',code=l==='ro'?'RO':'DE';
-    var f=document.getElementById('lang-flag'),c=document.getElementById('lang-code');
-    var fm=document.getElementById('lang-flag-m'),cm=document.getElementById('lang-code-m');
-    if(f)f.textContent=flag;if(c)c.textContent=code;
-    if(fm)fm.textContent=flag;if(cm)cm.textContent=code;
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k=el.getAttribute('data-i18n');if(navI18n[l][k]!==undefined)el.textContent=navI18n[l][k];
-    });
-  }
-  window.toggleNavLang=function(){applyNavLang(localStorage.getItem('lang')==='ro'?'de':'ro');};
   var nav=document.getElementById('nav-links'),ml=nav&&nav.querySelector('.lang-mobile-item');
   if(nav&&ml){new MutationObserver(function(){ml.style.display=nav.classList.contains('open')?'flex':'none';}).observe(nav,{attributes:true,attributeFilter:['class']});}
-  applyNavLang(localStorage.getItem('lang')||'de');
 })();
 </script>
 <script>
