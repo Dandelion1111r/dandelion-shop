@@ -378,16 +378,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.dandelion1111.de/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <priority>1.0</priority>
-  
-    <image:image>
-      <image:loc>https://www.dandelion1111.de/ballon-box-boho-blau-gold.webp</image:loc>
-      <image:title>Personalisierte Geschenkballons kaufen | Dandelion 11:11 Bayern</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://www.dandelion1111.de/jga-geschenk/</loc>
     <lastmod>2026-10-06</lastmod>
     <priority>0.6</priority>
@@ -504,7 +494,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-weihnachten-geschenk-ideen.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/weihnachts-nussknacker-box-rosa.webp</image:loc>
@@ -513,7 +503,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-personalisierter-ballon-geschenk.html</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/kundin-personalisierter-geburtstagsballon.webp</image:loc>
@@ -522,7 +512,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-oster-blumenbox-haeschen.html</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/oster-blumenbox-haeschen.webp</image:loc>
@@ -531,7 +521,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-teddybaer-blumenbox.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/teddybaer-blumenbox.webp</image:loc>
@@ -540,7 +530,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-taufe-geschenk-ideen.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/premium-blumenbox-schmetterling.webp</image:loc>
@@ -549,7 +539,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-liebe-valentinstag-ballon.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/heissluftballon-valentinstag.webp</image:loc>
@@ -558,7 +548,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-geburtstag-ballon-geschenkbox.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/geburtstagsballon-geschenkbox.webp</image:loc>
@@ -567,7 +557,7 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/journal-gender-reveal-ballon.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.dandelion1111.de/gender-reveal-ballon-boy-or-girl.webp</image:loc>
@@ -1348,8 +1338,8 @@
   </url>
   <url>
     <loc>https://www.dandelion1111.de/weihnachten.html</loc>
-    <lastmod>2026-10-06</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.8</priority>
   
     <image:image>
       <image:loc>https://www.dandelion1111.de/teddybaer-geschenkballon-rot.webp</image:loc>
@@ -1397,12 +1387,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://www.dandelion1111.de/teddybaer-blumenbox.webp</image:loc><image:title>Teddybär Blumenbox kaufen | Dandelion 11:11</image:title></image:image>
-  </url>
-  <url>
-    <loc>https://www.dandelion1111.de/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.dandelion1111.de/produktadventskranzrosanussknacker.html</loc>
