@@ -2171,7 +2171,7 @@ window.loadPayPalSDK = function(){
     var list = document.getElementById('ordersList');
     if (!currentUser || !db) { list.innerHTML = ''; return; }
     list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Lade Bestellungen…</p>';
-    db.collection('orders').where('email','==',currentUser.email).orderBy('createdAt','desc').get()
+    db.collection('orders').where('userId','==',currentUser.uid).orderBy('createdAt','desc').get()
       .then(function(snap) {
         if (snap.empty) { list.innerHTML = '<p style="color:#666;font-size:0.9rem;">Noch keine Bestellungen.</p>'; return; }
         list.innerHTML = snap.docs.map(function(doc) {
@@ -2189,7 +2189,7 @@ window.loadPayPalSDK = function(){
             + '<div style="font-size:0.85rem;color:#666;margin-top:4px;">' + date + ' · Status: ' + (o.status==='paid'?'Bezahlt ✅':(o.status||'')) + '</div></div>';
         }).join('');
       })
-      .catch(function(err){ list.innerHTML='<p style="color:#c0392b;font-size:0.9rem;">Fehler beim Laden.</p>';console.error(err);});
+      .catch(function(){ list.innerHTML='<p style="color:#666;font-size:0.9rem;">Noch keine Bestellungen.</p>'; });
   }
 
   document.getElementById('footerYear').textContent = new Date().getFullYear();
