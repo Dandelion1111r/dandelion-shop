@@ -1949,9 +1949,13 @@ window.loadPayPalSDK = function(){
             if (i.customImage) details.push('Eigenes Bild: ja');
             return (idx+1) + '. ' + name + (details.length ? ' | ' + details.join(' | ') : '') + ' | Preis: ' + i.price.toFixed(2) + ' €';
           }).join('\n');
+          // Strip large fields (base64 images) before saving to Firestore (1MB limit)
+          var _cartForDb = cart.map(function(i) {
+            var c = {}; for (var k in i) { if (k !== 'customImage' && i[k] !== undefined) c[k] = i[k]; } return c;
+          });
           var _orderData = {
             userId: window.currentUser ? window.currentUser.uid : 'guest',
-            email: customerEmail, items: cart,
+            email: customerEmail, items: _cartForDb,
             phone: ppPhone.trim(),
             name: ppName.trim() || null,
             addressFull: [ppStreet.trim(), ppPlz.trim() && ppOrt.trim() ? ppPlz.trim() + ' ' + ppOrt.trim() : null].filter(Boolean).join(', ') || null,
@@ -1963,14 +1967,14 @@ window.loadPayPalSDK = function(){
             createdAt: (typeof firebase!=='undefined'&&firebase.firestore)?firebase.firestore.FieldValue.serverTimestamp():new Date()
           };
           function _doSaveOrder() {
-            if (window.db) return window.db.collection('orders').add(_orderData);
+            if (window.db) return window.db.collection('orders').add(_orderData).catch(function(e){ console.error('Firestore save error:', e); });
             // db not ready yet — wait up to 4s for Firebase to init
             return new Promise(function(resolve) {
               var waited = 0;
               var iv = setInterval(function() {
                 waited += 200;
-                if (window.db) { clearInterval(iv); window.db.collection('orders').add(_orderData).then(resolve).catch(resolve); }
-                else if (waited >= 4000) { clearInterval(iv); resolve(); }
+                if (window.db) { clearInterval(iv); window.db.collection('orders').add(_orderData).then(resolve).catch(function(e){ console.error('Firestore save error:', e); resolve(); }); }
+                else if (waited >= 4000) { clearInterval(iv); console.error('Firestore: db not ready after 4s'); resolve(); }
               }, 200);
             });
           }
