@@ -700,6 +700,11 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     <p style="text-align:center;font-size:0.85rem;color:#666;">
       <span id="authToggleText">Noch kein Konto?</span> <a href="#" onclick="toggleAuthMode();return false;" id="authToggleLink" style="color:#d63384;font-weight:600;">Registrieren</a>
     </p>
+    <div id="authDiscountMsg" style="display:none;margin-top:14px;background:#f0fff4;border:2px solid #27ae60;border-radius:12px;padding:14px;text-align:center;">
+      <div style="font-size:1rem;color:#27ae60;font-weight:700;margin-bottom:6px;">🎉 Willkommen! Dein Rabattcode:</div>
+      <div style="font-size:1.4rem;font-weight:800;color:#6b2f8c;letter-spacing:3px;background:#fff;border:2px dashed #6b2f8c;border-radius:8px;padding:8px 16px;display:inline-block;">DANDELION10</div>
+      <div style="font-size:.8rem;color:#666;margin-top:6px;">Einfach beim Checkout eingeben – 10% Rabatt 🎁</div>
+    </div>
   </div>
 </div>
 
@@ -1625,16 +1630,9 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
     <i class="fas fa-times" onclick="closeDiscountPopup()" style="position:absolute;top:14px;right:16px;cursor:pointer;color:var(--text-light);font-size:1.1rem;"></i>
     <div style="font-size:2.6rem;">🎈</div>
     <h3 data-i18n="discount_title" style="font-size:1.4rem;font-weight:700;color:var(--purple);margin:10px 0 6px;">Willkommen bei Dandelion 11:11!</h3>
-    <p data-i18n="discount_text" style="font-size:var(--fs-base);color:var(--text-light);margin-bottom:12px;">Trag dich ein und sichere dir <strong>10% Rabatt</strong> auf deine erste Bestellung:</p>
-    <input type="email" id="newsletterEmail" data-i18n-placeholder="newsletter_email_placeholder" placeholder="Deine E-Mail-Adresse" style="width:100%;padding:12px 14px;border:1.5px solid #e0d0f0;border-radius:10px;font-size:var(--fs-base);margin-bottom:10px;box-sizing:border-box;font-family:inherit;outline:none;" />
-    <button onclick="subscribeNewsletter()" data-i18n="newsletter_btn" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Jetzt 10% sichern 🎁</button>
+    <p data-i18n="discount_text" style="font-size:var(--fs-base);color:var(--text-light);margin-bottom:16px;">Erstelle ein kostenloses Konto und sichere dir <strong>10% Rabatt</strong> auf deine erste Bestellung.</p>
+    <button onclick="openRegisterFromPopup()" data-i18n="newsletter_btn" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Jetzt Konto erstellen 🎁</button>
     <button data-i18n="discount_btn" onclick="closeDiscountPopup()" style="width:100%;padding:10px;background:transparent;color:var(--text-light);border:none;font-size:.85rem;cursor:pointer;opacity:0.65;">Nein danke</button>
-    <div id="newsletterMsg" style="display:none;margin-top:12px;background:#f0fff4;border:2px solid #27ae60;border-radius:12px;padding:14px;text-align:center;">
-      <div style="font-size:1rem;color:#27ae60;font-weight:700;margin-bottom:6px;">✅ Danke für deine Anmeldung!</div>
-      <div style="font-size:.9rem;color:var(--text-light);margin-bottom:8px;">Dein persönlicher Rabattcode:</div>
-      <div style="font-size:1.4rem;font-weight:800;color:var(--purple);letter-spacing:3px;background:#fff;border:2px dashed var(--purple);border-radius:8px;padding:8px 16px;display:inline-block;">DANDELION10</div>
-      <div style="font-size:.8rem;color:var(--text-light);margin-top:6px;">Einfach beim Checkout eingeben 🎁</div>
-    </div>
   </div>
 </div>
 
@@ -2115,13 +2113,36 @@ window.loadPayPalSDK = function(){
     authMode = 'login';
     updateAuthModalLabels();
     document.getElementById('authError').style.display = 'none';
+    document.getElementById('authDiscountMsg').style.display = 'none';
     document.getElementById('authName').value = '';
     document.getElementById('authEmail').value = '';
     document.getElementById('authPassword').value = '';
     document.getElementById('authModal').style.display = 'flex';
   };
+  window.openRegisterFromPopup = function() {
+    closeDiscountPopup();
+    window._loadFirebase(function() {
+      _initFb();
+      authMode = 'register';
+      updateAuthModalLabels();
+      document.getElementById('authError').style.display = 'none';
+      document.getElementById('authDiscountMsg').style.display = 'none';
+      document.getElementById('authName').value = '';
+      document.getElementById('authEmail').value = '';
+      document.getElementById('authPassword').value = '';
+      document.getElementById('authModal').style.display = 'flex';
+      window._registerForDiscount = true;
+    });
+  };
   window.closeAuthModal = function() {
     document.getElementById('authModal').style.display = 'none';
+    document.getElementById('authDiscountMsg').style.display = 'none';
+    document.getElementById('authName').style.display = '';
+    document.getElementById('authEmail').style.display = '';
+    document.getElementById('authPassword').style.display = '';
+    document.getElementById('authSubmitBtn').style.display = '';
+    document.getElementById('authToggleText').parentElement.style.display = '';
+    window._registerForDiscount = false;
   };
   window.toggleAuthMode = function() {
     authMode = authMode === 'login' ? 'register' : 'login';
@@ -2147,7 +2168,20 @@ window.loadPayPalSDK = function(){
       ? auth.signInWithEmailAndPassword(email, password)
       : auth.createUserWithEmailAndPassword(email, password)
           .then(function(cred){ return name ? cred.user.updateProfile({ displayName: name }) : null; });
-    action.then(function(){ closeAuthModal(); }).catch(function(err){ showAuthError(err.message); });
+    action.then(function(){
+      if (authMode === 'register' && window._registerForDiscount) {
+        window._registerForDiscount = false;
+        document.getElementById('authName').style.display = 'none';
+        document.getElementById('authEmail').style.display = 'none';
+        document.getElementById('authPassword').style.display = 'none';
+        document.getElementById('authSubmitBtn').style.display = 'none';
+        document.getElementById('authToggleText').parentElement.style.display = 'none';
+        document.getElementById('authModalTitle').textContent = '🎉 Konto erstellt!';
+        document.getElementById('authDiscountMsg').style.display = 'block';
+      } else {
+        closeAuthModal();
+      }
+    }).catch(function(err){ showAuthError(err.message); });
   };
 
   window.logoutUser = function() {
