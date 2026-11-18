@@ -570,20 +570,20 @@ var CAPACITY_NOTICE_TEXT = '⚠️ Wir sind aktuell sehr ausgelastet – neue Be
       <li style="list-style:none;" class="nav-dropdown">
         <a href="kollektionen.html" onclick="if(window.innerWidth<=768){this.closest('.nav-dropdown').classList.toggle('open');return false;}" id="nav-kollektionen" class="nav-page-link" data-i18n="nav_koll">Kollektionen</a>
         <ul class="nav-dropdown-menu">
-          <li><a href="geburtstag.html">🎂 Geburtstag</a></li>
-          <li><a href="hochzeit.html">💍 Hochzeit</a></li>
-          <li><a href="babyparty.html">👶 Babyparty</a></li>
-          <li><a href="muttertag-ballon.html">🌸 Muttertag</a></li>
-          <li><a href="ostern.html">🐣 Ostern</a></li>
-          <li><a href="weihnachten.html">🎄 Weihnachten</a></li>
-          <li><a href="taufe-kommunion.html">✝ Taufe &amp; Kommunion</a></li>
-          <li><a href="gender-reveal.html">🎀 Gender Reveal</a></li>
-          <li><a href="fussball.html">⚽ Fußball</a></li>
-          <li><a href="kuscheltiere.html">🧸 Kuscheltiere</a></li>
-          <li><a href="liebe.html">💕 Liebe &amp; Valentinstag</a></li>
-          <li><a href="sonstiges.html">✨ Sonstiges</a></li>
-          <li><a href="personalisierte-geschenke.html">🎁 Pers. Geschenke</a></li>
-          <li><a href="ballongeschenke.html">🎈 Ballongeschenke</a></li>
+          <li><a href="geburtstag.html" data-i18n="nav_dd_geburtstag">🎂 Geburtstag</a></li>
+          <li><a href="hochzeit.html" data-i18n="nav_dd_hochzeit">💍 Hochzeit</a></li>
+          <li><a href="babyparty.html" data-i18n="nav_dd_babyparty">👶 Babyparty</a></li>
+          <li><a href="muttertag-ballon.html" data-i18n="nav_dd_muttertag">🌸 Muttertag</a></li>
+          <li><a href="ostern.html" data-i18n="nav_dd_ostern">🐣 Ostern</a></li>
+          <li><a href="weihnachten.html" data-i18n="nav_dd_weihnachten">🎄 Weihnachten</a></li>
+          <li><a href="taufe-kommunion.html" data-i18n="nav_dd_taufe">✝ Taufe &amp; Kommunion</a></li>
+          <li><a href="gender-reveal.html" data-i18n="nav_dd_gender">🎀 Gender Reveal</a></li>
+          <li><a href="fussball.html" data-i18n="nav_dd_fussball">⚽ Fußball</a></li>
+          <li><a href="kuscheltiere.html" data-i18n="nav_dd_kuscheltiere">🧸 Kuscheltiere</a></li>
+          <li><a href="liebe.html" data-i18n="nav_dd_liebe">💕 Liebe &amp; Valentinstag</a></li>
+          <li><a href="sonstiges.html" data-i18n="nav_dd_sonstiges">✨ Sonstiges</a></li>
+          <li><a href="personalisierte-geschenke.html" data-i18n="nav_dd_geschenke">🎁 Pers. Geschenke</a></li>
+          <li><a href="ballongeschenke.html" data-i18n="nav_dd_ballongeschenke">🎈 Ballongeschenke</a></li>
           <li><a href="kollektionen.html" onclick="document.querySelector('.nav-links').classList.remove('open');" style="color:var(--purple);font-weight:600;" data-i18n="nav_all_koll">Alle ansehen →</a></li>
         </ul>
       </li>
@@ -2497,6 +2497,11 @@ window.loadPayPalSDK = function(){
   var navI18n={
     de:{
       nav_shop:'Shop',nav_koll:'Kollektionen',nav_all_koll:'Alle ansehen →',nav_ueber:'Über uns',nav_journal:'Dandelion Journal',nav_kontakt:'Kontakt',
+      nav_dd_geburtstag:'🎂 Geburtstag',nav_dd_hochzeit:'💍 Hochzeit',nav_dd_babyparty:'👶 Babyparty',
+      nav_dd_muttertag:'🌸 Muttertag',nav_dd_ostern:'🐣 Ostern',nav_dd_weihnachten:'🎄 Weihnachten',
+      nav_dd_taufe:'✝ Taufe & Kommunion',nav_dd_gender:'🎀 Gender Reveal',nav_dd_fussball:'⚽ Fußball',
+      nav_dd_kuscheltiere:'🧸 Kuscheltiere',nav_dd_liebe:'💕 Liebe & Valentinstag',nav_dd_sonstiges:'✨ Sonstiges',
+      nav_dd_geschenke:'🎁 Pers. Geschenke',nav_dd_ballongeschenke:'🎈 Ballongeschenke',
       topbar_tagline:'Personalisierte Ballons & Geschenke für jeden Anlass',
       kontakt_sub:'Wir freuen uns von dir zu hören! Schreib uns einfach wir antworten so schnell wie möglich. 🌼',
       kontakt_standort:'Standort',kontakt_erreichbarkeit:'Erreichbarkeit',kontakt_email:'E-Mail',kontakt_whatsapp:'WhatsApp',
@@ -2585,7 +2590,12 @@ window.loadPayPalSDK = function(){
       faq_q6:'Kann ich eine bestimmte Farbe wählen?',faq_a6:'Ja – und das ist einer unserer größten Vorteile! Du wählst nicht aus einer starren Liste, sondern sagst uns einfach deine Wunschfarbe (z. B. „Mintgrün", „Altrosa", „Dunkelblau"). Wir passen den Ballon individuell für dich an. Die Farbauswahl im Konfigurator zeigt beliebte Optionen als Orientierung – sie ist aber keine Einschränkung. 🎨',
       faq_q7:'Muss ich ein Konto erstellen, um zu bestellen?',faq_a7:'Nein! Du kannst ganz einfach als Gast bestellen – ohne Registrierung, ohne Passwort. Wenn du ein Konto erstellst, kannst du deine Bestellungen jederzeit unter „Meine Bestellungen" einsehen und beim nächsten Mal noch schneller bestellen. Die Wahl liegt bei dir.',
       faq_q8:'Erhalte ich eine Bestätigung nach der Bestellung?',faq_a8:'Ja! Direkt nach der Zahlung erhältst du eine automatische Bestätigungs-E-Mail von PayPal mit allen Bestelldetails. Anschließend melden wir uns per WhatsApp, um Lieferdatum und Adresse mit dir abzustimmen.',
-      newsletter_btn:'Jetzt 10% sichern 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse',
+      newsletter_btn:'Jetzt Konto erstellen 🎁',newsletter_email_placeholder:'Deine E-Mail-Adresse',
+      search_placeholder:'Produkte durchsuchen…',
+      message_placeholder:'z.B. Alles Gute zum Geburtstag!',
+      card_placeholder:'Dein persönlicher Gruß für die Karte…',
+      persona_placeholder:'💡 Keine Idee? Beschreib uns die Person: welche Farben mag sie, was liebt sie, was sind ihre Hobbys? Wir helfen dir!',
+      discount_code_placeholder:'Rabattcode',
       kontakt_google_maps:'Auf Google Maps ansehen',
       tiktok_title:'Schau uns bei der Arbeit zu 🎬',tiktok_sub:'Jeder Ballon entsteht mit Liebe – direkt aus Bad Wörishofen',tiktok_btn:'Mehr auf TikTok ansehen',
       ig_title:'Folge uns auf Instagram 📸',ig_sub:'Neueste Kreationen, Behind-the-Scenes & besondere Momente',
@@ -2594,6 +2604,11 @@ window.loadPayPalSDK = function(){
     },
     ro:{
       nav_shop:'Magazin',nav_koll:'Colecții',nav_all_koll:'Vezi toate →',nav_ueber:'Despre noi',nav_journal:'Dandelion Journal',nav_kontakt:'Contact',
+      nav_dd_geburtstag:'🎂 Zi de naștere',nav_dd_hochzeit:'💍 Nuntă',nav_dd_babyparty:'👶 Baby Shower',
+      nav_dd_muttertag:'🌸 Ziua Mamei',nav_dd_ostern:'🐣 Paște',nav_dd_weihnachten:'🎄 Crăciun',
+      nav_dd_taufe:'✝ Botez & Comuniune',nav_dd_gender:'🎀 Gender Reveal',nav_dd_fussball:'⚽ Fotbal',
+      nav_dd_kuscheltiere:'🧸 Jucării de pluș',nav_dd_liebe:'💕 Dragoste & Valentine',nav_dd_sonstiges:'✨ Diverse',
+      nav_dd_geschenke:'🎁 Cadouri pers.',nav_dd_ballongeschenke:'🎈 Cadouri cu baloane',
       topbar_tagline:'Baloane personalizate & cadouri pentru orice ocazie',
       kontakt_sub:'Ne bucurăm să te auzim! Scrie-ne simplu, răspundem cât mai repede. 🌼',
       kontakt_standort:'Locație',kontakt_erreichbarkeit:'Disponibilitate',kontakt_email:'E-Mail',kontakt_whatsapp:'WhatsApp',
@@ -2680,7 +2695,12 @@ window.loadPayPalSDK = function(){
       faq_q6:'Pot alege o anumită culoare?',faq_a6:'Da – și acesta este unul dintre cele mai mari avantaje ale noastre! Nu alegi dintr-o listă rigidă, ci pur și simplu ne spui culoarea dorită (ex. „Verde mentă", „Roz vechi", „Albastru închis"). Adaptăm balonul individual pentru tine. Selectorul de culori din configurator arată opțiunile populare ca orientare – dar nu este o limitare. 🎨',
       faq_q7:'Trebuie să îmi creez un cont pentru a comanda?',faq_a7:'Nu! Poți comanda simplu ca oaspete – fără înregistrare, fără parolă. Dacă îți creezi un cont, poți vizualiza comenzile oricând la „Comenzile mele" și poți comanda și mai rapid data viitoare. Alegerea îți aparține.',
       faq_q8:'Primesc o confirmare după comandă?',faq_a8:'Da! Imediat după plată primești un e-mail automat de confirmare de la PayPal cu toate detaliile comenzii. Ulterior te contactăm pe WhatsApp pentru a stabili data și adresa de livrare.',
-      newsletter_btn:'Obține 10% acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail',
+      newsletter_btn:'Creează cont acum 🎁',newsletter_email_placeholder:'Adresa ta de e-mail',
+      search_placeholder:'Caută produse…',
+      message_placeholder:'ex. La mulți ani!',
+      card_placeholder:'Mesajul tău personal pentru felicitare…',
+      persona_placeholder:'💡 Nicio idee? Descrie-ne persoana: ce culori îi plac, ce iubește, ce hobby-uri are? Te ajutăm!',
+      discount_code_placeholder:'Cod de reducere',
       kontakt_google_maps:'Vezi pe Google Maps',
       tiktok_title:'Urmărește-ne la lucru 🎬',tiktok_sub:'Fiecare balon este creat cu dragoste – direct din Bad Wörishofen',tiktok_btn:'Mai mult pe TikTok',
       ig_title:'Urmărește-ne pe Instagram 📸',ig_sub:'Cele mai noi creații, Behind-the-Scenes & momente speciale',
