@@ -2020,11 +2020,16 @@ window.loadPayPalSDK = function(){
                   cost: { shipping: _shipping.toFixed(2), tax: '0.00', total: _orderTotal.toFixed(2) }
                 }).catch(function(err) { console.warn('EmailJS send failed:', err); });
               }
-              // Owner notification email
+              // Owner notification email (with full customer details)
+              var _ppName = ppName.trim(), _ppPhone = ppPhone.trim(), _ppStreet = ppStreet.trim(), _ppPlz = ppPlz.trim(), _ppOrt = ppOrt.trim();
+              var _ownerOrders = [
+                { name: '👤 ' + (_ppName||'–') + ' | 📞 ' + (_ppPhone||'–'), price: '–', units: '' },
+                { name: '📧 ' + (_customerEmail||'Gast') + ' | 📍 ' + (_ppStreet ? _ppStreet + ', ' + _ppPlz + ' ' + _ppOrt : '–'), price: '–', units: '' }
+              ].concat(_cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }));
               emailjs.send('service_njmc1nf', 'template_l8cb34c', {
                 email: 'jidvian.raluca@yahoo.com', order_id: '🛍️ NEUE BESTELLUNG – ' + _orderNum,
-                orders: _cart.map(function(item) { return { name: item.name || item.productName || item.message || 'Ballon', price: item.price.toFixed(2), units: 1 }; }),
-                cost: { shipping: _shipping.toFixed(2), tax: _customerEmail || 'Gast', total: _orderTotal.toFixed(2) }
+                orders: _ownerOrders,
+                cost: { shipping: _shipping.toFixed(2), tax: '0.00', total: _orderTotal.toFixed(2) }
               }).catch(function() {});
             });
 
